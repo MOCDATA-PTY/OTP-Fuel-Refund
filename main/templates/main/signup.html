@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" href="/static/images/logo.jpg" type="image/jpeg">
+    <style>
+        /* Color palette */
+        :root {
+            --deep-blue: #001E77;
+            --bright-red-orange: #FF3C1F;
+            --vibrant-orange-yellow: #FFB300;
+            --vibrant-orange-yellow-hover: #e6a200;
+            --sky-blue: #00B9F2;
+            --light-gray: #f7f9fc;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-space {
+            width: 44px;
+            height: 44px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--deep-blue);
+            border-radius: 8px;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .business-name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .business-name .fuel {
+            color: var(--deep-blue);
+        }
+
+        .business-name .refund-institute {
+            color: var(--bright-red-orange);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .nav-links a:not(.login-btn):not(.signup-btn):after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--bright-red-orange);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:not(.login-btn):not(.signup-btn):hover:after {
+            width: 80%;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-red-orange);
+        }
+
+        .nav-links a.active {
+            color: var(--bright-red-orange);
+        }
+
+        .login-btn, .signup-btn {
+            color: var(--sky-blue);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.2s;
+            background: transparent;
+            text-decoration: none;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            color: var(--bright-red-orange);
+            transform: translateY(-2px);
+        }
+
+        .signup-btn.active {
+            color: var(--bright-red-orange);
+        }
+
+        /* Signup section */
+        .signup-page {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .signup-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--soft-shadow);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            margin: 0 20px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signup-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .signup-header h1 {
+            color: var(--deep-blue);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .signup-header p {
+            color: var(--medium-gray);
+            margin: 0;
+        }
+
+        /* Progress indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .progress-step {
+            position: relative;
+            padding: 0 30px;
+            flex: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+        
+        .progress-step:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+        
+        .progress-step:first-child:before {
+            left: 50%;
+            width: 50%;
+        }
+        
+        .progress-step:last-child:before {
+            width: 50%;
+        }
+        
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .step-active .step-icon {
+            background-color: var(--sky-blue);
+        }
+        
+        .step-complete .step-icon {
+            background-color: var(--bright-red-orange);
+        }
+        
+        .step-label {
+            font-size: 14px;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+        
+        .step-active .step-label {
+            color: var(--deep-blue);
+            font-weight: 600;
+        }
+
+        /* Form styles */
+        .signup-form {
+            text-align: left;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 15px;
+        }
+        
+        .form-section {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--deep-blue);
+            font-weight: 600;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sky-blue);
+        }
+        
+        .form-section-title i {
+            margin-right: 10px;
+            color: var(--bright-red-orange);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--sky-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 185, 242, 0.15);
+        }
+
+        .helptext {
+            display: block;
+            margin-top: 5px;
+            font-size: 13px;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            font-weight: normal;
+            color: var(--medium-gray);
+            font-size: 15px;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-container a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .checkbox-container a:hover {
+            color: var(--bright-red-orange);
+            text-decoration: underline;
+        }
+
+        .form-submit {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .form-submit button {
+            width: 50%;
+            padding: 14px;
+            font-size: 16px;
+            background-color: var(--vibrant-orange-yellow);
+            color: var(--deep-blue);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 179, 0, 0.25);
+        }
+
+        .form-submit button:hover {
+            background-color: var(--vibrant-orange-yellow-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 179, 0, 0.35);
+        }
+
+        .form-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 15px;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+
+        .form-footer a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .form-footer a:hover {
+            color: var(--bright-red-orange);
+            text-decoration: underline;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 103;
+        }
+
+        .mobile-menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: var(--deep-blue);
+            display: block;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 101;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+                position: relative;
+            }
+            
+            .mobile-menu-overlay {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                transition: right 0.3s;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 102;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .mobile-menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+            
+            .signup-container {
+                padding: 30px 20px;
+            }
+            
+            .form-column {
+                flex: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-submit button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-space">
+                    FRI
+                </div>
+                <div class="business-name">
+                    <span class="fuel">FUEL</span> <span class="refund-institute">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <!-- Mobile menu toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Mobile menu overlay -->
+            <div class="mobile-menu-overlay"></div>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/#services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/login" class="login-btn">Log In</a>
+                <a href="/signup" class="signup-btn active">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Signup Page -->
+    <section class="signup-page">
+        <div class="signup-container">
+            <div class="signup-header">
+                <h1>Create Your Account</h1>
+                <p>Complete the form below to get started with your diesel tax refunds</p>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step step-active">
+                    <div class="step-icon">1</div>
+                    <div class="step-label">Create Account</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-label">Complete Profile</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-label">Start Saving</div>
+                </div>
+            </div>
+            
+            <div class="signup-form">
+                <form method="post" action="/signup">
+                    <div class="form-row">
+                        <!-- Personal Information Column -->
+                        <div class="form-column">
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="fas fa-user"></i> Personal Information
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_first_name">First Name</label>
+                                    <input type="text" name="first_name" id="id_first_name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_last_name">Last Name</label>
+                                    <input type="text" name="last_name" id="id_last_name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_email">Email Address</label>
+                                    <input type="email" name="email" id="id_email" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_phone">Phone Number</label>
+                                    <input type="tel" name="phone" id="id_phone" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_username">Username</label>
+                                    <input type="text" name="username" id="id_username" class="form-control" required>
+                                    <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_password1">Password</label>
+                                    <input type="password" name="password1" id="id_password1" class="form-control" required>
+                                    <span class="helptext">Your password must contain at least 8 characters and can't be entirely numeric.</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_password2">Confirm Password</label>
+                                    <input type="password" name="password2" id="id_password2" class="form-control" required>
+                                    <span class="helptext">Enter the same password as before, for verification.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Information Column -->
+                        <div class="form-column">
+                            <div class="form-section">
+                                <div class="form-section-title">
+                                    <i class="fas fa-building"></i> Business Information
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_company_name">Company Name</label>
+                                    <input type="text" name="company_name" id="id_company_name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_business_type">Business Type</label>
+                                    <select name="business_type" id="id_business_type" class="form-control">
+                                        <option value="">Select business type</option>
+                                        <option value="sole_proprietorship">Sole Proprietorship</option>
+                                        <option value="partnership">Partnership</option>
+                                        <option value="llc">Limited Liability Company (LLC)</option>
+                                        <option value="corporation">Corporation</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_tax_id">Tax ID/EIN</label>
+                                    <input type="text" name="tax_id" id="id_tax_id" class="form-control">
+                                    <span class="helptext">Enter your business tax identification number.</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_business_address">Business Address</label>
+                                    <input type="text" name="business_address" id="id_business_address" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_city">City</label>
+                                    <input type="text" name="city" id="id_city" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_state">State</label>
+                                    <select name="state" id="id_state" class="form-control">
+                                        <option value="">Select state</option>
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                        <!-- Additional states would be listed here -->
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="id_zip_code">ZIP Code</label>
+                                    <input type="text" name="zip_code" id="id_zip_code" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="terms" id="id_terms" required>
+                            <span>I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit">Create Account</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-footer">
+                <p>Already have an account? <a href="/login">Log in</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+
+        if(mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+        }
+
+        if(mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('.nav-links a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    </script>
+</body>
+</html>

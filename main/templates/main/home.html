@@ -1,0 +1,1376 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Tax & VAT Refunds - Fuel Refund Institute</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/jpeg">
+<style>
+    :root {
+      --deep-blue: #001E77;
+      --deep-blue-hover: #00165a;
+      --bright-red-orange: #FF3C1F;
+      --bright-red-orange-hover: #e52d10;
+      --vibrant-orange-yellow: #FFB300;
+      --vibrant-orange-yellow-hover: #e6a200;
+      --sky-blue: #00B9F2;
+      --sky-blue-hover: #0095c5;
+      --light-gray: #f7f9fc;
+      --white: #FFFFFF;
+      --dark-gray: #333333;
+      --medium-gray: #666666;
+      --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --btn-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--dark-gray);
+      line-height: 1.6;
+      font-size: 16px;
+      background-color: var(--white);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--deep-blue);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--deep-blue);
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--bright-red-orange);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 15px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      background-color: var(--deep-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .company-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .company-name .fuel {
+      color: var(--deep-blue);
+    }
+
+    .company-name .refund {
+      color: var(--bright-red-orange);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--dark-gray);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 8px 4px;
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--bright-red-orange);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Login/Signup buttons */
+    .nav-links .login-btn,
+    .nav-links .signup-btn {
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .nav-links .login-btn:hover,
+    .nav-links .signup-btn:hover {
+      background-color: rgba(0, 30, 119, 0.05);
+    }
+
+    .nav-links .signup-btn {
+      background-color: var(--deep-blue);
+      color: white;
+    }
+
+    .nav-links .signup-btn:hover {
+      background-color: var(--deep-blue-hover);
+      color: white;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      background-color: var(--deep-blue);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .btn-primary {
+      background-color: var(--bright-red-orange);
+      color: var(--white) !important; /* Force white text even on hover */
+    }
+
+    .btn-primary:hover {
+      background-color: var(--bright-red-orange-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+    .hero {
+      position: relative;
+      color: var(--white);
+      padding: 80px 0;
+      background-color: var(--deep-blue);
+      background-image: linear-gradient(135deg, rgba(0,30,119,0.95) 0%, rgba(0,20,80,0.9) 100%);
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("{% static 'images/2.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .hero-slogan {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--vibrant-orange-yellow);
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--vibrant-orange-yellow);
+      border: 1px solid rgba(255, 179, 0, 0.3);
+    }
+
+    .hero-badge i {
+      margin-right: 6px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-item {
+      text-align: center;
+      flex: 1;
+      padding: 0 15px;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child):after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 0;
+      height: 70%;
+      width: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--deep-blue);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--medium-gray);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-gray {
+      background-color: var(--light-gray);
+    }
+
+    .section-title {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 45px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--bright-red-orange);
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .feature {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 3px solid var(--vibrant-orange-yellow);
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .feature:nth-child(2) {
+      border-color: var(--bright-red-orange);
+    }
+
+    .feature:nth-child(3) {
+      border-color: var(--sky-blue);
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background-color: rgba(255, 179, 0, 0.15);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      color: var(--vibrant-orange-yellow-hover);
+    }
+
+    .feature-icon i {
+      font-size: 24px;
+    }
+
+    .feature:nth-child(2) .feature-icon {
+      background-color: rgba(255, 60, 31, 0.15);
+      color: var(--bright-red-orange-hover);
+    }
+
+    .feature:nth-child(3) .feature-icon {
+      background-color: rgba(0, 185, 242, 0.15);
+      color: var(--sky-blue-hover);
+    }
+
+    .feature h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      margin-top: 40px;
+    }
+
+    .calculator-wrapper {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .calculator-form {
+      flex: 1;
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: var(--soft-shadow);
+      border-top: 4px solid var(--bright-red-orange);
+    }
+
+    .calculator-info {
+      flex: 1;
+    }
+
+    .calculator-info h3 {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .calculator-info ul {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    .calculator-info li {
+      margin-bottom: 10px;
+      color: var(--dark-gray);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--deep-blue);
+    }
+
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--sky-blue);
+      box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.2);
+    }
+
+    .calculator-result {
+      background-color: var(--deep-blue);
+      color: var(--white);
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 24px;
+      text-align: center;
+      display: none;
+    }
+
+    .result-amount {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 12px 0;
+      color: var(--vibrant-orange-yellow);
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 3px solid var(--vibrant-orange-yellow);
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .service:nth-child(2) {
+      border-color: var(--bright-red-orange);
+    }
+
+    .service:nth-child(3) {
+      border-color: var(--sky-blue);
+    }
+
+    .service h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background-color: rgba(255, 179, 0, 0.15);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      color: var(--vibrant-orange-yellow-hover);
+    }
+
+    .service-icon i {
+      font-size: 24px;
+    }
+
+    .service:nth-child(2) .service-icon {
+      background-color: rgba(255, 60, 31, 0.15);
+      color: var(--bright-red-orange-hover);
+    }
+
+    .service:nth-child(3) .service-icon {
+      background-color: rgba(0, 185, 242, 0.15);
+      color: var(--sky-blue-hover);
+    }
+
+    /* Process Steps */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      position: relative;
+    }
+
+    .process-steps:before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--sky-blue), var(--bright-red-orange));
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .step {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--sky-blue);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0 auto 20px;
+    }
+
+    .step:nth-child(2n) .step-number {
+      background-color: var(--bright-red-orange);
+    }
+
+    .step h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    /* Industries */
+    .industries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .industry {
+      background-color: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .industry:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .industry-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .industry-body {
+      padding: 24px;
+    }
+
+    .industry h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--deep-blue) 0%, #001449 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .cta:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("{% static 'images/2.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .btn-phone i {
+      font-size: 18px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--deep-blue);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 40px 0 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo-icon {
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .footer-company {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      color: var(--white);
+    }
+
+    .social-icon:hover {
+      background-color: var(--sky-blue);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 5px;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--white);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo-container {
+        margin-bottom: 15px;
+      }
+      
+      .calculator-wrapper {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+      
+      .stats-bar {
+        flex-wrap: wrap;
+      }
+      
+      .stat-item {
+        flex: 0 0 50%;
+        margin-bottom: 20px;
+      }
+      
+      .stat-item:after {
+        display: none;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .footer-social {
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .hero {
+        padding: 60px 0;
+      }
+      
+      .cta h2 {
+        font-size: 28px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn-phone {
+        margin-top: 15px;
+      }
+    }
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo">FRI</div>
+                <div class="company-name">
+                    <span class="fuel">FUEL</span> <span class="refund">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'login' %}" class="login-btn">Log In</a>
+                <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-check-circle"></i> Trusted by 500+ Businesses</div>
+                <h1>Maximize Your Fuel Tax & VAT Refunds</h1>
+                <p class="hero-slogan">"Turning what feels like free money into a reality for your business."</p>
+                <p>We simplify the complexities of fuel tax and VAT refund processes to ensure you get the maximum return on every gallon.</p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary">Calculate Your Refund</a>
+                    <a href="#contact" class="btn btn-secondary">Free Assessment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">$12.3M+</div>
+                <div class="stat-label">Refunded to Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Satisfied Businesses</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">9.8/10</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Claim What's Yours</h3>
+                    <p>We help businesses reclaim money that rightfully belongs to them through fuel tax refunds that many don't know they qualify for.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>We Remove the Pain</h3>
+                    <p>Working with government entities is complex, but we make the process seamless and stress-free for your business.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trusted Experts</h3>
+                    <p>We ensure businesses like yours receive regular, effortless tax refunds without lifting a finger.</p>
+                </div>
+            </div>
+            
+            <!-- Tax Calculator Section -->
+            <div id="calculator" class="calculator-section">
+                <h2 class="section-title">Estimate Your Refund</h2>
+                
+                <div class="calculator-wrapper">
+                    <div class="calculator-form">
+                        <form id="tax-calculator">
+                            <div class="form-group">
+                                <label for="industry">Industry</label>
+                                <select id="industry" name="industry">
+                                    <option value="transport">Transport & Logistics</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="other">Other Industry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="fuel-type">Fuel Type</label>
+                                <select id="fuel-type" name="fuel-type">
+                                    <option value="diesel">Diesel</option>
+                                    <option value="petrol">Petrol/Gasoline</option>
+                                    <option value="red">Red Diesel</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="monthly-gallons">Average Monthly Gallons</label>
+                                <input type="number" id="monthly-gallons" name="monthly-gallons" placeholder="E.g. 1000">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="business-usage">Off-Road Usage Percentage (%)</label>
+                                <input type="number" id="business-usage" name="business-usage" placeholder="E.g. 60" min="0" max="100">
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary" id="calculate-btn" style="width: 100%;">Calculate Potential Refund</button>
+                        </form>
+                        
+                        <div class="calculator-result">
+                            <h4>Your Estimated Annual Refund</h4>
+                            <div class="result-amount">$0</div>
+                            <p>This is just an estimate. Contact us for a precise assessment.</p>
+                            <a href="#contact" class="btn" style="width: 100%; margin-top: 15px;">Get Exact Refund Amount</a>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-info">
+                        <h3>Unlock Your Refund Potential</h3>
+                        <p>Many businesses don't realize they're eligible for significant fuel tax refunds. Our calculator gives you a quick estimate of what you might be missing out on.</p>
+                        
+                        <h3>Who Can Claim?</h3>
+                        <ul>
+                            <li>Businesses using fuel for off-road equipment</li>
+                            <li>Agricultural operations</li>
+                            <li>Construction companies</li>
+                            <li>Manufacturing facilities</li>
+                            <li>Refrigeration and cooling operations</li>
+                            <li>Marine vessels and fishing operations</li>
+                        </ul>
+                        
+                        <div style="background-color: rgba(0, 185, 242, 0.15); padding: 24px; border-radius: 8px; margin-top: 24px;">
+                            <h4 style="color: var(--sky-blue); margin-bottom: 12px;">Did you know?</h4>
+                            <p style="margin-bottom: 0;">The average qualifying business can reclaim between $3,000 and $25,000 annually in fuel tax refunds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            
+            <div class="services">
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Fuel Excise Tax Refunds</h3>
+                    <p>Recover taxes paid on fuel used for off-road equipment, refrigeration units, and other non-highway applications.</p>
+                    <ul style="padding-left: 20px; margin-top: 16px;">
+                        <li>Off-road equipment</li>
+                        <li>Refrigeration units</li>
+                        <li>Power generation</li>
+                        <li>Agricultural machinery</li>
+                    </ul>
+                </div>
+                
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3>International VAT Recovery</h3>
+                    <p>Reclaim VAT on business expenses incurred while operating across international borders.</p>
+                    <ul style="padding-left: 20px; margin-top: 16px;">
+                        <li>Fuel purchases abroad</li>
+                        <li>Cross-border operations</li>
+                        <li>Transportation services</li>
+                        <li>Business travel expenses</li>
+                    </ul>
+                </div>
+                
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>IFTA Compliance & Filing</h3>
+                    <p>Comprehensive management of International Fuel Tax Agreement obligations for interstate carriers.</p>
+                    <ul style="padding-left: 20px; margin-top: 16px;">
+                        <li>Quarterly filing</li>
+                        <li>Mileage tracking</li>
+                        <li>Tax rate monitoring</li>
+                        <li>Audit preparation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Simple Process</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Free Assessment</h3>
+                    <p>Get a free eligibility assessment to see if your business qualifies for refunds.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Document Upload</h3>
+                    <p>Upload your fuel receipts and relevant documentation through our secure portal.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Expert Processing</h3>
+                    <p>Our tax specialists review and process your claim for maximum refund value.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Receive Your Refund</h3>
+                    <p>Get your tax refund directly to your account with no upfront costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Industry Examples Section -->
+<section class="section section-gray">
+  <div class="container">
+      <h2 class="section-title">Industries We Serve</h2>
+      
+      <div class="industries">
+          <div class="industry">
+              <img src="{% static 'images/7.jpg' %}" alt="Agriculture" class="industry-img">
+              <div class="industry-body">
+                  <h3>Agriculture</h3>
+                  <p>Farm equipment, irrigation systems, and generators all qualify for substantial fuel tax refunds.</p>
+              </div>
+          </div>
+          <div class="industry">
+              <img src="{% static 'images/8.jpg' %}" alt="Transportation" class="industry-img">
+              <div class="industry-body">
+                  <h3>Transportation & Logistics</h3>
+                  <p>Fleet operators can recover taxes on refrigeration units and auxiliary power systems.</p>
+              </div>
+          </div>
+          <div class="industry">
+              <img src="{% static 'images/1.jpg' %}" alt="Construction" class="industry-img">
+              <div class="industry-body">
+                  <h3>Construction</h3>
+                  <p>Excavators, loaders, generators, and other off-road equipment qualify for refunds.</p>
+              </div>
+          </div>
+          <div class="industry">
+              <img src="{% static 'images/9.webp' %}" alt="Manufacturing" class="industry-img">
+              <div class="industry-body">
+                  <h3>Manufacturing</h3>
+                  <p>Industrial equipment, forklifts, and plant machinery fuel all qualify for refunds.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="cta">
+        <div class="container cta-content">
+            <h2>Ready to Reclaim Your Fuel Taxes?</h2>
+            <p>Trusted by businesses across a variety of industries, our team has helped clients successfully claim their fuel tax refunds. Get your free eligibility assessment today.</p>
+            <div class="cta-buttons">
+                <a href="{% url 'signup' %}" class="btn btn-primary">Start Free Assessment</a>
+                <a href="tel:+14242225290" class="btn-phone"><i class="fas fa-phone"></i> Call (424) 222-5290</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <img src="{% static 'images/logo.jpg' %}" alt="FRI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+                    </div>
+                    <div class="footer-company">Fuel Refund Institute</div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {% now "Y" %} Fuel Refund Institute | <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="tel:+14242225290">(424) 222-5290</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tax Calculator
+        const calculateBtn = document.getElementById('calculate-btn');
+        const calculatorResult = document.querySelector('.calculator-result');
+        const resultAmount = document.querySelector('.result-amount');
+        
+        if (calculateBtn) {
+            calculateBtn.addEventListener('click', function() {
+                // Get form values
+                const monthlyGallons = parseFloat(document.getElementById('monthly-gallons').value) || 0;
+                
+                // Use the fixed formula: tax rate(0.41) * gallons * 15%
+                const taxRate = 0.41; // Fixed tax rate
+                const refundPercentage = 0.15; // 15%
+                
+                // Calculate monthly refund
+                const monthlyRefund = monthlyGallons * taxRate * refundPercentage;
+                
+                // Calculate annual refund
+                const annualRefund = monthlyRefund * 12;
+                
+                // Display result
+                resultAmount.textContent = ' + Math.round(annualRefund).toLocaleString();
+                calculatorResult.style.display = 'block';
+                
+                // Scroll to result
+                calculatorResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate stats numbers
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(statEl => {
+                const targetValue = statEl.textContent;
+                const isPercentage = targetValue.includes('%');
+                const isRating = targetValue.includes('/');
+                const isMoney = targetValue.includes(');
+                
+                let numValue;
+                let prefix = '';
+                let suffix = '';
+                
+                if (isPercentage) {
+                    numValue = parseFloat(targetValue.replace('%', ''));
+                    suffix = '%';
+                } else if (isRating) {
+                    const parts = targetValue.split('/');
+                    numValue = parseFloat(parts[0]);
+                    suffix = '/' + parts[1];
+                } else if (isMoney) {
+                    numValue = parseFloat(targetValue.replace(', '').replace('M+', '').replace(',', ''));
+                    prefix = ';
+                    suffix = targetValue.includes('M+') ? 'M+' : '';
+                } else {
+                    numValue = parseFloat(targetValue.replace('+', '').replace(',', ''));
+                    suffix = targetValue.includes('+') ? '+' : '';
+                }
+                
+                let startValue = 0;
+                const duration = 2000;
+                const increment = (numValue / duration) * 20;
+                
+                statEl.textContent = prefix + startValue + suffix;
+                
+                const counter = setInterval(function() {
+                    startValue += increment;
+                    
+                    if (startValue >= numValue) {
+                        startValue = numValue;
+                        clearInterval(counter);
+                    }
+                    
+                    // Format the number if needed
+                    if (isMoney && !targetValue.includes('M')) {
+                        statEl.textContent = prefix + Math.floor(startValue).toLocaleString() + suffix;
+                    } else if (isRating) {
+                        statEl.textContent = Math.floor(startValue * 10) / 10 + suffix;
+                    } else {
+                        statEl.textContent = prefix + Math.floor(startValue) + suffix;
+                    }
+                    
+                }, 20);
+            });
+        }
+        
+        // Animation triggers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats when they come into view
+            const statsBar = document.querySelector('.stats-bar');
+            
+            if (statsBar) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateStats();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(statsBar);
+            }
+            
+            // Add animations to sections as they come into view
+            const sections = document.querySelectorAll('.section');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                fadeObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
