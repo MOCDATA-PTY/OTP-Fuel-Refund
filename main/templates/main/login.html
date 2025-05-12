@@ -67,19 +67,29 @@
             align-items: center;
         }
 
-        .logo-space {
-            width: 44px;
-            height: 44px;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--deep-blue);
-            border-radius: 8px;
-            color: var(--white);
-            font-weight: bold;
-            font-size: 20px;
-        }
+ .logo-space {
+    width: 60px; /* Increased from 44px */
+    height: 60px; /* Increased from 44px */
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--deep-blue);
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden; /* Ensure the rotated image stays within the container */
+}
+
+.logo-space img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    border-radius: 6px;
+    transform: rotate(-90deg); /* Rotate 90 degrees to the left */
+    transform-origin: center; /* Rotate from the center */
+}
 
         .business-name {
             font-size: 24px;
