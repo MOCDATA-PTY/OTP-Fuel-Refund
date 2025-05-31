@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Waldo Fuel Distrubution\Waldo project 2 ad working one\env
+set VIRTUAL_ENV=C:\Users\MOC-001\OneDrive - Magnum Opus Consultants (Pty) Ltd\Desktop\OTP-Fuel-Refund-master\OTP-Fuel-Refund-master\env
 
 if not defined PROMPT set PROMPT=$P$G
 

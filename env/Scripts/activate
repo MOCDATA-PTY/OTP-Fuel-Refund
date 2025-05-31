@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Waldo Fuel Distrubution\Waldo project 2 ad working one\env"
+VIRTUAL_ENV="C:\Users\MOC-001\OneDrive - Magnum Opus Consultants (Pty) Ltd\Desktop\OTP-Fuel-Refund-master\OTP-Fuel-Refund-master\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
