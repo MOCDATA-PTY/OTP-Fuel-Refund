@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Fuel Refund Institute</title>
+    <link rel="icon" href="/static/images/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        /* Modern, refined design with the specific color palette */
+        :root {
+            --deep-blue: #001E77;
+            --deep-blue-hover: #00165a;
+            --bright-red-orange: #FF3C1F;
+            --bright-red-orange-hover: #e52d10;
+            --vibrant-orange-yellow: #FFB300;
+            --sky-blue: #00B9F2;
+            --sky-blue-hover: #0095c5;
+            --light-gray: #f7f9fc;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --btn-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+            --border-color: #e9ecef;
+            --table-hover: rgba(0, 30, 119, 0.05);
+            --transition: 0.25s ease;
+        }
+
+        [data-theme="dark"] {
+            --deep-blue: #4361ee;
+            --deep-blue-hover: #3b4fd9;
+            --light-gray: #212529;
+            --white: #1e1e1e;
+            --dark-gray: #f8f9fa;
+            --medium-gray: #adb5bd;
+            --soft-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            --border-color: #3a3a3a;
+            --table-hover: rgba(67, 97, 238, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            font-size: 16px;
+            background-color: var(--light-gray);
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--deep-blue);
+            transition: color var(--transition);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--deep-blue);
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: var(--bright-red-orange);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: background-color var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 44px;
+            height: 44px;
+            background-color: var(--deep-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 20px;
+            transition: background-color var(--transition);
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .company-name .fuel {
+            color: var(--deep-blue);
+            transition: color var(--transition);
+        }
+
+        .company-name .refund {
+            color: var(--bright-red-orange);
+            transition: color var(--transition);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            box-shadow: var(--btn-shadow);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--deep-blue-hover);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--sky-blue);
+            color: var(--white);
+            box-shadow: var(--btn-shadow);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--sky-blue-hover);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-red);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .btn-light {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .btn-light:hover {
+            background-color: #e2e6ea;
+        }
+
+        /* Logout button */
+        .btn-logout {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-logout:hover {
+            background-color: var(--deep-blue-hover);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--soft-shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, #001755 100%);
+            color: var(--white);
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all var(--transition);
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.2);
+        }
+
+        /* Date inputs */
+        .date-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-input {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all var(--transition);
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.2);
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: var(--light-gray);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--deep-blue);
+            cursor: pointer;
+            transition: background-color var(--transition);
+            white-space: nowrap;
+            position: relative;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        th:hover {
+            background-color: rgba(0, 185, 242, 0.1);
+        }
+
+        th:after {
+            content: '⇵';
+            position: absolute;
+            right: 8px;
+            opacity: 0.5;
+            font-size: 0.8em;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color var(--transition);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: var(--table-hover);
+        }
+
+        .action-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-view:hover {
+            background-color: var(--deep-blue-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            padding: 6px;
+            border-radius: 4px;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--medium-gray);
+            font-style: italic;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Messages */
+        .messages {
+            margin-bottom: 20px;
+        }
+
+        .message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--soft-shadow);
+        }
+
+        .message.success {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--success-green);
+            color: var(--success-green);
+        }
+
+        .message.error {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid var(--danger-red);
+            color: var(--danger-red);
+        }
+
+        .message i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--white);
+            margin: 50px auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+            transition: background-color var(--transition);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--deep-blue) 0%, #001755 100%);
+            color: white;
+        }
+
+        .modal-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            background: none;
+            border: none;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .modal-body {
+            padding: 25px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bright-red-orange);
+            position: relative;
+            transition: color var(--transition);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: transform var(--transition), background-color var(--transition);
+        }
+
+        .detail-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--medium-gray);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+            transition: color var(--transition);
+        }
+
+        .doc-list {
+            list-style: none;
+        }
+
+        .doc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all var(--transition);
+        }
+
+        .doc-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--soft-shadow);
+        }
+
+        .doc-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-name i {
+            color: var(--vibrant-orange-yellow);
+        }
+
+        .doc-date {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            margin-left: 10px;
+        }
+
+        /* Loading animation */
+        .loading {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--medium-gray);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(0, 30, 119, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--deep-blue);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background-color: transparent;
+            border: none;
+            color: var(--deep-blue);
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Edit form styles */
+        .edit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--deep-blue);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all var(--transition);
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .search-bar {
+                flex-wrap: wrap;
+            }
+            
+            .date-group {
+                flex: 1 1 100%;
+                justify-content: space-between;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .date-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hide-mobile {
+                display: none;
+            }
+            
+            .modal-content {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+
+            .action-group {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .company-name span:not(.fuel):not(.refund) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/static/images/logo.jpg" alt="FRI Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+                <div class="company-name">
+                    <span class="fuel">FUEL</span> <span class="refund">REFUND INSTITUTE</span> - <span>Admin</span>
+                </div>
+            </div>
+            
+            <div class="user-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <a href="{% url 'logout' %}" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container main-content">
+        <!-- Messages -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                <i class="fas {% if message.tags == 'success' %}fa-check-circle{% elif message.tags == 'error' %}fa-times-circle{% else %}fa-info-circle{% endif %}"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <!-- Search & Filters -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Search</h2>
+            </div>
+            <div class="card-body">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search by username, name, email...">
+                    <div class="date-group">
+                        <label for="fromDate">From:</label>
+                        <input type="date" id="fromDate" class="date-input">
+                        <label for="toDate">To:</label>
+                        <input type="date" id="toDate" class="date-input">
+                    </div>
+                    <!-- <button class="btn btn-primary" onclick="searchUsers()">
+                        <i class="fas fa-search"></i> Search
+                    </button> -->
+                    <button class="btn btn-secondary" onclick="clearSearch()">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Users Table -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Users</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-container">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Username</th>
+                                <th onclick="sortTable(1)">Name</th>
+                                <th onclick="sortTable(2)">Email</th>
+                                <th class="hide-mobile" onclick="sortTable(3)">Business</th>
+                                <th class="hide-mobile">Documents</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in all_users %}
+                            <tr data-username="{{ user.username }}" data-userid="{{ user.id }}" data-name="{{ user.name }} {{ user.surname }}">
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.name }} {{ user.surname }}</td>
+                                <td>{{ user.email }}</td>
+                                <td class="hide-mobile">{{ user.business_name|default:"Individual" }}</td>
+                                <td class="hide-mobile">{{ user.document_count }}</td>
+                                <td>
+                                    <div class="action-group">
+                                        <button class="btn-view" onclick="showUserDetails('{{ user.username }}', {{ user.id }})">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                        <button class="btn-icon" onclick="editUser('{{ user.username }}')" title="Edit User">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" onclick="deleteUser('{{ user.username }}')" title="Delete User" style="color: var(--danger-red);">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="noResults" class="no-results" style="display: none;">
+                    <i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px; color: var(--medium-gray);"></i>
+                    <p>No users match your search criteria.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Details Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">User Details</h2>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Content will be dynamically inserted here -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading user details...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Store CSRF token for AJAX requests
+        const csrfToken = "{{ csrf_token }}";
+        
+        // Debounce function for better performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Search functionality with debounce
+        const debouncedSearch = debounce(function() {
+            searchUsers();
+        }, 300);
+        
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search input event listener
+            document.getElementById('searchInput').addEventListener('input', debouncedSearch);
+            
+            // Date input event listeners
+            document.getElementById('fromDate').addEventListener('change', searchUsers);
+            document.getElementById('toDate').addEventListener('change', searchUsers);
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            
+            // Apply saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            }
+            
+            // Initial sort
+            sortTable(0);
+        });
+        
+        // Search functionality
+        function searchUsers() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+            const rows = document.querySelectorAll('#usersTable tbody tr');
+            
+            let hasVisibleRows = false;
+            
+            // Hide all rows initially
+            rows.forEach(row => {
+                row.style.display = 'none';
+            });
+            
+            // If date filters are provided, fetch and filter by date
+            if (fromDate || toDate) {
+                // For each user, check if they have documents in the date range
+                rows.forEach(row => {
+                    const userId = row.getAttribute('data-userid');
+                    const username = row.getAttribute('data-username');
+                    const userName = row.getAttribute('data-name');
+                    
+                    // First check if text filter matches
+                    const textMatch = 
+                        username.toLowerCase().includes(filter) ||
+                        userName.toLowerCase().includes(filter) ||
+                        Array.from(row.cells).some(cell => 
+                            cell.textContent.toLowerCase().includes(filter)
+                        );
+                    
+                    if (textMatch || filter === '') {
+                        // Then check document dates through API
+                        fetchUserDocumentsByDate(userId, fromDate, toDate)
+                            .then(data => {
+                                if (data.has_documents_in_range) {
+                                    row.style.display = '';
+                                    hasVisibleRows = true;
+                                    updateNoResultsMessage(hasVisibleRows);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error fetching user documents:', error);
+                            });
+                    }
+                });
+            } else {
+                // If no date filters, just filter by text
+                rows.forEach(row => {
+                    let visible = false;
+                    const cells = row.getElementsByTagName('td');
+                    
+                    for (let j = 0; j < cells.length; j++) {
+                        if (cells[j]) {
+                            const text = cells[j].textContent || cells[j].innerText;
+                            if (text.toLowerCase().indexOf(filter) > -1) {
+                                visible = true;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    row.style.display = visible ? '' : 'none';
+                    if (visible) {
+                        hasVisibleRows = true;
+                    }
+                });
+                
+                updateNoResultsMessage(hasVisibleRows);
+            }
+        }
+        
+        function updateNoResultsMessage(hasVisibleRows) {
+            document.getElementById('noResults').style.display = hasVisibleRows ? 'none' : 'block';
+        }
+        
+        // Fetch user documents by date
+        async function fetchUserDocumentsByDate(userId, fromDate, toDate) {
+            let url = `/api/user/${userId}/documents/by-date/?`;
+            
+            if (fromDate) {
+                url += `from_date=${fromDate}`;
+            }
+            
+            if (toDate) {
+                url += `${fromDate ? '&' : ''}to_date=${toDate}`;
+            }
+            
+            const response = await fetch(url, {
+                headers: {
+                    'X-CSRFToken': csrfToken
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            return response.json();
+        }
+        
+        // Clear search
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('fromDate').value = '';
+            document.getElementById('toDate').value = '';
+            
+            // Show all rows
+            const rows = document.querySelectorAll('#usersTable tbody tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+            
+            // Hide no results message
+            document.getElementById('noResults').style.display = 'none';
+        }
+        
+        // Sort table
+        let sortColumn = 0;
+        let sortDirection = 1; // 1 for ascending, -1 for descending
+        
+        function sortTable(column) {
+            const table = document.getElementById('usersTable');
+            const tbody = table.tBodies[0];
+            const rows = Array.from(tbody.rows);
+            
+            // Toggle direction if same column
+            if (sortColumn === column) {
+                sortDirection *= -1;
+            } else {
+                sortColumn = column;
+                sortDirection = 1;
+            }
+            
+            // Sort rows
+            const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+            rows.sort((a, b) => {
+                // Skip hidden rows
+                if (a.style.display === 'none' || b.style.display === 'none') {
+                    return 0;
+                }
+                
+                const aValue = a.cells[column].textContent.trim();
+                const bValue = b.cells[column].textContent.trim();
+                
+                // Numeric sort for document count
+                if (column === 4) {
+                    return sortDirection * (parseInt(aValue) - parseInt(bValue));
+                }
+                
+                // Text sort for other columns with proper localization
+                return sortDirection * collator.compare(aValue, bValue);
+            });
+            
+            // Reorder rows in the table (use document fragment for better performance)
+            const fragment = document.createDocumentFragment();
+            rows.forEach(row => fragment.appendChild(row));
+            tbody.appendChild(fragment);
+            
+            // Visual indicator of sort direction
+            const headers = table.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                if (index === column) {
+                    header.setAttribute('data-sort', sortDirection === 1 ? 'asc' : 'desc');
+                } else {
+                    header.removeAttribute('data-sort');
+                }
+            });
+        }
+        
+        // Modal functionality
+        function showUserDetails(username, userId) {
+            const modal = document.getElementById('userModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Set modal title
+            modalTitle.textContent = username + ' Details';
+            
+            // Show loading state
+            modalContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading user details...</p>
+                </div>
+            `;
+            modal.style.display = 'block';
+            
+            // Fetch user data
+            fetch(`/api/user/${userId}/details/`, {
+                headers: {
+                    'X-CSRFToken': csrfToken
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(userData => {
+                // Generate content
+                let content = `
+                    <div class="section">
+                        <h3 class="section-title">Personal Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Username</div>
+                                <div class="detail-value">${userData.username}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Full Name</div>
+                                <div class="detail-value">${userData.name} ${userData.middle_names || ''} ${userData.surname}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Email</div>
+                                <div class="detail-value">${userData.email}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Phone</div>
+                                <div class="detail-value">${userData.phone_number || 'Not provided'}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">SSN</div>
+                                <div class="detail-value">${userData.ssn || 'Not provided'}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add business section if applicable
+                if (userData.business_name) {
+                    content += `
+                        <div class="section">
+                            <h3 class="section-title">Business Information</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <div class="detail-label">Business Name</div>
+                                    <div class="detail-value">${userData.business_name}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Business Type</div>
+                                    <div class="detail-value">${userData.business_type || 'Not specified'}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Tax ID</div>
+                                    <div class="detail-value">${userData.tax_id || 'Not provided'}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Address</div>
+                                    <div class="detail-value">${userData.business_address || 'Not provided'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add documents section
+                content += `<div class="section"><h3 class="section-title">Documents</h3>`;
+                
+                if (userData.documents && userData.documents.length > 0) {
+                    content += `
+                        <div style="margin-bottom: 20px">
+                            <button class="btn btn-primary" onclick="downloadAllDocuments(${userId})">
+                                <i class="fas fa-download"></i> Download All Documents
+                            </button>
+                        </div>
+                        <ul class="doc-list">
+                    `;
+                    
+                    // Add document items with dates
+                    userData.documents.forEach(doc => {
+                        // Format date
+                        const uploadDate = new Date(doc.uploaded_at);
+                        const formattedDate = uploadDate.toLocaleDateString();
+                        
+                        content += `
+                            <li class="doc-item">
+                                <div class="doc-name">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>${doc.name}</span>
+                                    <span class="doc-date">${formattedDate}</span>
+                                </div>
+                                <button class="btn btn-secondary" onclick="downloadDocument(${doc.id})">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </li>
+                        `;
+                    });
+                    
+                    content += `</ul>`;
+                } else {
+                    content += `
+                        <div class="no-results">
+                            <i class="fas fa-file-alt" style="font-size: 24px; margin-bottom: 10px; color: var(--medium-gray);"></i>
+                            <p>No documents uploaded.</p>
+                        </div>
+                    `;
+                }
+                
+                content += `</div>`;
+                
+                // Update modal content
+                modalContent.innerHTML = content;
+            })
+            .catch(error => {
+                console.error('Error fetching user details:', error);
+                modalContent.innerHTML = `
+                    <div class="message error">
+                        <i class="fas fa-times-circle"></i>
+                        Error loading user details. Please try again.
+                    </div>
+                `;
+            });
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('userModal');
+            modal.style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('userModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Keyboard accessibility - close modal with Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Document handling functions
+        function downloadDocument(docId) {
+            window.location.href = `/document/download/${docId}/`;
+        }
+        
+        function downloadAllDocuments(userId) {
+            window.location.href = `/document/download-all/${userId}/`;
+        }
+        
+        function editUser(username) {
+            // Show edit form in a modal
+            const modal = document.getElementById('userModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Set modal title
+            modalTitle.textContent = 'Edit User: ' + username;
+            
+            // Show loading state
+            modalContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading user data...</p>
+                </div>
+            `;
+            modal.style.display = 'block';
+            
+            // Fetch user data
+            fetch(`/api/user/${username}/details/`, {
+                headers: {
+                    'X-CSRFToken': csrfToken
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(userData => {
+                // Create edit form
+                let content = `
+                    <form id="editUserForm" onsubmit="updateUser(event, '${username}')">
+                        <div class="section">
+                            <h3 class="section-title">Personal Information</h3>
+                            <div class="edit-grid">
+                                <div class="form-group">
+                                    <label for="edit-name">First Name</label>
+                                    <input type="text" id="edit-name" name="name" value="${userData.name || ''}" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-middle-names">Middle Names</label>
+                                    <input type="text" id="edit-middle-names" name="middle_names" value="${userData.middle_names || ''}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-surname">Surname</label>
+                                    <input type="text" id="edit-surname" name="surname" value="${userData.surname || ''}" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-email">Email</label>
+                                    <input type="email" id="edit-email" name="email" value="${userData.email || ''}" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-phone">Phone</label>
+                                    <input type="text" id="edit-phone" name="phone_number" value="${userData.phone_number || ''}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-ssn">SSN</label>
+                                    <input type="text" id="edit-ssn" name="ssn" value="${userData.ssn || ''}" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="section">
+                            <h3 class="section-title">Business Information</h3>
+                            <div class="edit-grid">
+                                <div class="form-group">
+                                    <label for="edit-business-name">Business Name</label>
+                                    <input type="text" id="edit-business-name" name="business_name" value="${userData.business_name || ''}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-business-type">Business Type</label>
+                                    <input type="text" id="edit-business-type" name="business_type" value="${userData.business_type || ''}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-tax-id">Tax ID</label>
+                                    <input type="text" id="edit-tax-id" name="tax_id" value="${userData.tax_id || ''}" class="form-control">
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label for="edit-business-address">Business Address</label>
+                                    <textarea id="edit-business-address" name="business_address" class="form-control">${userData.business_address || ''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                `;
+                
+                // Update modal content
+                modalContent.innerHTML = content;
+            })
+            .catch(error => {
+                console.error('Error fetching user details:', error);
+                modalContent.innerHTML = `
+                    <div class="message error">
+                        <i class="fas fa-times-circle"></i>
+                        Error loading user data. Please try again.
+                    </div>
+                `;
+            });
+        }
+        
+        // Update user data
+        function updateUser(event, username) {
+            event.preventDefault();
+            
+            // Get form data
+            const form = document.getElementById('editUserForm');
+            const formData = new FormData(form);
+            const userData = Object.fromEntries(formData.entries());
+            
+            // Send update request
+            fetch(`/api/user/${username}/update/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Failed to update user');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Show success message
+                const messageContainer = document.createElement('div');
+                messageContainer.className = 'message success';
+                messageContainer.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    User updated successfully
+                `;
+                
+                const existingMessages = document.querySelector('.messages');
+                if (existingMessages) {
+                    existingMessages.appendChild(messageContainer);
+                } else {
+                    const newMessages = document.createElement('div');
+                    newMessages.className = 'messages';
+                    newMessages.appendChild(messageContainer);
+                    document.querySelector('.main-content').insertBefore(newMessages, document.querySelector('.main-content').firstChild);
+                }
+                
+                // Close modal
+                closeModal();
+                
+                // Update table row data
+                const row = document.querySelector(`tr[data-username="${username}"]`);
+                if (row) {
+                    row.cells[1].textContent = `${userData.name} ${userData.surname}`;
+                    row.cells[2].textContent = userData.email;
+                    row.cells[3].textContent = userData.business_name || 'Individual';
+                    
+                    // Update data attributes
+                    row.setAttribute('data-name', `${userData.name} ${userData.surname}`);
+                }
+                
+                // Scroll to top to see the message
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Show error in the form
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'message error';
+                errorMessage.style.marginBottom = '20px';
+                errorMessage.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    ${error.message || 'Error updating user'}
+                `;
+                
+                const formButtons = document.querySelector('.form-buttons');
+                formButtons.parentNode.insertBefore(errorMessage, formButtons);
+            });
+        }
+        
+        function deleteUser(username) {
+            if (confirm(`Are you sure you want to delete user ${username}?`)) {
+                // Send delete request
+                fetch(`/api/user/${username}/delete/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrfToken,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Remove row from table
+                        const row = document.querySelector(`tr[data-username="${username}"]`);
+                        if (row) {
+                            // Add fade-out animation
+                            row.style.transition = 'opacity 0.5s ease';
+                            row.style.opacity = '0';
+                            
+                            // Remove after animation completes
+                            setTimeout(() => {
+                                row.remove();
+                            }, 500);
+                        }
+                        
+                        // Show success message
+                        const messageContainer = document.createElement('div');
+                        messageContainer.className = 'message success';
+                        messageContainer.innerHTML = `
+                            <i class="fas fa-check-circle"></i>
+                            User ${username} deleted successfully
+                        `;
+                        
+                        const existingMessages = document.querySelector('.messages');
+                        if (existingMessages) {
+                            existingMessages.appendChild(messageContainer);
+                        } else {
+                            const newMessages = document.createElement('div');
+                            newMessages.className = 'messages';
+                            newMessages.appendChild(messageContainer);
+                            document.querySelector('.main-content').insertBefore(newMessages, document.querySelector('.main-content').firstChild);
+                        }
+                        
+                        // Scroll to top to see the message
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.error || 'Failed to delete user');
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    
+                    // Create error message
+                    const messageContainer = document.createElement('div');
+                    messageContainer.className = 'message error';
+                    messageContainer.innerHTML = `
+                        <i class="fas fa-times-circle"></i>
+                        ${error.message || 'Error deleting user'}
+                    `;
+                    
+                    const existingMessages = document.querySelector('.messages');
+                    if (existingMessages) {
+                        existingMessages.appendChild(messageContainer);
+                    } else {
+                        const newMessages = document.createElement('div');
+                        newMessages.className = 'messages';
+                        newMessages.appendChild(messageContainer);
+                        document.querySelector('.main-content').insertBefore(newMessages, document.querySelector('.main-content').firstChild);
+                    }
+                    
+                    // Scroll to top to see the message
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
+        }
+        
+        // Theme toggle functionality
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (htmlEl.getAttribute('data-theme') === 'dark') {
+                htmlEl.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '🌙';
+            } else {
+                htmlEl.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '☀️';
+            }
+        }
+    </script>
+</body>
+</html>

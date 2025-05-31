@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --surface: #ffffff;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Modern Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-space {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-space img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .business-name {
+            font-size: 20px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .login-btn, .signup-btn {
+            background: var(--primary);
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Modern Content */
+        .main-content {
+            flex: 1;
+            padding: 48px 0;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header {
+            background: var(--gradient);
+            color: white;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+            font-size: 18px;
+        }
+
+        .terms-content {
+            padding: 48px 40px;
+        }
+
+        .terms-content h2 {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content h2::before {
+            content: counter(section);
+            counter-increment: section;
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .terms-content {
+            counter-reset: section;
+        }
+
+        .terms-content p {
+            margin-bottom: 16px;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .terms-content ul {
+            margin: 16px 0 16px 24px;
+            list-style: none;
+        }
+
+        .terms-content li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            color: var(--text-muted);
+        }
+
+        .terms-content li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .contact-section {
+            background: var(--background);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            border: 1px solid var(--border);
+        }
+
+        .contact-section h3 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-section h3::before {
+            content: '📞';
+            font-size: 24px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 32px 40px;
+            border-top: 1px solid var(--border);
+            background: var(--background);
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .back-link a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .page-header, .terms-content, .back-link {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .terms-content h2 {
+                font-size: 20px;
+            }
+
+            .terms-content h2::before {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-space">
+                    <img src="/static/images/logo.png" alt="FRI">
+                </div>
+                <div class="business-name">
+                    <span class="fuel">FUEL</span> <span class="refund-institute">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/#services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/login" class="login-btn">Log In</a>
+                <a href="/signup" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="content-container">
+                <div class="page-header">
+                    <h1>Terms and Conditions</h1>
+                    <p>Effective Date: May 30, 2025</p>
+                </div>
+                
+                <div class="terms-content">
+                <div class="highlight-box">
+                    <p style="margin: 0;"><strong>Welcome to Fuel Refund Institute</strong> ("we," "us," or "our"). These Terms and Conditions ("Terms") govern your access to and use of our website, <strong>https://www.fuelrefundinstitute.com</strong>, and any services we offer (collectively, the "Services").</p>
+                    <p style="margin: 10px 0 0 0; font-style: italic;">By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use our website.</p>
+                </div>
+
+                    <h2>1. Use of the Website</h2>
+                    <p>You agree to use our website only for lawful purposes and in compliance with these Terms and applicable laws. You must not:</p>
+                    <ul>
+                        <li>Violate any laws or regulations.</li>
+                        <li>Infringe our or others' intellectual property rights.</li>
+                        <li>Use the website for fraudulent or harmful purposes.</li>
+                        <li>Interfere with the operation or security of the website.</li>
+                    </ul>
+
+                    <h2>2. Intellectual Property</h2>
+                    <p>All content, materials, and trademarks on our website are owned by or licensed to <strong>Fuel Refund Institute</strong> and are protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
+
+                    <h2>3. User Content</h2>
+                    <p>If you submit or share any content (e.g., comments, messages) through our website, you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, and display that content for the purpose of operating and improving our website and services.</p>
+                    <p>You are solely responsible for any content you submit, and it must not violate any laws or third-party rights.</p>
+
+                    <h2>4. Third-Party Links</h2>
+                    <p>Our website may contain links to third-party websites or services. We do not control or endorse those third-party sites and are not responsible for their content or practices. Use of third-party websites is at your own risk.</p>
+
+                    <h2>5. Disclaimer of Warranties</h2>
+                    <p>Our website and services are provided on an <strong>"as is" and "as available"</strong> basis. We do not guarantee that the website will be error-free or uninterrupted. To the fullest extent permitted by law, we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+                    <h2>6. Limitation of Liability</h2>
+                    <p>To the fullest extent permitted by law, <strong>Fuel Refund Institute</strong> and its affiliates, officers, employees, and agents will not be liable for any indirect, incidental, consequential, or punitive damages arising from your use of our website or services.</p>
+
+                    <h2>7. Indemnification</h2>
+                    <p>You agree to indemnify and hold harmless <strong>Fuel Refund Institute</strong> and its affiliates, officers, employees, and agents from any claims, liabilities, damages, or expenses (including attorneys' fees) arising from your use of the website or violation of these Terms.</p>
+
+                    <h2>8. Termination</h2>
+                    <p>We reserve the right to suspend or terminate your access to our website at our discretion, without notice, if you violate these Terms or engage in harmful conduct.</p>
+
+                    <h2>9. Governing Law</h2>
+                    <p>These Terms are governed by the laws of the State of Nevada, without regard to its conflict of laws principles. Any disputes will be resolved exclusively in the state or federal courts located in Nevada.</p>
+
+                    <h2>10. Changes to These Terms</h2>
+                    <p>We may update these Terms from time to time. Changes will be posted on this page with a new effective date. Your continued use of the website after changes are posted constitutes your acceptance of the new Terms.</p>
+
+                    <h2>11. Contact Us</h2>
+                    <p>If you have any questions about these Terms or our services, please contact us:</p>
+                    <div class="contact-section">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <p><strong>📧 Email:</strong> <a href="mailto:waldo.gaybba@fuelrefundinstitute.com">waldo.gaybba@fuelrefundinstitute.com</a></p>
+                            <p><strong>📍 Address:</strong> 12900 Simms Ave, Hawthorne, CA 90250, United States</p>
+                            <p><strong>📞 Phone:</strong> <a href="tel:+14242225290">(424) 222-5290</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/signup"><i class="fas fa-arrow-left"></i> Back to Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

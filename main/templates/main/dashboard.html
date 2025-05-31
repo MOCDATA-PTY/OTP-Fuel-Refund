@@ -1,0 +1,928 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafbfc;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #001E77;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .company-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .company-name .fuel {
+            color: #001E77;
+        }
+
+        .company-name .refund {
+            color: #FF3C1F;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .logout-btn {
+            background: #FF3C1F;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #e53317 !important;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 32px 0;
+        }
+
+        /* Welcome */
+        .welcome {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .welcome h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #6b7280;
+        }
+
+        /* Progress */
+        .progress-section {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .progress-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .progress-badge {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            background: #f3f4f6;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #00B9F2;
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Terms */
+        .terms-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .terms-link, .privacy-link {
+            background: none;
+            border: none;
+            color: #00B9F2;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Card */
+        .card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        /* Upload */
+        .upload-section {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .upload-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .upload-section p {
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 48px 24px;
+            text-align: center;
+            background: #f9fafb;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .drop-zone:hover {
+            border-color: #00B9F2;
+            background: #f0f9ff;
+        }
+
+        .drop-zone i {
+            font-size: 40px;
+            color: #00B9F2;
+            margin-bottom: 16px;
+        }
+
+        .drop-zone h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            background: #00B9F2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0095c5;
+        }
+
+        .btn-submit {
+            background: #FF3C1F;
+            float: right;
+            margin-top: 16px;
+        }
+
+        .btn-submit:hover {
+            background: #e53317;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00B9F2;
+        }
+
+        /* Documents */
+        .document-list h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .document-item {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .document-info strong {
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .document-info small {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .btn-view {
+            background: #f0f9ff;
+            color: #00B9F2;
+        }
+
+        .btn-delete {
+            background: #fef2f2;
+            color: #FF3C1F;
+        }
+
+        /* Complete Status */
+        .complete-status {
+            background: #10b981;
+            color: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .complete-status h3 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 600px;
+            margin: 5% auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 24px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .modal-body h4 {
+            color: #1a1a1a;
+            font-size: 16px;
+            margin: 20px 0 12px 0;
+        }
+
+        .modal-body p, .modal-body ul {
+            color: #6b7280;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .modal-footer {
+            padding: 16px 24px;
+            background: #f9fafb;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn-accept {
+            background: #10b981;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .btn-close {
+            background: #6b7280;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .alert-error {
+            background: #fecaca;
+            color: #991b1b;
+            border: 1px solid #f87171;
+        }
+
+        /* Warning Alert */
+        .warning-alert {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #FF3C1F;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            z-index: 1001;
+            max-width: 300px;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 24px 0;
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="{% static 'images/logo.png' %}" alt="FRI">
+                    </div>
+                    <div class="company-name">
+                        <span class="fuel">FUEL</span> <span class="refund">REFUND INSTITUTE</span>
+                    </div>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Welcome -->
+            <div class="welcome">
+                <h1>Welcome back, {{ user.username }}</h1>
+                <p>Track your document submission and manage your fuel tax refund claim.</p>
+            </div>
+
+            <!-- Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        <i class="fas {% if message.tags == 'success' %}fa-check-circle{% elif message.tags == 'warning' %}fa-exclamation-triangle{% else %}fa-info-circle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <!-- Progress -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h3>Document Progress</h3>
+                    <span class="progress-badge">{{ documents.count }}/7</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: {% widthratio documents.count 7 100 %}%;"></div>
+                </div>
+                <div class="progress-text">
+                    {{ documents.count }} of 7 documents uploaded
+                </div>
+            </div>
+
+            <!-- User Info -->
+            <div class="card">
+                <h3>Your Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Name</span>
+                        <span class="info-value">{{ user.name }} {{ user.surname }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">{{ user.email }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone</span>
+                        <span class="info-value">{{ user.phone_number }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Business</span>
+                        <span class="info-value">{{ user.business_name }}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if documents_complete %}
+                <!-- Complete Status -->
+                <div class="complete-status">
+                    <i class="fas fa-check-circle" style="font-size: 40px; margin-bottom: 12px;"></i>
+                    <h3>All Documents Submitted</h3>
+                    <p>Your claim is being processed. You'll receive an email within 5-7 business days.</p>
+                </div>
+            {% else %}
+                <!-- Upload Section -->
+                <div class="upload-section" id="upload">
+                    <h3>Upload Documents</h3>
+                    <p>Upload up to 7 documents (PDF, images, etc.)</p>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="drop-zone" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Drop files here or click to browse</h4>
+                            <label class="btn">
+                                Choose Files
+                                <input type="file" name="document" multiple style="display: none;" id="fileInput">
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Description (optional)</label>
+                            <input type="text" name="description" id="description" class="form-control" placeholder="Brief description of your documents">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">Upload</button>
+                        <div style="clear: both;"></div>
+                    </form>
+                </div>
+            {% endif %}
+
+            <!-- Document List -->
+            {% if documents %}
+                <div class="document-list">
+                    <h4>Your Documents</h4>
+                    {% for doc in documents %}
+                        <div class="document-item">
+                            <div class="document-info">
+                                <strong>{{ doc.display_name }}</strong><br>
+                                <small>{{ doc.uploaded_at|date:"M d, Y" }}</small>
+                            </div>
+                            <div class="document-actions">
+                                <a href="{% url 'download_document' doc.id %}" class="action-btn btn-view">View</a>
+                                {% if not documents_complete %}
+                                    <a href="{% url 'delete_document' doc.id %}" 
+                                       onclick="return confirm('Delete this document?');" 
+                                       class="action-btn btn-delete">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms and Conditions</h3>
+                <button class="close-btn" id="closeTermsBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Effective Date:</strong> May 30, 2025</p>
+                <p>Welcome to Fuel Refund Institute. These Terms govern your use of our website and services.</p>
+                
+                <h4>1. Use of Website</h4>
+                <p>You agree to use our website lawfully and in compliance with these Terms.</p>
+                
+                <h4>2. Intellectual Property</h4>
+                <p>All content is owned by Fuel Refund Institute and protected by intellectual property laws.</p>
+                
+                <h4>3. User Content</h4>
+                <p>By submitting content, you grant us license to use it for operating our services.</p>
+                
+                <h4>4. Disclaimer</h4>
+                <p>Services are provided "as is" without warranties.</p>
+                
+                <h4>5. Limitation of Liability</h4>
+                <p>We are not liable for indirect or consequential damages.</p>
+                
+                <h4>6. Governing Law</h4>
+                <p>These Terms are governed by Nevada state law.</p>
+                
+                <h4>Contact</h4>
+                <p><strong>Email:</strong> waldo.gaybba@fuelrefundinstitute.com<br>
+                <strong>Phone:</strong> (424) 222-5290<br>
+                <strong>Address:</strong> 12900 Simms Ave, Hawthorne, CA 90250</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close" id="closeTermsBtn2">Close</button>
+                <button class="btn-accept" id="acceptTermsBtn">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="close-btn" id="closePrivacyBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Effective Date:</strong> May 30, 2025</p>
+                <p>At Fuel Refund Institute, we respect your privacy and protect your personal information.</p>
+                
+                <h4>1. Information We Collect</h4>
+                <ul>
+                    <li>Contact information: name, email, phone, address</li>
+                    <li>Usage data: IP address, browser type, pages visited</li>
+                    <li>Cookies and tracking technologies</li>
+                </ul>
+                
+                <h4>2. How We Use Information</h4>
+                <ul>
+                    <li>Provide and improve our services</li>
+                    <li>Respond to inquiries and provide support</li>
+                    <li>Send updates (you can opt out)</li>
+                    <li>Analyze usage to improve experience</li>
+                </ul>
+                
+                <h4>3. Information Sharing</h4>
+                <p>We may share information with service providers, for legal requirements, or business transfers. We do not sell your information.</p>
+                
+                <h4>4. Your Rights</h4>
+                <p>You have rights to access, correct, delete, and opt-out of your personal information.</p>
+                
+                <h4>5. Security</h4>
+                <p>We use reasonable security measures to protect your information.</p>
+                
+                <h4>Contact</h4>
+                <p><strong>Email:</strong> waldo.gaybba@fuelrefundinstitute.com<br>
+                <strong>Phone:</strong> (424) 222-5290</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close" id="closePrivacyBtn2">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning Alert -->
+    <div class="warning-alert" id="warningAlert">
+        Please agree to Terms and Privacy Policy before uploading.
+        <button style="float: right; background: none; border: none; color: white; cursor: pointer;" id="closeWarningBtn">&times;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div><strong>Fuel Refund Institute</strong></div>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="tel:+14242225290">(424) 222-5290</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const termsCheckbox = document.getElementById('termsCheckbox');
+            const showTermsBtn = document.getElementById('showTermsBtn');
+            const showPrivacyBtn = document.getElementById('showPrivacyBtn');
+            const termsModal = document.getElementById('termsModal');
+            const privacyModal = document.getElementById('privacyModal');
+            const warningAlert = document.getElementById('warningAlert');
+            const uploadForm = document.querySelector('form[enctype="multipart/form-data"]');
+            const fileInput = document.getElementById('fileInput');
+
+            // Modal handlers
+            if (showTermsBtn) showTermsBtn.onclick = () => termsModal.style.display = 'block';
+            if (showPrivacyBtn) showPrivacyBtn.onclick = () => privacyModal.style.display = 'block';
+            
+            document.getElementById('closeTermsBtn').onclick = () => termsModal.style.display = 'none';
+            document.getElementById('closeTermsBtn2').onclick = () => termsModal.style.display = 'none';
+            document.getElementById('closePrivacyBtn').onclick = () => privacyModal.style.display = 'none';
+            document.getElementById('closePrivacyBtn2').onclick = () => privacyModal.style.display = 'none';
+            document.getElementById('acceptTermsBtn').onclick = () => {
+                termsCheckbox.checked = true;
+                termsModal.style.display = 'none';
+            };
+
+            // Close modals on outside click
+            window.onclick = (e) => {
+                if (e.target === termsModal) termsModal.style.display = 'none';
+                if (e.target === privacyModal) privacyModal.style.display = 'none';
+            };
+
+            // Warning
+            function showWarning() {
+                warningAlert.style.display = 'block';
+                setTimeout(() => warningAlert.style.display = 'none', 3000);
+            }
+
+            document.getElementById('closeWarningBtn').onclick = () => warningAlert.style.display = 'none';
+
+            // Validation
+            if (uploadForm) {
+                uploadForm.onsubmit = (e) => {
+                    if (termsCheckbox && !termsCheckbox.checked) {
+                        e.preventDefault();
+                        showWarning();
+                    }
+                };
+            }
+
+            if (fileInput) {
+                fileInput.onchange = () => {
+                    if (termsCheckbox && !termsCheckbox.checked) {
+                        showWarning();
+                        fileInput.value = '';
+                    }
+                };
+            }
+        });
+    </script>
+</body>
+</html>

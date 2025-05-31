@@ -1,0 +1,1217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Fuel Refund Institute</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+<style>
+    :root {
+        --deep-blue: #001E77;
+        --deep-blue-hover: #00165a;
+        --bright-red-orange: #FF3C1F;
+        --bright-red-orange-hover: #e52d10;
+        --vibrant-orange-yellow: #FFB300;
+        --sky-blue: #00B9F2;
+        --light-gray: #f7f9fc;
+        --white: #FFFFFF;
+        --dark-gray: #333333;
+        --medium-gray: #666666;
+        --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        color: var(--dark-gray);
+        line-height: 1.6;
+        font-size: 16px;
+        background-color: var(--white);
+    }
+    
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    
+    h1, h2, h3 {
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--deep-blue);
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--deep-blue);
+        transition: color 0.3s;
+    }
+    
+    a:hover {
+        color: var(--bright-red-orange);
+    }
+    
+    p {
+        margin-bottom: 1rem;
+    }
+    
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  transform: rotate(0deg);
+}
+
+.footer-logo-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.footer-logo-icon img {
+  transform: rotate(0deg);
+}
+
+    /* Header */
+    header {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 15px 0;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .logo {
+        width: 44px;
+        height: 44px;
+        background-color: var(--deep-blue);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    .company-name {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .company-name .fuel {
+        color: var(--deep-blue);
+    }
+    
+    .company-name .refund {
+        color: var(--bright-red-orange);
+    }
+    
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+    
+    .nav-links a {
+        color: var(--dark-gray);
+        font-weight: 500;
+        font-size: 15px;
+        padding: 8px 4px;
+        position: relative;
+    }
+    
+    .nav-links a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--bright-red-orange);
+        transition: width 0.3s;
+    }
+    
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+        width: 100%;
+    }
+    
+    .nav-links a.active,
+    .nav-links a:hover {
+        color: var(--bright-red-orange);
+    }
+    
+    /* Login/Signup buttons */
+    .nav-links .login-btn,
+    .nav-links .signup-btn {
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s;
+    }
+    
+    .nav-links .login-btn:hover,
+    .nav-links .signup-btn:hover {
+        background-color: rgba(0, 30, 119, 0.05);
+    }
+    
+    .nav-links .signup-btn {
+        background-color: var(--deep-blue);
+        color: white;
+    }
+    
+    .nav-links .signup-btn:hover {
+        background-color: var(--deep-blue-hover);
+        color: white;
+    }
+    
+    /* Mobile menu */
+    .mobile-toggle {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .contact-hero {
+        position: relative;
+        background: linear-gradient(135deg, var(--deep-blue) 0%, #00123d 100%);
+        color: var(--white);
+        text-align: center;
+        padding: 80px 0;
+        overflow: hidden;
+    }
+    
+    .contact-hero:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("{% static 'images/2.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 0;
+    }
+    
+    .contact-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .contact-hero h1 {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        color: var(--white);
+    }
+    
+    .contact-hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        display: inline-block;
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        background-color: var(--bright-red-orange);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn:hover {
+        background-color: var(--bright-red-orange-hover);
+        transform: translateY(-2px);
+    }
+    
+    .btn-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        margin-top: 40px;
+    }
+    
+    .hero-stat {
+        text-align: center;
+    }
+    
+    .hero-stat-number {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: var(--vibrant-orange-yellow);
+    }
+    
+    .hero-stat-label {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 60px 0;
+        background-color: var(--white);
+    }
+    
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    
+    .contact-info-title, 
+    .contact-form-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+    
+    .contact-method {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+    
+    .contact-method-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        background-color: rgba(0, 185, 242, 0.1);
+        color: var(--sky-blue);
+        font-size: 18px;
+        margin-right: 16px;
+        flex-shrink: 0;
+    }
+    
+    .contact-method:nth-child(2) .contact-method-icon {
+        background-color: rgba(255, 60, 31, 0.1);
+        color: var(--bright-red-orange);
+    }
+    
+    .contact-method:nth-child(3) .contact-method-icon {
+        background-color: rgba(255, 179, 0, 0.1);
+        color: var(--vibrant-orange-yellow);
+    }
+    
+    .contact-method-details h3 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    
+    .contact-method-details p, 
+    .contact-method-details a {
+        color: var(--medium-gray);
+        margin-bottom: 0;
+    }
+    
+    .business-hours-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    
+    .business-hours-list {
+        list-style: none;
+    }
+    
+    .business-hours-list li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+    
+    .day {
+        font-weight: 500;
+    }
+    
+    .hours {
+        color: var(--medium-gray);
+    }
+    
+    /* Contact Form */
+    .contact-form-container {
+        background-color: var(--light-gray);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: var(--soft-shadow);
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--deep-blue);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: all 0.3s;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--sky-blue);
+        box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.2);
+    }
+    
+    .form-group textarea {
+        min-height: 140px;
+    }
+    
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .form-message {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        background: rgba(0, 185, 242, 0.1);
+        border: 1px solid rgba(0, 185, 242, 0.3);
+        color: var(--deep-blue);
+        text-align: center;
+        display: none;
+    }
+    
+    .message-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .message-content i {
+        color: var(--sky-blue);
+        font-size: 20px;
+    }
+    
+    .form-message.error {
+        background: rgba(255, 60, 31, 0.1);
+        border-color: rgba(255, 60, 31, 0.3);
+    }
+    
+    .form-message.error .message-content i {
+        color: var(--bright-red-orange);
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+        padding: 60px 0;
+        background-color: var(--light-gray);
+    }
+    
+    .faq-title {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 16px;
+    }
+    
+    .faq-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--bright-red-orange);
+    }
+    
+    .faq-list {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        background: var(--white);
+        border-radius: 8px;
+        margin-bottom: 16px;
+        box-shadow: var(--soft-shadow);
+        overflow: hidden;
+    }
+    
+    .faq-question {
+        padding: 20px 24px;
+        font-weight: 600;
+        color: var(--deep-blue);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .faq-question:hover {
+        background-color: rgba(0, 185, 242, 0.05);
+    }
+    
+    .faq-question i {
+        transition: transform 0.3s;
+    }
+    
+    .faq-answer {
+        padding: 0 24px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+    }
+    
+    .faq-answer-content {
+        padding-bottom: 24px;
+        color: var(--medium-gray);
+    }
+    
+    .faq-item.active .faq-question {
+        background-color: rgba(0, 185, 242, 0.05);
+    }
+    
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+    
+    .faq-item.active .faq-answer {
+        max-height: 300px;
+    }
+    
+    /* Map Section */
+    .map-section {
+        height: 400px;
+        position: relative;
+    }
+    
+    .map-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    
+    .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 30, 119, 0.8) 0%, rgba(0, 30, 119, 0) 100%);
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+    }
+    
+    .map-content {
+        color: var(--white);
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 8px;
+        margin-left: 10%;
+        pointer-events: auto;
+    }
+    
+    .map-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: var(--white);
+    }
+    
+    .map-address {
+        margin-bottom: 24px;
+        font-size: 16px;
+        opacity: 0.9;
+    }
+    
+    .map-btn {
+        background-color: var(--bright-red-orange);
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    
+    .map-btn:hover {
+        background-color: var(--bright-red-orange-hover);
+        transform: translateY(-2px);
+        color: var(--white);
+    }
+    
+    /* Footer */
+    footer {
+        background-color: var(--deep-blue);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 40px 0 20px;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-logo-icon {
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .footer-company {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+    }
+    
+    .footer-links {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+    }
+    
+    .footer-links a:hover {
+        color: var(--white);
+    }
+    
+    .footer-social {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        color: var(--white);
+    }
+    
+    .social-icon:hover {
+        background-color: var(--sky-blue);
+        transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .footer-bottom a {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 5px;
+    }
+    
+    .footer-bottom a:hover {
+        color: var(--white);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .map-overlay {
+            background: rgba(0, 30, 119, 0.7);
+            justify-content: center;
+        }
+        
+        .map-content {
+            margin-left: 0;
+            text-align: center;
+        }
+        
+        .hero-stats {
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+        }
+        
+        .hero-stat {
+            flex: 0 0 40%;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .mobile-toggle {
+            display: block;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .mobile-toggle span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: var(--deep-blue);
+            transition: all 0.3s;
+        }
+        
+        .mobile-toggle span:nth-child(1) { top: 0; }
+        .mobile-toggle span:nth-child(2) { top: 8px; }
+        .mobile-toggle span:nth-child(3) { top: 16px; }
+        
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--white);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 80px 32px 32px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+        
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-links {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .contact-hero h1 {
+            font-size: 30px;
+        }
+        
+        .contact-hero p {
+            font-size: 16px;
+        }
+        
+        .hero-stats {
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo logo-space">
+                    <img src="{% static 'images/logo.png' %}" alt="FRI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+                <div class="company-name">
+                    <span class="fuel">FUEL</span> <span class="refund">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'home' %}#about">About</a>
+                <a href="{% url 'home' %}#services">Services</a>
+                <a href="{% url 'contact' %}" class="active">Contact</a>
+                <a href="{% url 'login' %}" class="login-btn">Log In</a>
+                <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Get In Touch With Our Team</h1>
+            <p>We help businesses across various industries successfully claim their fuel tax refunds. Get your free eligibility assessment today.</p>
+            <a href="#contact-form" class="btn">Contact Us Now</a>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">98%</div>
+                    <div class="hero-stat-label">Customer Satisfaction</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">24/7</div>
+                    <div class="hero-stat-label">Support Available</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">1M+</div>
+                    <div class="hero-stat-label">Successful Rebates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2 class="contact-info-title">Get in Touch</h2>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-method-details">
+                            <h3>Call Us</h3>
+                            <p>Our team is available during business hours</p>
+                            <a href="tel:+14242225290">(424) 222-5290</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-method-details">
+                            <h3>Email Us</h3>
+                            <p>We'll respond to your inquiry promptly</p>
+                            <a href="mailto:info@fuelrefundinstitute.com">info@fuelrefundinstitute.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-method-details">
+                            <h3>Visit Us</h3>
+                            <p>12900 Simms Ave<br>Hawthorne, CA<br>90250, United States</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <h3 class="business-hours-title">Business Hours</h3>
+                    <ul class="business-hours-list">
+                        <li>
+                            <span class="day">Monday - Friday</span>
+                            <span class="hours">8:00 AM - 6:00 PM PST</span>
+                        </li>
+                        <li>
+                            <span class="day">Saturday</span>
+                            <span class="hours">9:00 AM - 2:00 PM PST</span>
+                        </li>
+                        <li>
+                            <span class="day">Sunday</span>
+                            <span class="hours">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="contact-form-container" id="contact-form">
+                <h2 class="contact-form-title">Send Us a Message</h2>
+                <form id="contact-form-element">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name*</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" name="industry">
+                            <option value="">Select your industry</option>
+                            <option value="transport">Transport & Logistics</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="construction">Construction</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+                </form>
+                
+                <div id="form-message" class="form-message">
+                    <div class="message-content">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully. We'll contact you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know if my business qualifies for fuel tax refunds?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Businesses that use fuel for off-road equipment, refrigeration units, power generation, and other non-highway applications may qualify for fuel tax refunds. Industries like agriculture, construction, manufacturing, and transportation often have significant refund potential.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much does your service cost?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our service operates on a contingency basis—this means there are no upfront fees. We only get paid a percentage of the refunds we recover for you. If we don't secure a refund, you don't pay anything.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to receive a refund?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The timeline varies by state and the complexity of your claim, but most clients receive their refunds within 6-12 weeks of submission. We'll provide you with regular updates throughout the process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13244.071974179014!2d-118.3280153054992!3d33.91493646842178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b5dcbc4cf2dd%3A0xd140a8208c07f8ed!2sCondor%20Cargo!5e0!3m2!1sen!2sza!4v1747999941977!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-overlay">
+            <div class="map-content">
+                <h2 class="map-title">Visit Our Office</h2>
+                <p class="map-address">
+                   12900 Simms Ave<br>Hawthorne, CA<br>90250, United States
+                </p>
+                <a href="https://maps.app.goo.gl/J3yLXGmseivHX7Ae7" target="_blank" class="map-btn">Get Directions</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <img src="{% static 'images/logo.png' %}" alt="FRI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+                    </div>
+                    <div class="footer-company">Fuel Refund Institute</div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'home' %}#about">About</a>
+                    <a href="{% url 'home' %}#services">Services</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {% now "Y" %} Fuel Refund Institute | <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="tel:+14242225290">(424) 222-5290</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // EmailJS Contact Form
+        document.addEventListener('DOMContentLoaded', function() {
+            emailjs.init("cmOK_EnU7TH0JU_lc");
+            
+            const contactForm = document.getElementById('contact-form-element');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            const formMessage = document.getElementById('form-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    submitBtn.disabled = true;
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'inline-block';
+                    formMessage.style.display = 'none';
+                    
+                    const firstName = document.getElementById('first-name').value;
+                    const lastName = document.getElementById('last-name').value;
+                    const fullName = firstName + ' ' + lastName;
+                    
+                    emailjs.send(
+                        'service_52t9gik',
+                        'template_erz15kz',
+                        {
+                            name: fullName,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            company: document.getElementById('company').value,
+                            industry: document.getElementById('industry').value,
+                            message: document.getElementById('message').value,
+                            time: new Date().toLocaleString()
+                        }
+                    ).then(function(response) {
+                        showSuccessMessage();
+                        contactForm.reset();
+                    }).catch(function(error) {
+                        showErrorMessage();
+                    }).finally(function() {
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline-block';
+                        btnLoading.style.display = 'none';
+                    });
+                });
+            }
+            
+            function showSuccessMessage() {
+                formMessage.className = 'form-message';
+                formMessage.innerHTML = `
+                    <div class="message-content">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully. We'll contact you within 24 hours.</p>
+                    </div>
+                `;
+                formMessage.style.display = 'block';
+                
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+            
+            function showErrorMessage() {
+                formMessage.className = 'form-message error';
+                formMessage.innerHTML = `
+                    <div class="message-content">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Sorry, there was an error sending your message. Please try calling us at (424) 222-5290.</p>
+                    </div>
+                `;
+                formMessage.style.display = 'block';
+                
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

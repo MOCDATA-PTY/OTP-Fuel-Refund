@@ -1,0 +1,775 @@
+<style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --surface: #ffffff;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Modern Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-space {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-space img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .business-name {
+            font-size: 20px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .login-btn, .signup-btn {
+            background: var(--primary);
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Modern Content */
+        .main-content {
+            flex: 1;
+            padding: 48px 0;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header {
+            background: var(--gradient);
+            color: white;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+            font-size: 18px;
+        }
+
+        .privacy-content {
+            padding: 48px 40px;
+            counter-reset: section;
+        }
+
+        .privacy-content h2 {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .privacy-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .privacy-content h2::before {
+            content: counter(section);
+            counter-increment: section;
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .privacy-content p {
+            margin-bottom: 16px;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .privacy-content ul {
+            margin: 16px 0 16px 24px;
+            list-style: none;
+        }
+
+        .privacy-content li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            color: var(--text-muted);
+        }
+
+        .privacy-content li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        .callout-box {
+            background: #e8f8ff;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .callout-box::before {
+            content: '🔒';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--surface);
+            padding: 0 8px;
+            font-size: 20px;
+        }
+
+        .contact-section {
+            background: var(--background);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            border: 1px solid var(--border);
+        }
+
+        .contact-section h3 {
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-section h3::before {
+            content: '📞';
+            font-size: 24px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 32px 40px;
+            border-top: 1px solid var(--border);
+            background: var(--background);
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .back-link a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .page-header, .privacy-content, .back-link {
+                padding-left: 24px;
+                padding-right<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <style>
+        /* Color palette */
+        :root {
+            --deep-blue: #001E77;
+            --bright-red-orange: #FF3C1F;
+            --vibrant-orange-yellow: #FFB300;
+            --sky-blue: #00B9F2;
+            --light-gray: #f7f9fc;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header - matching your existing design */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-space {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--deep-blue);
+            border-radius: 8px;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 20px;
+            overflow: hidden;
+        }
+
+        .logo-space img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .business-name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .business-name .fuel {
+            color: var(--deep-blue);
+        }
+
+        .business-name .refund-institute {
+            color: var(--bright-red-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-red-orange);
+        }
+
+        .login-btn, .signup-btn {
+            color: var(--sky-blue);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.2s;
+            background: transparent;
+            text-decoration: none;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            color: var(--bright-red-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        .content-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--soft-shadow);
+            padding: 40px;
+            margin: 0 20px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            color: var(--deep-blue);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: var(--medium-gray);
+            font-size: 18px;
+        }
+
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .privacy-content h2 {
+            color: var(--deep-blue);
+            font-size: 24px;
+            font-weight: 600;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sky-blue);
+        }
+
+        .privacy-content h3 {
+            color: var(--bright-red-orange);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .privacy-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .privacy-content ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        .privacy-content li {
+            margin-bottom: 8px;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-link a:hover {
+            color: var(--bright-red-orange);
+            background-color: #e8f4fd;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+            
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .privacy-content h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-space">
+                    <img src="/static/images/logo.png" alt="FRI">
+                </div>
+                <div class="business-name">
+                    <span class="fuel">FUEL</span> <span class="refund-institute">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/#services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/login" class="login-btn">Log In</a>
+                <a href="/signup" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="content-container">
+                <div class="page-header">
+                    <h1>Professional Privacy Policy</h1>
+                    <p>Effective Date: May 30, 2025</p>
+                </div>
+                
+                <div class="privacy-content">
+                    <div class="highlight-box">
+                        <p style="margin: 0;"><strong>Fuel Refund Institute Professional Privacy Policy</strong></p>
+                        <p style="margin: 12px 0 0 0;">Fuel Refund Institute ("Company," "we," "us," or "our") is a professional tax consulting firm committed to maintaining the highest standards of client confidentiality and data protection. This Professional Privacy Policy outlines our practices regarding the collection, use, protection, and disclosure of confidential client information in connection with our professional services provided through <strong>https://www.fuelrefundinstitute.com</strong> and related professional engagements.</p>
+                        <p style="margin: 16px 0 0 0; font-style: italic; color: var(--primary); font-weight: 600;">By engaging our professional services, you acknowledge and consent to our privacy practices as described in this policy, which are designed to protect your confidential business information while enabling us to provide effective professional services.</p>
+                    </div>
+
+                    <h2>Professional Information Collection</h2>
+                    <p>In the course of providing professional tax consulting services, we collect various types of information necessary to deliver effective and compliant services. Our information collection practices are governed by professional standards and regulatory requirements applicable to tax consulting services.</p>
+                    
+                    <h3>Client Business Information</h3>
+                    <ul>
+                        <li><strong>Business Identity Information:</strong> Legal business name, DBA names, federal tax identification numbers, state tax IDs, business structure details, and registration information</li>
+                        <li><strong>Financial and Tax Records:</strong> Income statements, balance sheets, general ledgers, fuel purchase records, mileage logs, vehicle registration documents, and related financial documentation</li>
+                        <li><strong>Contact and Communication Data:</strong> Business addresses, authorized representative contact information, email addresses, phone numbers, and communication preferences</li>
+                        <li><strong>Operational Information:</strong> Business activities, industry classifications, operational locations, vehicle fleet information, and fuel usage patterns relevant to tax compliance</li>
+                    </ul>
+
+                    <h3>Professional Service Data</h3>
+                    <ul>
+                        <li><strong>Engagement Documentation:</strong> Service agreements, scope of work documentation, professional correspondence, and engagement tracking information</li>
+                        <li><strong>Technical and System Information:</strong> IP addresses, browser information, device identifiers, and platform usage data when accessing our professional portal</li>
+                        <li><strong>Professional Work Product:</strong> Analysis reports, compliance assessments, prepared tax documents, and other deliverables created during our engagement</li>
+                    </ul>
+
+                    <h2>Professional Use of Client Information</h2>
+                    <p>We utilize client information exclusively for legitimate professional purposes in accordance with our service agreements and applicable professional standards. Our use of your information is strictly limited to:</p>
+                    <ul>
+                        <li>Providing contracted professional tax consulting and compliance services</li>
+                        <li>Preparing, reviewing, and submitting fuel tax refund applications and related documentation</li>
+                        <li>Conducting compliance analysis and risk assessments related to your tax obligations</li>
+                        <li>Communicating with tax authorities and regulatory agencies on your behalf as authorized</li>
+                        <li>Maintaining professional engagement records and client service documentation</li>
+                        <li>Ensuring compliance with professional standards, regulatory requirements, and quality control procedures</li>
+                        <li>Providing ongoing advisory services and updates on relevant tax law changes</li>
+                    </ul>
+
+                    <h2>Professional Information Sharing and Disclosure</h2>
+                    <p>As a professional service firm, we maintain strict confidentiality standards. Information sharing is limited to specific circumstances necessary for providing professional services:</p>
+
+                    <h3>Authorized Professional Disclosures</h3>
+                    <ul>
+                        <li><strong>Tax Authorities:</strong> Information necessary for processing fuel tax refund applications, responding to inquiries, and ensuring compliance with tax obligations</li>
+                        <li><strong>Professional Service Providers:</strong> Qualified third-party professionals (attorneys, accountants, technical specialists) engaged to support your service needs, subject to appropriate confidentiality agreements</li>
+                        <li><strong>Regulatory Compliance:</strong> Disclosures required by law, regulation, court order, or professional regulatory requirements</li>
+                        <li><strong>Professional Quality Assurance:</strong> Internal quality control reviews and professional development activities, with appropriate anonymization when possible</li>
+                    </ul>
+
+                    <h3>Confidentiality Protections</h3>
+                    <div class="callout-box">
+                        <p style="margin: 0; font-weight: 600;">PROFESSIONAL CONFIDENTIALITY COMMITMENT</p>
+                        <p style="margin: 8px 0 0 0;">WE DO NOT SELL, RENT, OR COMMERCIALLY EXPLOIT CLIENT INFORMATION. ALL CLIENT DATA IS TREATED AS STRICTLY CONFIDENTIAL PROFESSIONAL INFORMATION PROTECTED BY APPLICABLE PRIVACY LAWS AND PROFESSIONAL ETHICS STANDARDS.</p>
+                    </div>
+
+                    <h2>Client Rights and Professional Responsibilities</h2>
+                    <p>As our professional client, you maintain certain rights regarding your confidential information, and we have corresponding professional responsibilities:</p>
+
+                    <h3>Your Professional Rights</h3>
+                    <ul>
+                        <li><strong>Access Rights:</strong> Request copies of your information maintained in our professional files</li>
+                        <li><strong>Correction Rights:</strong> Request correction of inaccurate information in our records</li>
+                        <li><strong>Deletion Rights:</strong> Request deletion of your information, subject to professional record retention requirements</li>
+                        <li><strong>Communication Preferences:</strong> Specify preferred methods and frequency of professional communications</li>
+                        <li><strong>Service Limitation:</strong> Restrict the scope of information use to specific agreed-upon professional services</li>
+                    </ul>
+
+                    <h3>Our Professional Responsibilities</h3>
+                    <ul>
+                        <li>Maintain appropriate administrative, technical, and physical safeguards for client information</li>
+                        <li>Limit access to client information to authorized personnel with legitimate business needs</li>
+                        <li>Provide prompt notification of any potential data security incidents</li>
+                        <li>Comply with applicable professional standards and regulatory requirements</li>
+                        <li>Maintain current cybersecurity measures and data protection protocols</li>
+                    </ul>
+
+                    <h2>Professional Data Security Measures</h2>
+                    <p>We implement comprehensive security measures appropriate for a professional tax consulting practice, including:</p>
+                    <ul>
+                        <li><strong>Technical Safeguards:</strong> Encrypted data transmission and storage, secure access controls, regular security audits, and protected backup systems</li>
+                        <li><strong>Administrative Controls:</strong> Staff training on confidentiality requirements, background checks for personnel with data access, and documented security policies</li>
+                        <li><strong>Physical Security:</strong> Secure office facilities, locked file storage, controlled access to work areas, and secure disposal of confidential documents</li>
+                        <li><strong>Professional Standards:</strong> Compliance with industry best practices for professional service firms and regular security assessments</li>
+                    </ul>
+
+                    <h2>Professional Record Retention</h2>
+                    <p>Our record retention practices comply with professional standards and regulatory requirements applicable to tax consulting services:</p>
+                    <ul>
+                        <li><strong>Active Engagement Records:</strong> Maintained during the period of active professional engagement</li>
+                        <li><strong>Tax Documentation:</strong> Retained in accordance with applicable tax law requirements (typically 3-7 years)</li>
+                        <li><strong>Professional Work Product:</strong> Maintained for professional liability and quality assurance purposes</li>
+                        <li><strong>Correspondence Records:</strong> Professional communications retained per regulatory and professional standards</li>
+                    </ul>
+                    <p>Upon expiration of required retention periods, confidential information is securely destroyed using industry-standard methods.</p>
+
+                    <h2>Professional Compliance and Standards</h2>
+                    <p>Our privacy practices comply with applicable federal and state privacy laws, including:</p>
+                    <ul>
+                        <li>California Consumer Privacy Act (CCPA) and related state privacy regulations</li>
+                        <li>Federal tax confidentiality requirements and IRS regulations</li>
+                        <li>Professional ethics standards for tax consulting services</li>
+                        <li>Industry best practices for professional service firms</li>
+                    </ul>
+                    <p>We regularly review and update our privacy practices to ensure continued compliance with evolving regulatory requirements and professional standards.</p>
+
+                    <h2>International Client Considerations</h2>
+                    <p>For clients with international operations or data transfer requirements, we implement appropriate safeguards including:</p>
+                    <ul>
+                        <li>Standard contractual clauses for international data transfers</li>
+                        <li>Compliance with applicable international privacy frameworks</li>
+                        <li>Coordination with international tax authorities as professionally required</li>
+                        <li>Appropriate cross-border data protection measures</li>
+                    </ul>
+
+                    <h2>Professional Communication and Updates</h2>
+                    <p>We are committed to transparent communication regarding our privacy practices. We will provide notice of material changes to this policy through:</p>
+                    <ul>
+                        <li>Direct communication to active professional clients</li>
+                        <li>Posted updates on our professional website with effective dates</li>
+                        <li>Inclusion in regular client communications and service updates</li>
+                    </ul>
+                    <p>Continued engagement of our professional services following notice of policy changes constitutes acceptance of the updated privacy practices.</p>
+
+                    <div class="contact-section">
+                        <h3>Professional Privacy Contact</h3>
+                        <div class="contact-info">
+                            <p><strong>📧 Privacy Officer:</strong> <a href="mailto:waldo.gaybba@fuelrefundinstitute.com">waldo.gaybba@fuelrefundinstitute.com</a></p>
+                            <p><strong>📍 Professional Address:</strong> 12900 Simms Ave, Hawthorne, CA 90250, United States</p>
+                            <p><strong>📞 Professional Line:</strong> <a href="tel:+14242225290">(424) 222-5290</a></p>
+                            <p><strong>🕐 Business Hours:</strong> Monday-Friday, 8:00 AM - 6:00 PM PST</p>
+                            <p><strong>📋 Privacy Inquiries:</strong> Submit written requests for privacy-related matters</p>
+                            <p><strong>🔐 Data Security Team:</strong> Available for security incident reporting</p>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%); border: 2px solid var(--primary); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center;">
+                        <p style="margin: 0; font-weight: 700; color: var(--primary); font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">PROFESSIONAL PRIVACY POLICY</p>
+                        <p style="margin: 8px 0; font-weight: 600; color: var(--text); font-size: 14px;">EFFECTIVE DATE: MAY 30, 2025</p>
+                        <p style="margin: 8px 0 0 0; font-size: 14px; color: var(--text-muted);">This Professional Privacy Policy reflects our commitment to maintaining the highest standards of client confidentiality and data protection in accordance with professional ethics and regulatory requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/signup"><i class="fas fa-arrow-left"></i> Back to Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

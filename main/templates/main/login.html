@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        /* Color palette */
+        :root {
+            --deep-blue: #001E77;
+            --bright-red-orange: #FF3C1F;
+            --vibrant-orange-yellow: #FFB300;
+            --sky-blue: #00B9F2;
+            --light-gray: #f7f9fc;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --soft-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+ .logo-space {
+    width: 60px; /* Increased from 44px */
+    height: 60px; /* Increased from 44px */
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--deep-blue);
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden; /* Ensure the rotated image stays within the container */
+}
+
+.logo-space img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    border-radius: 6px;
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+        .business-name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .business-name .fuel {
+            color: var(--deep-blue);
+        }
+
+        .business-name .refund-institute {
+            color: var(--bright-red-orange);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .nav-links a:not(.login-btn):not(.signup-btn):after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--bright-red-orange);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:not(.login-btn):not(.signup-btn):hover:after {
+            width: 80%;
+        }
+
+        .nav-links a:hover {
+            color: var(--bright-red-orange);
+        }
+
+        .nav-links a.active {
+            color: var(--bright-red-orange);
+        }
+
+        /* Login and Signup buttons */
+        .login-btn, .signup-btn {
+            color: var(--sky-blue);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.2s;
+            background: transparent;
+            text-decoration: none;
+        }
+
+        .login-btn:hover, .signup-btn:hover {
+            color: var(--bright-red-orange);
+            transform: translateY(-2px);
+        }
+
+        .login-btn.active {
+            color: var(--bright-red-orange);
+        }
+
+        /* Login page */
+        .login-page {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .login-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--soft-shadow);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+            margin: 0 20px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: var(--deep-blue);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .login-header p {
+            color: var(--medium-gray);
+            margin: 0;
+        }
+
+        /* Form styles */
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--sky-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 185, 242, 0.15);
+        }
+
+        .form-submit {
+            margin-top: 30px;
+        }
+
+        .form-submit button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            background-color: var(--deep-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 30, 119, 0.25);
+        }
+
+        .form-submit button:hover {
+            background-color: #00165a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 30, 119, 0.35);
+        }
+
+        .form-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 15px;
+            color: var(--medium-gray);
+        }
+
+        .form-footer a {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .form-footer a:hover {
+            color: var(--bright-red-orange);
+            text-decoration: underline;
+        }
+
+        /* Alert styles */
+        .alert {
+            padding: 16px;
+            margin: 0 0 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .alert-error {
+            background-color: #fee7e7;
+            color: #b71c1c;
+            border-left: 4px solid #b71c1c;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 103;
+        }
+
+        .mobile-menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: var(--deep-blue);
+            display: block;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 101;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+                position: relative;
+            }
+            
+            .mobile-menu-overlay {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                transition: right 0.3s;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 102;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .mobile-menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+
+        /* No-scroll utility */
+        .no-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<!-- Header -->
+<header id="header">
+    <div class="container header-content">
+        <div class="logo-container">
+            <div class="logo-space">
+                <img src="/static/images/logo.png" alt="FRI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="business-name">
+                <span class="fuel">FUEL</span> <span class="refund-institute">REFUND INSTITUTE</span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu toggle -->
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Mobile menu overlay -->
+        <div class="mobile-menu-overlay"></div>
+        
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/contact">Contact</a>
+            <a href="/login" class="login-btn active">Log In</a>
+            <a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Login Page -->
+    <section class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to access your account</p>
+            </div>
+            
+            <!-- Uncomment this section for form errors -->
+            <!-- 
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle" style="margin-right: 10px;"></i>
+                Your username and password didn't match. Please try again.
+            </div>
+            -->
+            
+            <div class="login-form">
+                <form method="post" action="/login/">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Log In</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-footer">
+                <p>Don't have an account? <a href="/signup">Sign up now</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+
+        if(mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+        }
+
+        if(mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('.nav-links a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    </script>
+</body>
+</html>
