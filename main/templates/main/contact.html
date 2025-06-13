@@ -1639,15 +1639,21 @@ header.scrolled {
                 <h2 class="form-title">Start Your Refund Process</h2>
                 <p style="text-align: center; color: var(--neutral-gray); margin-bottom: 2rem;">Fill out the form below and we'll help you get started with your fuel tax refund claim. <strong>After submitting, you'll be able to sign up and upload your documents!</strong></p>
                 
-                <form id="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="f8e73ca8-778a-4430-bc03-49d01436d9c1">
+                    
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="first-name" class="form-label">First Name*</label>
-                            <input type="text" id="first-name" name="first-name" class="form-input" required>
+                            <input type="text" id="first-name" name="first_name" class="form-input" required>
                         </div>
                         <div class="form-group">
                             <label for="last-name" class="form-label">Last Name*</label>
-                            <input type="text" id="last-name" name="last-name" class="form-input" required>
+                            <input type="text" id="last-name" name="last_name" class="form-input" required>
                         </div>
                     </div>
                     
@@ -1682,7 +1688,7 @@ header.scrolled {
                     
                     <div class="form-group">
                         <label for="fuel-usage" class="form-label">Annual Fuel Usage (Gallons)</label>
-                        <input type="number" id="fuel-usage" name="fuel-usage" class="form-input" placeholder="e.g. 25000">
+                        <input type="number" id="fuel-usage" name="fuel_usage" class="form-input" placeholder="e.g. 25000">
                     </div>
                     
                     <div class="form-group">
@@ -1844,12 +1850,8 @@ header.scrolled {
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // EmailJS Contact Form
         document.addEventListener('DOMContentLoaded', function() {
-            emailjs.init("cmOK_EnU7TH0JU_lc");
-            
             const contactForm = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
@@ -1858,170 +1860,77 @@ header.scrolled {
             
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
                     submitBtn.disabled = true;
                     btnText.style.display = 'none';
                     btnLoading.style.display = 'inline-block';
                     formMessage.style.display = 'none';
                     
-                    const firstName = document.getElementById('first-name').value;
-                    const lastName = document.getElementById('last-name').value;
-                    const fullName = firstName + ' ' + lastName;
-                    
-                    emailjs.send(
-                        'service_52t9gik',
-                        'template_erz15kz',
-                        {
-                            name: fullName,
-                            email: document.getElementById('email').value,
-                            phone: document.getElementById('phone').value,
-                            company: document.getElementById('company').value,
-                            industry: document.getElementById('industry').value,
-                            fuel_usage: document.getElementById('fuel-usage').value,
-                            message: document.getElementById('message').value,
-                            time: new Date().toLocaleString()
-                        }
-                    ).then(function(response) {
-                        showSuccessMessage();
+                    // Show success message after form submission
+                    setTimeout(() => {
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
                         contactForm.reset();
-                    }).catch(function(error) {
-                        showErrorMessage();
-                    }).finally(function() {
+                        
                         submitBtn.disabled = false;
                         btnText.style.display = 'inline-block';
                         btnLoading.style.display = 'none';
+                        
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 8000);
+                    }, 1000);
+                });
+            }
+            
+            // Mobile Navigation
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileToggle.classList.toggle('active');
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Close menu when clicking links
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileToggle.classList.remove('active');
+                        document.body.style.overflow = '';
                     });
                 });
             }
             
-            function showSuccessMessage() {
-                formMessage.className = 'form-message success';
-                formMessage.innerHTML = `
-                    <div class="message-content">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Thank you! Your message has been sent successfully. We'll contact you within 24 hours to help you sign up and upload your documents for processing.</p>
-                    </div>
-                `;
-                formMessage.style.display = 'block';
-                
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 8000);
-            }
-            
-            function showErrorMessage() {
-                formMessage.className = 'form-message error';
-                formMessage.innerHTML = `
-                    <div class="message-content">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p>Sorry, there was an error sending your message. Please try calling us at (424) 222-5290 or email info@fuelrefundinstitute.com</p>
-                    </div>
-                `;
-                formMessage.style.display = 'block';
-                
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 8000);
-            }
-        });
-        
-        // Mobile Navigation
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                mobileToggle.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
             
-            // Close menu when clicking links
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    mobileToggle.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-        
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
             
-            question.addEventListener('click', () => {
-                // Close all other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
                 
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    const headerHeight = 100;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
             });
-        });
-        
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Only animate FAQ section, keep main content visible
-            const faqSection = document.querySelector('.faq-section');
-            if (faqSection) {
-                faqSection.style.opacity = '0';
-                faqSection.style.transform = 'translateY(30px)';
-                faqSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(faqSection);
-            }
         });
     </script>
 </body>

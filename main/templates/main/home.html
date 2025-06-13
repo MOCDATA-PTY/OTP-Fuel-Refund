@@ -43,10 +43,10 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
-/* Top Navigation Header */
+/* Enhanced Responsive Header */
 header {
   position: fixed;
   top: 0;
@@ -55,7 +55,7 @@ header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   z-index: 1000;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   box-shadow: var(--shadow-medium);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,7 +64,7 @@ header {
 header.scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: var(--shadow-large);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
 }
 
 .header-content {
@@ -73,31 +73,30 @@ header.scrolled {
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .logo-circle {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-}
-
-.logo-circle::before {
-  display: none;
+  flex-shrink: 0;
 }
 
 .logo-circle img {
-  width: 4rem;
-  height: 4rem;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   z-index: 1;
   position: relative;
@@ -105,8 +104,9 @@ header.scrolled {
 
 .brand-text {
   font-weight: 800;
-  font-size: 1.375rem;
+  font-size: clamp(0.75rem, 2.5vw, 1.375rem);
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .brand-fuel {
@@ -126,18 +126,20 @@ header.scrolled {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .nav-menu a {
   color: var(--neutral-dark);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.85rem;
-  padding: 0.6rem 1.25rem;
-  border-radius: 0.875rem;
+  font-size: 0.875rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -166,30 +168,43 @@ header.scrolled {
 .mobile-toggle {
   display: none;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1002;
 }
 
 .mobile-toggle span {
   width: 1.5rem;
-  height: 0.2rem;
+  height: 0.15rem;
   background: var(--neutral-dark);
   border-radius: 0.1rem;
   transition: all 0.3s ease;
 }
 
-/* Full-width Hero with Overlay */
+.mobile-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(0.35rem, 0.35rem);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+}
+
+/* Enhanced Hero Section */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
   overflow: hidden;
-  padding-top: 5rem; /* Account for fixed header */
+  padding-top: 5rem;
 }
 
 .hero-bg {
@@ -220,9 +235,10 @@ header.scrolled {
   z-index: 3;
   text-align: center;
   color: white;
-  max-width: 4xl;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
 }
 
 .hero-badge {
@@ -232,21 +248,21 @@ header.scrolled {
   background: var(--glass-white);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--accent-yellow);
   box-shadow: var(--shadow-medium);
   animation: float 6s ease-in-out infinite;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.75rem, 6vw, 4.5rem);
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -255,17 +271,17 @@ header.scrolled {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 2rem);
   font-weight: 600;
   color: var(--accent-yellow);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-style: italic;
 }
 
 .hero-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
   opacity: 0.9;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
@@ -274,17 +290,17 @@ header.scrolled {
 
 .hero-actions {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .btn {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: 0.875rem 1.5rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 700;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
@@ -293,7 +309,8 @@ header.scrolled {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-width: 12rem;
+  min-width: 10rem;
+  text-align: center;
 }
 
 .btn-primary {
@@ -321,9 +338,9 @@ header.scrolled {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  max-width: 4xl;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -331,8 +348,8 @@ header.scrolled {
   background: var(--glass-white);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: 1.5rem;
-  padding: 2rem;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -343,34 +360,34 @@ header.scrolled {
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 900;
   color: var(--accent-yellow);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .stat-label {
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
 }
 
-/* Floating Stats Bar */
+/* Responsive Floating Stats */
 .floating-stats {
   position: relative;
   z-index: 10;
-  margin-top: -6rem;
-  padding: 0 2rem;
+  margin-top: -4rem;
+  padding: 0 1rem;
 }
 
 .stats-container {
   background: white;
-  border-radius: 2rem;
-  padding: 2rem;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-large);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   max-width: 1280px;
   margin: 0 auto;
@@ -378,28 +395,28 @@ header.scrolled {
 
 .stats-item {
   text-align: center;
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
 .stats-number {
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 900;
   background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .stats-label {
   color: var(--neutral-gray);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
 }
 
-/* Modern Sections */
+/* Enhanced Sections */
 .section {
-  padding: 6rem 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   position: relative;
 }
 
@@ -409,11 +426,11 @@ header.scrolled {
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: 900;
   color: var(--primary-dark);
   margin-bottom: 1rem;
@@ -421,23 +438,23 @@ header.scrolled {
 }
 
 .section-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   color: var(--neutral-gray);
   max-width: 36rem;
   margin: 0 auto;
 }
 
-/* Modern Card Grid */
+/* Responsive Card Grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .feature-card {
   background: white;
-  border-radius: 2rem;
-  padding: 2.5rem;
+  border-radius: 1.5rem;
+  padding: 2rem;
   box-shadow: var(--shadow-light);
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -469,16 +486,16 @@ header.scrolled {
 }
 
 .feature-icon {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   box-shadow: var(--shadow-medium);
 }
 
@@ -491,7 +508,7 @@ header.scrolled {
 }
 
 .feature-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
   font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 1rem;
@@ -500,19 +517,19 @@ header.scrolled {
 .feature-description {
   color: var(--neutral-gray);
   line-height: 1.6;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
-/* Enhanced Calculator */
-.calculator-section {
+/* New Calculator Styles */
+.calculator-wrapper {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-  color: white;
-  border-radius: 3rem;
-  margin: 4rem 0;
+  border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  margin-top: 2rem;
 }
 
-.calculator-section::before {
+.calculator-wrapper::before {
   content: '';
   position: absolute;
   top: 0;
@@ -523,67 +540,246 @@ header.scrolled {
   z-index: 1;
 }
 
-.calculator-content {
+.calculator-container {
   position: relative;
   z-index: 2;
-  padding: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+  align-items: start;
 }
 
-.calculator-info h3 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin-bottom: 1.5rem;
+.calculator-left {
   color: white;
 }
 
-.calculator-info p {
+.calculator-left h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.calculator-left p {
   font-size: 1.125rem;
   opacity: 0.9;
   margin-bottom: 2rem;
   line-height: 1.7;
 }
 
-.calculator-features {
-  list-style: none;
+.qualification-list {
   margin-bottom: 2rem;
 }
 
-.calculator-features li {
+.qual-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   font-weight: 500;
 }
 
-.calculator-features li::before {
-  content: '✓';
-  width: 1.5rem;
-  height: 1.5rem;
-  background: var(--accent-green);
-  border-radius: 50%;
+.qual-item i {
+  color: var(--accent-green);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.info-box {
+  background: rgba(234, 179, 8, 0.2);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.info-box h4 {
+  color: var(--accent-yellow);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-box p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.calculator-right {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-large);
+}
+
+.calculator-form h3 {
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--neutral-dark);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.calc-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: white;
+  color: var(--neutral-dark);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.calc-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.calc-input::placeholder {
+  color: #94a3b8;
+}
+
+select.calc-input {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em 1.25em;
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+.calc-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: 0.875rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-.calculator-form {
-  background: var(--glass-white);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 2rem;
-  padding: 2.5rem;
+.calc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.calc-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 1rem;
+  text-align: center;
+  border: 2px solid var(--accent-green);
+}
+
+.result-header h4 {
+  color: var(--primary-dark);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.result-amount {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-green);
+  margin-bottom: 1rem;
+}
+
+.result-formula {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.result-formula p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--neutral-dark);
+}
+
+.result-note p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--neutral-gray);
+  margin-bottom: 1rem;
+}
+
+.signup-btn {
+  background: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .calculator-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .calculator-left h3 {
+    font-size: 1.5rem;
+  }
+  
+  .calculator-right {
+    padding: 1.5rem;
+  }
+  
+  .result-amount {
+    font-size: 2rem;
+  }
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-label {
@@ -591,44 +787,81 @@ header.scrolled {
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: white;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
 .form-input,
 .form-select {
   width: 100%;
-  padding: 1rem 1.5rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
+  padding: 0.875rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1E293B !important;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   transition: all 0.3s ease;
+  font-weight: 500;
+  display: block !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(30, 41, 59, 0.6) !important;
+}
+
+.form-select {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-select option {
+  background: #ffffff !important;
+  color: #1E293B !important;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  border: none;
+  font-size: 1rem;
+}
+
+.form-select option:hover,
+.form-select option:focus {
+  background: #f1f5f9 !important;
+  color: #1E293B !important;
+}
+
+.form-select option:checked {
+  background: #1E3A8A !important;
+  color: white !important;
 }
 
 .form-input:focus,
 .form-select:focus {
   outline: none;
   border-color: var(--accent-yellow);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 1) !important;
   box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
+  color: #1E293B !important;
 }
 
 .result-display {
   background: rgba(234, 179, 8, 0.2);
   border: 2px solid var(--accent-yellow);
-  border-radius: 1.5rem;
-  padding: 2rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: none;
 }
 
 .result-amount {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 900;
   color: var(--accent-yellow);
   margin: 1rem 0;
@@ -637,14 +870,14 @@ header.scrolled {
 /* Process Steps */
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .process-step {
   background: white;
-  border-radius: 2rem;
-  padding: 2.5rem;
+  border-radius: 1.5rem;
+  padding: 2rem;
   text-align: center;
   box-shadow: var(--shadow-light);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -658,8 +891,8 @@ header.scrolled {
 }
 
 .step-number {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
   border-radius: 50%;
   display: flex;
@@ -667,13 +900,13 @@ header.scrolled {
   justify-content: center;
   color: white;
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0 auto 1.5rem;
   box-shadow: var(--shadow-medium);
 }
 
 .step-title {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 1rem;
@@ -682,12 +915,13 @@ header.scrolled {
 .step-description {
   color: var(--neutral-gray);
   line-height: 1.6;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
 /* Industries Grid */
 .industry-card {
   background: white;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: var(--shadow-light);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -701,7 +935,7 @@ header.scrolled {
 
 .industry-image {
   width: 100%;
-  height: 12rem;
+  height: 10rem;
   object-fit: cover;
   transition: all 0.5s ease;
 }
@@ -711,62 +945,50 @@ header.scrolled {
 }
 
 .industry-content {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .industry-title {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
   color: var(--primary-dark);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .industry-description {
   color: var(--neutral-gray);
   line-height: 1.6;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
 /* Call to Action */
 .cta-section {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
   color: white;
-  padding: 6rem 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("{% static 'images/2.jpg' %}");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
-  z-index: 1;
-}
-
 .cta-content {
   position: relative;
   z-index: 2;
-  max-width: 4xl;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .cta-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: 900;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .cta-description {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   opacity: 0.9;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
@@ -774,7 +996,7 @@ header.scrolled {
 
 .cta-actions {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -782,16 +1004,17 @@ header.scrolled {
 .btn-phone {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
   background: var(--glass-white);
   backdrop-filter: blur(20px);
   border: 2px solid var(--glass-border);
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   color: white;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .btn-phone:hover {
@@ -799,11 +1022,11 @@ header.scrolled {
   transform: translateY(-3px);
 }
 
-/* Modern Footer */
+/* Enhanced Footer */
 .footer {
   background: var(--primary-dark);
   color: white;
-  padding: 4rem 0 2rem;
+  padding: 3rem 0 1.5rem;
   position: relative;
 }
 
@@ -819,20 +1042,22 @@ header.scrolled {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
 .footer-logo {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -840,20 +1065,20 @@ header.scrolled {
 }
 
 .footer-logo img {
-  width: 4rem;
-  height: 4rem;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
 .footer-brand-text {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -861,9 +1086,10 @@ header.scrolled {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
 .footer-links a:hover {
@@ -873,13 +1099,13 @@ header.scrolled {
 
 .footer-social {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 1rem;
 }
 
 .social-link {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   display: flex;
@@ -896,16 +1122,17 @@ header.scrolled {
 }
 
 .footer-bottom {
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
 }
 
 .footer-bottom a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
 }
 
 .footer-bottom a:hover {
@@ -918,93 +1145,7 @@ header.scrolled {
   50% { transform: translateY(-10px); }
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Enhanced Mobile Responsive */
-@media (max-width: 1200px) {
-  .calculator-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 3rem 2rem;
-  }
-  
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
-  }
-  
-  .footer-logo {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  
-  .footer-logo img {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  
-  .footer-brand-text {
-    font-size: 1.125rem;
-  }
-  
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  header {
-    left: 0.75rem;
-    right: 0.75rem;
-    padding: 0.875rem 1.5rem;
-  }
-  
-  .logo-circle {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  
-  .logo-circle img {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  
-  .brand-text {
-    font-size: 1.25rem;
-  }
-}
-
+/* Mobile-First Responsive Design */
 @media (max-width: 768px) {
   .mobile-toggle {
     display: flex;
@@ -1012,25 +1153,26 @@ header.scrolled {
   
   .nav-menu {
     position: fixed;
-    top: 4.5rem;
-    left: 1rem;
-    right: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
-    border-radius: 1.5rem;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    transform: translateY(-20px);
+    transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-large);
     z-index: 1001;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   
   .nav-menu.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
@@ -1038,113 +1180,79 @@ header.scrolled {
   .nav-menu a {
     width: 100%;
     text-align: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem 2rem;
     margin-bottom: 0.5rem;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-  }
-  
-  .hamburger-menu.active div:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-  
-  .hero {
-    min-height: 100vh;
-    padding: 4.5rem 0 4rem;
-  }
-  
-  .hero-badge {
-    font-size: 0.8rem;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(1.125rem, 4vw, 1.5rem);
-    margin-bottom: 1rem;
-  }
-  
-  .hero-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    max-width: 300px;
   }
   
   .hero-actions {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 3rem;
   }
   
   .hero-actions .btn {
     width: 100%;
-    max-width: 20rem;
+    max-width: 280px;
     padding: 1rem 2rem;
-    font-size: 1rem;
   }
   
   .hero-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-  }
-  
-  .stat-card {
-    padding: 1.5rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
   }
   
   .floating-stats {
-    margin-top: -2rem;
+    margin-top: -3rem;
   }
   
   .stats-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 1.5rem;
-    border-radius: 1.5rem;
-  }
-  
-  .stats-item {
     padding: 1rem;
   }
   
-  .stats-number {
-    font-size: 1.75rem;
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
-  .card-grid,
   .process-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  .feature-card,
-  .process-step,
-  .industry-card {
-    padding: 2rem;
-  }
-  
   .calculator-content {
-    padding: 2rem 1.5rem;
+    grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 2rem 1rem;
   }
   
   .calculator-form {
-    padding: 2rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
   }
   
   .form-input,
   .form-select {
-    padding: 0.875rem 1.25rem;
-    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-select {
+    padding-right: 2rem;
+    background-size: 1.25em 1.25em;
   }
   
   .cta-actions {
@@ -1156,146 +1264,21 @@ header.scrolled {
   .cta-actions .btn,
   .btn-phone {
     width: 100%;
-    max-width: 20rem;
-  }
-  
-  .hero-content {
-    padding: 2rem 1rem;
-  }
-  
-  .header-content {
-    gap: 1rem;
-  }
-  
-  .logo-section {
-    gap: 0.75rem;
-  }
-  
-  .section {
-    padding: 4rem 0;
-  }
-  
-  .section-header {
-    margin-bottom: 3rem;
-  }
-  
-  .section-title {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
-  }
-  
-  .section-subtitle {
-    font-size: 1.125rem;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  
-  .stat-card {
-    padding: 1rem;
-  }
-  
-  .stat-number {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .stat-label {
-    font-size: 0.75rem;
-  }
-  
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .stats-item {
-    padding: 0.75rem;
-  }
-  
-  .stats-number {
-    font-size: 1.5rem;
-  }
-  
-  .stats-label {
-    font-size: 0.75rem;
-  }
-  
-  .feature-icon,
-  .step-number {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.25rem;
-  }
-  
-  .feature-title,
-  .step-title,
-  .industry-title {
-    font-size: 1.125rem;
-  }
-  
-  .calculator-section {
-    border-radius: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .calculator-content {
-    padding: 2rem 1rem;
-  }
-  
-  .calculator-form {
-    padding: 1.5rem;
-  }
-  
-  .result-amount {
-    font-size: 2.5rem;
+    max-width: 280px;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
   .hero {
-    padding: 5rem 0 3rem;
+    padding-top: 4rem;
   }
   
   .hero-content {
-    padding: 1rem 0.75rem;
-  }
-  
-  .hero-badge {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-title {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
-    line-height: 1.1;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(1rem, 3.5vw, 1.25rem);
-  }
-  
-  .hero-description {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero-actions {
-    margin-bottom: 2rem;
-  }
-  
-  .hero-actions .btn {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 1.5rem 0.75rem;
   }
   
   .hero-stats {
@@ -1307,16 +1290,8 @@ header.scrolled {
     padding: 1rem;
   }
   
-  .stat-number {
-    font-size: 1.5rem;
-  }
-  
-  .stat-label {
-    font-size: 0.75rem;
-  }
-  
   .floating-stats {
-    margin-top: -3rem;
+    margin-top: -2rem;
     padding: 0 0.75rem;
   }
   
@@ -1324,15 +1299,6 @@ header.scrolled {
     grid-template-columns: 1fr;
     gap: 0.75rem;
     padding: 1rem;
-    border-radius: 1.25rem;
-  }
-  
-  .stats-item {
-    padding: 0.75rem;
-  }
-  
-  .stats-number {
-    font-size: 1.5rem;
   }
   
   .feature-card,
@@ -1341,216 +1307,66 @@ header.scrolled {
   }
   
   .industry-content {
-    padding: 1.5rem;
-  }
-  
-  .feature-icon,
-  .step-number {
-    width: 2.75rem;
-    height: 2.75rem;
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
-  }
-  
-  .feature-title,
-  .step-title,
-  .industry-title {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .feature-description,
-  .step-description,
-  .industry-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    padding: 1.25rem;
   }
   
   .calculator-content {
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
+    padding: 1.25rem;
   }
   
   .calculator-form {
     padding: 1.5rem;
   }
   
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-  
-  .form-input,
-  .form-select {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .result-amount {
-    font-size: 2rem;
-  }
-  
-  .cta-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
-  
-  .cta-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .btn-phone {
-    font-size: 0.9rem;
-    padding: 0.875rem 1.5rem;
-  }
-  
-  header {
-    padding: 0.675rem 0.875rem;
-  }
-  
-  header {
-    padding: 0.6rem 1.25rem;
-  }
-  
-  .logo-circle {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-  
-  .logo-circle img {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-  
-  .brand-text {
-    font-size: 1rem;
-  }
-  
-  .brand-text {
-    font-size: 0.9rem;
-  }
-  
-  .nav-menu {
-    top: 4rem;
-    left: 0.5rem;
-    right: 0.5rem;
-    padding: 1.5rem;
-  }
-  
-  .nav-menu a {
-    padding: 0.875rem 1rem;
-    font-size: 0.9rem;
-  }
-  
   .section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
   
   .section-header {
     margin-bottom: 2rem;
   }
-  
-  .section-title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: 0.75rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
-  }
-  
-  .container {
-    padding: 0 0.75rem;
+}
+
+@media (min-width: 769px) {
+  .calculator-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem;
   }
   
   .footer-content {
-    gap: 1.5rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    text-align: left;
   }
   
   .footer-brand {
-    gap: 0.75rem;
+    justify-content: flex-start;
   }
   
-  .footer-logo {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .footer-logo img {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  
-  .footer-brand-text {
-    font-size: 1rem;
-  }
-  
-  .footer-links {
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .footer-links a {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .footer-bottom {
-    font-size: 0.8rem;
+  .footer-social {
+    justify-content: flex-end;
   }
 }
 
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.95rem;
-  }
-  
-  .hero-actions .btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.85rem;
+@media (min-width: 1024px) {
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
   }
   
   .stats-container {
-    padding: 0.75rem;
+    grid-template-columns: repeat(4, 1fr);
   }
   
-  .feature-card,
-  .process-step {
-    padding: 1.25rem;
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   
-  .calculator-form {
-    padding: 1.25rem;
-  }
-  
-  .form-input,
-  .form-select {
-    padding: 0.675rem 0.875rem;
-    font-size: 0.85rem;
-  }
-  
-  header {
-    padding: 0.675rem 0.875rem;
-  }
-  
-  .brand-text {
-    font-size: 0.8rem;
-  }
-  
-  .container {
-    padding: 0 0.5rem;
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Accessibility */
+/* Accessibility and Performance */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1718,35 +1534,57 @@ header.scrolled {
     <!-- Enhanced Calculator Section -->
     <section id="calculator" class="section">
         <div class="container">
-            <div class="calculator-section">
-                <div class="calculator-content">
-                    <div class="calculator-info">
-                        <h3>Estimate Your Refund</h3>
-                        <p>Many businesses don't realize they're eligible for significant fuel tax refunds. Our calculator gives you a quick estimate of what you might be missing out on. <strong>Sign up after calculating to upload your documents and start the process!</strong></p>
+            <div class="section-header">
+                <h2 class="section-title">Calculate Your Potential Refund</h2>
+                <p class="section-subtitle">Get an instant estimate of your fuel tax refund using our simple calculator</p>
+            </div>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-container">
+                    <div class="calculator-left">
+                        <h3>Why You Qualify</h3>
+                        <p>Many businesses don't realize they're eligible for significant fuel tax refunds. Our calculator gives you a quick estimate based on your yearly fuel usage.</p>
                         
-                        <ul class="calculator-features">
-                            <li>Businesses using fuel off highway</li>
-                            <li>Marine vessels and fishing operations</li>
-                            <li>Construction equipment operated off-highway</li>
-                            <li>Operations using auxiliary equipment</li>
-                            <li>Agricultural operations</li>
-                            <li>Manufacturing facilities</li>
-                        </ul>
+                        <div class="qualification-list">
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Businesses using fuel off highway</span>
+                            </div>
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Marine vessels and fishing operations</span>
+                            </div>
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Construction equipment operated off-highway</span>
+                            </div>
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Operations using auxiliary equipment</span>
+                            </div>
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Agricultural operations</span>
+                            </div>
+                            <div class="qual-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Manufacturing facilities</span>
+                            </div>
+                        </div>
                         
-                        <div style="background: rgba(234, 179, 8, 0.2); padding: 2rem; border-radius: 1.5rem; border: 1px solid rgba(234, 179, 8, 0.3);">
-                            <h4 style="color: var(--accent-yellow); margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
-                                <i class="fas fa-lightbulb"></i>
-                                Ready to Start?
-                            </h4>
-                            <p style="margin-bottom: 0; font-weight: 500;">The average qualifying business can reclaim between $3,000 and $25,000 annually. <strong>Create your account now and upload your fuel receipts to begin your refund process!</strong></p>
+                        <div class="info-box">
+                            <h4><i class="fas fa-lightbulb"></i> Ready to Start?</h4>
+                            <p>The average qualifying business can reclaim between <strong>$3,000 and $25,000 annually</strong>. Create your account now and upload your fuel receipts to begin your refund process!</p>
                         </div>
                     </div>
                     
-                    <div class="calculator-form">
-                        <form id="tax-calculator">
-                            <div class="form-group">
-                                <label for="industry" class="form-label">Industry</label>
-                                <select id="industry" name="industry" class="form-select">
+                    <div class="calculator-right">
+                        <div class="calculator-form">
+                            <h3>Refund Calculator</h3>
+                            
+                            <div class="input-group">
+                                <label for="calc-industry">Industry</label>
+                                <select id="calc-industry" class="calc-input">
                                     <option value="transport">Transport & Logistics</option>
                                     <option value="agriculture">Agriculture</option>
                                     <option value="construction">Construction</option>
@@ -1755,9 +1593,9 @@ header.scrolled {
                                 </select>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="fuel-type" class="form-label">Fuel Type</label>
-                                <select id="fuel-type" name="fuel-type" class="form-select">
+                            <div class="input-group">
+                                <label for="calc-fuel-type">Fuel Type</label>
+                                <select id="calc-fuel-type" class="calc-input">
                                     <option value="undyed-diesel">Undyed Diesel</option>
                                     <option value="undyed-biodiesel">Undyed Biodiesel</option>
                                     <option value="dyed-biodiesel">Dyed Biodiesel</option>
@@ -1766,14 +1604,14 @@ header.scrolled {
                                 </select>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="yearly-gallons" class="form-label">Yearly Gallons</label>
-                                <input type="number" id="yearly-gallons" name="yearly-gallons" placeholder="E.g. 12000" class="form-input">
+                            <div class="input-group">
+                                <label for="calc-gallons">Yearly Gallons</label>
+                                <input type="number" id="calc-gallons" class="calc-input" placeholder="e.g. 12000" min="1">
                             </div>
                             
-                            <div class="form-group">
-                                <label for="fuel-usage-type" class="form-label">Fuel Usage Type</label>
-                                <select id="fuel-usage-type" name="fuel-usage-type" class="form-select">
+                            <div class="input-group">
+                                <label for="calc-usage">Fuel Usage Type</label>
+                                <select id="calc-usage" class="calc-input">
                                     <option value="off-highway">Fuel Used off highway</option>
                                     <option value="vessels">Fuel Used in Vessels</option>
                                     <option value="construction">Fuel used in Construction equipment exempt from Registration operated off-highway</option>
@@ -1781,20 +1619,24 @@ header.scrolled {
                                 </select>
                             </div>
                             
-                            <button type="button" class="btn btn-primary" id="calculate-btn" style="width: 100%;">
+                            <button id="calc-button" class="calc-btn">
                                 <i class="fas fa-calculator"></i>
-                                Calculate Potential Refund
+                                Calculate My Refund
                             </button>
-                        </form>
-                        
-                        <div class="result-display">
-                            <h4>Your Estimated Annual Refund</h4>
-                            <div class="result-amount">$0</div>
-                            <p>This is just an estimate. <strong>Sign up now to upload your documents and get your exact refund amount processed by our experts!</strong></p>
-                            <a href="{% url 'signup' %}" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
-                                <i class="fas fa-upload"></i>
-                                Sign Up & Upload Documents
-                            </a>
+                            
+                            <div id="calc-result" class="result-section" style="display: none;">
+                                <div class="result-header">
+                                    <h4>Your Estimated Annual Refund</h4>
+                                </div>
+                                <div class="result-amount" id="result-value">$0</div>
+                                <div class="result-note">
+                                    <p>This is an estimate based on average rates. <strong>Sign up to get your exact refund amount!</strong></p>
+                                </div>
+                                <a href="{% url 'signup' %}" class="signup-btn">
+                                    <i class="fas fa-upload"></i>
+                                    Sign Up & Upload Documents
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1818,10 +1660,10 @@ header.scrolled {
                     <h3 class="feature-title">Fuel Excise Tax Refunds</h3>
                     <p class="feature-description">Recover taxes paid on fuel used for off-road equipment, refrigeration units, and other non-highway applications.</p>
                     <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Off-road equipment</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Refrigeration units</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Power generation</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Agricultural machinery</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Off-road equipment</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Refrigeration units</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Power generation</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Agricultural machinery</li>
                     </ul>
                 </div>
                 
@@ -1832,10 +1674,10 @@ header.scrolled {
                     <h3 class="feature-title">National Fuel Tax Recovery</h3>
                     <p class="feature-description">Reclaim fuel taxes on business expenses incurred while operating within national borders.</p>
                     <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Fuel purchases</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Transportation services</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Business travel expenses</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Fleet operations</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Fuel purchases</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Transportation services</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Business travel expenses</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Fleet operations</li>
                     </ul>
                 </div>
                 
@@ -1846,10 +1688,10 @@ header.scrolled {
                     <h3 class="feature-title">IFTA Compliance & Filing</h3>
                     <p class="feature-description">Comprehensive management of International Fuel Tax Agreement obligations for interstate carriers.</p>
                     <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Quarterly filing</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Mileage tracking</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Tax rate monitoring</li>
-                        <li style="padding: 0.25rem 0; color: var(--neutral-gray);">• Audit preparation</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Quarterly filing</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Mileage tracking</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Tax rate monitoring</li>
+                        <li style="padding: 0.25rem 0; color: var(--neutral-gray); font-size: clamp(0.875rem, 2.5vw, 1rem);">• Audit preparation</li>
                     </ul>
                 </div>
             </div>
@@ -1963,7 +1805,7 @@ header.scrolled {
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
+                    <a href="{% url 'contact' %}">Contact</a>
                     <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
                     <a href="{% url 'terms_of_service' %}">Terms of Service</a>
                     <a href="{% url 'login' %}">Log In</a>
@@ -1984,7 +1826,7 @@ header.scrolled {
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; {% now "Y" %} Fuel Refund Institute | <a href="{% url 'privacy_policy' %}">Privacy</a> | <a href="{% url 'terms_of_service' %}">Terms</a> | <a href="tel:+14242225290">(424) 222-5290</a></p>
+                <p>&copy; 2025 Fuel Refund Institute | <a href="#privacy">Privacy</a> | <a href="#terms">Terms</a> | <a href="tel:+14242225290">(424) 222-5290</a></p>
             </div>
         </div>
     </footer>
@@ -1992,54 +1834,175 @@ header.scrolled {
     <!-- JavaScript -->
     <script>
         // Enhanced Calculator
-        const calculateBtn = document.getElementById('calculate-btn');
-        const resultDisplay = document.querySelector('.result-display');
-        const resultAmount = document.querySelector('.result-amount');
-        
-        if (calculateBtn) {
-            calculateBtn.addEventListener('click', function() {
-                // Loading state
-                const originalText = calculateBtn.innerHTML;
-                calculateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating...';
-                calculateBtn.disabled = true;
-                
-                setTimeout(() => {
-                    const yearlyGallons = parseFloat(document.getElementById('yearly-gallons').value) || 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing calculator...');
+            
+            const calcButton = document.getElementById('calc-button');
+            const calcResult = document.getElementById('calc-result');
+            const resultValue = document.getElementById('result-value');
+            
+            // Add warning message element
+            const warningMessage = document.createElement('div');
+            warningMessage.className = 'warning-message';
+            warningMessage.style.display = 'none';
+            warningMessage.style.color = '#ef4444';
+            warningMessage.style.fontSize = '0.875rem';
+            warningMessage.style.marginTop = '0.5rem';
+            warningMessage.style.textAlign = 'center';
+            document.querySelector('.calculator-form').appendChild(warningMessage);
+            
+            if (calcButton) {
+                console.log('Adding click event listener to calculator button');
+                calcButton.addEventListener('click', function() {
+                    console.log('Calculator button clicked');
                     
-                    if (yearlyGallons === 0) {
-                        alert('Please enter your yearly gallons');
-                        calculateBtn.innerHTML = originalText;
-                        calculateBtn.disabled = false;
-                        return;
+                    // Loading state
+                    const originalText = calcButton.innerHTML;
+                    calcButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating...';
+                    calcButton.disabled = true;
+                    
+                    setTimeout(() => {
+                        const yearlyGallons = parseFloat(document.getElementById('calc-gallons').value) || 0;
+                        const industry = document.getElementById('calc-industry').value;
+                        const fuelType = document.getElementById('calc-fuel-type').value;
+                        const usageType = document.getElementById('calc-usage').value;
+                        
+                        console.log('Calculator inputs:', {
+                            gallons: yearlyGallons,
+                            industry: industry,
+                            fuelType: fuelType,
+                            usageType: usageType
+                        });
+                        
+                        if (yearlyGallons === 0) {
+                            warningMessage.textContent = 'Please enter your yearly gallons to calculate your refund';
+                            warningMessage.style.display = 'block';
+                            calcButton.innerHTML = originalText;
+                            calcButton.disabled = false;
+                            return;
+                        }
+                        
+                        // Hide warning if gallons are entered
+                        warningMessage.style.display = 'none';
+                        
+                        // Base formula: Average excise tax(0.679) * Yearly Gallons * 3 * 15%
+                        let exciseTaxRate = 0.679;
+                        let refundPercentage = 0.15;
+                        
+                        // Adjust rates based on fuel type
+                        if (fuelType === 'undyed-diesel') {
+                            exciseTaxRate = 0.679;
+                        } else if (fuelType === 'undyed-biodiesel') {
+                            exciseTaxRate = 0.679;
+                        } else if (fuelType === 'dyed-biodiesel') {
+                            exciseTaxRate = 0.679;
+                        } else if (fuelType === 'dyed-diesel') {
+                            exciseTaxRate = 0.679;
+                        } else if (fuelType === 'gasoline') {
+                            exciseTaxRate = 0.184;
+                        }
+                        
+                        // Adjust percentage based on industry
+                        if (industry === 'agriculture') {
+                            refundPercentage = 0.20;
+                        } else if (industry === 'construction') {
+                            refundPercentage = 0.18;
+                        } else if (industry === 'manufacturing') {
+                            refundPercentage = 0.17;
+                        }
+                        
+                        const refund = yearlyGallons * exciseTaxRate * 3 * refundPercentage;
+                        
+                        console.log('Calculation:', {
+                            exciseTaxRate: exciseTaxRate,
+                            refundPercentage: refundPercentage,
+                            refund: refund
+                        });
+                        
+                        // Show result with animation
+                        resultValue.textContent = '$0';
+                        calcResult.style.display = 'block';
+                        calcResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        // Animate counter
+                        let currentAmount = 0;
+                        const targetAmount = Math.round(refund);
+                        const increment = targetAmount / 50;
+                        
+                        const countAnimation = setInterval(() => {
+                            currentAmount += increment;
+                            if (currentAmount >= targetAmount) {
+                                currentAmount = targetAmount;
+                                clearInterval(countAnimation);
+                            }
+                            resultValue.textContent = '$' + Math.round(currentAmount).toLocaleString();
+                        }, 30);
+                        
+                        calcButton.innerHTML = originalText;
+                        calcButton.disabled = false;
+                    }, 1500);
+                });
+            } else {
+                console.error('Calculator button not found!');
+            }
+        });
+
+        // Fix the stats animation code
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stats-number, .stat-number');
+            
+            statNumbers.forEach(statEl => {
+                if (statEl.dataset.animated) return;
+                
+                const targetValue = statEl.textContent;
+                const isPercentage = targetValue.includes('%');
+                const isRating = targetValue.includes('/');
+                const isMoney = targetValue.includes('$');
+                const hasPlus = targetValue.includes('+');
+                
+                let numValue;
+                let prefix = '';
+                let suffix = '';
+                
+                if (isPercentage) {
+                    numValue = parseFloat(targetValue.replace('%', ''));
+                    suffix = '%';
+                } else if (isRating) {
+                    const parts = targetValue.split('/');
+                    numValue = parseFloat(parts[0]);
+                    suffix = '/' + parts[1];
+                } else if (isMoney) {
+                    numValue = parseFloat(targetValue.replace('$', '').replace('K+', '').replace(',', ''));
+                    prefix = '$';
+                    suffix = targetValue.includes('K+') ? 'K+' : '';
+                } else {
+                    numValue = parseFloat(targetValue.replace('+', '').replace(',', ''));
+                    suffix = hasPlus ? '+' : '';
+                }
+                
+                let startValue = 0;
+                const duration = 2000;
+                const increment = (numValue / duration) * 20;
+                
+                statEl.textContent = prefix + startValue + suffix;
+                
+                const counter = setInterval(function() {
+                    startValue += increment;
+                    
+                    if (startValue >= numValue) {
+                        startValue = numValue;
+                        clearInterval(counter);
+                        statEl.dataset.animated = 'true';
                     }
                     
-                    // Formula: Average excise tax(0.679) * Yearly Gallons * 3 * 15%
-                    const exciseTaxRate = 0.679;
-                    const refundPercentage = 0.15;
-                    const refund = yearlyGallons * exciseTaxRate * 3 * refundPercentage;
-                    
-                    // Show result with animation
-                    resultAmount.textContent = '$0';
-                    resultDisplay.style.display = 'block';
-                    resultDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    
-                    // Animate counter
-                    let currentAmount = 0;
-                    const targetAmount = Math.round(refund);
-                    const increment = targetAmount / 50;
-                    
-                    const countAnimation = setInterval(() => {
-                        currentAmount += increment;
-                        if (currentAmount >= targetAmount) {
-                            currentAmount = targetAmount;
-                            clearInterval(countAnimation);
-                        }
-                        resultAmount.textContent = ' + Math.round(currentAmount).toLocaleString();
-                    }, 30);
-                    
-                    calculateBtn.innerHTML = originalText;
-                    calculateBtn.disabled = false;
-                }, 1500);
+                    if (isMoney && !targetValue.includes('M')) {
+                        statEl.textContent = prefix + Math.floor(startValue).toLocaleString() + suffix;
+                    } else if (isRating) {
+                        statEl.textContent = Math.floor(startValue * 10) / 10 + suffix;
+                    } else {
+                        statEl.textContent = prefix + Math.floor(startValue) + suffix;
+                    }
+                }, 20);
             });
         }
         
@@ -2061,6 +2024,15 @@ header.scrolled {
                     mobileToggle.classList.remove('active');
                     document.body.style.overflow = '';
                 });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         }
         
@@ -2094,65 +2066,6 @@ header.scrolled {
             }
         });
         
-        // Stats animation
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stats-number, .stat-number');
-            
-            statNumbers.forEach(statEl => {
-                if (statEl.dataset.animated) return;
-                
-                const targetValue = statEl.textContent;
-                const isPercentage = targetValue.includes('%');
-                const isRating = targetValue.includes('/');
-                const isMoney = targetValue.includes(');
-                const hasPlus = targetValue.includes('+');
-                
-                let numValue;
-                let prefix = '';
-                let suffix = '';
-                
-                if (isPercentage) {
-                    numValue = parseFloat(targetValue.replace('%', ''));
-                    suffix = '%';
-                } else if (isRating) {
-                    const parts = targetValue.split('/');
-                    numValue = parseFloat(parts[0]);
-                    suffix = '/' + parts[1];
-                } else if (isMoney) {
-                    numValue = parseFloat(targetValue.replace(', '').replace('K+', '').replace(',', ''));
-                    prefix = ';
-                    suffix = targetValue.includes('K+') ? 'K+' : '';
-                } else {
-                    numValue = parseFloat(targetValue.replace('+', '').replace(',', ''));
-                    suffix = hasPlus ? '+' : '';
-                }
-                
-                let startValue = 0;
-                const duration = 2000;
-                const increment = (numValue / duration) * 20;
-                
-                statEl.textContent = prefix + startValue + suffix;
-                
-                const counter = setInterval(function() {
-                    startValue += increment;
-                    
-                    if (startValue >= numValue) {
-                        startValue = numValue;
-                        clearInterval(counter);
-                        statEl.dataset.animated = 'true';
-                    }
-                    
-                    if (isMoney && !targetValue.includes('M')) {
-                        statEl.textContent = prefix + Math.floor(startValue).toLocaleString() + suffix;
-                    } else if (isRating) {
-                        statEl.textContent = Math.floor(startValue * 10) / 10 + suffix;
-                    } else {
-                        statEl.textContent = prefix + Math.floor(startValue) + suffix;
-                    }
-                }, 20);
-            });
-        }
-        
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.3,
@@ -2171,7 +2084,71 @@ header.scrolled {
             });
         }, observerOptions);
         
-        // Initialize animations
+        // Touch and gesture support for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        }, false);
+        
+        function handleGesture() {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Only handle horizontal swipes that are longer than vertical
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                if (deltaX > 0 && navMenu.classList.contains('active')) {
+                    // Swipe right - close menu if open
+                    navMenu.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        }
+        
+        // Lazy loading for images
+        const images = document.querySelectorAll('img[src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+        
+        // Optimize performance for mobile
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Recalculate layouts if needed
+                if (window.innerWidth <= 768) {
+                    // Mobile specific adjustments
+                    const hero = document.querySelector('.hero');
+                    if (hero) {
+                        hero.style.minHeight = window.innerHeight + 'px';
+                    }
+                }
+            }, 250);
+        });
+        
+        // Initialize animations and observers
         document.addEventListener('DOMContentLoaded', function() {
             // Observe stats section
             const statsSection = document.querySelector('.floating-stats');
@@ -2187,7 +2164,124 @@ header.scrolled {
                 section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(section);
             });
+            
+            // Initial mobile height adjustment
+            if (window.innerWidth <= 768) {
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.minHeight = window.innerHeight + 'px';
+                }
+            }
+            
+            // Add loading class removal for smooth transitions
+            document.body.classList.add('loaded');
         });
+        
+        // Prevent zoom on input focus for iOS
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+                });
+                
+                input.addEventListener('blur', function() {
+                    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0');
+                });
+            });
+        }
+        
+        // Enhanced form validation
+        const form = document.getElementById('tax-calculator');
+        if (form) {
+            const inputs = form.querySelectorAll('input, select');
+            
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('error')) {
+                        validateField(this);
+                    }
+                });
+            });
+            
+            function validateField(field) {
+                const value = field.value.trim();
+                const isRequired = field.hasAttribute('required');
+                
+                field.classList.remove('error');
+                
+                if (isRequired && !value) {
+                    field.classList.add('error');
+                    return false;
+                }
+                
+                if (field.type === 'number' && value && (isNaN(value) || parseFloat(value) < 0)) {
+                    field.classList.add('error');
+                    return false;
+                }
+                
+                return true;
+            }
+        }
     </script>
+    
+    <style>
+        /* Additional mobile optimizations */
+        body.loaded {
+            transition: opacity 0.3s ease;
+        }
+        
+        img {
+            transition: opacity 0.3s ease;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        .form-input.error,
+        .form-select.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+        }
+        
+        /* iOS specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                min-height: -webkit-fill-available;
+            }
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (max-width: 768px) {
+            .btn,
+            .nav-menu a,
+            .social-link,
+            .footer-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .mobile-toggle {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo-circle img,
+            .footer-logo img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+    </style>
 </body>
 </html>

@@ -180,9 +180,8 @@
         .main-content {
           min-height: 100vh;
           padding-top: 6rem;
-          background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+          background: linear-gradient(135deg, var(--neutral-light) 0%, #e2e8f0 100%);
           position: relative;
-          overflow: hidden;
         }
 
         .main-content::before {
@@ -192,7 +191,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2364748B" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
           z-index: 1;
         }
 
@@ -205,7 +204,7 @@
         .page-header {
           text-align: center;
           margin-bottom: 4rem;
-          color: white;
+          color: var(--neutral-dark);
         }
 
         .page-header h1 {
@@ -213,31 +212,27 @@
           font-weight: 900;
           line-height: 1.1;
           margin-bottom: 1rem;
-          background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: var(--primary-dark);
           letter-spacing: -0.02em;
         }
 
         .page-header p {
           font-size: 1.25rem;
-          color: rgba(255, 255, 255, 0.8);
+          color: var(--neutral-gray);
           font-weight: 500;
         }
 
         /* Download Section */
         .download-section {
-          background: var(--glass-white);
-          backdrop-filter: blur(20px);
-          border: 1px solid var(--glass-border);
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
           border-radius: 2rem;
           padding: 2.5rem;
           margin-bottom: 3rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          box-shadow: var(--shadow-large);
+          box-shadow: var(--shadow-light);
           animation: fadeInUp 0.8s ease;
         }
 
@@ -254,18 +249,18 @@
 
         .download-content {
           flex: 1;
-          color: white;
+          color: var(--neutral-dark);
         }
 
         .download-section h3 {
           font-size: 1.5rem;
           font-weight: 700;
           margin-bottom: 0.75rem;
-          color: white;
+          color: var(--neutral-dark);
         }
 
         .download-section p {
-          color: rgba(255, 255, 255, 0.8);
+          color: var(--neutral-dark);
           font-size: 1.125rem;
           margin: 0;
         }
@@ -274,7 +269,7 @@
           display: inline-flex;
           align-items: center;
           gap: 0.75rem;
-          background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+          background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
           color: white;
           padding: 1rem 2rem;
           border-radius: 1rem;
@@ -291,18 +286,17 @@
 
         /* Terms Content */
         .terms-container {
-          background: var(--glass-white);
-          backdrop-filter: blur(20px);
-          border: 1px solid var(--glass-border);
+          background: white;
+          border: 1px solid #e2e8f0;
           border-radius: 2rem;
           padding: 3rem;
-          box-shadow: var(--shadow-large);
+          box-shadow: var(--shadow-light);
           margin-bottom: 3rem;
           animation: fadeInUp 0.8s ease 0.2s both;
         }
 
         .terms-content {
-          color: white;
+          color: var(--neutral-dark);
         }
 
         .terms-content h2 {
@@ -310,8 +304,8 @@
           font-weight: 700;
           margin: 2.5rem 0 1.25rem 0;
           padding-bottom: 0.75rem;
-          border-bottom: 2px solid var(--accent-yellow);
-          color: white;
+          border-bottom: 2px solid var(--primary-blue);
+          color: var(--primary-dark);
         }
 
         .terms-content h2:first-of-type {
@@ -319,7 +313,7 @@
         }
 
         .terms-content p {
-          color: rgba(255, 255, 255, 0.9);
+          color: var(--neutral-dark);
           margin-bottom: 1.25rem;
           line-height: 1.7;
           font-size: 1.05rem;
@@ -331,32 +325,31 @@
         }
 
         .terms-content li {
-          color: rgba(255, 255, 255, 0.9);
+          color: var(--neutral-dark);
           margin-bottom: 0.75rem;
           line-height: 1.6;
           font-size: 1rem;
         }
 
         .terms-content strong {
-          color: var(--accent-yellow);
+          color: var(--primary-blue);
           font-weight: 700;
         }
 
         /* Contact Box */
         .contact-box {
-          background: var(--glass-white);
-          backdrop-filter: blur(20px);
-          border: 1px solid var(--glass-border);
+          background: white;
+          border: 1px solid #e2e8f0;
           border-radius: 2rem;
           padding: 2.5rem;
           text-align: center;
-          box-shadow: var(--shadow-large);
+          box-shadow: var(--shadow-light);
           margin-bottom: 3rem;
           animation: fadeInUp 0.8s ease 0.4s both;
         }
 
         .contact-box h3 {
-          color: white;
+          color: var(--primary-dark);
           font-size: 1.5rem;
           font-weight: 700;
           margin-bottom: 1.5rem;
@@ -372,18 +365,18 @@
         .contact-info p {
           margin: 0;
           font-size: 1rem;
-          color: rgba(255, 255, 255, 0.9);
+          color: var(--neutral-dark);
         }
 
         .contact-info a {
-          color: var(--accent-yellow);
+          color: var(--primary-blue);
           text-decoration: none;
           font-weight: 600;
           transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
-          color: white;
+          color: var(--accent-orange);
           text-decoration: underline;
         }
 
@@ -398,20 +391,20 @@
           display: inline-flex;
           align-items: center;
           gap: 0.75rem;
-          background: var(--glass-white);
-          backdrop-filter: blur(20px);
-          border: 2px solid var(--glass-border);
+          background: var(--primary-blue);
           color: white;
           text-decoration: none;
           font-weight: 600;
           padding: 1rem 2rem;
           border-radius: 1rem;
           transition: all 0.3s ease;
+          box-shadow: var(--shadow-medium);
         }
 
         .back-link a:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: var(--primary-dark);
           transform: translateY(-3px);
+          box-shadow: var(--shadow-large);
         }
 
         /* Mobile responsive */
