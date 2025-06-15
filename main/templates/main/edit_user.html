@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User - {{ user_to_edit.username }}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-gray: #ecf0f1;
+            --medium-gray: #bdc3c7;
+            --dark-gray: #7f8c8d;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            color: #212529;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            color: var(--white) !important;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .company-logo {
+            width: 32px;
+            height: 32px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--white);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--white) !important;
+        }
+
+        .page-header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--dark-gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .main-content {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px 6px 0 0;
+            text-align: center;
+        }
+
+        .content-header h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .user-avatar-large {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0 auto 1rem;
+        }
+
+        .content-body {
+            padding: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.1rem;
+        }
+
+        .form-section .row {
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .required-field::after {
+            content: " *";
+            color: var(--danger-color);
+        }
+
+        .form-control, .form-select {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            background-color: #f8f9fa;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            background-color: var(--white);
+        }
+
+        .form-control::placeholder {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+        }
+
+        .actions-section {
+            background-color: #f8f9fa;
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .btn-action {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            min-width: 140px;
+            cursor: pointer;
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            color: var(--white);
+        }
+
+        .btn-success:hover {
+            background-color: #229954;
+            border-color: #229954;
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+            color: var(--white);
+        }
+
+        .alert {
+            border-radius: 4px;
+            border: 1px solid transparent;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--dark-gray);
+        }
+
+        .user-info-display {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-info-item {
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-info-label {
+            color: var(--dark-gray);
+            font-weight: 500;
+            width: 120px;
+            display: inline-block;
+        }
+
+        .user-info-value {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .content-body {
+                padding: 1rem;
+            }
+            
+            .btn-action {
+                display: block;
+                margin: 0.5rem 0;
+                width: 100%;
+            }
+            
+            .user-avatar-large {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'admin_dashboard' %}">
+                <div class="company-logo">
+                    <i class="fas fa-fire"></i>
+                </div>
+                Fuel Refund Management System
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{% url 'admin_dashboard' %}">
+                    <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                </a>
+                <a class="nav-link" href="{% url 'logout' %}">
+                    <i class="fas fa-sign-out-alt me-1"></i>Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'admin_dashboard' %}">Administration</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+                </ol>
+            </nav>
+            <h1 class="page-title">User Profile Management</h1>
+            <p class="page-subtitle">Update user information and account details</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>{{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Edit Form -->
+        <div class="main-content">
+            <div class="content-header">
+                <div class="user-avatar-large">
+                    {{ user_to_edit.username|first|upper }}
+                </div>
+                <h3>Edit User: {{ user_to_edit.username }}</h3>
+                <div class="user-info-display">
+                    <div class="user-info-item">
+                        <span class="user-info-label">Account Status:</span>
+                        <span class="user-info-value">
+                            {% if user_to_edit.is_active %}Active{% else %}Inactive{% endif %}
+                            {% if user_to_edit.is_superuser %} • Administrator{% endif %}
+                        </span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">Member Since:</span>
+                        <span class="user-info-value">{{ user_to_edit.date_joined|date:"F d, Y" }}</span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">Last Login:</span>
+                        <span class="user-info-value">
+                            {% if user_to_edit.last_login %}{{ user_to_edit.last_login|date:"F d, Y \a\t g:i A" }}{% else %}Never{% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-body">
+                <form method="post" action="{% url 'edit_user' user_to_edit.username %}">
+                    {% csrf_token %}
+                    
+                    <!-- Personal Information Section -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-user me-2"></i>Personal Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label required-field">First Name</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="name" 
+                                           value="{{ user_to_edit.name|default:'' }}"
+                                           placeholder="Enter first name"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Middle Names</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="middle_names" 
+                                           value="{{ user_to_edit.middle_names|default:'' }}"
+                                           placeholder="Enter middle names (optional)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label required-field">Last Name</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="surname" 
+                                           value="{{ user_to_edit.surname|default:'' }}"
+                                           placeholder="Enter last name"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Social Security Number</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="ssn" 
+                                           value="{{ user_to_edit.ssn|default:'' }}"
+                                           placeholder="Enter SSN"
+                                           maxlength="11">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-envelope me-2"></i>Contact Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label required-field">Email Address</label>
+                                    <input type="email" 
+                                           class="form-control" 
+                                           name="email" 
+                                           value="{{ user_to_edit.email|default:'' }}"
+                                           placeholder="Enter email address"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" 
+                                           class="form-control" 
+                                           name="phone_number" 
+                                           value="{{ user_to_edit.phone_number|default:'' }}"
+                                           placeholder="Enter phone number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Information Section -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-building me-2"></i>Business Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Business Name</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="business_name" 
+                                           value="{{ user_to_edit.business_name|default:'' }}"
+                                           placeholder="Enter business name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Business Type</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="business_type" 
+                                           value="{{ user_to_edit.business_type|default:'' }}"
+                                           placeholder="e.g., LLC, Corporation, Partnership">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Tax Identification Number</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="tax_id" 
+                                           value="{{ user_to_edit.tax_id|default:'' }}"
+                                           placeholder="Enter tax identification number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Information Section -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-map-marker-alt me-2"></i>Address Information</h5>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="form-label">Business Address</label>
+                                    <textarea class="form-control" 
+                                              name="business_address" 
+                                              rows="3"
+                                              placeholder="Enter complete business address">{{ user_to_edit.business_address|default:'' }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="city" 
+                                           value="{{ user_to_edit.city|default:'' }}"
+                                           placeholder="Enter city">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">State/Province</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="state" 
+                                           value="{{ user_to_edit.state|default:'' }}"
+                                           placeholder="Enter state or province">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">ZIP/Postal Code</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="zip_code" 
+                                           value="{{ user_to_edit.zip_code|default:'' }}"
+                                           placeholder="Enter ZIP or postal code">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions-section">
+                <button type="submit" 
+                        form="editForm"
+                        class="btn-action btn-success">
+                    <i class="fas fa-save me-2"></i>Save Changes
+                </button>
+                <a href="{% url 'admin_dashboard' %}" 
+                   class="btn-action btn-primary">
+                    <i class="fas fa-times me-2"></i>Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add form ID to the form element
+        document.querySelector('form').id = 'editForm';
+
+        // Auto-hide success messages after 5 seconds
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                const bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+
+        // Form validation feedback
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const requiredFields = document.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(function(field) {
+                if (!field.value.trim()) {
+                    field.style.borderColor = 'var(--danger-color)';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = 'var(--border-color)';
+                }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please complete all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>

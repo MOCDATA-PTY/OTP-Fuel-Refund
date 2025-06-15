@@ -1,0 +1,1067 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Fuel Refund Institute</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <style>
+        :root {
+          --primary-dark: #0B1426;
+          --primary-blue: #1E3A8A;
+          --accent-orange: #F97316;
+          --neutral-light: #F8FAFC;
+          --neutral-gray: #64748B;
+          --neutral-dark: #1E293B;
+          --border-light: #E2E8F0;
+          --border-medium: #CBD5E1;
+          --text-muted: #94A3B8;
+          --bg-gray: #F1F5F9;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          color: var(--neutral-dark);
+          line-height: 1.5;
+          background: var(--bg-gray);
+          min-height: 100vh;
+        }
+
+        .container-fluid {
+          max-width: 1600px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .admin-header {
+          background: white;
+          border-bottom: 2px solid var(--border-light);
+          padding: 1rem 0;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .system-info {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .system-logo {
+          width: 4rem;
+          height: 4rem;
+          background: white;
+          border: 2px solid var(--border-light);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--primary-blue);
+          font-size: 1.5rem;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .system-title {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .system-title h1 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+          line-height: 1.2;
+        }
+
+        .system-title .subtitle {
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .admin-nav {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-item {
+          color: var(--neutral-gray);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
+          border-radius: 0.375rem;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-item:hover {
+          background: var(--neutral-light);
+          color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+          background: var(--primary-blue);
+          color: white;
+        }
+
+        /* Dashboard Layout */
+        .dashboard-content {
+          padding: 2rem 0;
+        }
+
+        .dashboard-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--border-light);
+        }
+
+        .dashboard-title h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+        }
+
+        .dashboard-subtitle {
+          font-size: 0.875rem;
+          color: var(--text-muted);
+          margin-top: 0.25rem;
+        }
+
+        /* Tab Navigation */
+        .analytics-tabs {
+          background: white;
+          border: 1px solid var(--border-light);
+          border-radius: 0.75rem;
+          padding: 0.5rem;
+          margin-bottom: 2rem;
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .tab-button {
+          background: transparent;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: var(--neutral-gray);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex: 1;
+          justify-content: center;
+        }
+
+        .tab-button:hover {
+          background: var(--neutral-light);
+          color: var(--primary-blue);
+        }
+
+        .tab-button.active {
+          background: var(--primary-blue);
+          color: white;
+          box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+        }
+
+        /* Report Container */
+        .report-container {
+          background: white;
+          border: 1px solid var(--border-light);
+          border-radius: 0.75rem;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .report-header {
+          background: linear-gradient(135deg, var(--neutral-light), white);
+          border-bottom: 1px solid var(--border-light);
+          padding: 1.5rem 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .report-title {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .report-title h3 {
+          font-size: 1.125rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+        }
+
+        .report-badge {
+          background: var(--primary-blue);
+          color: white;
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.375rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .report-badge.looker {
+          background: var(--accent-orange);
+        }
+
+        .report-content {
+          padding: 0;
+          min-height: 700px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .report-frame {
+          width: 100%;
+          height: 700px;
+          border: none;
+          background: var(--neutral-light);
+        }
+
+        .tab-content {
+          display: none;
+        }
+
+        .tab-content.active {
+          display: block;
+        }
+
+        .placeholder-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: var(--text-muted);
+          padding: 3rem;
+        }
+
+        .placeholder-content i {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+          opacity: 0.3;
+        }
+
+        .placeholder-content h5 {
+          margin-bottom: 0.5rem;
+          color: var(--neutral-dark);
+          font-size: 1.25rem;
+        }
+
+        .placeholder-content p {
+          max-width: 500px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        /* Embed Instructions */
+        .embed-instructions {
+          background: var(--neutral-light);
+          border: 1px solid var(--border-light);
+          border-radius: 0.5rem;
+          padding: 1.5rem;
+          margin-top: 1.5rem;
+        }
+
+        .embed-instructions h6 {
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .embed-instructions code {
+          background: white;
+          border: 1px solid var(--border-medium);
+          border-radius: 0.25rem;
+          padding: 0.125rem 0.375rem;
+          font-size: 0.75rem;
+          color: var(--primary-blue);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .container-fluid {
+            padding: 0 1rem;
+          }
+
+          .dashboard-content {
+            padding: 1rem 0;
+          }
+
+          .dashboard-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+          }
+
+          .analytics-tabs {
+            flex-direction: column;
+          }
+
+          .tab-button {
+            justify-content: flex-start;
+          }
+
+          .admin-nav {
+            display: none;
+          }
+
+          .system-title h1 {
+            font-size: 1rem;
+          }
+
+          .report-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+          }
+
+          .report-content {
+            min-height: 500px;
+          }
+
+          .report-frame {
+            height: 500px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container-fluid">
+            <div class="header-content">
+                <div class="system-info">
+                    <div class="system-logo">
+                        <img src="/static/images/logo.png" alt="FRI Logo" style="width: 1.5rem; height: 1.5rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-fire" style="display: none;"></i>
+                    </div>
+                    <div class="system-title">
+                        <h1>Fuel Refund Institute</h1>
+                        <span class="subtitle">Analytics Dashboard</span>
+                    </div>
+                </div>
+                
+                <nav class="admin-nav">
+                    <a href="{% url 'admin_dashboard' %}" class="nav-item">
+                        <i class="fas fa-tachometer-alt"></i>Control Panel
+                    </a>
+                    <a href="{% url 'analytics_dashboard' %}" class="nav-item active">
+                        <i class="fas fa-chart-line"></i>Analytics
+                    </a>
+                    <a href="{% url 'dashboard' %}" class="nav-item">
+                        <i class="fas fa-user"></i>User View
+                    </a>
+                    <a href="{% url 'logout' %}" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+        <div class="container-fluid">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h2>Analytics & Reporting</h2>
+                    <p class="dashboard-subtitle">Comprehensive insights and data visualization for fuel refund management</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="analytics-tabs">
+                <button class="tab-button active" onclick="switchTab('powerbi')">
+                    <i class="fas fa-chart-bar"></i>
+                    Power BI Dashboard
+                </button>
+                <button class="tab-button" onclick="switchTab('looker')">
+                    <i class="fas fa-chart-pie"></i>
+                    Looker Studio Report
+                </button>
+            </div>
+
+            <!-- Power BI Tab Content -->
+            <div id="powerbi-tab" class="tab-content active">
+                <div class="report-container">
+                    <div class="report-header">
+                        <div class="report-title">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Power BI Analytics Dashboard</h3>
+                            <span class="report-badge">Power BI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content">
+                        <!-- Replace this placeholder with your actual Power BI embed code -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-chart-bar"></i>
+                            <h5>Power BI Report Ready</h5>
+                            <p>Paste your Power BI embed code below to replace this placeholder.</p>
+                            
+                            <div class="embed-instructions">
+                                <h6><i class="fas fa-code"></i>Embed Instructions:</h6>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.75rem;">Replace the placeholder div above with your Power BI iframe embed code:</p>
+                                <code>&lt;iframe src="YOUR_POWER_BI_EMBED_URL" class="report-frame"&gt;&lt;/iframe&gt;</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Uncomment and replace with your actual Power BI embed code:
+                        <iframe 
+                            class="report-frame"
+                            src="YOUR_POWER_BI_EMBED_URL_HERE"
+                            title="Power BI Analytics Dashboard"
+                            allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Looker Studio Tab Content -->
+            <div id="looker-tab" class="tab-content">
+                <div class="report-container">
+                    <div class="report-header">
+                        <div class="report-title">
+                            <i class="fas fa-chart-pie"></i>
+                            <h3>Looker Studio Report</h3>
+                            <span class="report-badge looker">Looker Studio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content">
+                        <!-- Replace this placeholder with your actual Looker Studio embed code -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-chart-pie"></i>
+                            <h5>Looker Studio Report Ready</h5>
+                            <p>Paste your Looker Studio embed code below to replace this placeholder.</p>
+                            
+                            <div class="embed-instructions">
+                                <h6><i class="fas fa-code"></i>Embed Instructions:</h6>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.75rem;">Replace the placeholder div above with your Looker Studio iframe embed code:</p>
+                                <code>&lt;iframe src="YOUR_LOOKER_STUDIO_EMBED_URL" class="report-frame"&gt;&lt;/iframe&gt;</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Uncomment and replace with your actual Looker Studio embed code:
+                        <iframe 
+                            class="report-frame"
+                            src="YOUR_LOOKER_STUDIO_EMBED_URL_HERE"
+                            title="Looker Studio Report"
+                            allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Admin Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="{% url 'admin_dashboard' %}" class="nav-item" style="display: inline-flex; padding: 0.75rem 1.5rem; background: var(--primary-blue); color: white; border-radius: 0.5rem; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i>Back to Control Panel
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Fuel Refund Institute</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <style>
+        :root {
+          --primary-dark: #0B1426;
+          --primary-blue: #1E3A8A;
+          --accent-orange: #F97316;
+          --neutral-light: #F8FAFC;
+          --neutral-gray: #64748B;
+          --neutral-dark: #1E293B;
+          --border-light: #E2E8F0;
+          --border-medium: #CBD5E1;
+          --text-muted: #94A3B8;
+          --bg-gray: #F1F5F9;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          color: var(--neutral-dark);
+          line-height: 1.5;
+          background: var(--bg-gray);
+          min-height: 100vh;
+        }
+
+        .container-fluid {
+          max-width: 1600px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .admin-header {
+          background: white;
+          border-bottom: 2px solid var(--border-light);
+          padding: 1rem 0;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .system-info {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .system-logo {
+          width: 4rem;
+          height: 4rem;
+          background: white;
+          border: 2px solid var(--border-light);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--primary-blue);
+          font-size: 1.5rem;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .system-title {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .system-title h1 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+          line-height: 1.2;
+        }
+
+        .system-title .subtitle {
+          font-size: 0.75rem;
+          color: var(--text-muted);
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .admin-nav {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-item {
+          color: var(--neutral-gray);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
+          border-radius: 0.375rem;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-item:hover {
+          background: var(--neutral-light);
+          color: var(--primary-blue);
+        }
+
+        .nav-item.active {
+          background: var(--primary-blue);
+          color: white;
+        }
+
+        /* Dashboard Layout */
+        .dashboard-content {
+          padding: 2rem 0;
+        }
+
+        .dashboard-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--border-light);
+        }
+
+        .dashboard-title h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+        }
+
+        .dashboard-subtitle {
+          font-size: 0.875rem;
+          color: var(--text-muted);
+          margin-top: 0.25rem;
+        }
+
+        /* Tab Navigation */
+        .analytics-tabs {
+          background: white;
+          border: 1px solid var(--border-light);
+          border-radius: 0.75rem;
+          padding: 0.5rem;
+          margin-bottom: 2rem;
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .tab-button {
+          background: transparent;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: var(--neutral-gray);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex: 1;
+          justify-content: center;
+        }
+
+        .tab-button:hover {
+          background: var(--neutral-light);
+          color: var(--primary-blue);
+        }
+
+        .tab-button.active {
+          background: var(--primary-blue);
+          color: white;
+          box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+        }
+
+        /* Report Container */
+        .report-container {
+          background: white;
+          border: 1px solid var(--border-light);
+          border-radius: 0.75rem;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .report-header {
+          background: linear-gradient(135deg, var(--neutral-light), white);
+          border-bottom: 1px solid var(--border-light);
+          padding: 1.5rem 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .report-title {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .report-title h3 {
+          font-size: 1.125rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin: 0;
+        }
+
+        .report-badge {
+          background: var(--primary-blue);
+          color: white;
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.375rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .report-badge.looker {
+          background: var(--accent-orange);
+        }
+
+        .report-content {
+          padding: 0;
+          min-height: 700px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .report-frame {
+          width: 100%;
+          height: 700px;
+          border: none;
+          background: var(--neutral-light);
+        }
+
+        .tab-content {
+          display: none;
+        }
+
+        .tab-content.active {
+          display: block;
+        }
+
+        .placeholder-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: var(--text-muted);
+          padding: 3rem;
+        }
+
+        .placeholder-content i {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+          opacity: 0.3;
+        }
+
+        .placeholder-content h5 {
+          margin-bottom: 0.5rem;
+          color: var(--neutral-dark);
+          font-size: 1.25rem;
+        }
+
+        .placeholder-content p {
+          max-width: 500px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        /* Embed Instructions */
+        .embed-instructions {
+          background: var(--neutral-light);
+          border: 1px solid var(--border-light);
+          border-radius: 0.5rem;
+          padding: 1.5rem;
+          margin-top: 1.5rem;
+        }
+
+        .embed-instructions h6 {
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--neutral-dark);
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .embed-instructions code {
+          background: white;
+          border: 1px solid var(--border-medium);
+          border-radius: 0.25rem;
+          padding: 0.125rem 0.375rem;
+          font-size: 0.75rem;
+          color: var(--primary-blue);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .container-fluid {
+            padding: 0 1rem;
+          }
+
+          .dashboard-content {
+            padding: 1rem 0;
+          }
+
+          .dashboard-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+          }
+
+          .analytics-tabs {
+            flex-direction: column;
+          }
+
+          .tab-button {
+            justify-content: flex-start;
+          }
+
+          .admin-nav {
+            display: none;
+          }
+
+          .system-title h1 {
+            font-size: 1rem;
+          }
+
+          .report-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+          }
+
+          .report-content {
+            min-height: 500px;
+          }
+
+          .report-frame {
+            height: 500px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container-fluid">
+            <div class="header-content">
+                <div class="system-info">
+                    <div class="system-logo">
+                        <img src="/static/images/logo.png" alt="FRI Logo" style="width: 1.5rem; height: 1.5rem;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-fire" style="display: none;"></i>
+                    </div>
+                    <div class="system-title">
+                        <h1>Fuel Refund Institute</h1>
+                        <span class="subtitle">Analytics Dashboard</span>
+                    </div>
+                </div>
+                
+                <nav class="admin-nav">
+                    <a href="{% url 'admin_dashboard' %}" class="nav-item">
+                        <i class="fas fa-tachometer-alt"></i>Control Panel
+                    </a>
+                    <a href="{% url 'analytics_dashboard' %}" class="nav-item active">
+                        <i class="fas fa-chart-line"></i>Analytics
+                    </a>
+                    <a href="{% url 'dashboard' %}" class="nav-item">
+                        <i class="fas fa-user"></i>User View
+                    </a>
+                    <a href="{% url 'logout' %}" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+        <div class="container-fluid">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h2>Analytics & Reporting</h2>
+                    <p class="dashboard-subtitle">Comprehensive insights and data visualization for fuel refund management</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="analytics-tabs">
+                <button class="tab-button active" onclick="switchTab('powerbi')">
+                    <i class="fas fa-chart-bar"></i>
+                    Power BI Dashboard
+                </button>
+                <button class="tab-button" onclick="switchTab('looker')">
+                    <i class="fas fa-chart-pie"></i>
+                    Looker Studio Report
+                </button>
+            </div>
+
+            <!-- Power BI Tab Content -->
+            <div id="powerbi-tab" class="tab-content active">
+                <div class="report-container">
+                    <div class="report-header">
+                        <div class="report-title">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Power BI Analytics Dashboard</h3>
+                            <span class="report-badge">Power BI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content">
+                        <!-- Replace this placeholder with your actual Power BI embed code -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-chart-bar"></i>
+                            <h5>Power BI Report Ready</h5>
+                            <p>Paste your Power BI embed code below to replace this placeholder.</p>
+                            
+                            <div class="embed-instructions">
+                                <h6><i class="fas fa-code"></i>Embed Instructions:</h6>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.75rem;">Replace the placeholder div above with your Power BI iframe embed code:</p>
+                                <code>&lt;iframe src="YOUR_POWER_BI_EMBED_URL" class="report-frame"&gt;&lt;/iframe&gt;</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Uncomment and replace with your actual Power BI embed code:
+                        <iframe 
+                            class="report-frame"
+                            src="YOUR_POWER_BI_EMBED_URL_HERE"
+                            title="Power BI Analytics Dashboard"
+                            allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Looker Studio Tab Content -->
+            <div id="looker-tab" class="tab-content">
+                <div class="report-container">
+                    <div class="report-header">
+                        <div class="report-title">
+                            <i class="fas fa-chart-pie"></i>
+                            <h3>Looker Studio Report</h3>
+                            <span class="report-badge looker">Looker Studio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content">
+                        <!-- Replace this placeholder with your actual Looker Studio embed code -->
+                        <div class="placeholder-content">
+                            <i class="fas fa-chart-pie"></i>
+                            <h5>Looker Studio Report Ready</h5>
+                            <p>Paste your Looker Studio embed code below to replace this placeholder.</p>
+                            
+                            <div class="embed-instructions">
+                                <h6><i class="fas fa-code"></i>Embed Instructions:</h6>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.75rem;">Replace the placeholder div above with your Looker Studio iframe embed code:</p>
+                                <code>&lt;iframe src="YOUR_LOOKER_STUDIO_EMBED_URL" class="report-frame"&gt;&lt;/iframe&gt;</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Uncomment and replace with your actual Looker Studio embed code:
+                        <iframe 
+                            class="report-frame"
+                            src="YOUR_LOOKER_STUDIO_EMBED_URL_HERE"
+                            title="Looker Studio Report"
+                            allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Admin Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="{% url 'admin_dashboard' %}" class="nav-item" style="display: inline-flex; padding: 0.75rem 1.5rem; background: var(--primary-blue); color: white; border-radius: 0.5rem; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i>Back to Control Panel
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

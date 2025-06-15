@@ -1,0 +1,1269 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - OTP Fuel Refund</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+    <style>
+        :root {
+            --primary-blue: #2563EB;
+            --primary-dark: #1E3A8A;
+            --accent-orange: #F97316;
+            --accent-yellow: #FBBF24;
+            --neutral-gray: #6B7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F3F4F6;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--accent-orange);
+            margin-right: 0.5rem;
+            width: 1.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafbfc;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .company-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .company-name .fuel {
+            color: #001E77;
+        }
+
+        .company-name .refund {
+            color: #FF3C1F;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .logout-btn {
+            background: #FF3C1F;
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #e53317 !important;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 32px 0;
+        }
+
+        /* Welcome */
+        .welcome {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .welcome h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #6b7280;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            background: #f0f9ff;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .requirements-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #001E77;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .requirement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0f2fe;
+        }
+
+        .requirement-item:last-child {
+            border-bottom: none;
+        }
+
+        .requirement-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .requirement-icon.complete {
+            background: #10b981;
+            color: white;
+        }
+
+        .requirement-icon.incomplete {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 2px solid #d1d5db;
+        }
+
+        .requirement-text {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .requirement-text.complete {
+            color: #10b981;
+        }
+
+        .requirement-count {
+            background: #00B9F2;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Card */
+        .card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        /* Upload */
+        .upload-section {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .upload-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .upload-section p {
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            border-color: #00B9F2;
+        }
+
+        .drop-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 48px 24px;
+            text-align: center;
+            background: #f9fafb;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .drop-zone:hover {
+            border-color: #00B9F2;
+            background: #f0f9ff;
+        }
+
+        .drop-zone i {
+            font-size: 40px;
+            color: #00B9F2;
+            margin-bottom: 16px;
+        }
+
+        .drop-zone h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            background: #00B9F2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0095c5;
+        }
+
+        .btn-submit {
+            background: #FF3C1F;
+            float: right;
+            margin-top: 16px;
+        }
+
+        .btn-submit:hover {
+            background: #e53317;
+        }
+
+        .btn-submit:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        /* Documents Sections */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .document-section {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        .document-section-header {
+            background: #f9fafb;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .document-section-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 16px;
+        }
+
+        .document-count {
+            background: #00B9F2;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .document-section-body {
+            padding: 16px 20px;
+        }
+
+        .document-item {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .document-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .document-info strong {
+            color: #1a1a1a;
+            font-size: 14px;
+            display: block;
+        }
+
+        .document-info small {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .btn-view {
+            background: #f0f9ff;
+            color: #00B9F2;
+        }
+
+        .btn-delete {
+            background: #fef2f2;
+            color: #FF3C1F;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        /* File validation styles */
+        .file-error {
+            color: #dc2626;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .file-success {
+            color: #059669;
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .selected-files {
+            margin-top: 16px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .selected-files h5 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #fff;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .file-size {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .alert-error {
+            background: #fecaca;
+            color: #991b1b;
+            border: 1px solid #f87171;
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 24px 0;
+            margin-top: 48px;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-logo-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="{% static 'images/logo.png' %}" alt="FRI">
+                    </div>
+                    <div class="company-name">
+                        <span class="fuel">FUEL</span> <span class="refund">REFUND INSTITUTE</span>
+                    </div>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Welcome -->
+            <div class="welcome">
+                <h1>Welcome, {{ user.get_full_name|default:user.username }}!</h1>
+                <p>Your OTP Fuel Refund Dashboard</p>
+            </div>
+
+            <!-- Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        <i class="fas {% if message.tags == 'success' %}fa-check-circle{% elif message.tags == 'warning' %}fa-exclamation-triangle{% else %}fa-info-circle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <!-- Requirements -->
+            <div class="requirements-section">
+                <h3>
+                    <i class="fas fa-clipboard-list"></i>
+                    Required Documents
+                </h3>
+                <ul class="requirement-list">
+                    <li class="requirement-item">
+                        <div class="requirement-icon {% if has_fuel_statements %}complete{% else %}incomplete{% endif %}">
+                            {% if has_fuel_statements %}
+                                <i class="fas fa-check"></i>
+                            {% else %}
+                                1
+                            {% endif %}
+                        </div>
+                        <div class="requirement-text {% if has_fuel_statements %}complete{% endif %}">
+                            Fuel Statements (3 Years Back)
+                        </div>
+                        {% if fuel_statements_count > 0 %}
+                            <div class="requirement-count">{{ fuel_statements_count }}</div>
+                        {% endif %}
+                    </li>
+                    <li class="requirement-item">
+                        <div class="requirement-icon {% if has_asset_register %}complete{% else %}incomplete{% endif %}">
+                            {% if has_asset_register %}
+                                <i class="fas fa-check"></i>
+                            {% else %}
+                                2
+                            {% endif %}
+                        </div>
+                        <div class="requirement-text {% if has_asset_register %}complete{% endif %}">
+                            Asset Register for Fuel Equipment
+                        </div>
+                        {% if asset_registers_count > 0 %}
+                            <div class="requirement-count">{{ asset_registers_count }}</div>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- User Info -->
+            <div class="card">
+                <h3>Your Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Name</span>
+                        <span class="info-value">{{ user.get_full_name }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">{{ user.email }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone</span>
+                        <span class="info-value">{{ user.userprofile.phone }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Business</span>
+                        <span class="info-value">{{ user.userprofile.company_name }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-section" id="upload">
+                <h3>Upload Documents</h3>
+                <p>Select document type and upload files: PDF, Word docs, Images, Excel files (max 10MB each)</p>
+                
+                <form method="post" enctype="multipart/form-data" id="uploadForm">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="document_type">Document Type *</label>
+                        <select name="document_type" id="document_type" class="form-select" required>
+                            <option value="">Select document type...</option>
+                            <option value="fuel_statement">Fuel Statements (3 Years Back)</option>
+                            <option value="asset_register">Asset Register for Fuel Equipment</option>
+                            <option value="other">Other Supporting Documents</option>
+                        </select>
+                    </div>
+                    
+                    <div class="drop-zone" id="dropZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Drop files here or click to browse</h4>
+                        <label class="btn">
+                            Choose Files
+                            <input type="file" 
+                                   name="document" 
+                                   multiple 
+                                   style="display: none;" 
+                                   id="fileInput"
+                                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.tiff,.tif,.bmp,.txt,.xls,.xlsx">
+                        </label>
+                        <p style="margin-top: 8px; font-size: 12px; color: #6b7280;">
+                            Allowed: PDF, Word, Images, Text, Excel files
+                        </p>
+                    </div>
+                    
+                    <div id="fileValidationMessage"></div>
+                    <div id="selectedFilesList"></div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (optional)</label>
+                        <input type="text" name="description" id="description" class="form-control" placeholder="Brief description of your documents">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit" id="submitBtn">Upload Documents</button>
+                    <div style="clear: both;"></div>
+                </form>
+            </div>
+
+            <!-- Document Sections -->
+            {% if documents %}
+                <div class="documents-grid">
+                    <!-- Fuel Statements -->
+                    <div class="document-section">
+                        <div class="document-section-header">
+                            <div class="document-section-title">Fuel Statements</div>
+                            <div class="document-count">{{ fuel_statements_count }}</div>
+                        </div>
+                        <div class="document-section-body">
+                            {% if fuel_statements %}
+                                {% for doc in fuel_statements %}
+                                    <div class="document-item">
+                                        <div class="document-info">
+                                            <strong>{{ doc.display_name }}</strong>
+                                            <small>{{ doc.uploaded_at|date:"M d, Y" }}</small>
+                                        </div>
+                                        <div class="document-actions">
+                                            <a href="{% url 'download_document' doc.id %}" class="action-btn btn-view" download>View</a>
+                                            <a href="{% url 'delete_document' doc.id %}" 
+                                               onclick="return confirm('Delete this document?');" 
+                                               class="action-btn btn-delete">Delete</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="empty-state">
+                                    <i class="fas fa-gas-pump" style="font-size: 24px; margin-bottom: 8px; display: block;"></i>
+                                    No fuel statements uploaded yet
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Asset Register -->
+                    <div class="document-section">
+                        <div class="document-section-header">
+                            <div class="document-section-title">Asset Register</div>
+                            <div class="document-count">{{ asset_registers_count }}</div>
+                        </div>
+                        <div class="document-section-body">
+                            {% if asset_registers %}
+                                {% for doc in asset_registers %}
+                                    <div class="document-item">
+                                        <div class="document-info">
+                                            <strong>{{ doc.display_name }}</strong>
+                                            <small>{{ doc.uploaded_at|date:"M d, Y" }}</small>
+                                        </div>
+                                        <div class="document-actions">
+                                            <a href="{% url 'download_document' doc.id %}" class="action-btn btn-view" download>View</a>
+                                            <a href="{% url 'delete_document' doc.id %}" 
+                                               onclick="return confirm('Delete this document?');" 
+                                               class="action-btn btn-delete">Delete</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="empty-state">
+                                    <i class="fas fa-cogs" style="font-size: 24px; margin-bottom: 8px; display: block;"></i>
+                                    No asset register uploaded yet
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Other Documents -->
+                    {% if other_documents %}
+                        <div class="document-section">
+                            <div class="document-section-header">
+                                <div class="document-section-title">Other Documents</div>
+                                <div class="document-count">{{ other_documents_count }}</div>
+                            </div>
+                            <div class="document-section-body">
+                                {% for doc in other_documents %}
+                                    <div class="document-item">
+                                        <div class="document-info">
+                                            <strong>{{ doc.display_name }}</strong>
+                                            <small>{{ doc.uploaded_at|date:"M d, Y" }}</small>
+                                        </div>
+                                        <div class="document-actions">
+                                            <a href="{% url 'download_document' doc.id %}" class="action-btn btn-view" download>View</a>
+                                            <a href="{% url 'delete_document' doc.id %}" 
+                                               onclick="return confirm('Delete this document?');" 
+                                               class="action-btn btn-delete">Delete</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="card">
+                    <div class="empty-state" style="padding: 40px;">
+                        <i class="fas fa-file-upload" style="font-size: 48px; margin-bottom: 16px; color: #d1d5db; display: block;"></i>
+                        <h4 style="margin-bottom: 8px; color: #6b7280;">No documents uploaded yet</h4>
+                        <p style="color: #9ca3af;">Start by uploading your fuel statements and asset register above.</p>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!-- Summary -->
+            {% if documents %}
+                <div class="card">
+                    <h3>Upload Summary</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Total Documents</span>
+                            <span class="info-value">{{ total_documents }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Fuel Statements</span>
+                            <span class="info-value">{{ fuel_statements_count }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Asset Register</span>
+                            <span class="info-value">{{ asset_registers_count }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Other Documents</span>
+                            <span class="info-value">{{ other_documents_count }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-container">
+                    <div class="footer-logo">
+                        <img src="{% static 'images/logo.png' %}" alt="FRI">
+                    </div>
+                    <div><strong>Fuel Refund Institute</strong></div>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="tel:+14242225290">(424) 222-5290</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadForm = document.getElementById('uploadForm');
+            const fileInput = document.getElementById('fileInput');
+            const dropZone = document.getElementById('dropZone');
+            const documentTypeSelect = document.getElementById('document_type');
+            const submitBtn = document.getElementById('submitBtn');
+            const validationMessage = document.getElementById('fileValidationMessage');
+            const selectedFilesList = document.getElementById('selectedFilesList');
+
+            // Allowed file types and maximum size
+            const allowedExtensions = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png', '.gif', '.tiff', '.tif', '.bmp', '.txt', '.xls', '.xlsx'];
+            const maxFileSize = 10 * 1024 * 1024; // 10MB
+
+            // File validation function
+            function validateFiles(files) {
+                const errors = [];
+                const validFiles = [];
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileName = file.name.toLowerCase();
+                    
+                    // Check file size
+                    if (file.size > maxFileSize) {
+                        errors.push(`"${file.name}" is too large (${formatFileSize(file.size)}). Max size is 10MB.`);
+                        continue;
+                    }
+
+                    // Check file extension
+                    const hasValidExtension = allowedExtensions.some(ext => fileName.endsWith(ext));
+                    
+                    if (!hasValidExtension) {
+                        errors.push(`"${file.name}" has an unsupported format. Allowed: ${allowedExtensions.join(', ')}`);
+                        continue;
+                    }
+
+                    validFiles.push(file);
+                }
+
+                return { errors, validFiles };
+            }
+
+            // Show validation message
+            function showValidationMessage(errors, isSuccess = false) {
+                validationMessage.innerHTML = '';
+                
+                if (errors.length > 0) {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = isSuccess ? 'file-success' : 'file-error';
+                    messageDiv.innerHTML = `
+                        <strong>${isSuccess ? 'Success:' : 'Validation Errors:'}</strong><br>
+                        ${errors.join('<br>')}
+                    `;
+                    validationMessage.appendChild(messageDiv);
+                }
+            }
+
+            // Show selected files
+            function showSelectedFiles(files) {
+                selectedFilesList.innerHTML = '';
+                
+                if (files.length > 0) {
+                    const filesDiv = document.createElement('div');
+                    filesDiv.className = 'selected-files';
+                    
+                    const title = document.createElement('h5');
+                    title.textContent = `Selected Files (${files.length}):`;
+                    filesDiv.appendChild(title);
+
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-item';
+                        
+                        fileItem.innerHTML = `
+                            <span class="file-name">${file.name}</span>
+                            <span class="file-size">${formatFileSize(file.size)}</span>
+                        `;
+                        
+                        filesDiv.appendChild(fileItem);
+                    }
+
+                    selectedFilesList.appendChild(filesDiv);
+                }
+            }
+
+            // Format file size
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            // Update drop zone text
+            function updateDropZoneText(fileCount) {
+                const h4 = dropZone.querySelector('h4');
+                if (fileCount === 0) {
+                    h4.textContent = 'Drop files here or click to browse';
+                } else if (fileCount === 1) {
+                    h4.textContent = '1 file selected';
+                } else {
+                    h4.textContent = fileCount + ' files selected';
+                }
+            }
+
+            // File input change handler
+            if (fileInput) {
+                fileInput.onchange = function() {
+                    handleFileSelection(this.files);
+                };
+            }
+
+            // Handle file selection
+            function handleFileSelection(files) {
+                if (files.length === 0) {
+                    updateDropZoneText(0);
+                    showValidationMessage([]);
+                    showSelectedFiles([]);
+                    return;
+                }
+
+                const validation = validateFiles(files);
+                
+                if (validation.errors.length > 0) {
+                    showValidationMessage(validation.errors, false);
+                    fileInput.value = ''; // Clear invalid files
+                    updateDropZoneText(0);
+                    showSelectedFiles([]);
+                } else {
+                    showValidationMessage(['All files are valid!'], true);
+                    updateDropZoneText(validation.validFiles.length);
+                    showSelectedFiles(validation.validFiles);
+                }
+            }
+
+            // Drop zone handlers
+            if (dropZone) {
+                dropZone.onclick = () => fileInput.click();
+                
+                dropZone.ondragover = (e) => {
+                    e.preventDefault();
+                    dropZone.style.borderColor = '#00B9F2';
+                    dropZone.style.background = '#f0f9ff';
+                };
+                
+                dropZone.ondragleave = (e) => {
+                    e.preventDefault();
+                    dropZone.style.borderColor = '#d1d5db';
+                    dropZone.style.background = '#f9fafb';
+                };
+                
+                dropZone.ondrop = (e) => {
+                    e.preventDefault();
+                    dropZone.style.borderColor = '#d1d5db';
+                    dropZone.style.background = '#f9fafb';
+                    
+                    const files = e.dataTransfer.files;
+                    
+                    // Create a new FileList-like object for validation
+                    const fileArray = Array.from(files);
+                    const validation = validateFiles(fileArray);
+                    
+                    if (validation.errors.length > 0) {
+                        showValidationMessage(validation.errors, false);
+                        return;
+                    }
+                    
+                    // If validation passes, set the files to the input
+                    fileInput.files = files;
+                    handleFileSelection(files);
+                };
+            }
+
+            // Form validation and submission
+            if (uploadForm) {
+                uploadForm.onsubmit = function(e) {
+                    const documentType = documentTypeSelect.value;
+                    const files = fileInput.files;
+                    
+                    // Clear previous validation messages
+                    showValidationMessage([]);
+                    
+                    if (!documentType) {
+                        e.preventDefault();
+                        showValidationMessage(['Please select a document type.'], false);
+                        documentTypeSelect.focus();
+                        return false;
+                    }
+                    
+                    if (files.length === 0) {
+                        e.preventDefault();
+                        showValidationMessage(['Please select at least one file to upload.'], false);
+                        fileInput.focus();
+                        return false;
+                    }
+
+                    // Final validation before submit
+                    const validation = validateFiles(Array.from(files));
+                    if (validation.errors.length > 0) {
+                        e.preventDefault();
+                        showValidationMessage(validation.errors, false);
+                        return false;
+                    }
+
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Uploading...';
+                    
+                    // Add a timeout to re-enable the button in case of errors
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Upload Documents';
+                    }, 30000); // 30 seconds timeout
+                };
+            }
+
+            // Force download for Excel and other files to prevent opening in browser
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('a[href$=".xlsx"], a[href$=".xls"], a[href$=".pdf"]')) {
+                    // Ensure download attribute is set
+                    if (!e.target.hasAttribute('download')) {
+                        e.target.setAttribute('download', '');
+                    }
+                }
+            });
+
+            // Clear validation messages when document type changes
+            if (documentTypeSelect) {
+                documentTypeSelect.onchange = function() {
+                    if (this.value) {
+                        // Clear any existing validation errors when a type is selected
+                        const currentMessage = validationMessage.querySelector('.file-error');
+                        if (currentMessage && currentMessage.textContent.includes('document type')) {
+                            showValidationMessage([]);
+                        }
+                    }
+                };
+            }
+
+            // Add visual feedback for successful uploads
+            window.addEventListener('load', function() {
+                // Check if there's a success message indicating a recent upload
+                const successAlert = document.querySelector('.alert-success');
+                if (successAlert && successAlert.textContent.includes('uploaded')) {
+                    // Scroll to the relevant document section
+                    setTimeout(() => {
+                        const documentsGrid = document.querySelector('.documents-grid');
+                        if (documentsGrid) {
+                            documentsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 500);
+                }
+            });
+
+            // Prevent accidental form submission on Enter key in description field
+            const descriptionField = document.getElementById('description');
+            if (descriptionField) {
+                descriptionField.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        // Focus the submit button instead
+                        submitBtn.focus();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

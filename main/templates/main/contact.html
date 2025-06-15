@@ -1,0 +1,1975 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Fuel Refund Institute</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+<style>
+:root {
+  --primary-dark: #0B1426;
+  --primary-blue: #1E3A8A;
+  --accent-orange: #F97316;
+  --accent-yellow: #EAB308;
+  --accent-green: #10B981;
+  --neutral-light: #F8FAFC;
+  --neutral-gray: #64748B;
+  --neutral-dark: #1E293B;
+  --glass-white: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--neutral-dark);
+  line-height: 1.6;
+  background: var(--neutral-light);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Top Navigation Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 0.75rem 2rem;
+  box-shadow: var(--shadow-medium);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-large);
+  padding: 0.5rem 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-circle {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-circle::before {
+  display: none;
+}
+
+.logo-circle img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+
+.brand-text {
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-fuel {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-refund {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: var(--neutral-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.875rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: rgba(30, 58, 138, 0.1);
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.nav-menu .cta-login {
+  background: rgba(30, 58, 138, 0.1);
+  color: var(--primary-blue);
+  border: 2px solid rgba(30, 58, 138, 0.2);
+}
+
+.nav-menu .cta-signup {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  color: white;
+  box-shadow: var(--shadow-medium);
+}
+
+.nav-menu .cta-signup:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-large);
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-toggle span {
+  width: 1.5rem;
+  height: 0.2rem;
+  background: var(--neutral-dark);
+  border-radius: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.contact-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+  overflow: hidden;
+  padding-top: 7rem;
+  min-height: 420px;
+  max-height: 900px;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(11, 20, 38, 0.9) 0%, rgba(30, 58, 138, 0.8) 50%, rgba(249, 115, 22, 0.7) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 1.2rem 0.5rem 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--glass-white);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1.1rem;
+  border-radius: 1.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--accent-yellow);
+  box-shadow: var(--shadow-medium);
+  animation: float 6s ease-in-out infinite;
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-title {
+  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  opacity: 0.95;
+  margin-bottom: 1.2rem;
+  max-width: 98vw;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  color: #f3f4f6;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.1rem;
+  max-width: 950px;
+  margin: 1rem auto 0;
+}
+
+.stat-card {
+  background: var(--glass-white);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  min-width: 100px;
+  flex: 1 1 100px;
+  max-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent-yellow);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Main Content Section */
+.main-content {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Contact Info */
+.contact-info {
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-methods {
+  margin-bottom: 3rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+}
+
+.contact-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-medium);
+  flex-shrink: 0;
+}
+
+.contact-method:nth-child(2) .contact-icon {
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+}
+
+.contact-method:nth-child(3) .contact-icon {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+}
+
+.contact-details h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.contact-details p {
+  color: var(--neutral-gray);
+  margin-bottom: 0.5rem;
+}
+
+.contact-details a {
+  color: var(--primary-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  color: var(--accent-orange);
+}
+
+/* Business Hours */
+.business-hours {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.business-hours h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+.hours-list {
+  list-style: none;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hours-list li:last-child {
+  border-bottom: none;
+}
+
+.day {
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.time {
+  color: var(--neutral-gray);
+  font-weight: 500;
+}
+
+/* Contact Form */
+.contact-form-container {
+  background: white;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-large);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  font-family: inherit;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  color: white;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-large);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.form-message {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: none;
+  text-align: center;
+}
+
+.form-message.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent-green);
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.message-content i {
+  font-size: 1.25rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.faq-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+.faq-list {
+  max-width: 4xl;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+.faq-question {
+  padding: 1.5rem 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(30, 58, 138, 0.05);
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+  color: var(--accent-orange);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer-content {
+  padding: 0 2rem 1.5rem;
+  color: var(--neutral-gray);
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-question {
+  background: rgba(30, 58, 138, 0.05);
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+/* Map Section */
+.map-section {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(30%);
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(11, 20, 38, 0.9) 0%, 
+    rgba(11, 20, 38, 0.7) 50%, 
+    transparent 100%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.map-content {
+  color: white;
+  max-width: 400px;
+  padding: 2rem;
+  margin-left: 4rem;
+  pointer-events: auto;
+}
+
+.map-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.map-address {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-medium);
+}
+
+.map-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-large);
+  color: white;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-dark);
+  color: white;
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.footer-logo img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
+.footer-brand-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--accent-orange);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-bottom a:hover {
+  color: white;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Enhanced Mobile Responsive */
+@media (max-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    gap: 1.25rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .map-overlay {
+    background: rgba(11, 20, 38, 0.8);
+    justify-content: center;
+  }
+  
+  .map-content {
+    margin-left: 0;
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .contact-hero {
+    height: auto;
+    min-height: 350px;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+  }
+  
+  header {
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .logo-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .logo-circle img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .brand-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 4.5rem;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-large);
+    z-index: 1001;
+    gap: 0.5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu a {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .contact-hero {
+    padding-top: 5rem;
+    min-height: 220px;
+  }
+  
+  .hero-content {
+    padding: 1rem 0.25rem 0 0.25rem;
+    min-height: 120px;
+  }
+  
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1rem 1rem;
+    min-width: 100px;
+    max-width: 100%;
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .contact-form-container {
+    padding: 2rem;
+  }
+  
+  .form-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .main-content {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-method {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  
+  .contact-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.375rem;
+  }
+  
+  .contact-details h3 {
+    font-size: 1.125rem;
+  }
+  
+  .business-hours {
+    padding: 1.75rem;
+  }
+  
+  .business-hours h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hours-list li {
+    padding: 0.875rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .faq-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .faq-question {
+    padding: 1.25rem 1.75rem;
+    font-size: 1rem;
+  }
+  
+  .faq-answer-content {
+    padding: 0 1.75rem 1.25rem;
+  }
+  
+  .map-content {
+    padding: 2rem 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .map-title {
+    font-size: 1.75rem;
+  }
+  
+  .map-address {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  header {
+    padding: 0.6rem 1.25rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+
+  .map-section {
+    height: 350px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .contact-method {
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    align-self: center;
+  }
+  
+  .contact-details h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+  
+  .business-hours {
+    padding: 1.5rem;
+  }
+  
+  .business-hours h3 {
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .hours-list li {
+    padding: 0.75rem 0;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .day {
+    font-size: 0.9rem;
+  }
+  
+  .time {
+    font-size: 0.85rem;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .map-section {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero {
+    min-height: 55vh;
+    padding: 5rem 0 2rem;
+  }
+  
+  .hero-content {
+    padding: 1rem 0.75rem;
+  }
+  
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  
+  .stat-card {
+    padding: 0.875rem;
+  }
+  
+  .stat-number {
+    font-size: 1.375rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .main-content {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .contact-method {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.125rem;
+  }
+  
+  .contact-details h3 {
+    font-size: 0.95rem;
+  }
+  
+  .contact-details p,
+  .contact-details a {
+    font-size: 0.85rem;
+  }
+  
+  .business-hours {
+    padding: 1.25rem;
+  }
+  
+  .business-hours h3 {
+    font-size: 1rem;
+  }
+  
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form-container p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .faq-section {
+    padding: 4rem 0;
+  }
+  
+  .faq-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .faq-question {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .faq-answer-content {
+    padding: 0 1.25rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  
+  .map-content {
+    padding: 1.5rem 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .map-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .map-address {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .map-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  header {
+    padding: 0.675rem 1rem;
+  }
+  
+  .logo-circle {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .logo-circle img {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .brand-text {
+    font-size: 1.125rem;
+  }
+  
+  .nav-menu {
+    top: 4rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    padding: 1.5rem;
+  }
+  
+  .nav-menu a {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .footer-content {
+    gap: 1.5rem;
+  }
+  
+  .footer-brand {
+    gap: 0.75rem;
+  }
+  
+  .footer-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .footer-logo img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .footer-brand-text {
+    font-size: 1.125rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+
+  .map-section {
+    height: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.375rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+  
+  .contact-form-container {
+    padding: 1.25rem;
+  }
+  
+  .form-title {
+    font-size: 1.375rem;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.675rem 0.875rem;
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    padding: 0.675rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .faq-question {
+    padding: 0.875rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .faq-answer-content {
+    padding: 0 1rem 0.875rem;
+    font-size: 0.8rem;
+  }
+  
+  header {
+    padding: 0.6rem 0.875rem;
+  }
+  
+  .brand-text {
+    font-size: 0.8rem;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .map-section {
+    height: 200px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .contact-method,
+  .business-hours,
+  .contact-form-container,
+  .faq-item {
+    border: 2px solid var(--neutral-dark);
+  }
+}
+
+/* Add touch device optimizations */
+@media (hover: none) {
+  .contact-method:hover,
+  .stat-card:hover,
+  .nav-menu a:hover,
+  .social-link:hover,
+  .map-btn:hover {
+    transform: none;
+  }
+  
+  .btn:active,
+  .nav-menu a:active,
+  .social-link:active,
+  .map-btn:active {
+    transform: scale(0.98);
+  }
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="{% static 'images/logo.png' %}" alt="FRI Logo">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-fuel">FUEL</span> <span class="brand-refund">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-menu">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'home' %}#about">About</a>
+                <a href="{% url 'home' %}#services">Services</a>
+                <a href="{% url 'contact' %}" class="active">Contact</a>
+                <a href="{% url 'login' %}" class="cta-login">Log In</a>
+                <a href="{% url 'signup' %}" class="cta-signup">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <img src="{% static 'images/2.jpg' %}" alt="Contact Fuel Refund Institute" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-headset"></i>
+                Expert Support Available
+            </div>
+            <h1 class="hero-title">Get In Touch With Our Experts</h1>
+            <p class="hero-description">Ready to start claiming your fuel tax refunds? Our team of specialists is here to help you navigate the process and maximize your returns. <strong>Contact us today to sign up and upload your documents!</strong></p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24hrs</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container content-grid">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 class="section-title">Let's Connect</h2>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Our Experts</h3>
+                            <p>Speak directly with our fuel tax specialists</p>
+                            <a href="tel:+14242225290">(424) 222-5290</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Support</h3>
+                            <p>Get detailed answers to your questions</p>
+                            <a href="mailto:info@fuelrefundinstitute.com">info@fuelrefundinstitute.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Visit Our Office</h3>
+                            <p>12901 Simms Ave<br>Hawthorne, CA 90250<br>United States</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <h3>Business Hours</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">8:00 AM - 6:00 PM PST</span>
+                        </li>
+                        <li>
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 2:00 PM PST</span>
+                        </li>
+                        <li>
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2 class="form-title">Start Your Refund Process</h2>
+                <p style="text-align: center; color: var(--neutral-gray); margin-bottom: 2rem;">Fill out the form below and we'll help you get started with your fuel tax refund claim. <strong>After submitting, you'll be able to sign up and upload your documents!</strong></p>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="f8e73ca8-778a-4430-bc03-49d01436d9c1">
+                    
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name" class="form-label">First Name*</label>
+                            <input type="text" id="first-name" name="first_name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name" class="form-label">Last Name*</label>
+                            <input type="text" id="last-name" name="last_name" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address*</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company Name</label>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="industry" class="form-label">Industry</label>
+                        <select id="industry" name="industry" class="form-select">
+                            <option value="">Select your industry</option>
+                            <option value="transport">Transport & Logistics</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="construction">Construction</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="marine">Marine & Fishing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fuel-usage" class="form-label">Annual Fuel Usage (Gallons)</label>
+                        <input type="number" id="fuel-usage" name="fuel_usage" class="form-input" placeholder="e.g. 25000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">How can we help you?*</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your fuel usage and what you'd like to know about tax refunds..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="submit-btn">
+                        <span class="btn-text">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message & Get Started
+                        </span>
+                        <span class="btn-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Sending...
+                        </span>
+                    </button>
+                </form>
+                
+                <div id="form-message" class="form-message">
+                    <div class="message-content">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully. We'll contact you within 24 hours to help you sign up and upload your documents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know if my business qualifies for fuel tax refunds?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Businesses that use fuel for off-road equipment, refrigeration units, power generation, and other non-highway applications may qualify for fuel tax refunds. Industries like agriculture, construction, manufacturing, and transportation often have significant refund potential. <strong>Sign up on our platform to get a detailed eligibility assessment and upload your fuel receipts for review!</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much does your service cost?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our service operates on a contingency basis—this means there are no upfront fees. We only get paid a percentage of the refunds we recover for you. If we don't secure a refund, you don't pay anything. <strong>Create your account today and upload your documents to get started risk-free!</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to receive a refund?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The timeline varies by state and the complexity of your claim, but most clients receive their refunds within 30-45 days of document submission. We'll provide you with regular updates throughout the process. <strong>Sign up now and upload your fuel receipts to start the clock on your refund!</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What documents do I need to upload?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You'll need fuel receipts, equipment usage logs, and basic business information. Our platform accepts all major file formats including PDFs, images, and spreadsheets. <strong>Join our platform to access our secure document upload portal with step-by-step guidance!</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my information secure when I upload documents?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Absolutely! We use bank-level encryption and security protocols to protect all uploaded documents and personal information. Your data is stored securely and only accessed by our certified tax specialists. <strong>Sign up with confidence knowing your information is completely protected!</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.5589!2d-118.3280153!3d33.9149365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b5dcbc4cf2dd%3A0xd140a8208c07f8ed!2s12901%20Simms%20Ave%2C%20Hawthorne%2C%20CA%2090250!5e0!3m2!1sen!2sus!4v1647999941977!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-overlay">
+            <div class="map-content">
+                <h2 class="map-title">Visit Our Office</h2>
+                <p class="map-address">
+                    12901 Simms Ave<br>
+                    Hawthorne, CA 90250<br>
+                    United States
+                </p>
+                <a href="https://maps.app.goo.gl/J3yLXGmseivHX7Ae7" target="_blank" class="map-btn">
+                    <i class="fas fa-directions"></i>
+                    Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="{% static 'images/logo.png' %}" alt="FRI">
+                    </div>
+                    <div class="footer-brand-text">Fuel Refund Institute</div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'home' %}#about">About</a>
+                    <a href="{% url 'home' %}#services">Services</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                    <a href="{% url 'terms_of_service' %}">Terms of Service</a>
+                    <a href="{% url 'login' %}">Log In</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {% now "Y" %} Fuel Refund Institute | <a href="{% url 'privacy_policy' %}">Privacy</a> | <a href="{% url 'terms_of_service' %}">Terms</a> | <a href="tel:+14242225290">(424) 222-5290</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            const formMessage = document.getElementById('form-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    submitBtn.disabled = true;
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'inline-block';
+                    formMessage.style.display = 'none';
+                    
+                    // Show success message after form submission
+                    setTimeout(() => {
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        contactForm.reset();
+                        
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline-block';
+                        btnLoading.style.display = 'none';
+                        
+                        setTimeout(() => {
+                            formMessage.style.display = 'none';
+                        }, 8000);
+                    }, 1000);
+                });
+            }
+            
+            // Mobile Navigation
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileToggle.classList.toggle('active');
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Close menu when clicking links
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Fuel Refund Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/static/images/logo.png" type="image/png">
+    <style>
+        :root {
+          --primary-dark: #0B1426;
+          --primary-blue: #1E3A8A;
+          --accent-orange: #F97316;
+          --accent-yellow: #EAB308;
+          --accent-green: #10B981;
+          --neutral-light: #F8FAFC;
+          --neutral-gray: #64748B;
+          --neutral-dark: #1E293B;
+          --glass-white: rgba(255, 255, 255, 0.1);
+          --glass-border: rgba(255, 255, 255, 0.2);
+          --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          color: var(--neutral-dark);
+          line-height: 1.6;
+          background: var(--neutral-light);
+          overflow-x: hidden;
+          min-height: 100vh;
+        }
+
+        .container {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+
+        /* Header matching main page */
+        header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          z-index: 1000;
+          padding: 0.75rem 2rem;
+          box-shadow: var(--shadow-medium);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+          background: rgba(255, 255, 255, 0.98);
+          box-shadow: var(--shadow-large);
+          padding: 0.5rem 2rem;
+        }
+
+        .header-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+
+        .logo-section {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .logo-circle {
+          width: 4rem;
+          height: 4rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .logo-circle img {
+          width: 4rem;
+          height: 4rem;
+          object-fit: contain;
+          z-index: 1;
+          position: relative;
+        }
+
+        .brand-text {
+          font-weight: 800;
+          font-size: 1.375rem;
+          letter-spacing: -0.02em;
+        }
+
+        .brand-fuel {
+          background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .brand-refund {
+          background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .nav-menu {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .nav-menu a {
+          color: var(--neutral-dark);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.85rem;
+          padding: 0.6rem 1.25rem;
+          border-radius: 0.875rem;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .nav-menu a:hover {
+          background: rgba(30, 58, 138, 0.1);
+          color: var(--primary-blue);
+          transform: translateY(-2px);
+        }
+
+        .nav-menu .cta-login {
+          background: rgba(30, 58, 138, 0.1);
+          color: var(--primary-blue);
+          border: 2px solid rgba(30, 58, 138, 0.2);
+        }
+
+        .nav-menu .cta-signup {
+          background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+          color: white;
+          box-shadow: var(--shadow-medium);
+        }
+
+        .nav-menu .cta-signup:hover {
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-large);
+        }
+
+        .mobile-toggle {
+          display: none;
+          flex-direction: column;
+          gap: 0.3rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+          width: 1.5rem;
+          height: 0.2rem;
+          background: var(--neutral-dark);
+          border-radius: 0.1rem;
+          transition: all 0.3s ease;
+        }
+
+        /* Main Content */
+        .main-content {
+          min-height: 100vh;
+          padding-top: 6rem;
+          background: linear-gradient(135deg, var(--neutral-light) 0%, #e2e8f0 100%);
+          position: relative;
+        }
+
+        .main-content::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2364748B" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+          z-index: 1;
+        }
+
+        .content-container {
+          position: relative;
+          z-index: 2;
+          padding: 4rem 0;
+        }
+
+        .page-header {
+          text-align: center;
+          margin-bottom: 4rem;
+          color: var(--neutral-dark);
+        }
+
+        .page-header h1 {
+          font-size: clamp(2.5rem, 6vw, 4rem);
+          font-weight: 900;
+          line-height: 1.1;
+          margin-bottom: 1rem;
+          color: var(--primary-dark);
+          letter-spacing: -0.02em;
+        }
+
+        .page-header p {
+          font-size: 1.25rem;
+          color: var(--neutral-gray);
+          font-weight: 500;
+        }
+
+        /* Download Section */
+        .download-section {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 2rem;
+          padding: 2.5rem;
+          margin-bottom: 3rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: var(--shadow-light);
+          animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .download-content {
+          flex: 1;
+          color: var(--neutral-dark);
+        }
+
+        .download-section h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          color: var(--neutral-dark);
+        }
+
+        .download-section p {
+          color: var(--neutral-dark);
+          font-size: 1.125rem;
+          margin: 0;
+        }
+
+        .download-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 1rem;
+          text-decoration: none;
+          font-weight: 700;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: var(--shadow-medium);
+        }
+
+        .download-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-large);
+        }
+
+        /* Terms Content */
+        .terms-container {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 2rem;
+          padding: 3rem;
+          box-shadow: var(--shadow-light);
+          margin-bottom: 3rem;
+          animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .terms-content {
+          color: var(--neutral-dark);
+        }
+
+        .terms-content h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin: 2.5rem 0 1.25rem 0;
+          padding-bottom: 0.75rem;
+          border-bottom: 2px solid var(--primary-blue);
+          color: var(--primary-dark);
+        }
+
+        .terms-content h2:first-of-type {
+          margin-top: 0;
+        }
+
+        .terms-content p {
+          color: var(--neutral-dark);
+          margin-bottom: 1.25rem;
+          line-height: 1.7;
+          font-size: 1.05rem;
+        }
+
+        .terms-content ul {
+          margin: 1.5rem 0;
+          padding-left: 1.5rem;
+        }
+
+        .terms-content li {
+          color: var(--neutral-dark);
+          margin-bottom: 0.75rem;
+          line-height: 1.6;
+          font-size: 1rem;
+        }
+
+        .terms-content strong {
+          color: var(--primary-blue);
+          font-weight: 700;
+        }
+
+        /* Contact Box */
+        .contact-box {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 2rem;
+          padding: 2.5rem;
+          text-align: center;
+          box-shadow: var(--shadow-light);
+          margin-bottom: 3rem;
+          animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .contact-box h3 {
+          color: var(--primary-dark);
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+          display: grid;
+          gap: 1rem;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .contact-info p {
+          margin: 0;
+          font-size: 1rem;
+          color: var(--neutral-dark);
+        }
+
+        .contact-info a {
+          color: var(--primary-blue);
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+          color: var(--accent-orange);
+          text-decoration: underline;
+        }
+
+        /* Back Link */
+        .back-link {
+          text-align: center;
+          padding-top: 2rem;
+          animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .back-link a {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          background: var(--primary-blue);
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+          padding: 1rem 2rem;
+          border-radius: 1rem;
+          transition: all 0.3s ease;
+          box-shadow: var(--shadow-medium);
+        }
+
+        .back-link a:hover {
+          background: var(--primary-dark);
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-large);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 1024px) {
+          .logo-circle {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+          
+          .logo-circle img {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+          
+          .brand-text {
+            font-size: 1.25rem;
+          }
+          
+          header {
+            padding: 0.625rem 1.5rem;
+          }
+
+          .download-section {
+            flex-direction: column;
+            text-align: center;
+            gap: 1.5rem;
+          }
+
+          .terms-container {
+            padding: 2rem;
+          }
+
+          .contact-box {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .mobile-toggle {
+            display: flex;
+          }
+          
+          .nav-menu {
+            position: fixed;
+            top: 4.5rem;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            flex-direction: column;
+            padding: 2rem;
+            transform: translateY(-20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-large);
+            z-index: 1001;
+            gap: 0.5rem;
+          }
+          
+          .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+          }
+          
+          .nav-menu a {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+          }
+
+          .container {
+            padding: 0 1rem;
+          }
+
+          .content-container {
+            padding: 2rem 0;
+          }
+
+          .page-header {
+            margin-bottom: 2rem;
+          }
+
+          .download-section {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+          }
+
+          .terms-container {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+          }
+
+          .contact-box {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+          }
+
+          .terms-content h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+          }
+
+          .terms-content p {
+            font-size: 1rem;
+          }
+
+          .terms-content li {
+            font-size: 0.95rem;
+          }
+
+          .logo-circle {
+            width: 3rem;
+            height: 3rem;
+          }
+          
+          .logo-circle img {
+            width: 3rem;
+            height: 3rem;
+          }
+          
+          .brand-text {
+            font-size: 1.125rem;
+          }
+          
+          header {
+            padding: 0.5rem 1rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 0.75rem;
+          }
+
+          .content-container {
+            padding: 1.5rem 0;
+          }
+
+          .download-section,
+          .terms-container,
+          .contact-box {
+            padding: 1rem;
+            border-radius: 1.5rem;
+          }
+
+          .page-header h1 {
+            font-size: clamp(2rem, 8vw, 2.5rem);
+          }
+
+          .page-header p {
+            font-size: 1rem;
+          }
+
+          .download-section h3 {
+            font-size: 1.25rem;
+          }
+
+          .download-section p {
+            font-size: 1rem;
+          }
+
+          .terms-content h2 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem 0;
+          }
+
+          .terms-content p,
+          .terms-content li {
+            font-size: 0.9rem;
+          }
+
+          .logo-circle {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+          
+          .logo-circle img {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+          
+          .brand-text {
+            font-size: 1rem;
+          }
+          
+          header {
+            padding: 0.375rem 0.75rem;
+          }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="/static/images/logo.png" alt="FRI Logo">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-fuel">FUEL</span> <span class="brand-refund">REFUND INSTITUTE</span>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-menu">
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/#services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/login" class="cta-login">Log In</a>
+                <a href="/signup" class="cta-signup">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="content-container">
+                <div class="page-header">
+                    <h1>Terms of Service</h1>
+                    <p>Effective Date: June 10, 2025</p>
+                </div>
+
+                <div class="download-section">
+                    <div class="download-content">
+                        <h3>Download Terms of Service</h3>
+                        <p>Get a copy of our complete terms of service document</p>
+                    </div>
+                    <a href="/download/terms-conditions/" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download Document
+                    </a>
+                </div>
+                
+                <div class="terms-container">
+                    <div class="terms-content">
+                        <h2>Acceptance of Terms</h2>
+                        <p>Welcome to <strong>Fuel Refund Institute</strong>. By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+
+                        <h2>Our Services</h2>
+                        <p>We provide professional fuel tax refund consulting services, including:</p>
+                        <ul>
+                            <li>Fuel tax refund application preparation and submission</li>
+                            <li>Tax compliance analysis and consultation</li>
+                            <li>Document review and processing</li>
+                            <li>Communication with tax authorities on your behalf</li>
+                            <li>Ongoing advisory services related to fuel tax matters</li>
+                        </ul>
+
+                        <h2>User Responsibilities</h2>
+                        <p>When using our services, you agree to:</p>
+                        <ul>
+                            <li>Provide accurate and complete information</li>
+                            <li>Submit all required documentation promptly</li>
+                            <li>Comply with all applicable laws and regulations</li>
+                            <li>Maintain confidentiality of your account credentials</li>
+                            <li>Use our services only for legitimate business purposes</li>
+                        </ul>
+
+                        <h2>Service Fees and Payment</h2>
+                        <p>Our professional services are provided for agreed-upon fees as outlined in your service agreement. Payment terms and conditions will be clearly specified in your engagement letter.</p>
+
+                        <h2>Confidentiality</h2>
+                        <p>We maintain strict confidentiality of all client information in accordance with professional standards and applicable privacy laws. Your business information will only be used for providing the contracted services.</p>
+
+                        <h2>Limitation of Liability</h2>
+                        <p>Our liability is limited to the fees paid for our services. We are not responsible for any indirect, incidental, or consequential damages arising from the use of our services.</p>
+
+                        <h2>Professional Standards</h2>
+                        <p>Our services are provided in accordance with professional tax consulting standards and applicable regulatory requirements. We maintain professional liability insurance and follow industry best practices.</p>
+
+                        <h2>Termination</h2>
+                        <p>Either party may terminate the service agreement with appropriate notice as specified in the engagement letter. Upon termination, we will provide all work product and return client materials.</p>
+
+                        <h2>Governing Law</h2>
+                        <p>These terms are governed by the laws of California, United States. Any disputes will be resolved through appropriate legal channels in California jurisdiction.</p>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <h3>Questions About These Terms?</h3>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:legal@fuelrefundinstitute.com">legal@fuelrefundinstitute.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+14242225290">(424) 222-5290</a></p>
+                        <p><strong>Address:</strong> California, United States</p>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/signup">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close menu when clicking links
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = 100;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.download-section, .terms-container, .contact-box, .back-link');
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
