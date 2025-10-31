@@ -4,7 +4,7 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Fuel Tax Refunds - Fuel Refund Institute</title>
+  <title>Home - Fuel Tax Refunds - Fuel Refund Institute</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -113,6 +113,13 @@
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
+  
+  /* Lock page scroll when mobile menu is open */
+  html.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 
   img {
     -webkit-transform: translateZ(0);
@@ -148,33 +155,23 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 
   /* Header - Enhanced */
   header {
-    /* header scrolls with page */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: none;
     z-index: 10000;
     padding: 0.75rem 0;
-    border-bottom: none;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    will-change: auto;
-  }
-
-  header.scrolled {
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: var(--shadow-xl);
-    padding: 0.75rem 0;
+    transition: var(--transition);
   }
 
   .header-content {
@@ -188,30 +185,15 @@
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    transition: var(--transition);
-  }
-
-  .logo-section:hover {
-    transform: translateY(-1px);
+    z-index: 10001;
   }
 
   .logo-circle {
     width: 120px;
     height: 120px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
-    box-shadow: none;
-  }
-
-  .logo-circle:hover {
-    border-color: none;
-    box-shadow: none;
   }
 
   .logo-circle img {
@@ -220,19 +202,10 @@
     object-fit: contain;
   }
 
-
-  .brand-text {
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: var(--secondary);
-    letter-spacing: -0.025em;
-    transition: var(--transition);
-  }
-
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 0.125rem;
+    gap: 0.25rem;
   }
 
   .nav-menu a {
@@ -243,66 +216,34 @@
     border-radius: 8px;
     transition: var(--transition);
     font-size: 0.9rem;
-    letter-spacing: -0.01em;
     position: relative;
+    border-bottom: 2px solid transparent;
   }
 
   .nav-menu a:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
     transform: translateY(-1px);
+    border-bottom-color: var(--primary);
   }
 
-  .nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+  .nav-menu a.active {
+    background: transparent;
+    border-bottom-color: var(--primary);
   }
 
-  /* Add spacing between regular nav links and auth buttons (match Contact page) */
-  .nav-menu a:not(.cta-login):not(.cta-signup) {
-    margin-right: 0.8rem;
-  }
-
-  .nav-menu a:hover::after,
-  .nav-menu a.active::after {
-    width: calc(100% - 2rem);
-  }
-
-  .cta-login {
-    background: rgb(75, 197, 127);
-    color: var(--white);
-    font-weight: 600;
-    padding: 0.45rem 0.9rem;
-    border-radius: 8px;
-    border: none;
-    margin-left: 2.4rem; /* increased to move button further right */
-  }
-
-  .cta-login:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
-  }
-
+  .cta-login,
   .cta-signup {
-    background: rgb(75, 197, 127);
+    background: var(--primary);
     color: var(--white);
     font-weight: 600;
-    padding: 0.45rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: none;
-    margin-left: 0.6rem; /* reduced so Sign Up sits closer to Log In */
+    margin-left: 0.5rem;
   }
 
+  .cta-login:hover,
   .cta-signup:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
+    background: var(--primary-light);
   }
 
   .mobile-toggle {
@@ -313,37 +254,43 @@
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: 10001;
   }
 
   .mobile-toggle span {
-    width: 20px;
-    height: 2px;
+    width: 24px;
+    height: 3px;
     background: var(--white);
-    border-radius: 1px;
+    border-radius: 2px;
     transition: all 0.3s;
+  }
+
+  .mobile-close {
+    display: none;
   }
 
   /* Hero Section - Expanded */
   .hero {
     position: relative;
-    min-height: 120vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    justify-content: flex-start;
+    background: var(--secondary);
     color: var(--white);
     overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .hero-bg {
     position: absolute;
-    top: -10%;
-    left: -5%;
-    width: 110%;
-    height: 120%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: 1;
-    filter: brightness(0.7);
-    transform: scale(1.1);
   }
 
   .hero-overlay {
@@ -353,9 +300,9 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.7) 50%,
-      rgba(55, 175, 107, 0.6) 100%);
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(72, 169, 106, 0.5) 100%);
     z-index: 2;
   }
 
@@ -363,10 +310,9 @@
     position: relative;
     z-index: 3;
     text-align: left;
+    padding: 14rem 1rem 3rem 3rem;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1rem 6rem;
-    width: 100%;
+    margin: 0;
   }
 
   .hero-badge {
@@ -383,10 +329,9 @@
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 2.5rem;
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin: 0;
   }
 
   .hero-subtitle {
@@ -1186,11 +1131,11 @@
     .container {
       max-width: 1600px;
     }
-    
+
     .hero-content {
       max-width: 1400px;
     }
-    
+
     .card-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 4rem;
@@ -1202,11 +1147,11 @@
     .container {
       max-width: 1400px;
     }
-    
+
     .feature-card {
       padding: 4rem;
     }
-    
+
     .calculator-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -1279,141 +1224,129 @@
 
   /* Tablet Portrait and Mobile (768px and below) */
   @media (max-width: 768px) {
+    /* Header on mobile - fixed with subtle grey background */
+    header {
+      position: fixed !important;
+      background: rgba(0, 0, 0, 0.15) !important;
+      backdrop-filter: blur(5px) !important;
+      -webkit-backdrop-filter: blur(5px) !important;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Header gets darker background when menu is open */
+    header.menu-open {
+      background: rgba(26, 26, 26, 0.95) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Mobile Navigation */
     .mobile-toggle {
       display: flex;
-      z-index: 10001;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-toggle.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     .nav-menu {
       position: fixed;
       top: 0;
-      left: -100%;
-      width: 100%;
+      left: 0 !important;
+      right: 0;
+      width: 100vw;
       height: 100vh;
-      background: var(--white);
+      background: #1a1a1a;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      gap: 1rem;
       padding: 2rem;
-      transition: all 0.3s ease;
-      z-index: 10000;
-      box-shadow: var(--shadow-lg);
+      margin: 0;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 9999;
     }
 
     .nav-menu.active {
-      left: 0;
+      transform: translateX(0);
     }
 
     .nav-menu a {
-      width: 100%;
+      width: 90%;
+      max-width: 300px;
       text-align: center;
       padding: 1rem 1.5rem;
-      margin: 0.25rem 0;
-      border-radius: 8px;
       font-size: 1.1rem;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--white);
+      color: var(--secondary);
+      border-radius: 10px;
     }
 
-    .mobile-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
+    .nav-menu a:hover {
       background: var(--gray-100);
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 10002;
     }
 
-    .nav-menu.active .mobile-close {
-      display: flex;
+    .nav-menu a.active {
+      background: var(--primary);
+      color: var(--white);
     }
 
-    .nav-menu .cta-login {
-      background: rgb(75, 197, 127);
-      border: none;
-      color: #ffffff;
-      margin-top: 1rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-
-    .nav-menu .cta-login:hover {
-      background: rgb(64, 168, 109);
-      color: #ffffff;
-    }
-
-    .nav-menu .cta-signup {
-      background: #48A96A;
-      color: #ffffff;
-      border: none;
-    }
-
-    .nav-menu .cta-signup:hover {
-      background: #5BC085;
+    .cta-login,
+    .cta-signup {
+      background: var(--primary);
+      color: var(--white);
+      margin-left: 0;
+      width: 90%;
+      max-width: 300px;
     }
 
     .mobile-close {
+      display: flex;
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
       background: rgba(255, 255, 255, 0.1);
-      border: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
       border-radius: 50%;
       width: 48px;
       height: 48px;
-      display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-size: 1.5rem;
-      z-index: 10002;
-      color: #ffffff;
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
 
     .mobile-close:hover {
       background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
     }
-    
+
     /* Header */
-    header {
-      padding: 0.75rem 0;
-    }
-    
     .logo-circle {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
-    
-    .brand-text {
-      font-size: 1rem;
-    }
-    
+
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 50vh;
+      margin-top: 0;
     }
 
     .hero-content {
-      padding: 5rem 1.5rem 4rem;
+      padding: 8rem 1rem 2rem;
     }
 
-    .hero-bg {
-      top: -5%;
-      left: -3%;
-      width: 106%;
-      height: 110%;
-      transform: scale(1.05);
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3rem);
     }
 
     .hero-badge {
@@ -1759,53 +1692,18 @@
 
   /* Small Mobile (480px and below) */
   @media (max-width: 480px) {
-    .container {
-      padding: 0 0.75rem;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    /* Prevent horizontal scroll */
-    body {
-      overflow-x: hidden;
-    }
-    
-    .header-content {
-      gap: 0.5rem;
-    }
-    
     .logo-circle {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
     }
-    
-    .brand-text {
-      font-size: 0.9rem;
+
+    .hero {
+      min-height: 45vh;
+      margin-top: 0;
     }
-    
+
     .hero-content {
-      padding: 5rem 1.25rem 2rem;
-      width: 100%;
-      max-width: none;
-    }
-
-    /* Better text alignment */
-    .hero-title,
-    .hero-subtitle,
-    .hero-description {
-      text-align: left;
-    }
-
-    .hero-badge {
-      font-size: 0.65rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-title {
-      font-size: clamp(1.5rem, 9vw, 2rem);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      padding: 7rem 1rem 2rem;
     }
 
     .hero-subtitle {
@@ -1982,12 +1880,12 @@
   /* Landscape Mobile and Tablet */
   @media (max-height: 500px) and (orientation: landscape) {
     .hero {
-      min-height: 100vh;
+      min-height: 50vh;
       padding: 1rem 0;
     }
-    
+
     .hero-content {
-      padding: 3rem 1rem 1rem;
+      padding: 2rem 1rem 1rem;
     }
     
     .hero-stats {
@@ -2005,17 +1903,6 @@
     
     .hero-title {
       font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-  }
-  
-  /* Landscape Tablet */
-  @media (min-height: 501px) and (max-height: 800px) and (orientation: landscape) {
-    .hero-content {
-      padding: 5rem 2rem 3rem;
-    }
-    
-    .stats-container {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -2350,6 +2237,160 @@
     }
   }
 
+  /* FAQ Specific Styles */
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-category {
+    margin-bottom: 3rem;
+  }
+
+  .faq-category-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .faq-category-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    transition: var(--transition);
+  }
+
+  .faq-question:hover {
+    color: var(--primary);
+  }
+
+  .faq-question-text {
+    flex: 1;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .faq-answer-content p {
+    margin-bottom: 1rem;
+  }
+
+  .faq-answer-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-answer-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-answer-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer-content strong {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .faq-category-title {
+      font-size: 1.5rem;
+    }
+
+    .faq-question {
+      font-size: 1rem;
+      padding: 1.25rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-category-title {
+      font-size: 1.25rem;
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1rem 1rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
   /* Simple Cookie Consent Banner - Bottom (Fixed to viewport) */
   .cookie-banner {
     position: fixed !important;
@@ -2486,7 +2527,7 @@
             <button class="mobile-close" aria-label="Close menu">
               <i class="fas fa-times"></i>
             </button>
-            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}" class="active">Home</a>
             <a href="{% url 'faq' %}">FAQ</a>
             <a href="{% url 'home' %}#services">Services</a>
             <a href="{% url 'contact' %}">Contact Us</a>
@@ -2517,9 +2558,6 @@
                       Calculate Your Refund
                   </a>
               </div>
-              
-              <!-- Floating WhatsApp Button in Hero -->
-             
           </div>
       </section>
       
@@ -2579,7 +2617,7 @@
                   <h2 class="section-title">What we do</h2>
                   <p class="section-subtitle">We help businesses reclaim money that rightfully belongs to them through fuel tax refunds</p>
               </div>
-              
+
               <div class="card-grid">
                   <div class="feature-card">
                       <div class="feature-icon">
@@ -2588,7 +2626,7 @@
                       <h3 class="feature-title">Claim what's yours</h3>
                       <p class="feature-description">We help businesses reclaim money that rightfully belongs to them through fuel tax refunds that many don't know they qualify for. <strong>Create your account and upload your fuel receipts to start claiming today!</strong></p>
                   </div>
-                  
+
                   <div class="feature-card">
                       <div class="feature-icon">
                           <i class="fas fa-tasks"></i>
@@ -2596,7 +2634,7 @@
                       <h3 class="feature-title">We remove the pain</h3>
                       <p class="feature-description">Working with government entities is complex, but we make the process seamless and stress-free for your business. <strong>Simply sign up, upload your documents, and we handle the rest!</strong></p>
                   </div>
-                  
+
                   <div class="feature-card">
                       <div class="feature-icon">
                           <i class="fas fa-shield-alt"></i>
@@ -2616,7 +2654,7 @@
                   <h2 class="section-title">Our services</h2>
                   <p class="section-subtitle">Comprehensive fuel tax recovery solutions for your business</p>
               </div>
-              
+
               <div class="card-grid">
                   <div class="feature-card">
                       <div class="feature-icon">
@@ -2625,7 +2663,7 @@
                       <h3 class="feature-title">Fuel excise tax refunds</h3>
                       <p class="feature-description">Recover taxes paid on fuel used for off-road equipment, refrigeration units, and other non-highway applications.</p>
                   </div>
-                  
+
                   <div class="feature-card">
                       <div class="feature-icon">
                           <i class="fas fa-globe-europe"></i>
@@ -2633,7 +2671,7 @@
                       <h3 class="feature-title">National fuel tax recovery</h3>
                       <p class="feature-description">Reclaim fuel taxes on business expenses incurred while operating within national borders.</p>
                   </div>
-                  
+
                   <div class="feature-card">
                       <div class="feature-icon">
                           <i class="fas fa-truck"></i>
@@ -2644,7 +2682,7 @@
               </div>
           </div>
       </section>
-      
+
       <!-- Process Section -->
       <section class="section section-alt">
           <div class="container">
@@ -2652,7 +2690,7 @@
                   <h2 class="section-title">Our simple process</h2>
                   <p class="section-subtitle">Four easy steps to get your fuel tax refunds</p>
               </div>
-              
+
               <div class="process-grid">
                   <div class="process-step">
                       <div class="step-number">1</div>
@@ -2677,7 +2715,7 @@
               </div>
           </div>
       </section>
-      
+
       <!-- Call to Action Section -->
       <section class="cta-section">
           <div class="container">
@@ -2695,6 +2733,7 @@
               </div>
           </div>
       </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -3130,61 +3169,40 @@
 
           function initializeMobileNavigation() {
               const mobileToggle = document.querySelector('.mobile-toggle');
-              const navMenu = document.querySelector('.nav-menu');
               const mobileClose = document.querySelector('.mobile-close');
-              const body = document.body;
-              
-              function openMobileMenu() {
-                  navMenu.classList.add('active');
-                  body.style.overflow = 'hidden';
-                  body.style.position = 'fixed';
-                  body.style.width = '100%';
+              const navMenu = document.querySelector('.nav-menu');
+              const header = document.querySelector('header');
+              const html = document.documentElement;
+
+              function toggleMenu() {
+                  navMenu.classList.toggle('active');
+                  html.classList.toggle('menu-open');
+                  header.classList.toggle('menu-open');
+                  mobileToggle.classList.toggle('hidden');
               }
-              
-              function closeMobileMenu() {
-                  navMenu.classList.remove('active');
-                  body.style.overflow = '';
-                  body.style.position = '';
-                  body.style.width = '';
+
+              if (mobileToggle) {
+                  mobileToggle.addEventListener('click', toggleMenu);
               }
-              
-              mobileToggle?.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  openMobileMenu();
-              });
-              
-              mobileClose?.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  closeMobileMenu();
-              });
-              
-              navMenu?.querySelectorAll('a').forEach(link => {
+
+              if (mobileClose) {
+                  mobileClose.addEventListener('click', toggleMenu);
+              }
+
+              // Close menu when clicking nav links
+              const navLinks = document.querySelectorAll('.nav-menu a');
+              navLinks.forEach(link => {
                   link.addEventListener('click', function() {
-                      if (window.innerWidth <= 768) {
-                          closeMobileMenu();
+                      if (navMenu.classList.contains('active')) {
+                          toggleMenu();
                       }
                   });
               });
-              
-              document.addEventListener('click', function(e) {
-                  if (navMenu && navMenu.classList.contains('active') && 
-                      !navMenu.contains(e.target) && 
-                      !mobileToggle.contains(e.target)) {
-                      closeMobileMenu();
-                  }
-              });
-              
+
+              // Close menu on escape key
               document.addEventListener('keydown', function(e) {
                   if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                      closeMobileMenu();
-                  }
-              });
-              
-              window.addEventListener('resize', function() {
-                  if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-                      closeMobileMenu();
+                      toggleMenu();
                   }
               });
           }
@@ -3449,6 +3467,48 @@
           // Initialize chatbot on page load
           document.addEventListener('DOMContentLoaded', function() {
               initializeChatbot();
+          });
+
+          // FAQ Accordion Functionality
+          function initializeFAQ() {
+              const faqItems = document.querySelectorAll('.faq-item');
+
+              faqItems.forEach(item => {
+                  const question = item.querySelector('.faq-question');
+                  const answer = item.querySelector('.faq-answer');
+
+                  question.addEventListener('click', () => {
+                      const isActive = item.classList.contains('active');
+
+                      // Close all other FAQ items
+                      faqItems.forEach(otherItem => {
+                          if (otherItem !== item) {
+                              otherItem.classList.remove('active');
+                              const otherAnswer = otherItem.querySelector('.faq-answer');
+                              otherAnswer.style.maxHeight = null;
+                              otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                          }
+                      });
+
+                      // Toggle current item
+                      if (isActive) {
+                          item.classList.remove('active');
+                          answer.style.maxHeight = null;
+                          question.setAttribute('aria-expanded', 'false');
+                      } else {
+                          item.classList.add('active');
+                          answer.style.maxHeight = answer.scrollHeight + 'px';
+                          question.setAttribute('aria-expanded', 'true');
+                      }
+                  });
+              });
+
+              console.log('✅ FAQ accordion initialized');
+          }
+
+          // Initialize FAQ on page load
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeFAQ();
           });
       </script>
   </body>
