@@ -1,0 +1,45 @@
+# Django Settings
+SECRET_KEY=your-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=fuelrefundinstitute.com,www.fuelrefundinstitute.com,167.88.43.168
+
+# Database Settings (MySQL for production)
+DB_NAME=fuelrefund_db
+DB_USER=fuelrefund_user
+DB_PASSWORD=FuelRefund2024!@#
+DB_HOST=localhost
+DB_PORT=3306
+
+# Email Settings
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=fuelrefundinstitute@gmail.com
+EMAIL_HOST_PASSWORD=your-gmail-app-password
+DEFAULT_FROM_EMAIL=Fuel Refund Institute <fuelrefundinstitute@gmail.com>
+
+# Gmail API Settings
+GMAIL_CREDENTIALS_FILE=/path/to/gmail_credentials.json
+GMAIL_TOKEN_FILE=/path/to/gmail_token.json
+
+# Redis Settings (for caching and Celery)
+REDIS_URL=redis://localhost:6379/0
+
+# Static and Media Files
+STATIC_ROOT=/var/www/fuelrefund/static/
+MEDIA_ROOT=/var/www/fuelrefund/media/
+
+# Security Settings
+CSRF_TRUSTED_ORIGINS=https://fuelrefundinstitute.com,https://www.fuelrefundinstitute.com
+SECURE_SSL_REDIRECT=True
+SECURE_BROWSER_XSS_FILTER=True
+SECURE_CONTENT_TYPE_NOSNIFF=True
+
+# Google Analytics
+GOOGLE_ANALYTICS_ID=G-N9ZJMM9YZ8
+
+# Company Information
+COMPANY_NAME=Fuel Refund Institute
+COMPANY_EMAIL=fuelrefundinstitute@gmail.com
+COMPANY_PHONE=+1 (424) 222-5290
+COMPANY_ADDRESS=123 Business Street, Houston, TX 77001 

@@ -1,0 +1,1012 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Fuel Refund Institute</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZJMM9YZ8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N9ZJMM9YZ8');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        /* Microsoft Fluent Design with Black & Green Color Palette */
+        :root {
+          --primary: #48A96A;
+          --primary-light: #5BC085;
+          --primary-dark: #3A8A56;
+          --secondary: #1a1a1a;
+          --secondary-light: #2a2a2a;
+          --secondary-dark: #0a0a0a;
+          --accent: #48A96A;
+          --accent-light: #5BC085;
+          --white: #ffffff;
+          --gray-50: #FAF9F8;
+          --gray-100: #F3F2F1;
+          --gray-200: #EDEBE9;
+          --gray-300: #E1DFDD;
+          --gray-400: #D2D0CE;
+          --gray-500: #8A8886;
+          --gray-600: #605E5C;
+          --gray-700: #323130;
+          --gray-800: #201F1E;
+          --gray-900: #0a0a0a;
+
+          /* Fluent Design Shadows */
+          --shadow-2: 0 1.6px 3.6px rgba(0,0,0,0.13), 0 0.3px 0.9px rgba(0,0,0,0.11);
+          --shadow-4: 0 3.2px 7.2px rgba(0,0,0,0.13), 0 0.6px 1.8px rgba(0,0,0,0.11);
+          --shadow-8: 0 6.4px 14.4px rgba(0,0,0,0.13), 0 1.2px 3.6px rgba(0,0,0,0.11);
+          --shadow-16: 0 12.8px 28.8px rgba(0,0,0,0.13), 0 2.4px 7.2px rgba(0,0,0,0.11);
+          --shadow-64: 0 25.6px 57.6px rgba(0,0,0,0.22), 0 4.8px 14.4px rgba(0,0,0,0.18);
+
+          /* Fluent Transitions */
+          --transition-fast: all 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+          --transition-normal: all 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+          --transition-slow: all 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Segoe UI', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-weight: 400;
+          line-height: 1.5;
+          color: var(--gray-800);
+          background: var(--gray-100);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          min-height: 100vh;
+          margin: 0;
+          padding: 0;
+          display: flex;
+        }
+
+        /* Microsoft Fluent Sidebar */
+        .sidebar {
+          width: 280px;
+          background: var(--secondary);
+          height: 100vh;
+          position: fixed;
+          left: 0;
+          top: 0;
+          padding: 0;
+          box-shadow: var(--shadow-8);
+          z-index: 1000;
+          display: flex;
+          flex-direction: column;
+          border-right: 1px solid var(--gray-700);
+        }
+
+        .sidebar-logo {
+          padding: 24px 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .sidebar-logo img {
+          width: 100%;
+          height: auto;
+          max-width: 180px;
+          object-fit: contain;
+        }
+
+        .sidebar-nav {
+          flex: 1;
+          padding: 8px 12px;
+          overflow-y: auto;
+        }
+
+        .sidebar-nav a {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 10px 12px;
+          color: rgba(255, 255, 255, 0.75);
+          text-decoration: none;
+          border-radius: 4px;
+          margin-bottom: 2px;
+          font-weight: 400;
+          font-size: 14px;
+          transition: var(--transition-fast);
+          font-family: 'Segoe UI', sans-serif;
+          position: relative;
+        }
+
+        .sidebar-nav a::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: var(--primary);
+          opacity: 0;
+          transition: var(--transition-fast);
+          border-radius: 0 2px 2px 0;
+        }
+
+        .sidebar-nav a:hover {
+          background: rgba(255, 255, 255, 0.06);
+          color: var(--white);
+        }
+
+        .sidebar-nav a.active {
+          background: rgba(72, 169, 106, 0.15);
+          color: var(--primary-light);
+          font-weight: 600;
+        }
+
+        .sidebar-nav a.active::before {
+          opacity: 1;
+        }
+
+        .sidebar-nav a i {
+          font-size: 16px;
+          width: 20px;
+          text-align: center;
+        }
+
+        .sidebar-footer {
+          padding: 12px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(0, 0, 0, 0.15);
+        }
+
+        .user-info-sidebar {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 8px;
+          border-radius: 4px;
+          transition: var(--transition-fast);
+          cursor: pointer;
+        }
+
+        .user-info-sidebar:hover {
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        .user-avatar-small {
+          width: 32px;
+          height: 32px;
+          background: var(--primary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: 13px;
+          color: var(--white);
+        }
+
+        .user-details-sidebar {
+          font-size: 13px;
+          color: var(--white);
+          flex: 1;
+        }
+
+        .user-details-sidebar .name {
+          font-weight: 600;
+          line-height: 1.3;
+        }
+
+        .user-details-sidebar .role {
+          opacity: 0.65;
+          font-size: 11px;
+          line-height: 1.3;
+        }
+
+        /* Main Content Area - Fluent Design */
+        .main-content {
+          margin-left: 280px;
+          flex: 1;
+          min-height: 100vh;
+          background: var(--gray-100);
+        }
+
+        /* Fluent Command Bar / Top Header */
+        .admin-header {
+          background: var(--white);
+          padding: 0 24px;
+          height: 48px;
+          box-shadow: var(--shadow-2);
+          border-bottom: 1px solid var(--gray-200);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+        }
+
+        .header-title-section h1 {
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--gray-800);
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          letter-spacing: -0.01em;
+        }
+
+        .header-title-section p {
+          color: var(--gray-500);
+          margin: 0;
+          font-size: 12px;
+          font-weight: 400;
+        }
+
+        .header-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .status-badge {
+          background: var(--primary);
+          color: var(--white);
+          padding: 4px 12px;
+          border-radius: 16px;
+          font-size: 12px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .status-badge i {
+          font-size: 10px;
+        }
+
+        .container {
+          max-width: 100%;
+          padding: 24px;
+        }
+
+        /* Fluent Card Sections */
+        .section {
+          background: var(--white);
+          border-radius: 8px;
+          margin-bottom: 16px;
+          overflow: visible;
+          box-shadow: var(--shadow-2);
+          border: 1px solid var(--gray-200);
+        }
+
+        .section-header {
+          background: var(--white);
+          border-bottom: 1px solid var(--gray-200);
+          padding: 16px 20px;
+        }
+
+        .section-title {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gray-800);
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Segoe UI', sans-serif;
+          letter-spacing: -0.01em;
+        }
+
+        .section-title i {
+          color: var(--primary);
+          font-size: 16px;
+        }
+
+        .section-content {
+          padding: 20px;
+        }
+
+        /* Fluent Stats Cards */
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 16px;
+          margin-bottom: 0;
+        }
+
+        .stat-card {
+          background: var(--white);
+          padding: 20px;
+          border-radius: 8px;
+          border: 1px solid var(--gray-200);
+          box-shadow: var(--shadow-2);
+          position: relative;
+          overflow: hidden;
+          transition: var(--transition-fast);
+        }
+
+        .stat-card:hover {
+          box-shadow: var(--shadow-4);
+          border-color: var(--primary);
+        }
+
+        .stat-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--primary);
+        }
+
+        .stat-number {
+          font-size: 32px;
+          font-weight: 600;
+          color: var(--gray-800);
+          margin-bottom: 4px;
+          font-family: 'Segoe UI', sans-serif;
+          line-height: 1.2;
+        }
+
+        .stat-label {
+          font-size: 14px;
+          color: var(--gray-700);
+          font-weight: 600;
+          margin-bottom: 2px;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .stat-description {
+          color: var(--gray-500);
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1.4;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+          margin-top: 12px;
+        }
+
+        .progress-bar {
+          background: var(--gray-200);
+          height: 6px;
+          border-radius: 3px;
+          overflow: hidden;
+        }
+
+        .progress-fill {
+          background: var(--primary);
+          height: 100%;
+          transition: width 0.3s ease;
+          border-radius: 3px;
+        }
+
+        .progress-text {
+          font-size: 11px;
+          color: var(--gray-500);
+          margin-top: 4px;
+          font-weight: 400;
+        }
+
+        /* Fluent Message Bars */
+        .alert {
+          padding: 12px 16px;
+          border-radius: 4px;
+          margin-bottom: 16px;
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 400;
+          border-left: 3px solid;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .alert-success {
+          background: #DFF6DD;
+          border-left-color: var(--primary);
+          color: #1F7A1F;
+        }
+
+        .alert-warning {
+          background: #FFF4CE;
+          border-left-color: #F7630C;
+          color: #8A4E00;
+        }
+
+        .alert-info {
+          background: #D1E7FD;
+          border-left-color: #0078D4;
+          color: #004578;
+        }
+
+        /* Fluent Details List / Table */
+        .data-table {
+          width: 100%;
+          border-collapse: collapse;
+          background: var(--white);
+          font-size: 13px;
+        }
+
+        .data-table thead th {
+          background: var(--gray-50);
+          color: var(--gray-700);
+          font-weight: 600;
+          font-size: 12px;
+          padding: 12px 16px;
+          border-bottom: 1px solid var(--gray-200);
+          text-align: left;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .data-table tbody tr {
+          border-bottom: 1px solid var(--gray-200);
+          transition: var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+          background: var(--gray-50);
+        }
+
+        .data-table tbody tr:last-child {
+          border-bottom: none;
+        }
+
+        .data-table tbody td {
+          padding: 16px;
+          vertical-align: top;
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+
+        .status-online { background: var(--primary); }
+        .status-warning { background: #F7630C; }
+        .status-offline { background: #C50F1F; }
+
+        /* Chart Container */
+        .chart-container {
+          margin: 20px 0;
+          padding: 20px;
+          background: var(--gray-50);
+          border-radius: 8px;
+        }
+
+        .chart-canvas {
+          max-height: 300px;
+        }
+
+        .chart-title {
+          color: var(--gray-800);
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 16px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .chart-title i {
+          color: var(--primary);
+          font-size: 14px;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        /* System Info */
+        .system-info-footer {
+          background: var(--white);
+          border: 1px solid var(--gray-200);
+          border-radius: 8px;
+          padding: 16px;
+          margin-top: 16px;
+          font-size: 12px;
+          color: var(--gray-600);
+          font-weight: 400;
+          box-shadow: var(--shadow-2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .sidebar {
+            width: 80px;
+          }
+
+          .sidebar-logo img {
+            max-width: 50px;
+          }
+
+          .sidebar-nav a span {
+            display: none;
+          }
+
+          .sidebar-nav {
+            padding: 0 10px;
+          }
+
+          .sidebar-nav a {
+            justify-content: center;
+            padding: 15px;
+          }
+
+          .sidebar-footer {
+            padding: 15px;
+          }
+
+          .user-info-sidebar {
+            justify-content: center;
+          }
+
+          .user-details-sidebar {
+            display: none;
+          }
+
+          .main-content {
+            margin-left: 80px;
+          }
+
+          .container {
+            padding: 15px;
+          }
+
+          .stats-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .two-column {
+            grid-template-columns: 1fr;
+          }
+
+          .admin-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            height: auto;
+            padding: 12px 24px;
+          }
+
+          .header-actions {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .section-content {
+            padding: 15px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{% static 'images/FRI Logo - White.png' %}" alt="FRI Logo">
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="{% url 'admin_dashboard' %}">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Control Panel</span>
+            </a>
+            <a href="{% url 'analytics_dashboard' %}" class="active">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="{% url 'dashboard' %}">
+                <i class="fas fa-user"></i>
+                <span>User View</span>
+            </a>
+            <a href="{% url 'logout' %}">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info-sidebar">
+                <div class="user-avatar-small">A</div>
+                <div class="user-details-sidebar">
+                    <div class="name">Admin</div>
+                    <div class="role">Administrator</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <div class="header-title-section">
+                <h1>Analytics Dashboard</h1>
+            </div>
+            <div class="header-actions">
+                <div class="status-badge">
+                    <i class="fas fa-circle"></i>
+                    Live Data
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- System Overview -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-tachometer-alt"></i>
+                        System Overview
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">{{ total_users|default:"0" }}</div>
+                            <div class="stat-label">Total Clients</div>
+                            <div class="stat-description">Registered user accounts</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ new_users_this_month|default:"0" }}</div>
+                            <div class="stat-label">New This Month</div>
+                            <div class="stat-description">{{ current_month }} registrations</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ total_documents|default:"0" }}</div>
+                            <div class="stat-label">Total Documents</div>
+                            <div class="stat-description">Files uploaded to system</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ completion_rate|default:"0" }}%</div>
+                            <div class="stat-label">Completion Rate</div>
+                            <div class="stat-description">Applications completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Progress -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i>
+                        Application Progress Tracking
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">{{ users_complete|default:"0" }}</div>
+                            <div class="stat-label">Complete Applications</div>
+                            <div class="stat-description">All required documents submitted</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: {{ completion_percentage|default:"0" }}%"></div>
+                                </div>
+                                <div class="progress-text">{{ completion_percentage|default:"0" }}% of total clients</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ users_with_fuel|default:"0" }}</div>
+                            <div class="stat-label">Fuel Statements</div>
+                            <div class="stat-description">Clients who uploaded fuel records</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: {{ fuel_percentage|default:"0" }}%"></div>
+                                </div>
+                                <div class="progress-text">{{ fuel_percentage|default:"0" }}% of total clients</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ users_with_assets|default:"0" }}</div>
+                            <div class="stat-label">Asset Registers</div>
+                            <div class="stat-description">Clients who uploaded asset docs</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: {{ assets_percentage|default:"0" }}%"></div>
+                                </div>
+                                <div class="progress-text">{{ assets_percentage|default:"0" }}% of total clients</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">{{ users_incomplete|default:"0" }}</div>
+                            <div class="stat-label">Incomplete</div>
+                            <div class="stat-description">Clients who haven't started</div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: {{ incomplete_percentage|default:"0" }}%"></div>
+                                </div>
+                                <div class="progress-text">{{ incomplete_percentage|default:"0" }}% of total clients</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-clock"></i>
+                        Recent Activity (Last 7 Days)
+                    </h2>
+                </div>
+                <div class="section-content">
+                    {% if documents_this_week %}
+                        <div class="alert alert-success">
+                            <span class="status-indicator status-online"></span>
+                            <strong>{{ documents_this_week }}</strong> documents uploaded this week
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            <span class="status-indicator status-warning"></span>
+                            No document uploads in the last 7 days
+                        </div>
+                    {% endif %}
+
+                    {% if new_users_this_week %}
+                        <div class="alert alert-info">
+                            <span class="status-indicator status-online"></span>
+                            <strong>{{ new_users_this_week }}</strong> new client registrations this week
+                        </div>
+                    {% endif %}
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Activity Metric</th>
+                                <th>Count</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>New Registrations</td>
+                                <td>{{ new_users_this_week|default:"0" }}</td>
+                                <td>Client accounts created in last 7 days</td>
+                                <td><span class="status-indicator {% if new_users_this_week %}status-online{% else %}status-warning{% endif %}"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Document Uploads</td>
+                                <td>{{ documents_this_week|default:"0" }}</td>
+                                <td>Files uploaded in last 7 days</td>
+                                <td><span class="status-indicator {% if documents_this_week %}status-online{% else %}status-warning{% endif %}"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Pending Applications</td>
+                                <td>{{ users_incomplete|default:"0" }}</td>
+                                <td>Clients who need to complete submission</td>
+                                <td><span class="status-indicator {% if users_incomplete %}status-warning{% else %}status-online{% endif %}"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Ready for Review</td>
+                                <td>{{ users_complete|default:"0" }}</td>
+                                <td>Complete applications awaiting processing</td>
+                                <td><span class="status-indicator {% if users_complete %}status-online{% else %}status-warning{% endif %}"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Business Intelligence -->
+            <div class="two-column">
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-building"></i>
+                            Business Type Distribution
+                        </h2>
+                    </div>
+                    <div class="section-content">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Business Type</th>
+                                    <th>Count</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for business_type, count in business_type_data %}
+                                <tr>
+                                    <td>{{ business_type|default:"Not Specified" }}</td>
+                                    <td>{{ count }}</td>
+                                    <td>{% if total_users %}{{ count|floatformat:0 }}/{{ total_users }} clients{% else %}0%{% endif %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Geographic Distribution
+                        </h2>
+                    </div>
+                    <div class="section-content">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Clients</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for state_data in top_states %}
+                                <tr>
+                                    <td>{{ state_data.state|default:"Not Specified"|upper }}</td>
+                                    <td>{{ state_data.count }}</td>
+                                    <td>{{ state_data.count }} of {{ total_users }} total</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-area"></i>
+                        Registration Trends
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="chart-container">
+                        <div class="chart-title">
+                            <i class="fas fa-user-plus"></i>
+                            Client Registrations by Month ({{ current_year }})
+                        </div>
+                        <canvas id="registrationChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-upload"></i>
+                        Document Upload Activity
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="chart-container">
+                        <div class="chart-title">
+                            <i class="fas fa-calendar-day"></i>
+                            Daily Document Uploads (Last 30 Days)
+                        </div>
+                        <canvas id="uploadChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Information -->
+            <div class="system-info-footer">
+                <strong>System Information:</strong><br>
+                Last Updated: {{ last_updated }}<br>
+                Data Source: Live Django Database<br>
+                Server Status: <span class="status-indicator status-online"></span> Online<br>
+                Auto-refresh: Every 5 minutes
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart.js styling - Microsoft Fluent Design
+        Chart.defaults.font.family = "'Segoe UI', sans-serif";
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#605E5C';
+
+        // Registration Trend Chart
+        const registrationCtx = document.getElementById('registrationChart').getContext('2d');
+        new Chart(registrationCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'New Registrations',
+                    data: [{{ monthly_registrations|default:"0,0,0,0,0,0,0,0,0,0,0,0" }}],
+                    borderColor: '#48A96A',
+                    backgroundColor: 'rgba(72, 169, 106, 0.1)',
+                    tension: 0.3,
+                    fill: true,
+                    pointBackgroundColor: '#48A96A',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#EDEBE9' },
+                        ticks: { color: '#605E5C' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#605E5C' }
+                    }
+                }
+            }
+        });
+
+        // Document Upload Chart
+        const uploadCtx = document.getElementById('uploadChart').getContext('2d');
+        new Chart(uploadCtx, {
+            type: 'bar',
+            data: {
+                labels: [{% for date in upload_dates %}'{{ date|date:"m/d" }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Documents Uploaded',
+                    data: [{{ daily_uploads|default:"0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" }}],
+                    backgroundColor: '#48A96A',
+                    borderColor: '#48A96A',
+                    borderRadius: 4,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#EDEBE9' },
+                        ticks: { color: '#605E5C' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#605E5C' }
+                    }
+                }
+            }
+        });
+
+        // Auto-refresh every 5 minutes
+        setTimeout(() => {
+            location.reload();
+        }, 300000);
+    </script>
+</body>
+</html>

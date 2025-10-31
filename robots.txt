@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /api/
+
+# Allow important pages
+Allow: /static/
+Allow: /media/
+
+# Sitemap location
+Sitemap: https://fuelrefundinstitute.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
