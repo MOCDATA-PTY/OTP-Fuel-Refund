@@ -16,7 +16,8 @@ def robots_txt(request):
 
 def sitemap_xml(request):
     """Serve sitemap.xml file"""
-    sitemap_path = os.path.join(settings.BASE_DIR, 'sitemap.xml')
+    # BASE_DIR is /var/www/OTP-Fuel-Refund/mysite, so go up one level
+    sitemap_path = os.path.join(settings.BASE_DIR.parent, 'sitemap.xml')
     with open(sitemap_path, 'r') as f:
         content = f.read()
     return HttpResponse(content, content_type='application/xml')
