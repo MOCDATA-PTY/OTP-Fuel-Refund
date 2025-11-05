@@ -1,0 +1,113 @@
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2>Let's chat.</h2>
+        <a href="#map-offices" class="contact-link">
+          Our locations <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="contact-info">
+          <p><i class="fas fa-phone"></i> <a href="tel:+13238927914">+1 323-892-7914</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@fuelrefundinstitute.com">info@fuelrefundinstitute.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <form class="contact-form" id="contact-form">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name*</label>
+              <input type="text" id="first-name" name="first_name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name*</label>
+              <input type="text" id="last-name" name="last_name" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="phone-number">Phone number*</label>
+              <input type="tel" id="phone-number" name="contact_number" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company-name">Company name*</label>
+              <input type="text" id="company-name" name="company_name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="job-title">Job title*</label>
+              <input type="text" id="job-title" name="job_title" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="country">Country*</label>
+              <select id="country" name="country" class="form-input" required>
+                <option value="" disabled selected></option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="mx">Mexico</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your message*</label>
+              <textarea id="message" name="inquiry" class="form-input" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <p class="form-privacy-text">
+            See our <a href="{% url 'privacy_policy' %}">Privacy Policy</a> for data handling details.
+          </p>
+
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="communications" name="communications">
+            <label for="communications">
+              Sign me up to receive relevant communications from Fuel Refund Institute, about their events, products, and services.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-send">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map and Offices Section -->
+  <section id="map-offices" class="section map-offices-section">
+    <div class="container-full">
+      <div class="map-offices-wrapper">
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=2901+Simms+Ave,+Hawthorne,+CA+90250&t=&z=4&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="offices-container">
+          <div class="office-card">
+            <h3 class="office-title">Head Office</h3>
+            <p class="office-address">
+              <i class="fas fa-map-marker-alt"></i>
+              2901 Simms Ave, Hawthorne, CA 90250
+            </p>
+            <a href="https://maps.google.com/?q=2901+Simms+Ave+Hawthorne+CA+90250" target="_blank" class="office-directions">Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

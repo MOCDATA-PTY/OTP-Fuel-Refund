@@ -1,0 +1,3678 @@
+{% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Fuel Tax Refunds - Fuel Refund Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <meta name="description" content="Maximize your fuel tax refunds with Fuel Refund Institute. Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery. Free assessment available.">
+<meta name="keywords" content="fuel tax refund, fuel excise tax, off-road fuel tax, business fuel refund, IFTA compliance, fuel tax recovery, diesel tax refund">
+<meta name="author" content="Fuel Refund Institute">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Fuel Tax Refunds - Fuel Refund Institute">
+<meta property="og:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds on qualifying equipment and machinery.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fuelrefundinstitute.com">
+<meta property="og:image" content="{% static 'images/logo.png' %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fuel Tax Refunds - Fuel Refund Institute">
+<meta name="twitter:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds.">
+<meta name="twitter:image" content="{% static 'images/logo.png' %}">
+<link rel="canonical" href="https://fuelrefundinstitute.com">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/FRI Logo - Black.png' %}">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Fuel Refund Institute",
+      "description": "Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery.",
+      "url": "https://fuelrefundinstitute.com",
+      "logo": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "serviceType": "Fuel Tax Refund Services",
+      "areaServed": "United States",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Fuel Tax Refund Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fuel Tax Refund Assessment",
+              "description": "Free assessment to determine fuel tax refund eligibility"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Off-Road Fuel Tax Recovery",
+              "description": "Recovery of fuel taxes paid on off-road equipment usage"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  <style>
+  /* Black & Green Color Palette */
+  :root {
+    --primary: #48A96A;
+    --primary-light: #5BC085;
+    --primary-dark: #3A8A56;
+    --secondary: #1a1a1a;
+    --secondary-light: #2a2a2a;
+    --secondary-dark: #0a0a0a;
+    --accent: #48A96A;
+    --accent-light: #5BC085;
+    --white: #ffffff;
+    --gray-50: #f9f9f9;
+    --gray-100: #e8e8e8;
+    --gray-200: #d1d1d1;
+    --gray-300: #b0b0b0;
+    --gray-500: #6b6b6b;
+    --gray-700: #2a2a2a;
+    --gray-900: #0a0a0a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
+    --shadow-xl: 0 8px 32px rgba(0,0,0,0.2);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure all text elements use Poppins */
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Performance optimizations */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Lock page scroll when mobile menu is open */
+  html.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  img {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Headings - Poppins Bold */
+  h1, h2, h3, h4, h5, h6,
+  .hero-title,
+  .section-title,
+  .feature-title,
+  .step-title,
+  .industry-title,
+  .cta-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Subheadings - Poppins Medium */
+  .hero-subtitle,
+  .section-subtitle,
+  .feature-description,
+  .step-description,
+  .industry-description,
+  .cta-description,
+  h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Header - Enhanced */
+  header {
+    /* header scrolls with page */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    z-index: 10000;
+    padding: 0.75rem 0;
+    border-bottom: none;
+  }
+
+  header.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: var(--shadow-xl);
+    padding: 0.75rem 0;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    transition: var(--transition);
+  }
+
+  .logo-section:hover {
+    transform: translateY(-1px);
+  }
+
+  .logo-circle {
+    width: 120px;
+    height: 120px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: none;
+  }
+
+  .logo-circle:hover {
+    border-color: none;
+    box-shadow: none;
+  }
+
+  .logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+  .brand-text {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--secondary);
+    letter-spacing: -0.025em;
+    transition: var(--transition);
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+  }
+
+  .nav-menu a {
+    padding: 0.625rem 1rem;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    border-radius: 8px;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  /* Add spacing between regular nav links and auth buttons (match Contact page) */
+  .nav-menu a:not(.cta-login):not(.cta-signup) {
+    margin-right: 0.8rem;
+  }
+
+  .nav-menu a:hover::after,
+  .nav-menu a.active::after {
+    width: calc(100% - 2rem);
+  }
+
+  .cta-login {
+    background: rgb(75, 197, 127);
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: none;
+    margin-left: 2.4rem; /* increased to move button further right */
+  }
+
+  .cta-login:hover {
+    background: rgb(64, 168, 109);
+    color: var(--white);
+  }
+
+  .cta-signup {
+    background: rgb(75, 197, 127);
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: none;
+    margin-left: 0.6rem; /* reduced so Sign Up sits closer to Log In */
+  }
+
+  .cta-signup:hover {
+    background: rgb(64, 168, 109);
+    color: var(--white);
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    z-index: 10001;
+  }
+
+  .mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 1px;
+    transition: all 0.3s;
+  }
+
+  /* Hero Section - Expanded */
+  .hero {
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: var(--white);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    width: 110%;
+    height: 120%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.7);
+    transform: scale(1.1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12rem 1rem 4rem;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-badge i {
+    color: var(--primary);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  
+  /* FAQ Hero Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #faq-hero .hero-content {
+      padding: 8rem 1rem 3rem;
+    }
+    #faq-hero .hero-title {
+      font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+    .faq-container {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #faq-hero .hero-content {
+      padding: 6rem 0.75rem 2rem;
+    }
+    #faq-hero .hero-title {
+      font-size: clamp(1.75rem, 9vw, 2.25rem);
+    }
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: 0;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(55, 175, 107, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(55, 175, 107, 0.4);
+  }
+
+  .btn-secondary {
+    background: var(--white);
+    color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary i {
+    color: var(--primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--gray-50);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    background: var(--white);
+    color: var(--secondary);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    color: var(--gray-700);
+  }
+
+  /* Stats Section */
+  .floating-stats {
+    position: relative;
+    z-index: 10;
+    margin-top: -4rem;
+    padding: 0 1rem 3rem;
+  }
+
+  .stats-container {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stats-item {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stats-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .stats-label {
+    color: var(--gray-500);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-alt {
+    background: var(--gray-50);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Cards - No Background, Bigger */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 3.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .feature-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .feature-card:hover {
+    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .feature-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
+  }
+
+  .feature-card:nth-child(2) .feature-icon {
+    background: var(--primary);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
+  }
+
+  .feature-card:nth-child(3) .feature-icon {
+    background: var(--primary);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: scale(1.08) rotate(3deg);
+  }
+
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+  }
+
+  .feature-description {
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Calculator */
+  .calculator-wrapper {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-top: 2rem;
+  }
+
+  .calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .calculator-left {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 2rem;
+  }
+
+  .calculator-left h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .calculator-left p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .industry-preview {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .industry-info h4 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .equipment-list h5 {
+    color: var(--primary);
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .equipment-list h5 i {
+    color: var(--primary);
+  }
+
+  .equipment-grid {
+    display: grid;
+    gap: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .equipment-item {
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border-left: 3px solid var(--primary);
+  }
+
+  .info-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .info-box h4 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .info-box i {
+    color: var(--primary);
+  }
+
+  .info-box h4 i {
+    color: var(--primary);
+  }
+
+  .calculator-right {
+    background: var(--gray-50);
+    padding: 2rem;
+  }
+
+  .calculator-form h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--gray-900);
+  }
+
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .calc-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--white);
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+
+  .calc-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(55, 175, 107, 0.1);
+  }
+
+  select.calc-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    padding-right: 2.5rem;
+    appearance: none;
+  }
+
+  #equipment-group {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  #equipment-group.show {
+    display: block;
+    opacity: 1;
+  }
+
+  .equipment-count {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-left: auto;
+  }
+
+  .calc-btn {
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .calc-btn:hover {
+    background: var(--primary-light);
+  }
+
+  .calc-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .result-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .result-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 1rem 0;
+  }
+
+  .signup-btn {
+    background: var(--secondary);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .signup-btn:hover {
+    background: var(--primary);
+  }
+
+  /* Process Steps */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .process-step {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-100);
+    transition: all 0.2s;
+  }
+
+  .process-step:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--gray-900);
+  }
+
+  .step-description {
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+
+  /* Industries */
+  .industry-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-100);
+    transition: all 0.2s;
+  }
+
+  .industry-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .industry-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .industry-content {
+    padding: 1.5rem;
+  }
+
+  .industry-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--gray-900);
+  }
+
+  .industry-description {
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .cta-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-phone {
+    background: var(--white);
+    color: var(--secondary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .btn-phone:hover {
+    background: var(--gray-50);
+  }
+
+  /* Tagline Section */
+  .tagline-section {
+    background: var(--gray-100);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .tagline-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--gray-50);
+    padding: 2rem 0 1rem;
+    border-top: 1px solid var(--gray-200);
+    position: relative;
+    z-index: 1;
+  }
+
+  .tagline-text-footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 2rem;
+  }
+
+  .tagline-text-footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-logo {
+    width: 50px; /* increase size */
+    height: 50px; /* increase size */
+    background: transparent; /* remove background */
+    border-radius: 0; /* remove rounded corners */
+    padding: 0; /* remove padding */
+    border: none; /* remove border */
+  }
+
+  .footer-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+
+  .footer-brand-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--gray-500);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--secondary);
+    background: var(--gray-100);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    width: 32px;
+    height: 32px;
+    background: var(--gray-100);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+
+  .social-link:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .footer-bottom {
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.875rem;
+  }
+
+  .footer-bottom a {
+    color: var(--gray-500);
+    text-decoration: none;
+  }
+
+  .footer-bottom a:hover {
+    color: var(--secondary);
+  }
+
+  .footer-bottom span {
+    margin: 0 2px; /* small horizontal spacing */
+    padding: 0;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-bottom p a {
+    margin: 0 2px;
+  }
+
+  /* Enhanced Responsive Design - Mobile First */
+
+  /* Extra Large Desktop (1400px+) */
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1600px;
+    }
+    
+    .hero-content {
+      max-width: 1400px;
+    }
+    
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  /* Large Desktop (1200px+) */
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1400px;
+    }
+    
+    .feature-card {
+      padding: 4rem;
+    }
+    
+    .calculator-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Desktop - Hide mobile elements */
+  @media (min-width: 769px) {
+    .mobile-toggle {
+      display: none !important;
+    }
+    
+    .mobile-close {
+      display: none !important;
+    }
+    
+    .nav-menu {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      background: transparent !important;
+      flex-direction: row !important;
+      justify-content: flex-end !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* Tablet Landscape (768px - 1199px) */
+  @media (max-width: 1199px) {
+    .card-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  /* Medium Tablet (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      padding: 3rem;
+    }
+    
+    .hero-content {
+      padding: 8rem 2rem 5rem;
+    }
+    
+    .stats-container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    
+    /* Better responsive images */
+    .hero-bg {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Flexible button sizing */
+    .btn {
+      min-width: 200px;
+      max-width: 300px;
+    }
+  }
+
+  /* Tablet Portrait and Mobile (768px and below) */
+  @media (max-width: 768px) {
+    .mobile-toggle { display: none !important; }
+    .nav-menu {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      background: transparent !important;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-end !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .nav-menu a {
+      color: var(--white) !important;
+      padding: 0.625rem 1rem;
+      margin: 0 0 0 0.25rem;
+      min-height: 0;
+    }
+    .mobile-close { display: none !important; }
+
+    .nav-menu .cta-login {
+      background: rgb(75, 197, 127);
+      border: none;
+      color: #ffffff;
+      margin-top: 1rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .nav-menu .cta-login:hover {
+      background: rgb(64, 168, 109);
+      color: #ffffff;
+    }
+
+    .nav-menu .cta-signup {
+      background: #48A96A;
+      color: #ffffff;
+      border: none;
+    }
+
+    .nav-menu .cta-signup:hover {
+      background: #5BC085;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 10002;
+      color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Header */
+    header {
+      padding: 0.75rem 0;
+    }
+    
+    .logo-circle {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .brand-text {
+      font-size: 0.8rem;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 35vh;
+    }
+
+    .hero-content {
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .hero-bg {
+      top: -5%;
+      left: -3%;
+      width: 106%;
+      height: 110%;
+      transform: scale(1.05);
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 8vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 4vw, 1.25rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 100%;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 400px;
+    }
+    
+    /* Improve touch targets */
+    .nav-menu a {
+      min-height: 48px;
+      padding: 1rem 1.5rem;
+    }
+    
+    /* Better spacing for mobile */
+    .hero-actions {
+      gap: 1rem;
+    }
+    
+    /* Optimize images for mobile */
+    .hero-bg {
+      object-position: center;
+    }
+    
+    .stat-card {
+      padding: 1rem 0.75rem;
+    }
+    
+    .stat-number {
+      font-size: 1.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+    }
+    
+    /* Stats */
+    .floating-stats {
+      margin-top: -4rem;
+      padding: 0 1rem 3rem;
+    }
+    
+    .stats-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    
+    .stats-item {
+      padding: 1.5rem 1rem;
+    }
+    
+    .stats-number {
+      font-size: 1.75rem;
+    }
+    
+    .stats-label {
+      font-size: 0.85rem;
+    }
+    
+    /* Sections */
+    .section {
+      padding: 3rem 0;
+    }
+    
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .section-subtitle {
+      font-size: 1rem;
+    }
+    
+    /* Cards */
+    .card-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      padding: 2.5rem;
+      border-radius: 16px;
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+    }
+    
+    .feature-description {
+      font-size: 0.95rem;
+    }
+    
+    /* Calculator */
+    .calculator-container {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    
+    .calculator-left,
+    .calculator-right {
+      padding: 2rem;
+    }
+    
+    .calculator-left h3,
+    .calculator-right h3 {
+      font-size: 1.5rem;
+    }
+    
+    .equipment-grid {
+      max-height: 150px;
+    }
+    
+    .calc-input {
+      padding: 0.875rem;
+      font-size: 16px; /* Prevents zoom on iOS */
+      min-height: 48px;
+    }
+    
+    .calc-btn {
+      padding: 1rem;
+      font-size: 1rem;
+      min-height: 48px;
+    }
+    
+    .result-section {
+      padding: 2rem;
+    }
+    
+    .result-amount {
+      font-size: 2.25rem;
+    }
+    
+    /* Process */
+    .process-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .process-step {
+      padding: 2.5rem;
+      border-radius: 16px;
+    }
+    
+    .step-number {
+      width: 56px;
+      height: 56px;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step-title {
+      font-size: 1.125rem;
+    }
+    
+    .step-description {
+      font-size: 0.95rem;
+    }
+    
+    /* Industries */
+    .industry-image {
+      height: 200px;
+    }
+    
+    .industry-content {
+      padding: 2rem;
+    }
+    
+    .industry-title {
+      font-size: 1.125rem;
+    }
+    
+    .industry-description {
+      font-size: 0.95rem;
+    }
+    
+    /* CTA */
+    .cta-section {
+      padding: 3rem 0;
+    }
+    
+    .cta-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .cta-description {
+      font-size: 1rem;
+    }
+    
+    .cta-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .btn-phone {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.875rem 1.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    .footer-links {
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    
+    .footer-links a {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Large Mobile (481px - 640px) */
+  @media (min-width: 481px) and (max-width: 640px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 350px;
+    }
+    
+    .stats-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    
+    .feature-card {
+      padding: 2rem;
+    }
+    
+    /* Better spacing for this breakpoint */
+    .container {
+      padding: 0 1.5rem;
+    }
+    
+    .hero-content {
+      padding: 6rem 1.5rem 3rem;
+    }
+    
+    /* Improved calculator layout */
+    .calculator-container {
+      margin: 1rem;
+      padding: 2rem 1.5rem;
+    }
+  }
+  
+  /* Medium Mobile (481px - 640px) */
+  @media (max-width: 640px) {
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 280px;
+    }
+    
+    .stats-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .equipment-grid {
+      max-height: 120px;
+    }
+    
+    /* Better button sizing */
+    .btn {
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+    
+    /* Improved form inputs */
+    .calc-input {
+      font-size: 16px; /* Prevents zoom on iOS */
+      padding: 1rem;
+    }
+  }
+
+  /* Small Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 0.75rem;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+      overflow-x: hidden;
+    }
+    
+    .header-content {
+      gap: 0.5rem;
+    }
+    
+    .logo-circle {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .brand-text {
+      font-size: 0.9rem;
+    }
+    
+    .hero-content {
+      padding: 5rem 1.25rem 2rem;
+      width: 100%;
+      max-width: none;
+    }
+
+    /* Better text alignment */
+    .hero-title,
+    .hero-subtitle,
+    .hero-description {
+      text-align: left;
+    }
+
+    .hero-badge {
+      font-size: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.5rem, 9vw, 2rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 4vw, 1.125rem);
+    }
+
+    .hero-description {
+      font-size: 0.85rem;
+      max-width: 100%;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.75rem;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .tagline-text-footer {
+      padding: 1.5rem 0;
+    }
+
+    .tagline-text-footer p {
+      font-size: 1rem;
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    
+    /* Better form styling */
+    .calc-form {
+      gap: 1rem;
+    }
+    
+    .calc-input,
+    .calc-select {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    
+    .floating-stats {
+      margin-top: -2rem;
+      padding: 0 0.75rem 2rem;
+    }
+    
+    .stats-container {
+      padding: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* Better card layouts */
+    .card-grid {
+      padding: 0;
+      gap: 1rem;
+    }
+    
+    .feature-card,
+    .process-step,
+    .industry-card {
+      margin: 0;
+      padding: 1.5rem 1rem;
+    }
+    
+    .stats-number {
+      font-size: 1.25rem;
+    }
+    
+    .section {
+      padding: 2.5rem 0;
+    }
+    
+    .section-title {
+      font-size: clamp(1.375rem, 7vw, 1.75rem);
+    }
+    
+    .feature-card {
+      padding: 1.25rem;
+    }
+    
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      font-size: 1.125rem;
+    }
+    
+    .calculator-left,
+    .calculator-right {
+      padding: 1.25rem;
+    }
+    
+    .equipment-grid {
+      max-height: 100px;
+    }
+    
+    .result-amount {
+      font-size: 1.75rem;
+    }
+    
+    .industry-image {
+      height: 160px;
+    }
+    
+    .industry-content {
+      padding: 1rem;
+    }
+    
+    .footer-brand-text {
+      font-size: 0.8rem;
+    }
+    
+    .footer-links a {
+      padding: 0.375rem;
+      font-size: 0.75rem;
+    }
+    
+    .social-link {
+      width: 32px;
+      height: 32px;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Touch Device Optimizations */
+  @media (pointer: coarse) {
+    .btn,
+    .calc-btn,
+    .signup-btn,
+    .btn-phone,
+    .nav-menu a,
+    .social-link,
+    .mobile-toggle,
+    .mobile-close {
+      min-height: 48px;
+      min-width: 48px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .feature-card:hover,
+    .process-step:hover,
+    .industry-card:hover,
+    .stat-card:hover {
+      transform: none;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Better spacing for touch */
+    .nav-menu a {
+      margin: 0.5rem 0;
+    }
+    
+    /* Larger tap targets */
+    .footer-links a {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  /* Landscape Mobile and Tablet */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+      min-height: 50vh;
+      padding: 1rem 0;
+    }
+
+    .hero-content {
+      padding: 2rem 1rem 1rem;
+    }
+    
+    .hero-stats {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .floating-stats {
+      margin-top: -1rem;
+    }
+    
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .hero-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+  }
+  
+  /* Landscape Tablet */
+  @media (min-height: 501px) and (max-height: 800px) and (orientation: landscape) {
+    .hero-content {
+      padding: 5rem 2rem 3rem;
+    }
+    
+    .stats-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* High DPI / Retina Display Optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-bg {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+
+  /* Floating WhatsApp Button - Fixed to viewport */
+  .whatsapp-float {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: #25D366 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    font-size: 28px !important;
+    z-index: 9999999 !important;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4) !important;
+    transition: background 0.3s ease, transform 0.3s ease !important;
+    pointer-events: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .whatsapp-float:hover {
+    background: #128C7E !important;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6) !important;
+    transform: scale(1.1) !important;
+  }
+
+  .whatsapp-float i {
+    color: white !important;
+  }
+
+  /* Mobile WhatsApp Button in Hero */
+  @media (max-width: 768px) {
+    .whatsapp-float {
+      width: 55px !important;
+      height: 55px !important;
+      font-size: 24px !important;
+      bottom: 20px !important;
+      right: 20px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsapp-float {
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 22px !important;
+      bottom: 15px !important;
+      right: 15px !important;
+    }
+  }
+
+  /* Chatbot Styles */
+  .chatbot-toggle {
+    position: fixed !important;
+    bottom: 100px !important;
+    right: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: var(--primary) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 28px !important;
+    cursor: pointer !important;
+    z-index: 9999998 !important;
+    box-shadow: 0 4px 20px rgba(72, 169, 106, 0.4) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .chatbot-toggle:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 25px rgba(72, 169, 106, 0.6) !important;
+  }
+
+  .chatbot-window {
+    position: fixed !important;
+    bottom: 170px !important;
+    right: 30px !important;
+    width: 380px !important;
+    height: 550px !important;
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+    z-index: 9999998 !important;
+    display: none !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .chatbot-window.active {
+    display: flex !important;
+  }
+
+  .chatbot-header {
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .chatbot-header-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .chatbot-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+  }
+
+  .chatbot-title {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .chatbot-title span {
+    font-size: 14px !important;
+    opacity: 0.9 !important;
+    font-weight: 500 !important;
+  }
+
+  .chatbot-close {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .chatbot-messages {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 20px !important;
+    background: #f5f5f5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .chat-message {
+    display: flex !important;
+    gap: 8px !important;
+    animation: fadeIn 0.3s ease !important;
+  }
+
+  .chat-message.bot {
+    align-self: flex-start !important;
+  }
+
+  .chat-message.user {
+    align-self: flex-end !important;
+    flex-direction: row-reverse !important;
+  }
+
+  .message-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: var(--primary) !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .message-avatar.user-avatar {
+    background: var(--gray-400) !important;
+  }
+
+  .message-content {
+    max-width: 70% !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  .chat-message.bot .message-content {
+    background: white !important;
+    color: var(--gray-900) !important;
+    border-bottom-left-radius: 4px !important;
+  }
+
+  .chat-message.user .message-content {
+    background: var(--primary) !important;
+    color: white !important;
+    border-bottom-right-radius: 4px !important;
+  }
+
+  .chatbot-input-area {
+    padding: 16px !important;
+    background: white !important;
+    border-top: 1px solid #e0e0e0 !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .chatbot-input {
+    flex: 1 !important;
+    padding: 12px 16px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 24px !important;
+    font-size: 14px !important;
+    outline: none !important;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  .chatbot-input:focus {
+    border-color: var(--primary) !important;
+  }
+
+  .chatbot-send {
+    width: 44px !important;
+    height: 44px !important;
+    background: var(--primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .chatbot-send:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.05) !important;
+  }
+
+  .chatbot-send:disabled {
+    background: var(--gray-300) !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile Chatbot Styles */
+  @media (max-width: 768px) {
+    .chatbot-toggle {
+      width: 55px !important;
+      height: 55px !important;
+      font-size: 24px !important;
+      bottom: 90px !important;
+      right: 20px !important;
+    }
+
+    .chatbot-window {
+      bottom: 0 !important;
+      right: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 0 !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .chatbot-toggle {
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 22px !important;
+      bottom: 80px !important;
+      right: 15px !important;
+    }
+  }
+
+  /* FAQ Specific Styles */
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-category {
+    margin-bottom: 3rem;
+  }
+
+  .faq-category-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .faq-category-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    transition: var(--transition);
+  }
+
+  .faq-question:hover {
+    color: var(--primary);
+  }
+
+  .faq-question-text {
+    flex: 1;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .faq-answer-content p {
+    margin-bottom: 1rem;
+  }
+
+  .faq-answer-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-answer-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-answer-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer-content strong {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .faq-category-title {
+      font-size: 1.5rem;
+    }
+
+    .faq-question {
+      font-size: 1rem;
+      padding: 1.25rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-category-title {
+      font-size: 1.25rem;
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1rem 1rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Simple Cookie Consent Banner - Bottom (Fixed to viewport) */
+  .cookie-banner {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #1a1a1a !important;
+    color: white !important;
+    padding: 20px !important;
+    z-index: 999997 !important;
+    display: none !important;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3) !important;
+    margin: 0 !important;
+  }
+
+  .cookie-banner.show {
+    display: block !important;
+  }
+
+  .cookie-banner-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .cookie-banner-text {
+    flex: 1 !important;
+    min-width: 250px !important;
+  }
+
+  .cookie-banner-text p {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .cookie-banner-text a {
+    color: #48A96A !important;
+    text-decoration: underline !important;
+  }
+
+  .cookie-banner-buttons {
+    display: flex !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .cookie-banner-btn {
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    white-space: nowrap !important;
+  }
+
+  .cookie-banner-accept {
+    background: #48A96A !important;
+    color: white !important;
+  }
+
+  .cookie-banner-accept:hover {
+    background: #5BC085 !important;
+  }
+
+  .cookie-banner-decline {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid #6b6b6b !important;
+  }
+
+  .cookie-banner-decline:hover {
+    background: #2a2a2a !important;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner-content {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+
+    .cookie-banner-buttons {
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    .cookie-banner-btn {
+      flex: 1 !important;
+      min-width: 120px !important;
+    }
+  }
+  </style>
+  </head>
+
+  <body>
+      <!-- Cookie Consent Banner -->
+      <div class="cookie-banner" id="cookieConsent">
+          <div class="cookie-banner-content">
+              <div class="cookie-banner-text">
+                  <p><strong><i class="fas fa-cookie-bite"></i> We use cookies</strong> to enhance your experience and analyze traffic. By clicking "Accept All", you consent to our use of cookies. <a href="{% url 'privacy_policy' %}">Privacy Policy</a></p>
+              </div>
+              <div class="cookie-banner-buttons">
+                  <button class="cookie-banner-btn cookie-banner-decline" onclick="declineCookies()">Decline</button>
+                  <button class="cookie-banner-btn cookie-banner-accept" onclick="acceptCookies()">Accept All</button>
+              </div>
+          </div>
+      </div>
+
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <div class="logo-circle">
+              <img src="{% static 'images/FRI Logo - White.png' %}" alt="FRI Logo">
+            </div>
+          </div>
+
+          
+
+          <nav class="nav-menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'faq' %}">FAQ</a>
+            <a href="{% url 'home' %}#services">Services</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
+            <a href="{% url 'login' %}" class="cta-login">Log In</a>
+            <a href="{% url 'signup' %}" class="cta-signup">Sign Up</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+      <!-- Hero Section -->
+      <section id="faq-hero" class="hero">
+          <img src="{% static 'images/2.jpg' %}" alt="Frequently Asked Questions" class="hero-bg">
+          <div class="hero-overlay"></div>
+          <!-- Decorative hero shapes removed -->
+      <div class="hero-content">
+        <h1 class="hero-title">Frequently Asked Questions</h1>
+      </div>
+      </section>
+      
+ <!-- <a href="https://wa.me/13238927914" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+              </a> -->
+
+      <!-- Chatbot Widget -->
+      <button class="chatbot-toggle" aria-label="Open chatbot" id="chatbotToggle">
+          <i class="fas fa-comments"></i>
+      </button>
+
+      <div class="chatbot-window" id="chatbotWindow">
+          <div class="chatbot-header">
+              <div class="chatbot-header-info">
+                  <div class="chatbot-avatar">
+                      <img src="{% static 'images/FRI Logo - Black.png' %}" alt="FRI Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+                  </div>
+                  <div class="chatbot-title">
+                      <span>Online</span>
+                  </div>
+              </div>
+              <button class="chatbot-close" aria-label="Close chatbot" id="chatbotClose">
+                  <i class="fas fa-times"></i>
+              </button>
+          </div>
+
+          <div class="chatbot-messages" id="chatbotMessages">
+              <div class="chat-message bot">
+                  <div class="message-avatar">
+                      <i class="fas fa-comment-dots"></i>
+                  </div>
+                  <div class="message-content">
+                      Hi there! 👋 How can I assist you today? 😊
+                  </div>
+              </div>
+          </div>
+
+          <div class="chatbot-input-area">
+              <input
+                  type="text"
+                  class="chatbot-input"
+                  id="chatbotInput"
+                  placeholder="Type your message..."
+                  autocomplete="off"
+              />
+              <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
+                  <i class="fas fa-paper-plane"></i>
+              </button>
+          </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="section">
+          <div class="container">
+              <div class="faq-container">
+
+                  <!-- About Fuel Refund Institute -->
+                  <div class="faq-category">
+                      <h2 class="faq-category-title">
+                          <i class="fas fa-info-circle faq-category-icon"></i>
+                          About Fuel Refund Institute
+                      </h2>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">What does Fuel Refund Institute do?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Fuel Refund Institute helps U.S. businesses recover money paid in federal and state fuel taxes for fuel used in non-taxable operations — such as auxiliary equipment (cranes, reefers, cement pumpers, garbage trucks, etc.). We manage the entire refund process, from analysis to filing and refund tracking.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">Who qualifies for a fuel tax refund?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Any business that uses undyed fuel-powered equipment where the fuel powers something other than the vehicle's movement on public highways may qualify. Examples include crane hydraulics, reefer unit refrigeration, cement pumper operations, garbage compactor systems, and auxiliary engines or PTO (Power Take-Off) systems. If your fleet includes these types of vehicles, you likely qualify.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">How much can my business get back?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Refund amounts vary by state, operation type, and fuel usage — but it's often hundreds to thousands of dollars per vehicle per year. FRI clients typically recover $1,000–$50,000+ annually in diesel tax refunds depending on fleet size and auxiliary usage. On average, businesses that qualify lose about $100 each day that passes without filing their refund.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">Do I need to keep detailed fuel logs to qualify?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Yes — accurate records are essential to ensure your refund is calculated correctly. Our team can help you recollect, structure, and verify your information using fuel invoices, equipment data, and operational patterns to make sure your submission is accurate, compliant, and optimized.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- The Refund Process -->
+                  <div class="faq-category">
+                      <h2 class="faq-category-title">
+                          <i class="fas fa-cogs faq-category-icon"></i>
+                          The Refund Process
+                      </h2>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">How does the refund process work?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Our process follows 8 simple steps: 1) Estimate your refund (free evaluation), 2) Create an account, 3) Complete guided forms, 4) Submit supporting documents, 5) We prepare and file your claim, 6) Track progress in real time, 7) Receive your refund, 8) Optimize future claims.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">What documents are required?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>We typically need fuel purchase invoices or fuel card statements, equipment lists (with PTO or auxiliary systems), mileage or usage summaries, and business details including tax identification. Our team helps you gather and format everything correctly for submission.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">How long does it take to receive a refund?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Once submitted, most claims are processed by the California Department of Tax and Fee Administration (CDTFA) or your relevant state agency within 8–12 weeks, depending on the complexity of your claim.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">How far back can I claim refunds?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>You can claim refunds for diesel purchases made within 3 years from the purchase date, or 6 months from the invoice date (whichever is earlier — per CDTFA rules). Check with our team if you have older records and we'll advise on eligibility.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Fees, Security & Support -->
+                  <div class="faq-category">
+                      <h2 class="faq-category-title">
+                          <i class="fas fa-dollar-sign faq-category-icon"></i>
+                          Fees, Security & Support
+                      </h2>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">What does your service cost?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>No upfront payment is required. If you don't get a refund, you don't pay a cent — we use a success-based fee model. The exact fee depends on the complexity of your claim.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">Is my data and information secure?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Yes. All documents and forms are handled via encrypted, SSL-secured systems with strict confidentiality protocols. We never share your data with third parties outside of the required tax agencies.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">Can you work with my accountant or tax preparer?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>Absolutely. We often collaborate directly with accountants and CFOs to align refund submissions with existing tax records and ensure full compliance.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">What makes Fuel Refund Institute different from other refund services?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>We specialize only in fuel tax refunds for auxiliary equipment, meaning our process is built specifically for cranes, reefers, cement pumpers, garbage trucks, and specialty fleets. We're hands-on, transparent, and fast, with real-time progress tracking and compliance-driven results.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">Is this a government program?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>No. Fuel Refund Institute is a private consulting firm that prepares and files refund claims with the relevant state and federal agencies on your behalf — ensuring accuracy and compliance at every step.</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="faq-item">
+                          <button class="faq-question" aria-expanded="false">
+                              <span class="faq-question-text">How do I get started?</span>
+                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                          </button>
+                          <div class="faq-answer">
+                              <div class="faq-answer-content">
+                                  <p>You can visit our website and complete the free refund estimate form, or contact us directly at <a href="mailto:refund@fuelrefundinstitute.com">refund@fuelrefundinstitute.com</a> or <a href="tel:+13238927914">+1 323-892-7914</a>. Our team will assess your eligibility and guide you through your first claim.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </section>
+      
+      <!-- Call to Action Section -->
+      <section class="cta-section">
+          <div class="container">
+              <h2 class="cta-title">Ready to reclaim your fuel taxes?</h2>
+              <p class="cta-description">Trusted by businesses across a variety of industries, our team has helped clients successfully claim their fuel tax refunds. <strong>Join our platform today - sign up, upload your documents, and let our experts handle the rest!</strong></p>
+              <div class="cta-actions">
+                  <a href="{% url 'signup' %}" class="btn btn-primary">
+                      <i class="fas fa-user-plus"></i>
+                      Sign Up & Upload Documents
+                  </a>
+                  <a href="{% url 'contact' %}" class="btn btn-secondary">
+                      <i class="fas fa-envelope"></i>
+                      Contact Us
+                  </a>
+              </div>
+          </div>
+      </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="FRI">
+            </div>
+            <div class="footer-brand-text">Fuel Refund Institute</div>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p><span>&copy; 2025 Fuel Refund Institute</span></p>
+          <p><a href="{% url 'privacy_policy' %}">Privacy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}">Terms</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914">+1 323-892-7914</a></p>
+        </div>
+      </div>
+    </footer>
+
+      <script>
+          // Cookie Consent Functions
+          function acceptCookies() {
+              localStorage.setItem('cookieConsent', 'accepted');
+              hideCookieBanner();
+              // You can add analytics or other cookie-related code here
+              console.log('Cookies accepted');
+          }
+
+          function declineCookies() {
+              localStorage.setItem('cookieConsent', 'declined');
+              hideCookieBanner();
+              console.log('Cookies declined');
+          }
+
+          function hideCookieBanner() {
+              const banner = document.getElementById('cookieConsent');
+              if (banner) {
+                  banner.classList.remove('show');
+              }
+          }
+
+          function showCookieBanner() {
+              const banner = document.getElementById('cookieConsent');
+              console.log('showCookieBanner called, banner element:', banner);
+              if (banner) {
+                  // CSS handles all styling - just add the show class
+                  console.log('Adding show class to banner (CSS handles positioning)');
+                  setTimeout(() => {
+                      banner.classList.add('show');
+                      console.log('Cookie banner should now be visible and FIXED at bottom of screen');
+                      // Debug after showing
+                      setTimeout(() => {
+                          debugCookieBanner();
+                      }, 50);
+                  }, 1000); // Show after 1 second
+              } else {
+                  console.error('Cookie banner element not found!');
+              }
+          }
+
+          function checkCookieConsent() {
+              const consent = localStorage.getItem('cookieConsent');
+              console.log('Cookie consent status:', consent);
+              if (!consent) {
+                  console.log('No consent found, showing banner');
+                  showCookieBanner();
+              } else {
+                  console.log('Consent already given:', consent);
+              }
+          }
+
+          // Add escape key to close modal
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                  const overlay = document.getElementById('cookieConsent');
+                  if (overlay && overlay.classList.contains('show')) {
+                      acceptCookies(); // Auto-accept on escape
+                  }
+              }
+          });
+
+          // TEST FUNCTION - Show cookie banner and debug position
+          function testCookieBannerPosition() {
+              const banner = document.getElementById('cookieConsent');
+              if (banner) {
+                  console.log('TESTING: Showing cookie banner (CSS handles positioning)');
+                  banner.classList.add('show');
+                  console.log('Banner should now be visible and fixed at bottom of SCREEN');
+                  setTimeout(() => {
+                      debugCookieBanner();
+                  }, 100);
+              } else {
+                  console.error('Cookie banner not found!');
+              }
+          }
+
+          // In-depth debugging for WhatsApp button positioning
+          function debugWhatsAppButton() {
+              const whatsappButton = document.querySelector('.whatsapp-float');
+
+              if (!whatsappButton) {
+                  console.error('❌ WhatsApp button NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== WhatsApp Button Debug Info ===');
+              console.log('✅ WhatsApp button found:', whatsappButton);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(whatsappButton);
+              console.log('📍 Position:', computedStyle.position);
+              console.log('📏 Bottom:', computedStyle.bottom);
+              console.log('📏 Right:', computedStyle.right);
+              console.log('📏 Top:', computedStyle.top);
+              console.log('📏 Left:', computedStyle.left);
+              console.log('🔢 Z-Index:', computedStyle.zIndex);
+              console.log('🎨 Display:', computedStyle.display);
+              console.log('📐 Width:', computedStyle.width);
+              console.log('📐 Height:', computedStyle.height);
+              console.log('🔄 Transform:', computedStyle.transform);
+              console.log('🔄 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect (actual position on screen)
+              const rect = whatsappButton.getBoundingClientRect();
+              console.log('📦 Bounding Rect:', {
+                  top: rect.top,
+                  right: rect.right,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  width: rect.width,
+                  height: rect.height
+              });
+
+              // Check parent elements that might affect positioning
+              let parent = whatsappButton.parentElement;
+              let level = 0;
+              console.log('👪 Parent Chain:');
+              while (parent && level < 5) {
+                  const parentStyle = window.getComputedStyle(parent);
+                  console.log(`  Level ${level}: ${parent.tagName}`, {
+                      position: parentStyle.position,
+                      transform: parentStyle.transform,
+                      overflow: parentStyle.overflow,
+                      zIndex: parentStyle.zIndex
+                  });
+                  parent = parent.parentElement;
+                  level++;
+              }
+
+              // Check viewport and scroll position
+              console.log('🖥️ Viewport Info:', {
+                  innerWidth: window.innerWidth,
+                  innerHeight: window.innerHeight,
+                  scrollY: window.scrollY,
+                  scrollX: window.scrollX
+              });
+
+              // Check inline styles
+              console.log('💅 Inline Style Attribute:', whatsappButton.getAttribute('style') || 'none');
+
+              // Check all applied classes
+              console.log('🏷️ Classes:', whatsappButton.className);
+
+              // Calculate if button is actually at bottom of viewport
+              const expectedBottom = window.innerHeight - 30 - 60; // innerHeight - bottom margin - button height
+              const actualBottom = rect.top;
+              const isProperlyFixed = Math.abs(actualBottom - expectedBottom) < 50;
+
+              console.log('🎯 Position Check:', {
+                  expectedTopPosition: expectedBottom,
+                  actualTopPosition: actualBottom,
+                  difference: actualBottom - expectedBottom,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO VIEWPORT!' : '❌ NOT PROPERLY FIXED - STUCK TO PAGE BOTTOM'
+              });
+
+              console.log('=================================');
+          }
+
+          // In-depth debugging for Cookie Banner positioning
+          function debugCookieBanner() {
+              const cookieBanner = document.getElementById('cookieConsent');
+
+              if (!cookieBanner) {
+                  console.error('❌ Cookie Banner NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== Cookie Banner Debug Info ===');
+              console.log('✅ Cookie Banner found:', cookieBanner);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(cookieBanner);
+              console.log('🍪 Position:', computedStyle.position);
+              console.log('🍪 Bottom:', computedStyle.bottom);
+              console.log('🍪 Left:', computedStyle.left);
+              console.log('🍪 Right:', computedStyle.right);
+              console.log('🍪 Z-Index:', computedStyle.zIndex);
+              console.log('🍪 Display:', computedStyle.display);
+              console.log('🍪 Transform:', computedStyle.transform);
+              console.log('🍪 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect
+              const rect = cookieBanner.getBoundingClientRect();
+              console.log('🍪 Bounding Rect:', {
+                  top: rect.top,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  right: rect.right,
+                  height: rect.height
+              });
+
+              // Check if it's at the bottom of viewport
+              const expectedTop = window.innerHeight - rect.height;
+              const isProperlyFixed = Math.abs(rect.top - expectedTop) < 50;
+
+              console.log('🎯 Cookie Banner Position Check:', {
+                  expectedTopPosition: expectedTop,
+                  actualTopPosition: rect.top,
+                  difference: rect.top - expectedTop,
+                  viewportHeight: window.innerHeight,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO VIEWPORT!' : '❌ NOT PROPERLY FIXED - STUCK TO PAGE BOTTOM'
+              });
+
+              console.log('=================================');
+          }
+
+          // In-depth debugging for Header positioning
+          function debugHeader() {
+              const header = document.querySelector('header');
+
+              if (!header) {
+                  console.error('❌ Header NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== Header Debug Info ===');
+              console.log('✅ Header found:', header);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(header);
+              console.log('🔝 Position:', computedStyle.position);
+              console.log('🔝 Top:', computedStyle.top);
+              console.log('🔝 Left:', computedStyle.left);
+              console.log('🔝 Right:', computedStyle.right);
+              console.log('🔝 Z-Index:', computedStyle.zIndex);
+              console.log('🔝 Transform:', computedStyle.transform);
+              console.log('🔝 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect
+              const rect = header.getBoundingClientRect();
+              console.log('🔝 Bounding Rect:', {
+                  top: rect.top,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  right: rect.right,
+                  height: rect.height
+              });
+
+              // Check if it's at the top of viewport
+              const isProperlyFixed = Math.abs(rect.top) < 5; // Should be at 0 or very close
+
+              console.log('🎯 Header Position Check:', {
+                  expectedTopPosition: 0,
+                  actualTopPosition: rect.top,
+                  difference: rect.top,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO TOP!' : '❌ NOT PROPERLY FIXED - SCROLLING WITH PAGE'
+              });
+
+              console.log('=================================');
+          }
+
+          // Force remove transforms from HTML and BODY to fix positioning of WhatsApp/Cookie banner
+          function forceRemoveTransforms() {
+              console.log('🔧 Forcing transform removal from HTML and BODY...');
+
+              const html = document.documentElement;
+              const body = document.body;
+
+              // Remove transforms using inline styles (highest specificity)
+              html.style.transform = 'none';
+              html.style.webkitTransform = 'none';
+              body.style.transform = 'none';
+              body.style.webkitTransform = 'none';
+
+              console.log('✅ Transforms forcefully removed');
+
+              // Verify
+              const htmlStyle = window.getComputedStyle(html);
+              const bodyStyle = window.getComputedStyle(body);
+              console.log('🔍 Verification - HTML transform:', htmlStyle.transform);
+              console.log('🔍 Verification - BODY transform:', bodyStyle.transform);
+          }
+
+          // Ensure WhatsApp button and cookie banner stay fixed to viewport
+          window.addEventListener('DOMContentLoaded', function() {
+              console.log('🚀 DOMContentLoaded event fired');
+              console.log('Page loaded, checking cookie consent...');
+
+              // CRITICAL: Force remove transforms from HTML and BODY first
+              forceRemoveTransforms();
+
+              // Debug fixed elements immediately (header is absolute, not fixed)
+              setTimeout(() => {
+                  debugWhatsAppButton();
+              }, 50);
+
+              // Debug cookie banner (CSS handles all styling)
+              setTimeout(() => {
+                  debugCookieBanner();
+              }, 100);
+
+              // Check cookie consent on page load
+              checkCookieConsent();
+
+          });
+
+          // Debug on scroll
+          let scrollDebugTimeout;
+          window.addEventListener('scroll', function() {
+              clearTimeout(scrollDebugTimeout);
+              scrollDebugTimeout = setTimeout(function() {
+                  console.log('📜 Scroll Event - Position:', window.scrollY);
+
+                  // Debug header position
+                  const header = document.querySelector('header');
+                  if (header) {
+                      const rect = header.getBoundingClientRect();
+                      console.log('🔝 Header Screen Position:', {
+                          top: rect.top,
+                          isAtTop: Math.abs(rect.top) < 5,
+                          verdict: Math.abs(rect.top) < 5 ? '✅ FIXED' : '❌ SCROLLING'
+                      });
+                  }
+
+                  // Debug WhatsApp button position
+                  const whatsappButton = document.querySelector('.whatsapp-float');
+                  if (whatsappButton) {
+                      const rect = whatsappButton.getBoundingClientRect();
+                      console.log('📍 WhatsApp Button Screen Position:', {
+                          top: rect.top,
+                          bottom: rect.bottom,
+                          distanceFromBottomOfViewport: window.innerHeight - rect.bottom
+                      });
+                  }
+
+                  // Debug cookie banner position (if visible)
+                  const cookieBanner = document.getElementById('cookieConsent');
+                  if (cookieBanner && cookieBanner.classList.contains('show')) {
+                      const rect = cookieBanner.getBoundingClientRect();
+                      console.log('🍪 Cookie Banner Screen Position:', {
+                          top: rect.top,
+                          bottom: rect.bottom,
+                          expectedTop: window.innerHeight - rect.height,
+                          isAtBottom: Math.abs((window.innerHeight - rect.height) - rect.top) < 10
+                      });
+                  }
+              }, 250); // Debounce scroll logging
+          });
+
+          // Debug on window resize
+          window.addEventListener('resize', function() {
+              console.log('📏 Window Resized');
+              debugHeader();
+              debugWhatsAppButton();
+          });
+
+          // Industry equipment mapping - Alex's specifications
+          const industryEquipment = {
+              transport: [
+                  'Boom truck/block boom',
+                  'Bulk feed truck',
+                  'Car carrier with hydraulic winch',
+                  'Dump trailer',
+                  'Dump truck',
+                  'Garbage truck',
+                  'Leaf truck',
+                  'Log truck with self-loader',
+                  'Pneumatic tank truck',
+                  'Refrigeration truck',
+                  'Salt spreader (dump with spreader)',
+                  'Semi-wrecker',
+                  'Snow plow',
+                  'Spray truck',
+                  'Super sucker (port-o-let trucks)',
+                  'Sweeper truck',
+                  'Tank transport',
+                  'Tank truck',
+                  'Transfer trailer',
+                  'Wrecker',
+                  'Truck with hydraulic winch'
+              ],
+              emergency: [
+                  'Fire truck',
+                  'Garbage truck',
+                  'Leaf truck',
+                  'Sweeper truck',
+                  'Snow plow'
+              ],
+              public: [
+                  'Line truck with digger, derrick, or aerial lift',
+                  'Service truck with jack hammer/drill',
+                  'Sewer cleaning truck/jet/vactor',
+                  'Super sucker (port-o-let trucks)',
+                  'Tank transport',
+                  'Truck with hydraulic winch'
+              ],
+              agriculture: [
+                  'Bulk feed truck',
+                  'Lime spreader',
+                  'Seeder truck'
+              ],
+              industrial: [
+                  'Carpet cleaning van',
+                  'Other auxiliary equipment'
+              ]
+          };
+
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeCalculator();
+              initializeScrollEffects();
+          });
+
+          function initializeMobileNavigation() {
+              const mobileToggle = document.querySelector('.mobile-toggle');
+              const navMenu = document.querySelector('.nav-menu');
+              const mobileClose = document.querySelector('.mobile-close');
+
+              function toggleMenu() {
+                  navMenu?.classList.toggle('active');
+                  document.documentElement.classList.toggle('menu-open');
+              }
+
+              mobileToggle?.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  toggleMenu();
+              });
+
+              mobileClose?.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  toggleMenu();
+              });
+
+              navMenu?.querySelectorAll('a').forEach((link) => {
+                  link.addEventListener('click', () => {
+                      if (navMenu.classList.contains('active')) toggleMenu();
+                  });
+              });
+
+              document.addEventListener('keydown', (e) => {
+                  if (e.key === 'Escape' && navMenu.classList.contains('active')) toggleMenu();
+              });
+          }
+
+          function initializeCalculator() {
+              const industrySelect = document.getElementById('calc-industry');
+              const equipmentSelect = document.getElementById('calc-equipment');
+              const equipmentGroup = document.getElementById('equipment-group');
+              const equipmentCount = document.getElementById('equipment-count');
+              const calcButton = document.getElementById('calc-button');
+              const calcResult = document.getElementById('calc-result');
+              const resultValue = document.getElementById('result-value');
+              const industryPreview = document.getElementById('industry-preview');
+              
+              const industryNames = {
+                  transport: 'Transport & Logistics',
+                  emergency: 'Emergency Services / Municipal',
+                  public: 'Public Services',
+                  agriculture: 'Agriculture',
+                  industrial: 'Industrial / Manufacturing'
+              };
+              
+              industrySelect?.addEventListener('change', function() {
+                  const selectedIndustry = this.value;
+                  
+                  if (selectedIndustry && industryEquipment[selectedIndustry]) {
+                      equipmentGroup.style.display = 'block';
+                      setTimeout(() => {
+                          equipmentGroup.classList.add('show');
+                      }, 10);
+                      
+                      equipmentSelect.innerHTML = '<option value="">Select your equipment</option>';
+                      industryEquipment[selectedIndustry].forEach(equipment => {
+                          const option = document.createElement('option');
+                          option.value = equipment.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                          option.textContent = equipment;
+                          equipmentSelect.appendChild(option);
+                      });
+                      
+                      equipmentCount.textContent = `${industryEquipment[selectedIndustry].length} options`;
+                      updateIndustryPreview(selectedIndustry, industryNames[selectedIndustry]);
+                  } else {
+                      equipmentGroup.classList.remove('show');
+                      setTimeout(() => {
+                          equipmentGroup.style.display = 'none';
+                      }, 300);
+                      equipmentSelect.innerHTML = '<option value="">Select your equipment</option>';
+                      equipmentCount.textContent = '';
+                      resetIndustryPreview();
+                  }
+              });
+              
+              function updateIndustryPreview(industryKey, industryName) {
+                  const equipment = industryEquipment[industryKey];
+                  
+                  industryPreview.innerHTML = `
+                      <div class="industry-info">
+                          <h4><i class="fas fa-industry"></i> ${industryName}</h4>
+                          <p>This industry has <strong>${equipment.length} qualifying equipment types</strong> for fuel tax refunds.</p>
+                          <div class="equipment-list">
+                              <h5><i class="fas fa-wrench"></i> Qualifying Equipment:</h5>
+                              <div class="equipment-grid">
+                                  ${equipment.map(item => `<div class="equipment-item">${item}</div>`).join('')}
+                              </div>
+                          </div>
+                      </div>
+                  `;
+              }
+              
+              function resetIndustryPreview() {
+                  industryPreview.innerHTML = `
+                      <div class="industry-info">
+                          <h4><i class="fas fa-info-circle"></i> How It Works</h4>
+                          <p>Choose your industry from the dropdown, and we'll show you exactly which equipment qualifies for refunds in your field.</p>
+                      </div>
+                  `;
+              }
+              
+              calcButton?.addEventListener('click', function() {
+                  const originalText = this.innerHTML;
+                  this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating...';
+                  this.disabled = true;
+                  
+                  setTimeout(() => {
+                      const yearlyGallons = parseFloat(document.getElementById('calc-gallons').value) || 0;
+                      const industry = document.getElementById('calc-industry').value;
+                      const equipment = document.getElementById('calc-equipment').value;
+                      const fuelType = document.getElementById('calc-fuel-type').value;
+                      
+                      if (yearlyGallons === 0) {
+                          alert('Please enter your yearly gallons to calculate your refund');
+                          resetButton();
+                          return;
+                      }
+                      
+                      if (!industry) {
+                          alert('Please select your industry');
+                          resetButton();
+                          return;
+                      }
+                      
+                      if (!equipment) {
+                          alert('Please select your qualifying equipment');
+                          resetButton();
+                          return;
+                      }
+                      
+                      let exciseTaxRate = 0.679;
+                      let refundPercentage = 0.15;
+                      
+                      if (fuelType === 'gasoline') {
+                          exciseTaxRate = 0.184;
+                      }
+                      
+                      if (industry === 'agriculture') {
+                          refundPercentage = 0.20;
+                      } else if (industry === 'industrial') {
+                          refundPercentage = 0.17;
+                      } else if (industry === 'transport') {
+                          refundPercentage = 0.16;
+                      } else if (industry === 'emergency' || industry === 'public') {
+                          refundPercentage = 0.19;
+                      }
+                      
+                      const refund = yearlyGallons * exciseTaxRate * 3 * refundPercentage;
+                      
+                      resultValue.textContent = '$0';
+                      calcResult.style.display = 'block';
+                      calcResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      
+                      animateCounter(resultValue, 0, Math.round(refund), 2000);
+                      resetButton();
+                  }, 1500);
+                  
+                  function resetButton() {
+                      calcButton.innerHTML = originalText;
+                      calcButton.disabled = false;
+                  }
+              });
+          }
+
+          function animateCounter(element, start, end, duration) {
+              const startTime = performance.now();
+              const step = (timestamp) => {
+                  const elapsed = timestamp - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const current = Math.round(start + (end - start) * progress);
+                  
+                  element.textContent = '$' + current.toLocaleString();
+                  
+                  if (progress < 1) {
+                      requestAnimationFrame(step);
+                  }
+              };
+              requestAnimationFrame(step);
+          }
+
+          function initializeScrollEffects() {
+              document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                  anchor.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      const targetId = this.getAttribute('href');
+                      if (targetId === '#') return;
+
+                      const targetElement = document.querySelector(targetId);
+                      if (targetElement) {
+                          const headerHeight = window.innerWidth <= 768 ? 80 : 100;
+                          const targetPosition = targetElement.offsetTop - headerHeight;
+
+                          window.scrollTo({
+                              top: targetPosition,
+                              behavior: 'smooth'
+                          });
+                      }
+                  });
+              });
+
+              // All scroll effects removed for optimal performance
+          }
+
+          // Chatbot functionality
+          function initializeChatbot() {
+              const chatbotToggle = document.getElementById('chatbotToggle');
+              const chatbotWindow = document.getElementById('chatbotWindow');
+              const chatbotClose = document.getElementById('chatbotClose');
+              const chatbotInput = document.getElementById('chatbotInput');
+              const chatbotSend = document.getElementById('chatbotSend');
+              const chatbotMessages = document.getElementById('chatbotMessages');
+
+              // Toggle chatbot window
+              function toggleChatbot() {
+                  chatbotWindow.classList.toggle('active');
+                  if (chatbotWindow.classList.contains('active')) {
+                      chatbotInput.focus();
+                  }
+              }
+
+              // Close chatbot window
+              function closeChatbot() {
+                  chatbotWindow.classList.remove('active');
+              }
+
+              // Add message to chat
+              function addMessage(content, isUser = false) {
+                  const messageDiv = document.createElement('div');
+                  messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+
+                  const avatar = document.createElement('div');
+                  avatar.className = `message-avatar ${isUser ? 'user-avatar' : ''}`;
+                  avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-comment-dots"></i>';
+
+                  const messageContent = document.createElement('div');
+                  messageContent.className = 'message-content';
+                  messageContent.textContent = content;
+
+                  messageDiv.appendChild(avatar);
+                  messageDiv.appendChild(messageContent);
+
+                  chatbotMessages.appendChild(messageDiv);
+
+                  // Scroll to bottom
+                  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+              }
+
+              // Send message
+              function sendMessage() {
+                  const message = chatbotInput.value.trim();
+                  if (!message) return;
+
+                  // Add user message
+                  addMessage(message, true);
+                  chatbotInput.value = '';
+
+                  // Simulate bot response (you can replace this with actual API call)
+                  setTimeout(() => {
+                      const responses = [
+                          "Thanks for reaching out! 💚 I'd be happy to help you with fuel tax refunds. What would you like to know?",
+                          "Great question! 🎯 Would you like to calculate your potential refund or learn more about our services?",
+                          "I'm here to help! 😊 You can start by signing up and uploading your fuel receipts. Need a hand getting started?",
+                          "Absolutely! 👍 Feel free to ask me anything about fuel tax refunds!",
+                          "That's a great point! 💡 Would you like to speak with one of our specialists? You can also reach us via WhatsApp! 📱"
+                      ];
+                      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                      addMessage(randomResponse);
+                  }, 1000);
+              }
+
+              // Event listeners
+              chatbotToggle.addEventListener('click', toggleChatbot);
+              chatbotClose.addEventListener('click', closeChatbot);
+              chatbotSend.addEventListener('click', sendMessage);
+
+              chatbotInput.addEventListener('keypress', (e) => {
+                  if (e.key === 'Enter') {
+                      sendMessage();
+                  }
+              });
+
+              console.log('✅ Chatbot initialized');
+          }
+
+          // Initialize chatbot on page load
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeChatbot();
+          });
+
+          // FAQ Accordion Functionality
+          function initializeFAQ() {
+              const faqItems = document.querySelectorAll('.faq-item');
+
+              faqItems.forEach(item => {
+                  const question = item.querySelector('.faq-question');
+                  const answer = item.querySelector('.faq-answer');
+
+                  question.addEventListener('click', () => {
+                      const isActive = item.classList.contains('active');
+
+                      // Close all other FAQ items
+                      faqItems.forEach(otherItem => {
+                          if (otherItem !== item) {
+                              otherItem.classList.remove('active');
+                              const otherAnswer = otherItem.querySelector('.faq-answer');
+                              otherAnswer.style.maxHeight = null;
+                              otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                          }
+                      });
+
+                      // Toggle current item
+                      if (isActive) {
+                          item.classList.remove('active');
+                          answer.style.maxHeight = null;
+                          question.setAttribute('aria-expanded', 'false');
+                      } else {
+                          item.classList.add('active');
+                          answer.style.maxHeight = answer.scrollHeight + 'px';
+                          question.setAttribute('aria-expanded', 'true');
+                      }
+                  });
+              });
+
+              console.log('✅ FAQ accordion initialized');
+          }
+
+          // Initialize FAQ on page load
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeFAQ();
+          });
+      </script>
+  </body>
+  </html>
