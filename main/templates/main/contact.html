@@ -4,28 +4,61 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Contact Us - Fuel Refund Institute</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Contact Us - Get Your Fuel Tax Refund Started | Fuel Refund Institute</title>
+
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preconnect to critical domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <meta name="description" content="Contact Fuel Refund Institute for expert help with fuel tax refunds. Get a free consultation and start recovering your fuel taxes today. Call (424) 222-5290 or fill out our contact form.">
-<meta name="keywords" content="fuel tax refund, fuel excise tax, off-road fuel tax, business fuel refund, IFTA compliance, fuel tax recovery, diesel tax refund">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="{% static 'images/2.jpg' %}" fetchpriority="high">
+
+  <!-- Load fonts asynchronously -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Defer Font Awesome loading -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+  <!-- Inline critical CSS loading script -->
+  <script>
+  !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,s=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var l=i.styleSheets;s.rel="stylesheet",s.href=t,s.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(s,n?o:o.nextSibling)});var u=function(e){for(var t=s.href,n=l.length;n--;)if(l[n].href===t)return e();setTimeout(function(){u(e)})};return s.addEventListener&&s.addEventListener("load",r),s.onloadcssdefined=u,u(r),s};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+  </script>
+  <meta name="description" content="Contact Fuel Refund Institute to start your fuel tax refund process. Call +1 323-892-7914 or submit our online form. Expert guidance for businesses nationwide. Free consultation available.">
+<meta name="keywords" content="contact fuel tax refund, fuel refund consultation, fuel tax help, IFTA support, fuel excise tax contact, business fuel refund inquiry">
 <meta name="author" content="Fuel Refund Institute">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Contact Us - Fuel Refund Institute">
-<meta property="og:description" content="Get in touch with Fuel Refund Institute. Expert help with fuel tax refunds. Free consultation available. Call (424) 222-5290.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Fuel Refund Institute">
+<meta property="og:title" content="Contact Us - Get Your Fuel Tax Refund Started | Fuel Refund Institute">
+<meta property="og:description" content="Contact Fuel Refund Institute to start your fuel tax refund process. Expert guidance for businesses nationwide. Free consultation available.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fuelrefundinstitute.com/contact">
-<meta property="og:image" content="{% static 'images/logo.png' %}">
+<meta property="og:url" content="https://fuelrefundinstitute.com/contact/">
+<meta property="og:image" content="https://fuelrefundinstitute.com/static/images/logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fuel Refund Institute Logo">
+<meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Us - Fuel Refund Institute">
-<meta name="twitter:description" content="Get in touch for expert help with fuel tax refunds. Free consultation available.">
-<meta name="twitter:image" content="{% static 'images/logo.png' %}">
-<link rel="canonical" href="https://fuelrefundinstitute.com/contact">
+<meta name="twitter:title" content="Contact Us - Get Your Fuel Tax Refund Started | Fuel Refund Institute">
+<meta name="twitter:description" content="Contact Fuel Refund Institute to start your fuel tax refund process. Expert guidance for businesses nationwide.">
+<meta name="twitter:image" content="https://fuelrefundinstitute.com/static/images/logo.png">
+<meta name="twitter:image:alt" content="Fuel Refund Institute Logo">
+<link rel="canonical" href="https://fuelrefundinstitute.com/contact/">
+<meta name="theme-color" content="#48A96A">
     <link rel="icon" type="image/x-icon" href="{% static 'images/FRI Logo - Black.png' %}">
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization with Contact Info -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,8 +67,24 @@
       "description": "Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery.",
       "url": "https://fuelrefundinstitute.com",
       "logo": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "image": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "telephone": "+1-323-892-7914",
+      "priceRange": "$$",
       "serviceType": "Fuel Tax Refund Services",
-      "areaServed": "United States",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-323-892-7914",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Fuel Tax Refund Services",
@@ -55,9 +104,39 @@
               "name": "Off-Road Fuel Tax Recovery",
               "description": "Recovery of fuel taxes paid on off-road equipment usage"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "IFTA Compliance & Filing",
+              "description": "Comprehensive management of International Fuel Tax Agreement obligations"
+            }
           }
         ]
       }
+    }
+    </script>
+
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://fuelrefundinstitute.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact Us",
+          "item": "https://fuelrefundinstitute.com/contact/"
+        }
+      ]
     }
     </script>
   <style>
@@ -113,7 +192,7 @@
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
-
+  
   /* Lock page scroll when mobile menu is open */
   html.menu-open {
     overflow: hidden;
@@ -155,33 +234,23 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0px;
   }
 
   /* Header - Enhanced */
   header {
-    /* keep header visible at top */
-    position: fixed !important;
-    top: 0 !important;
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
     background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: none;
     z-index: 10000;
     padding: 0.75rem 0;
-    border-bottom: none;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    will-change: auto;
-  }
-
-  header.scrolled {
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: var(--shadow-xl);
-    padding: 0.75rem 0;
+    transition: var(--transition);
   }
 
   .header-content {
@@ -195,30 +264,15 @@
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    transition: var(--transition);
-  }
-
-  .logo-section:hover {
-    transform: translateY(-1px);
+    z-index: 10001;
   }
 
   .logo-circle {
     width: 120px;
     height: 120px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
-    box-shadow: none;
-  }
-
-  .logo-circle:hover {
-    border-color: none;
-    box-shadow: none;
   }
 
   .logo-circle img {
@@ -227,19 +281,10 @@
     object-fit: contain;
   }
 
-
-  .brand-text {
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: var(--secondary);
-    letter-spacing: -0.025em;
-    transition: var(--transition);
-  }
-
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 0.125rem;
+    gap: 0.25rem;
   }
 
   .nav-menu a {
@@ -250,66 +295,34 @@
     border-radius: 8px;
     transition: var(--transition);
     font-size: 0.9rem;
-    letter-spacing: -0.01em;
     position: relative;
+    border-bottom: 2px solid transparent;
   }
 
   .nav-menu a:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
     transform: translateY(-1px);
+    border-bottom-color: var(--primary);
   }
 
-  .nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+  .nav-menu a.active {
+    background: transparent;
+    border-bottom-color: var(--primary);
   }
 
-  /* Add spacing between regular nav links and auth buttons (match Contact page) */
-  .nav-menu a:not(.cta-login):not(.cta-signup) {
-    margin-right: 0.8rem;
-  }
-
-  .nav-menu a:hover::after,
-  .nav-menu a.active::after {
-    width: calc(100% - 2rem);
-  }
-
-  .cta-login {
-    background: rgb(75, 197, 127);
-    color: var(--white);
-    font-weight: 600;
-    padding: 0.45rem 0.9rem;
-    border-radius: 8px;
-    border: none;
-    margin-left: 2.4rem; /* increased to move button further right */
-  }
-
-  .cta-login:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
-  }
-
+  .cta-login,
   .cta-signup {
-    background: rgb(75, 197, 127);
+    background: var(--primary);
     color: var(--white);
     font-weight: 600;
-    padding: 0.45rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: none;
-    margin-left: 0.6rem; /* reduced so Sign Up sits closer to Log In */
+    margin-left: 0.5rem;
   }
 
+  .cta-login:hover,
   .cta-signup:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
+    background: var(--primary-light);
   }
 
   .mobile-toggle {
@@ -320,37 +333,43 @@
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: 10001;
   }
 
   .mobile-toggle span {
-    width: 20px;
-    height: 2px;
+    width: 24px;
+    height: 3px;
     background: var(--white);
-    border-radius: 1px;
+    border-radius: 2px;
     transition: all 0.3s;
+  }
+
+  .mobile-close {
+    display: none;
   }
 
   /* Hero Section - Expanded */
   .hero {
     position: relative;
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    justify-content: center;
+    background: var(--secondary);
     color: var(--white);
     overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .hero-bg {
     position: absolute;
-    top: -10%;
-    left: -5%;
-    width: 110%;
-    height: 120%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: 1;
-    filter: brightness(0.7);
-    transform: scale(1.1);
   }
 
   .hero-overlay {
@@ -360,9 +379,9 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.7) 50%,
-      rgba(72, 169, 106, 0.6) 100%);
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(72, 169, 106, 0.5) 100%);
     z-index: 2;
   }
 
@@ -370,24 +389,16 @@
     position: relative;
     z-index: 3;
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 6rem 1rem 4rem;
-    width: 100%;
+    padding: 8rem 1rem 3rem;
   }
 
   .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--white);
-    color: var(--secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    display: inline-block;
+    color: var(--white);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-lg);
+    letter-spacing: 0.5px;
   }
 
   .hero-badge i {
@@ -395,10 +406,9 @@
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin: 0;
   }
 
   .hero-subtitle {
@@ -413,8 +423,8 @@
     font-size: 1.1rem;
     opacity: 0.8;
     margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
+    max-width: 900px;
+    margin-left: 0;
     margin-right: auto;
     line-height: 1.7;
   }
@@ -422,7 +432,7 @@
   .hero-actions {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 3rem;
   }
@@ -475,6 +485,10 @@
     background: var(--white);
     color: var(--secondary);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary i {
+    color: var(--primary);
   }
 
   .btn-secondary:hover {
@@ -629,8 +643,8 @@
   .feature-icon {
     width: 72px;
     height: 72px;
-    background: var(--secondary);
-    border-radius: 16px;
+    background: var(--primary);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -638,17 +652,17 @@
     font-size: 1.75rem;
     margin-bottom: 2rem;
     transition: var(--transition);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
   }
 
   .feature-card:nth-child(2) .feature-icon {
     background: var(--primary);
-    box-shadow: 0 6px 20px rgba(55, 175, 107, 0.25);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
   }
 
   .feature-card:nth-child(3) .feature-icon {
-    background: var(--secondary);
-    box-shadow: 0 6px 20px rgba(45, 145, 87, 0.3);
+    background: var(--primary);
+    box-shadow: 0 6px 20px rgba(72, 169, 106, 0.4);
   }
 
   .feature-card:hover .feature-icon {
@@ -717,13 +731,17 @@
   }
 
   .equipment-list h5 {
-    color: var(--primary-light);
+    color: var(--primary);
     font-weight: 600;
     margin: 1rem 0 0.5rem;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .equipment-list h5 i {
+    color: var(--primary);
   }
 
   .equipment-grid {
@@ -738,7 +756,7 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     font-size: 0.85rem;
-    border-left: 3px solid var(--orange);
+    border-left: 3px solid var(--primary);
   }
 
   .info-box {
@@ -756,7 +774,11 @@
   }
 
   .info-box i {
-    color: var(--primary-light);
+    color: var(--primary);
+  }
+
+  .info-box h4 i {
+    color: var(--primary);
   }
 
   .calculator-right {
@@ -1024,6 +1046,24 @@
     background: var(--gray-50);
   }
 
+  /* Tagline Section */
+  .tagline-section {
+    background: var(--gray-100);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .tagline-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
   /* Footer */
   .footer {
     background: var(--gray-50);
@@ -1031,6 +1071,22 @@
     border-top: 1px solid var(--gray-200);
     position: relative;
     z-index: 1;
+  }
+
+  .tagline-text-footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 2rem;
+  }
+
+  .tagline-text-footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--secondary);
+    font-style: italic;
+    margin: 0;
   }
 
   .footer-content {
@@ -1049,12 +1105,12 @@
   }
 
   .footer-logo {
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    border: none;
+    width: 50px; /* increase size */
+    height: 50px; /* increase size */
+    background: transparent; /* remove background */
+    border-radius: 0; /* remove rounded corners */
+    padding: 0; /* remove padding */
+    border: none; /* remove border */
   }
 
   .footer-logo img {
@@ -1062,6 +1118,7 @@
     height: 100%;
     object-fit: contain;
   }
+
 
   .footer-brand-text {
     font-size: 0.875rem;
@@ -1114,12 +1171,11 @@
   }
 
   .footer-bottom {
-    padding-top: 0.75rem;
+    padding-top: 1rem;
     border-top: 1px solid var(--gray-200);
     text-align: center;
     color: var(--gray-500);
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.875rem;
   }
 
   .footer-bottom a {
@@ -1132,7 +1188,7 @@
   }
 
   .footer-bottom span {
-    margin: 0 2px; /* small horizontal spacing around separators */
+    margin: 0 2px; /* small horizontal spacing */
     padding: 0;
   }
 
@@ -1141,7 +1197,6 @@
     padding: 0;
   }
 
-  /* ensure links inside footer-bottom have small horizontal spacing */
   .footer-bottom p a {
     margin: 0 2px;
   }
@@ -1246,164 +1301,164 @@
 
   /* Tablet Portrait and Mobile (768px and below) */
   @media (max-width: 768px) {
+    /* Header on mobile - fixed with subtle grey background */
+    header {
+      position: fixed !important;
+      background: rgba(0, 0, 0, 0.15) !important;
+      backdrop-filter: blur(5px) !important;
+      -webkit-backdrop-filter: blur(5px) !important;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Header gets darker background when menu is open */
+    header.menu-open {
+      background: rgba(26, 26, 26, 0.95) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Mobile Navigation */
     .mobile-toggle {
       display: flex;
-      z-index: 10001;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    
+
+    .mobile-toggle.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .nav-menu {
       position: fixed;
       top: 0;
-      left: 0;
+      left: 0 !important;
       right: 0;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
-      background: var(--white);
-      display: flex;
+      background: #1a1a1a;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      gap: 1rem;
       padding: 2rem;
+      margin: 0;
+      transform: translateX(100%);
       transition: transform 0.3s ease;
-      transform: translateX(-100%);
-      z-index: 10002;
-      box-shadow: var(--shadow-lg);
-      will-change: transform;
+      z-index: 9999;
     }
-    
+
     .nav-menu.active {
       transform: translateX(0);
-      display: flex;
     }
-    
+
     .nav-menu a {
-      width: 100%;
+      width: 90%;
+      max-width: 300px;
       text-align: center;
       padding: 1rem 1.5rem;
-      margin: 0.25rem 0;
-      border-radius: 8px;
       font-size: 1.1rem;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-900) !important;
-    }
-    
-    .nav-menu.active .mobile-close {
-      display: flex;
-    }
-    
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100vh;
       background: var(--white);
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      z-index: 10000;
-      box-shadow: var(--shadow-lg);
+      color: var(--secondary);
+      border-radius: 10px;
     }
-    
-    .nav-menu.active {
-      left: 0;
-    }
-    
-    .nav-menu a {
-      width: 100%;
-      text-align: center;
-      padding: 1rem 1.5rem;
-      margin: 0.25rem 0;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .mobile-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
+
+    .nav-menu a:hover {
       background: var(--gray-100);
-      border: none;
+    }
+
+    .nav-menu a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .cta-login,
+    .cta-signup {
+      background: var(--primary);
+      color: var(--white);
+      margin-left: 0;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    .mobile-close {
+      display: flex;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
       border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      display: none;
+      width: 48px;
+      height: 48px;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 10003;
+      font-size: 1.5rem;
+      transition: var(--transition);
     }
-    
-    /* Only show mobile close on mobile when menu is active */
-    @media (max-width: 768px) {
-      .nav-menu.active .mobile-close {
-        display: flex;
-      }
+
+    .mobile-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
     }
-    
+
     /* Header */
-    header {
-      padding: 0.75rem 0;
-    }
-    
     .logo-circle {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
-    
-    .brand-text {
-      font-size: 1rem;
-    }
-    
+
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 50vh;
+      margin-top: 0;
     }
-    
+
     .hero-content {
-      padding: 6rem 1rem 4rem;
+      padding: 8rem 1rem 2rem;
     }
-    
-    .hero-bg {
-      top: -5%;
-      left: -3%;
-      width: 106%;
-      height: 110%;
-      transform: scale(1.05);
+
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3rem);
     }
-    
+
     .hero-badge {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
     }
-    
+
     .hero-title {
       font-size: clamp(1.75rem, 8vw, 2.5rem);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
-    
+
     .hero-subtitle {
       font-size: clamp(1rem, 4vw, 1.25rem);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
-    
+
     .hero-description {
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 1.5rem;
+      max-width: 100%;
+      line-height: 1.6;
     }
-    
+
     .hero-actions {
       flex-direction: column;
       gap: 0.75rem;
       margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
     }
     
     .btn {
@@ -1714,59 +1769,51 @@
 
   /* Small Mobile (480px and below) */
   @media (max-width: 480px) {
-    .container {
-      padding: 0 0.75rem;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    /* Prevent horizontal scroll */
-    body {
-      overflow-x: hidden;
-    }
-    
-    .header-content {
-      gap: 0.5rem;
-    }
-    
     .logo-circle {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
     }
-    
-    .brand-text {
-      font-size: 0.9rem;
+
+    .hero {
+      min-height: 45vh;
+      margin-top: 0;
     }
-    
+
     .hero-content {
-      padding: 4rem 0.75rem 2rem;
-      width: 100%;
-      max-width: none;
+      padding: 7rem 1rem 2rem;
     }
-    
-    /* Better text alignment */
-    .hero-title,
-    .hero-subtitle,
-    .hero-description {
-      text-align: center;
-    }
-    
-    .hero-badge {
-      font-size: 0.75rem;
-      padding: 0.35rem 0.7rem;
-    }
-    
-    .hero-title {
-      font-size: clamp(1.5rem, 9vw, 2.25rem);
-    }
-    
+
     .hero-subtitle {
       font-size: clamp(0.9rem, 4vw, 1.125rem);
     }
-    
+
     .hero-description {
+      font-size: 0.85rem;
+      max-width: 100%;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.75rem;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
       font-size: 0.9rem;
+    }
+
+    .tagline-text-footer {
+      padding: 1.5rem 0;
+    }
+
+    .tagline-text-footer p {
+      font-size: 1rem;
+      padding: 0 1rem;
+      line-height: 1.4;
     }
     
     .btn {
@@ -1855,16 +1902,16 @@
     .industry-content {
       padding: 1rem;
     }
-
+    
     .footer-brand-text {
       font-size: 0.8rem;
     }
-
+    
     .footer-links a {
       padding: 0.375rem;
       font-size: 0.75rem;
     }
-
+    
     .social-link {
       width: 32px;
       height: 32px;
@@ -1910,12 +1957,12 @@
   /* Landscape Mobile and Tablet */
   @media (max-height: 500px) and (orientation: landscape) {
     .hero {
-      min-height: 100vh;
+      min-height: 50vh;
       padding: 1rem 0;
     }
-    
+
     .hero-content {
-      padding: 3rem 1rem 1rem;
+      padding: 2rem 1rem 1rem;
     }
     
     .hero-stats {
@@ -1974,507 +2021,395 @@
     outline-offset: 2px;
   }
 
-  /* Contact Page Specific Styles */
-  #contact-hero {
-    min-height: 40vh !important;
-    position: relative !important;
+
+  /* Floating WhatsApp Button - Fixed to viewport */
+  .whatsapp-float {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: #25D366 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    font-size: 28px !important;
+    z-index: 9999999 !important;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4) !important;
+    transition: background 0.3s ease, transform 0.3s ease !important;
+    pointer-events: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .whatsapp-float:hover {
+    background: #128C7E !important;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6) !important;
+    transform: scale(1.1) !important;
+  }
+
+  .whatsapp-float i {
+    color: white !important;
+  }
+
+  /* Mobile WhatsApp Button in Hero */
+  @media (max-width: 768px) {
+    .whatsapp-float {
+      width: 55px !important;
+      height: 55px !important;
+      font-size: 24px !important;
+      bottom: 20px !important;
+      right: 20px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsapp-float {
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 22px !important;
+      bottom: 15px !important;
+      right: 15px !important;
+    }
+  }
+
+  /* Chatbot Styles */
+  .chatbot-toggle {
+    position: fixed !important;
+    bottom: 100px !important;
+    right: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: var(--primary) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 28px !important;
+    cursor: pointer !important;
+    z-index: 9999998 !important;
+    box-shadow: 0 4px 20px rgba(72, 169, 106, 0.4) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .chatbot-toggle:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 25px rgba(72, 169, 106, 0.6) !important;
+  }
+
+  .chatbot-window {
+    position: fixed !important;
+    bottom: 170px !important;
+    right: 30px !important;
+    width: 380px !important;
+    height: 550px !important;
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+    z-index: 9999998 !important;
+    display: none !important;
+    flex-direction: column !important;
     overflow: hidden !important;
   }
 
-  #contact-hero .hero-overlay {
-    background: rgba(0, 0, 0, 0.7) !important;
-    z-index: 1 !important;
+  .chatbot-window.active {
+    display: flex !important;
   }
 
-  #contact-hero .hero-content {
-    padding: 8rem 1rem 3rem !important;
-    position: relative !important;
-    z-index: 3 !important;
+  .chatbot-header {
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
-  #contact-hero .hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
-    margin-bottom: 0.5rem !important;
-    color: var(--white) !important;
-    font-weight: 700 !important;
+  .chatbot-header-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
 
-  /* Green geometric shapes - Left */
-  /* Decorative hero banner shapes removed to simplify header visuals */
-
-  .hero-breadcrumb {
-    font-size: 0.95rem;
-    opacity: 0.9;
+  .chatbot-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
   }
 
-  .hero-breadcrumb a {
-    color: var(--white);
-    text-decoration: none;
-    transition: var(--transition);
+  .chatbot-title {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
 
-  .hero-breadcrumb a:hover {
-    opacity: 0.8;
+  .chatbot-title span {
+    font-size: 14px !important;
+    opacity: 0.9 !important;
+    font-weight: 500 !important;
   }
 
-  /* Let's Connect Section */
-  .lets-connect-section {
-    background: var(--gray-50);
-    padding: 0;
-    min-height: 600px;
+  .chatbot-close {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 45% 55%;
-    gap: 0;
-    align-items: stretch;
-    min-height: 600px;
+  .chatbot-messages {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 20px !important;
+    background: #f5f5f5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
   }
 
-  .contact-left {
-    background: var(--white);
-    color: var(--secondary);
-    padding: 5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  .chat-message {
+    display: flex !important;
+    gap: 8px !important;
+    animation: fadeIn 0.3s ease !important;
   }
 
-  .contact-left h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(4.5rem, 10vw, 7rem);
-    margin-bottom: 2rem;
-    line-height: 1.1;
-    color: var(--secondary);
+  .chat-message.bot {
+    align-self: flex-start !important;
   }
 
-  .contact-left .contact-link {
-    color: var(--primary);
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: var(--transition);
-    margin-bottom: 2rem;
-    align-self: center;
-    text-align: center;
+  .chat-message.user {
+    align-self: flex-end !important;
+    flex-direction: row-reverse !important;
   }
 
-  .contact-left .contact-link:hover {
-    gap: 0.75rem;
+  .message-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: var(--primary) !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
   }
 
-  .contact-info {
-    margin-top: 2rem;
+  .message-avatar.user-avatar {
+    background: var(--gray-400) !important;
   }
 
-  .contact-info p {
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+  .message-content {
+    max-width: 70% !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
   }
 
-  .contact-info p i {
-    color: var(--primary);
-    font-size: 1rem;
-    min-width: 20px;
+  .chat-message.bot .message-content {
+    background: white !important;
+    color: var(--gray-900) !important;
+    border-bottom-left-radius: 4px !important;
   }
 
-  .contact-info a {
-    color: var(--gray-700);
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    transition: var(--transition);
+  .chat-message.user .message-content {
+    background: var(--primary) !important;
+    color: white !important;
+    border-bottom-right-radius: 4px !important;
   }
 
-  .contact-info a:hover {
-    color: var(--primary);
+  .chatbot-input-area {
+    padding: 16px !important;
+    background: white !important;
+    border-top: 1px solid #e0e0e0 !important;
+    display: flex !important;
+    gap: 8px !important;
   }
 
-  .contact-form-card {
-    background: var(--white);
-    padding: 3rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+  .chatbot-input {
+    flex: 1 !important;
+    padding: 12px 16px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 24px !important;
+    font-size: 14px !important;
+    outline: none !important;
+    font-family: 'Poppins', sans-serif !important;
   }
 
-  .contact-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+  .chatbot-input:focus {
+    border-color: var(--primary) !important;
   }
 
-  .contact-form .form-group {
-    margin-bottom: 0;
+  .chatbot-send {
+    width: 44px !important;
+    height: 44px !important;
+    background: var(--primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    transition: all 0.3s ease !important;
   }
 
-  .contact-form .form-group label {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--gray-700);
-    margin-bottom: 0.5rem;
+  .chatbot-send:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.05) !important;
   }
 
-  .contact-form .form-input {
-    width: 100%;
-    padding: 0.875rem 1rem;
-    border: 1px solid var(--gray-300);
-    border-radius: 4px;
-    background: var(--white);
-    font-size: 0.95rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    transition: all 0.2s;
+  .chatbot-send:disabled {
+    background: var(--gray-300) !important;
+    cursor: not-allowed !important;
+    transform: none !important;
   }
 
-  .contact-form .form-input:focus {
-    outline: none;
-    border-color: var(--gray-500);
-    background: var(--white);
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .contact-form .form-input::placeholder {
-    color: var(--gray-400);
+  /* Mobile Chatbot Styles */
+  @media (max-width: 768px) {
+    .chatbot-toggle {
+      width: 55px !important;
+      height: 55px !important;
+      font-size: 24px !important;
+      bottom: 90px !important;
+      right: 20px !important;
+    }
+
+    .chatbot-window {
+      bottom: 0 !important;
+      right: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 0 !important;
+    }
   }
 
-  .contact-form textarea.form-input {
-    resize: vertical;
-    min-height: 120px;
+  @media (max-width: 480px) {
+    .chatbot-toggle {
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 22px !important;
+      bottom: 80px !important;
+      right: 15px !important;
+    }
   }
 
-  .contact-form select.form-input {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 1rem center;
-    background-repeat: no-repeat;
-    background-size: 1.25em 1.25em;
-    padding-right: 2.5rem;
-  }
-
-  .form-checkbox-group {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin: 2rem 0 1.5rem 0;
-  }
-
-  .form-checkbox-group input[type="checkbox"] {
-    margin-top: 0.25rem;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .form-checkbox-group label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--gray-700);
-    line-height: 1.6;
-    cursor: pointer;
-  }
-
-  .form-privacy-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--gray-600);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-
-  .form-privacy-text a {
-    color: var(--primary);
-    text-decoration: underline;
-  }
-
-  .btn-send {
-    width: auto;
-    background: var(--primary);
-    color: var(--white);
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 1rem;
-    text-transform: none;
-    display: inline-block;
-  }
-
-  .btn-send:hover {
-    background: var(--primary-light);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(55, 175, 107, 0.3);
-  }
-
-  /* Map and Offices Section */
-  .map-offices-section {
-    padding: 0;
-    margin-top: 0;
-    position: relative;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .container-full {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .map-offices-wrapper {
-    display: grid;
-    grid-template-columns: 35% 65%;
-    min-height: 400px;
-    position: relative;
-  }
-
-  .offices-container {
-    background: var(--white);
-    color: var(--secondary);
-    padding: 4rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 2.5rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .office-card {
-    padding: 0;
-    border-bottom: none;
-  }
-
-  .office-card:last-child {
-    border-bottom: none;
-  }
-
-  .office-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--secondary);
-  }
-
-  .office-subtitle {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--gray-500);
-    margin-bottom: 1rem;
-  }
-
-  .office-address {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--gray-700);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .office-address i {
-    color: var(--secondary);
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-  }
-
-  .office-hours {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--gray-700);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .office-hours i {
-    color: var(--secondary);
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-  }
-
-  .office-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .office-tag {
-    background: var(--gray-100);
-    color: var(--gray-700);
-    padding: 0.375rem 0.875rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-
-  .office-directions {
-    display: inline-block;
-    background: var(--primary);
-    color: var(--white);
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-    transition: var(--transition);
-  }
-
-  .office-directions:hover {
-    background: var(--primary-light);
-    transform: translateY(-1px);
-  }
-
-  .map-container {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    position: relative;
-    z-index: 0;
-    order: 2;
-  }
-
-  .map-container iframe {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* FAQ Section */
-  .faq-section {
-    padding: 4rem 0;
-    background: #f8f8f8;
-    position: relative;
-    overflow: hidden;
-  }
-  /* Decorative FAQ shapes removed to simplify layout */
-
-  .faq-header {
-    text-align: left;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    position: relative;
-    z-index: 15;
-  }
-
-  .faq-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-
-  .faq-header h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 600;
-    color: var(--secondary);
-    margin: 0;
-  }
-
-  .faq-header p {
-    display: none;
-  }
-
+  /* FAQ Specific Styles */
   .faq-container {
-    max-width: 75%;
+    max-width: 900px;
     margin: 0 auto;
-    position: relative;
-    z-index: 10;
+  }
+
+  .faq-category {
+    margin-bottom: 3rem;
+  }
+
+  .faq-category-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .faq-category-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
   }
 
   .faq-item {
     background: var(--white);
-    border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-100);
     overflow: hidden;
     transition: var(--transition);
-    position: relative;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
-  .faq-item:last-child {
-    margin-bottom: 0;
   }
 
   .faq-item:hover {
-    background: var(--white);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-lg);
   }
 
   .faq-question {
     width: 100%;
-    padding: 1rem 1.5rem;
-    background: var(--white);
+    padding: 1.5rem;
+    background: none;
     border: none;
     text-align: left;
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 0.95rem;
-    font-weight: 400 !important;
-    color: var(--secondary);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-900);
     transition: var(--transition);
-    position: relative;
-    z-index: 11;
   }
 
   .faq-question:hover {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
-  .faq-question i {
-    color: #FF8C00;
-    font-size: 0.875rem;
-    transition: transform 0.3s ease;
-    min-width: 20px;
+  .faq-question-text {
+    flex: 1;
   }
 
-  .faq-item.active .faq-question i {
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .faq-item.active .faq-icon {
     transform: rotate(180deg);
+    background: var(--primary);
+    color: var(--white);
   }
 
   .faq-answer {
@@ -2484,774 +2419,1629 @@
   }
 
   .faq-answer-content {
-    padding: 0 1.5rem 1rem 1.5rem;
-    color: var(--secondary);
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 0.9rem;
-    font-weight: 400 !important;
-    background: var(--white);
-    position: relative;
-    z-index: 11;
-  }
-
-  .faq-item.active .faq-answer {
-    max-height: 500px;
-  }
-
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
-    margin-top: 2rem;
-  }
-
-  .contact-info {
-    background: var(--gray-50);
-    padding: 2.5rem;
-    border-radius: 12px;
-    height: fit-content;
-  }
-
-  .contact-details {
-    margin: 2rem 0;
-  }
-
-  .contact-item {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .contact-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .contact-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.25rem;
-    flex-shrink: 0;
-  }
-
-  .contact-text h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--gray-900);
-  }
-
-  .contact-text a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-  }
-
-  .contact-text a:hover {
-    color: var(--primary-dark);
-  }
-
-  .contact-text p {
-    color: var(--gray-500);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-  }
-
-  .quick-action {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .quick-action h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: var(--gray-900);
-  }
-
-  .quick-action p {
-    color: var(--gray-500);
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-form-wrapper {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .contact-form {
-    margin-top: 2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    font-weight: 600;
+    padding: 0 1.5rem 1.5rem 1.5rem;
     color: var(--gray-700);
-    margin-bottom: 0.5rem;
-    font-size: 0.875rem;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 0.875rem;
-    border: 2px solid var(--gray-200);
-    border-radius: 8px;
-    background: var(--white);
+    line-height: 1.7;
     font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.2s;
   }
 
-  .form-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(55, 175, 107, 0.1);
-  }
-
-  textarea.form-input {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  select.form-input {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.75rem center;
-    background-repeat: no-repeat;
-    background-size: 1em 1em;
-    padding-right: 2.5rem;
-    appearance: none;
-  }
-
-  .btn-submit {
-    width: 100%;
-    margin-top: 1rem;
-    font-size: 1rem;
-    padding: 1rem;
-  }
-
-  .form-success,
-  .form-error {
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  .form-success {
-    background: rgba(55, 175, 107, 0.1);
-    color: var(--primary-dark);
-    border: 1px solid var(--primary);
-  }
-
-  .form-error {
-    background: rgba(220, 38, 38, 0.1);
-    color: #b91c1c;
-    border: 1px solid #dc2626;
-  }
-
-  /* FAQ Section */
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .faq-item {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-  }
-
-  .faq-item:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
-
-  .faq-question {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--gray-900);
+  .faq-answer-content p {
     margin-bottom: 1rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
   }
 
-  .faq-question i {
-    color: var(--primary);
-    flex-shrink: 0;
-    margin-top: 0.15rem;
+  .faq-answer-content p:last-child {
+    margin-bottom: 0;
   }
 
-  .faq-answer {
-    color: var(--gray-700);
-    line-height: 1.6;
+  .faq-answer-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
   }
 
-  /* Contact Page Responsive */
-  @media (max-width: 1024px) {
-    .map-offices-wrapper {
-      grid-template-columns: 1fr;
-    }
+  .faq-answer-content li {
+    margin-bottom: 0.5rem;
+  }
 
-    .offices-container {
-      order: 1;
-      padding: 3rem 2rem;
-    }
-
-    .map-container {
-      order: 2;
-      min-height: 400px;
-    }
-
-    .footer-main {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-    }
-
-    .footer-about {
-      grid-column: 1 / -1;
-      max-width: 100%;
-    }
+  .faq-answer-content strong {
+    color: var(--gray-900);
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
-    #contact-hero {
-      min-height: 35vh;
+    .faq-category-title {
+      font-size: 1.5rem;
     }
 
-    #contact-hero .hero-content {
-      padding: 6rem 1rem 2rem;
+    .faq-question {
+      font-size: 1rem;
+      padding: 1.25rem;
     }
 
-    .lets-connect-section {
-      padding: 3rem 0;
-      min-height: auto;
-    }
-
-    .contact-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-left {
-      padding: 3rem 2rem;
-      min-height: 300px;
-    }
-
-    .contact-left h2 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-    }
-
-    .contact-form-card {
-      padding: 3rem 2rem;
-    }
-
-    .contact-form .form-row {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .map-container {
-      min-height: 350px;
-    }
-
-    .offices-container {
-      padding: 2rem;
+    .faq-answer-content {
+      padding: 0 1.25rem 1.25rem 1.25rem;
+      font-size: 0.95rem;
     }
   }
 
   @media (max-width: 480px) {
-    .contact-left {
-      padding: 2rem 1.5rem;
-      min-height: 250px;
+    .faq-category-title {
+      font-size: 1.25rem;
     }
 
-    .contact-left h2 {
-      font-size: clamp(2rem, 10vw, 3rem);
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem;
     }
 
-    .contact-form-card {
-      padding: 2rem 1.5rem;
-    }
-
-    .contact-form .form-input {
-      padding: 0.875rem;
-      font-size: 16px; /* Prevents zoom on iOS */
-    }
-
-    .map-container {
-      min-height: 300px;
-    }
-
-    .offices-container {
-      padding: 1.5rem;
-    }
-
-    .office-card {
-      padding: 1rem 0;
+    .faq-answer-content {
+      padding: 0 1rem 1rem 1rem;
+      font-size: 0.9rem;
     }
   }
+
+  /* Simple Cookie Consent Banner - Bottom (Fixed to viewport) */
+  .cookie-banner {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #1a1a1a !important;
+    color: white !important;
+    padding: 20px !important;
+    z-index: 999997 !important;
+    display: none !important;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3) !important;
+    margin: 0 !important;
+  }
+
+  .cookie-banner.show {
+    display: block !important;
+  }
+
+  .cookie-banner-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .cookie-banner-text {
+    flex: 1 !important;
+    min-width: 250px !important;
+  }
+
+  .cookie-banner-text p {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .cookie-banner-text a {
+    color: #48A96A !important;
+    text-decoration: underline !important;
+  }
+
+  .cookie-banner-buttons {
+    display: flex !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .cookie-banner-btn {
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    white-space: nowrap !important;
+  }
+
+  .cookie-banner-accept {
+    background: #48A96A !important;
+    color: white !important;
+  }
+
+  .cookie-banner-accept:hover {
+    background: #5BC085 !important;
+  }
+
+  .cookie-banner-decline {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid #6b6b6b !important;
+  }
+
+  .cookie-banner-decline:hover {
+    background: #2a2a2a !important;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner-content {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+
+    .cookie-banner-buttons {
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    .cookie-banner-btn {
+      flex: 1 !important;
+      min-width: 120px !important;
+    }
+  }
+
+  /* ==================== CONTACT PAGE SPECIFIC STYLES ==================== */
+/* ==================== CONTACT SECTION ==================== */
+.contact-section {
+  background: var(--gray-50);
+  padding: 0;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 600px;
+}
+
+.contact-left {
+  background: var(--white);
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-left h2 {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.contact-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+.contact-link:hover {
+  gap: 1rem;
+}
+
+.contact-info {
+  margin-top: 2rem;
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.contact-info i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.contact-info a {
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-info a:hover {
+  color: var(--primary);
+}
+
+.contact-form-card {
+  background: var(--white);
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(72, 169, 106, 0.1);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em;
+  padding-right: 2.5rem;
+}
+
+.form-privacy-text {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 1rem 0;
+}
+
+.form-privacy-text a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.form-checkbox-group input[type="checkbox"] {
+  margin-top: 0.25rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.form-checkbox-group label {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.btn-send {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-send:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(72, 169, 106, 0.3);
+}
+
+/* ==================== MAP & OFFICES SECTION ==================== */
+.map-offices-section {
+  padding: 0;
+  background: var(--white);
+}
+
+.map-offices-wrapper {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  min-height: 450px;
+}
+
+.map-container {
+  position: relative;
+  order: 2;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.offices-container {
+  background: var(--white);
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 1;
+}
+
+.office-card {
+  padding: 0;
+}
+
+.office-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.office-address {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.office-address i {
+  color: var(--primary);
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.office-directions {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.office-directions:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: var(--gray-50);
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-brand-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: var(--gray-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+.footer-bottom a {
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+  color: var(--secondary);
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+@media (max-width: 768px) {
+  /* Contact Section */
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-link {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    justify-content: center;
+  }
+
+  .contact-info p {
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .contact-form-card {
+    padding: 3rem 2rem;
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-input {
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  textarea.form-input {
+    min-height: 100px;
+  }
+
+  .btn-send {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+
+  /* Map & Offices */
+  .map-offices-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    min-height: 300px;
+    order: 2;
+  }
+
+  .offices-container {
+    padding: 3rem 2rem;
+    order: 1;
+  }
+
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Medium Mobile/Small Tablet (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .contact-left {
+    padding: 3rem 2.5rem;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2.75rem, 9vw, 3.5rem);
+  }
+
+  .contact-link {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+
+  .contact-form-card {
+    padding: 3rem 2.5rem;
+  }
+
+  .form-input {
+    padding: 0.95rem 0.875rem;
+  }
+
+  textarea.form-input {
+    min-height: 90px;
+  }
+
+  .offices-container {
+    padding: 3rem 2.5rem;
+  }
+
+  .map-container {
+    min-height: 275px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero {
+    min-height: 45vh;
+    margin-top: 0;
+  }
+
+  .hero-content {
+    padding: 7rem 1rem 2rem;
+  }
+
+  .contact-left {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .contact-link {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .contact-form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-form .form-row {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .form-input {
+    padding: 0.875rem 0.75rem;
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+
+  textarea.form-input {
+    min-height: 80px;
+  }
+
+  select.form-input {
+    padding-right: 2.5rem;
+  }
+
+  .form-privacy-text {
+    font-size: 0.8rem;
+    margin: 0.75rem 0;
+  }
+
+  .form-checkbox-group {
+    margin: 1rem 0;
+    gap: 0.5rem;
+  }
+
+  .form-checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-checkbox-group label {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .btn-send {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .offices-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .office-title {
+    font-size: 1.125rem;
+  }
+
+  .office-address {
+    font-size: 0.85rem;
+  }
+
+  .office-directions {
+    padding: 0.625rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .map-container {
+    min-height: 250px;
+  }
+}
+
+/* Touch Device Optimizations for Forms */
+@media (pointer: coarse) {
+  .form-input,
+  .btn-send {
+    min-height: 48px; /* Minimum touch target size */
+  }
+
+  .form-checkbox-group input[type="checkbox"] {
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  /* Better spacing for touch */
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-row {
+    gap: 1.25rem;
+  }
+}
+
+/* Landscape Mobile - Contact Form Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .contact-left {
+    padding: 2rem 2rem;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .contact-link {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    margin-bottom: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form-card {
+    padding: 2rem 2rem;
+  }
+
+  .form-input {
+    padding: 0.75rem 0.875rem;
+  }
+
+  textarea.form-input {
+    min-height: 70px;
+  }
+}
   </style>
   </head>
 
-  <body>
-      <!-- Header -->
-      <header>
-          <div class="container">
-              <div class="header-content">
-                  <div class="logo-section">
-                      <div class="logo-circle">
-                          <img src="{% static 'images/FRI Logo - White.png' %}" alt="FRI Logo">
-                      </div>
-                  </div>
-                  
-                  <button class="mobile-toggle" aria-label="Toggle menu">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </button>
-                  
-                  <nav class="nav-menu">
-                      <button class="mobile-close" aria-label="Close menu">
-                          <i class="fas fa-times"></i>
-                      </button>
-                      <a href="{% url 'home' %}">Home</a>
-                      <a href="{% url 'faq' %}">FAQ</a>
-                      <a href="{% url 'home' %}#services">Services</a>
-                      <a href="{% url 'contact' %}" class="active">Contact Us</a>
-                      <a href="{% url 'login' %}" class="cta-login">Log In</a>
-                      <a href="{% url 'signup' %}" class="cta-signup">Sign Up</a>
-                  </nav>
+  <body itemscope itemtype="https://schema.org/ContactPage">
+      <!-- Cookie Consent Banner -->
+      <div class="cookie-banner" id="cookieConsent" role="dialog" aria-label="Cookie consent banner">
+          <div class="cookie-banner-content">
+              <div class="cookie-banner-text">
+                  <p><strong><i class="fas fa-cookie-bite" aria-hidden="true"></i> We use cookies</strong> to enhance your experience and analyze traffic. By clicking "Accept All", you consent to our use of cookies. <a href="{% url 'privacy_policy' %}" rel="noopener">Privacy Policy</a></p>
+              </div>
+              <div class="cookie-banner-buttons">
+                  <button class="cookie-banner-btn cookie-banner-decline" onclick="declineCookies()" aria-label="Decline cookies">Decline</button>
+                  <button class="cookie-banner-btn cookie-banner-accept" onclick="acceptCookies()" aria-label="Accept all cookies">Accept All</button>
               </div>
           </div>
-      </header>
+      </div>
+
+
+    <!-- Header -->
+    <header role="banner">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <div class="logo-circle">
+              <img src="{% static 'images/FRI Logo - White.png' %}" alt="Fuel Refund Institute Logo - Contact" width="120" height="120">
+            </div>
+          </div>
+
+          <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+            <button class="mobile-close" aria-label="Close navigation menu">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'faq' %}">FAQ</a>
+            <a href="{% url 'home' %}#services">Services</a>
+            <a href="{% url 'contact' %}" class="active" aria-current="page">Contact Us</a>
+            <a href="{% url 'login' %}" class="cta-login">Log In</a>
+            <a href="{% url 'signup' %}" class="cta-signup">Sign Up</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
       <!-- Hero Section -->
-      <section id="contact-hero" class="hero">
-          <img src="{% static 'images/2.jpg' %}" alt="Contact Fuel Refund Institute" class="hero-bg">
-          <div class="hero-overlay"></div>
+      <main role="main">
+      <section id="faq-hero" class="hero" aria-label="Contact Hero section">
+          <img src="{% static 'images/2.jpg' %}" alt="Contact us for fuel tax refund assistance" class="hero-bg" loading="eager" width="1920" height="600">
+          <div class="hero-overlay" aria-hidden="true"></div>
           <!-- Decorative hero shapes removed -->
       <div class="hero-content">
         <h1 class="hero-title">Contact Us</h1>
       </div>
       </section>
+      
+ <!-- <a href="https://wa.me/13238927914" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+              </a> -->
 
-      <!-- Let's Connect Section -->
-      <section class="section lets-connect-section">
-          <div class="contact-layout">
-              <div class="contact-left">
-                  <h2>Let's chat.</h2>
-                  <a href="#map-offices" class="contact-link">
-                      Our locations <i class="fas fa-arrow-right"></i>
-                  </a>
-                  <div class="contact-info">
-                      <p><i class="fas fa-phone"></i> <a href="tel:+13238927914">+1 323-892-7914</a></p>
-                      <p><i class="fas fa-envelope"></i> <a href="mailto:info@fuelrefundinstitute.com">info@fuelrefundinstitute.com</a></p>
+      <!-- Chatbot Widget -->
+      <button class="chatbot-toggle" aria-label="Open chatbot" id="chatbotToggle">
+          <i class="fas fa-comments"></i>
+      </button>
+
+      <div class="chatbot-window" id="chatbotWindow">
+          <div class="chatbot-header">
+              <div class="chatbot-header-info">
+                  <div class="chatbot-avatar">
+                      <img src="{% static 'images/FRI Logo - Black.png' %}" alt="FRI Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
+                  </div>
+                  <div class="chatbot-title">
+                      <span>Online</span>
                   </div>
               </div>
-
-              <div class="contact-form-card">
-                  <form class="contact-form" id="contact-form">
-                      {% csrf_token %}
-                      <div class="form-row">
-                          <div class="form-group">
-                              <label for="first-name">First name*</label>
-                              <input type="text" id="first-name" name="first_name" class="form-input" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="last-name">Last name*</label>
-                              <input type="text" id="last-name" name="last_name" class="form-input" required>
-                          </div>
-                      </div>
-
-                      <div class="form-row">
-                          <div class="form-group">
-                              <label for="email">Email*</label>
-                              <input type="email" id="email" name="email" class="form-input" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="phone-number">Phone number*</label>
-                              <input type="tel" id="phone-number" name="contact_number" class="form-input" required>
-                          </div>
-                      </div>
-
-                      <div class="form-row">
-                          <div class="form-group">
-                              <label for="company-name">Company name*</label>
-                              <input type="text" id="company-name" name="company_name" class="form-input" required>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="job-title">Job title*</label>
-                              <input type="text" id="job-title" name="job_title" class="form-input" required>
-                          </div>
-                      </div>
-
-                      <div class="form-row">
-                          <div class="form-group">
-                              <label for="country">Country*</label>
-                              <select id="country" name="country" class="form-input" required>
-                                  <option value="" disabled selected></option>
-                                  <option value="us">United States</option>
-                                  <option value="ca">Canada</option>
-                                  <option value="mx">Mexico</option>
-                                  <option value="other">Other</option>
-                              </select>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="message">Your message*</label>
-                              <textarea id="message" name="inquiry" class="form-input" rows="4" required></textarea>
-                          </div>
-                      </div>
-
-                      <p class="form-privacy-text">
-                          See our <a href="{% url 'privacy_policy' %}">Privacy Policy</a> for data handling details.
-                      </p>
-
-                      <div class="form-checkbox-group">
-                          <input type="checkbox" id="communications" name="communications">
-                          <label for="communications">
-                              Sign me up to receive relevant communications from Fuel Refund Institute, about their events, products, and services.
-                          </label>
-                      </div>
-
-                      <button type="submit" class="btn-send">
-                          Send
-                      </button>
-                  </form>
-              </div>
+              <button class="chatbot-close" aria-label="Close chatbot" id="chatbotClose">
+                  <i class="fas fa-times"></i>
+              </button>
           </div>
-      </section>
 
-      <!-- Map and Offices Section -->
-      <section id="map-offices" class="section map-offices-section">
-          <div class="container-full">
-              <div class="map-offices-wrapper">
-                  <div class="map-container">
-                      <iframe
-                          src="https://maps.google.com/maps?q=2901+Simms+Ave,+Hawthorne,+CA+90250&t=&z=4&ie=UTF8&iwloc=&output=embed"
-                          width="100%"
-                          height="100%"
-                          style="border:0;"
-                          allowfullscreen=""
-                          loading="lazy"
-                          referrerpolicy="no-referrer-when-downgrade">
-                      </iframe>
+          <div class="chatbot-messages" id="chatbotMessages">
+              <div class="chat-message bot">
+                  <div class="message-avatar">
+                      <i class="fas fa-comment-dots"></i>
                   </div>
-
-                  <div class="offices-container">
-                      <div class="office-card">
-                          <h3 class="office-title">Head Office</h3>
-                          <p class="office-address">
-                              <i class="fas fa-map-marker-alt"></i>
-                              2901 Simms Ave, Hawthorne, CA 90250
-                          </p>
-                          <a href="https://maps.google.com/?q=2901+Simms+Ave+Hawthorne+CA+90250" target="_blank" class="office-directions">Directions</a>
-                      </div>
+                  <div class="message-content">
+                      Hi there! 👋 How can I assist you today? 😊
                   </div>
               </div>
           </div>
-      </section>
 
-      <!-- Footer -->
-      <footer class="footer">
-          <div class="container">
-              <div class="footer-content">
-                  <div class="footer-brand">
-                      <div class="footer-logo">
-                          <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="FRI">
-                      </div>
-                      <div class="footer-brand-text">Fuel Refund Institute</div>
-                  </div>
-
-                  <div class="footer-social">
-                      <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="LinkedIn">
-                          <i class="fab fa-linkedin-in"></i>
-                      </a>
-                  </div>
-              </div>
-
-              <div class="footer-bottom">
-                  <p><span>&copy; 2025 Fuel Refund Institute</span></p>
-                  <p><a href="{% url 'privacy_policy' %}">Privacy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}">Terms</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914">+1 323-892-7914</a></p>
-              </div>
+          <div class="chatbot-input-area">
+              <input
+                  type="text"
+                  class="chatbot-input"
+                  id="chatbotInput"
+                  placeholder="Type your message..."
+                  autocomplete="off"
+              />
+              <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
+                  <i class="fas fa-paper-plane"></i>
+              </button>
           </div>
-      </footer>
+      </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2 id="contact-heading">Let's chat.</h2>
+        <a href="#map-offices" class="contact-link" rel="noopener">
+          Our locations <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="contact-info">
+          <p><i class="fas fa-phone"></i> <a href="tel:+13238927914">+1 323-892-7914</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@fuelrefundinstitute.com">info@fuelrefundinstitute.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <form class="contact-form" id="contact-form">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name*</label>
+              <input type="text" id="first-name" name="first_name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name*</label>
+              <input type="text" id="last-name" name="last_name" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="phone-number">Phone number*</label>
+              <input type="tel" id="phone-number" name="contact_number" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company-name">Company name*</label>
+              <input type="text" id="company-name" name="company_name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="job-title">Job title*</label>
+              <input type="text" id="job-title" name="job_title" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="country">Country*</label>
+              <select id="country" name="country" class="form-input" required>
+                <option value="" disabled selected></option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="mx">Mexico</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your message*</label>
+              <textarea id="message" name="inquiry" class="form-input" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <p class="form-privacy-text">
+            See our <a href="{% url 'privacy_policy' %}">Privacy Policy</a> for data handling details.
+          </p>
+
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="communications" name="communications">
+            <label for="communications">
+              Sign me up to receive relevant communications from Fuel Refund Institute, about their events, products, and services.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-send">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map and Offices Section -->
+  <section id="map-offices" class="section map-offices-section">
+    <div class="container-full">
+      <div class="map-offices-wrapper">
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=2901+Simms+Ave,+Hawthorne,+CA+90250&t=&z=4&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="offices-container">
+          <div class="office-card">
+            <h3 class="office-title">Head Office</h3>
+            <p class="office-address">
+              <i class="fas fa-map-marker-alt"></i>
+              2901 Simms Ave, Hawthorne, CA 90250
+            </p>
+            <a href="https://maps.google.com/?q=2901+Simms+Ave+Hawthorne+CA+90250" target="_blank" class="office-directions">Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="Fuel Refund Institute Logo" width="50" height="50" loading="lazy">
+            </div>
+            <div class="footer-brand-text">Fuel Refund Institute</div>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="Visit our LinkedIn page" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p><span>&copy; 2025 Fuel Refund Institute. All rights reserved.</span></p>
+          <p><a href="{% url 'privacy_policy' %}" rel="noopener">Privacy Policy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}" rel="noopener">Terms of Service</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914" rel="nofollow">+1 323-892-7914</a></p>
+        </div>
+      </div>
+    </footer>
 
       <script>
-          document.addEventListener('DOMContentLoaded', function() {
-              initializeMobileNavigation();
-              initializeContactForm();
-              initializeScrollEffects();
-              initializeFAQ();
-              debugHeroShapes();
+          // Cookie Consent Functions
+          function acceptCookies() {
+              localStorage.setItem('cookieConsent', 'accepted');
+              hideCookieBanner();
+              // You can add analytics or other cookie-related code here
+              console.log('Cookies accepted');
+          }
+
+          function declineCookies() {
+              localStorage.setItem('cookieConsent', 'declined');
+              hideCookieBanner();
+              console.log('Cookies declined');
+          }
+
+          function hideCookieBanner() {
+              const banner = document.getElementById('cookieConsent');
+              if (banner) {
+                  banner.classList.remove('show');
+              }
+          }
+
+          function showCookieBanner() {
+              const banner = document.getElementById('cookieConsent');
+              console.log('showCookieBanner called, banner element:', banner);
+              if (banner) {
+                  // CSS handles all styling - just add the show class
+                  console.log('Adding show class to banner (CSS handles positioning)');
+                  setTimeout(() => {
+                      banner.classList.add('show');
+                      console.log('Cookie banner should now be visible and FIXED at bottom of screen');
+                      // Debug after showing
+                      setTimeout(() => {
+                          debugCookieBanner();
+                      }, 50);
+                  }, 1000); // Show after 1 second
+              } else {
+                  console.error('Cookie banner element not found!');
+              }
+          }
+
+          function checkCookieConsent() {
+              const consent = localStorage.getItem('cookieConsent');
+              console.log('Cookie consent status:', consent);
+              if (!consent) {
+                  console.log('No consent found, showing banner');
+                  showCookieBanner();
+              } else {
+                  console.log('Consent already given:', consent);
+              }
+          }
+
+          // Add escape key to close modal
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                  const overlay = document.getElementById('cookieConsent');
+                  if (overlay && overlay.classList.contains('show')) {
+                      acceptCookies(); // Auto-accept on escape
+                  }
+              }
           });
 
-          function debugHeroShapes() {
-              console.log('🔍 ===== HERO SHAPES DEBUG START =====');
-
-              // Check if hero section exists
-              const heroSection = document.getElementById('contact-hero');
-              console.log('Hero section found:', heroSection);
-              if (heroSection) {
-                  console.log('Hero section dimensions:', {
-                      width: heroSection.offsetWidth,
-                      height: heroSection.offsetHeight,
-                      position: window.getComputedStyle(heroSection).position,
-                      overflow: window.getComputedStyle(heroSection).overflow
-                  });
-              }
-
-              // Check left shape
-              const leftShape = document.querySelector('.hero-shape-left');
-              console.log('Left shape element found:', leftShape);
-              if (leftShape) {
-                  const leftStyles = window.getComputedStyle(leftShape);
-                  console.log('Left shape styles:', {
-                      display: leftStyles.display,
-                      position: leftStyles.position,
-                      left: leftStyles.left,
-                      bottom: leftStyles.bottom,
-                      width: leftStyles.width,
-                      height: leftStyles.height,
-                      background: leftStyles.background,
-                      backgroundColor: leftStyles.backgroundColor,
-                      opacity: leftStyles.opacity,
-                      zIndex: leftStyles.zIndex,
-                      transform: leftStyles.transform,
-                      clipPath: leftStyles.clipPath,
-                      animation: leftStyles.animation,
-                      visibility: leftStyles.visibility
-                  });
-                  console.log('Left shape bounding rect:', leftShape.getBoundingClientRect());
+          // TEST FUNCTION - Show cookie banner and debug position
+          function testCookieBannerPosition() {
+              const banner = document.getElementById('cookieConsent');
+              if (banner) {
+                  console.log('TESTING: Showing cookie banner (CSS handles positioning)');
+                  banner.classList.add('show');
+                  console.log('Banner should now be visible and fixed at bottom of SCREEN');
+                  setTimeout(() => {
+                      debugCookieBanner();
+                  }, 100);
               } else {
-                  console.error('❌ Left shape element NOT FOUND in DOM');
+                  console.error('Cookie banner not found!');
               }
-
-              // Check right shape
-              const rightShape = document.querySelector('.hero-shape-right');
-              console.log('Right shape element found:', rightShape);
-              if (rightShape) {
-                  const rightStyles = window.getComputedStyle(rightShape);
-                  console.log('Right shape styles:', {
-                      display: rightStyles.display,
-                      position: rightStyles.position,
-                      right: rightStyles.right,
-                      top: rightStyles.top,
-                      width: rightStyles.width,
-                      height: rightStyles.height,
-                      background: rightStyles.background,
-                      backgroundColor: rightStyles.backgroundColor,
-                      opacity: rightStyles.opacity,
-                      zIndex: rightStyles.zIndex,
-                      transform: rightStyles.transform,
-                      clipPath: rightStyles.clipPath,
-                      animation: rightStyles.animation,
-                      visibility: rightStyles.visibility
-                  });
-                  console.log('Right shape bounding rect:', rightShape.getBoundingClientRect());
-              } else {
-                  console.error('❌ Right shape element NOT FOUND in DOM');
-              }
-
-              // Check overlay
-              const overlay = document.querySelector('#contact-hero .hero-overlay');
-              console.log('Overlay element found:', overlay);
-              if (overlay) {
-                  const overlayStyles = window.getComputedStyle(overlay);
-                  console.log('Overlay styles:', {
-                      position: overlayStyles.position,
-                      zIndex: overlayStyles.zIndex,
-                      background: overlayStyles.background,
-                      opacity: overlayStyles.opacity
-                  });
-              }
-
-              // Check content
-              const content = document.querySelector('#contact-hero .hero-content');
-              console.log('Content element found:', content);
-              if (content) {
-                  const contentStyles = window.getComputedStyle(content);
-                  console.log('Content styles:', {
-                      position: contentStyles.position,
-                      zIndex: contentStyles.zIndex
-                  });
-              }
-
-              // List all children of hero section
-              if (heroSection) {
-                  console.log('Hero section children:', Array.from(heroSection.children).map(child => ({
-                      tagName: child.tagName,
-                      className: child.className,
-                      id: child.id
-                  })));
-              }
-
-              console.log('🔍 ===== HERO SHAPES DEBUG END =====');
           }
+
+          // In-depth debugging for WhatsApp button positioning
+          function debugWhatsAppButton() {
+              const whatsappButton = document.querySelector('.whatsapp-float');
+
+              if (!whatsappButton) {
+                  console.error('❌ WhatsApp button NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== WhatsApp Button Debug Info ===');
+              console.log('✅ WhatsApp button found:', whatsappButton);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(whatsappButton);
+              console.log('📍 Position:', computedStyle.position);
+              console.log('📏 Bottom:', computedStyle.bottom);
+              console.log('📏 Right:', computedStyle.right);
+              console.log('📏 Top:', computedStyle.top);
+              console.log('📏 Left:', computedStyle.left);
+              console.log('🔢 Z-Index:', computedStyle.zIndex);
+              console.log('🎨 Display:', computedStyle.display);
+              console.log('📐 Width:', computedStyle.width);
+              console.log('📐 Height:', computedStyle.height);
+              console.log('🔄 Transform:', computedStyle.transform);
+              console.log('🔄 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect (actual position on screen)
+              const rect = whatsappButton.getBoundingClientRect();
+              console.log('📦 Bounding Rect:', {
+                  top: rect.top,
+                  right: rect.right,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  width: rect.width,
+                  height: rect.height
+              });
+
+              // Check parent elements that might affect positioning
+              let parent = whatsappButton.parentElement;
+              let level = 0;
+              console.log('👪 Parent Chain:');
+              while (parent && level < 5) {
+                  const parentStyle = window.getComputedStyle(parent);
+                  console.log(`  Level ${level}: ${parent.tagName}`, {
+                      position: parentStyle.position,
+                      transform: parentStyle.transform,
+                      overflow: parentStyle.overflow,
+                      zIndex: parentStyle.zIndex
+                  });
+                  parent = parent.parentElement;
+                  level++;
+              }
+
+              // Check viewport and scroll position
+              console.log('🖥️ Viewport Info:', {
+                  innerWidth: window.innerWidth,
+                  innerHeight: window.innerHeight,
+                  scrollY: window.scrollY,
+                  scrollX: window.scrollX
+              });
+
+              // Check inline styles
+              console.log('💅 Inline Style Attribute:', whatsappButton.getAttribute('style') || 'none');
+
+              // Check all applied classes
+              console.log('🏷️ Classes:', whatsappButton.className);
+
+              // Calculate if button is actually at bottom of viewport
+              const expectedBottom = window.innerHeight - 30 - 60; // innerHeight - bottom margin - button height
+              const actualBottom = rect.top;
+              const isProperlyFixed = Math.abs(actualBottom - expectedBottom) < 50;
+
+              console.log('🎯 Position Check:', {
+                  expectedTopPosition: expectedBottom,
+                  actualTopPosition: actualBottom,
+                  difference: actualBottom - expectedBottom,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO VIEWPORT!' : '❌ NOT PROPERLY FIXED - STUCK TO PAGE BOTTOM'
+              });
+
+              console.log('=================================');
+          }
+
+          // In-depth debugging for Cookie Banner positioning
+          function debugCookieBanner() {
+              const cookieBanner = document.getElementById('cookieConsent');
+
+              if (!cookieBanner) {
+                  console.error('❌ Cookie Banner NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== Cookie Banner Debug Info ===');
+              console.log('✅ Cookie Banner found:', cookieBanner);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(cookieBanner);
+              console.log('🍪 Position:', computedStyle.position);
+              console.log('🍪 Bottom:', computedStyle.bottom);
+              console.log('🍪 Left:', computedStyle.left);
+              console.log('🍪 Right:', computedStyle.right);
+              console.log('🍪 Z-Index:', computedStyle.zIndex);
+              console.log('🍪 Display:', computedStyle.display);
+              console.log('🍪 Transform:', computedStyle.transform);
+              console.log('🍪 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect
+              const rect = cookieBanner.getBoundingClientRect();
+              console.log('🍪 Bounding Rect:', {
+                  top: rect.top,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  right: rect.right,
+                  height: rect.height
+              });
+
+              // Check if it's at the bottom of viewport
+              const expectedTop = window.innerHeight - rect.height;
+              const isProperlyFixed = Math.abs(rect.top - expectedTop) < 50;
+
+              console.log('🎯 Cookie Banner Position Check:', {
+                  expectedTopPosition: expectedTop,
+                  actualTopPosition: rect.top,
+                  difference: rect.top - expectedTop,
+                  viewportHeight: window.innerHeight,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO VIEWPORT!' : '❌ NOT PROPERLY FIXED - STUCK TO PAGE BOTTOM'
+              });
+
+              console.log('=================================');
+          }
+
+          // In-depth debugging for Header positioning
+          function debugHeader() {
+              const header = document.querySelector('header');
+
+              if (!header) {
+                  console.error('❌ Header NOT FOUND in DOM!');
+                  return;
+              }
+
+              console.log('=== Header Debug Info ===');
+              console.log('✅ Header found:', header);
+
+              // Get computed styles
+              const computedStyle = window.getComputedStyle(header);
+              console.log('🔝 Position:', computedStyle.position);
+              console.log('🔝 Top:', computedStyle.top);
+              console.log('🔝 Left:', computedStyle.left);
+              console.log('🔝 Right:', computedStyle.right);
+              console.log('🔝 Z-Index:', computedStyle.zIndex);
+              console.log('🔝 Transform:', computedStyle.transform);
+              console.log('🔝 WebKit Transform:', computedStyle.webkitTransform);
+
+              // Get bounding rect
+              const rect = header.getBoundingClientRect();
+              console.log('🔝 Bounding Rect:', {
+                  top: rect.top,
+                  bottom: rect.bottom,
+                  left: rect.left,
+                  right: rect.right,
+                  height: rect.height
+              });
+
+              // Check if it's at the top of viewport
+              const isProperlyFixed = Math.abs(rect.top) < 5; // Should be at 0 or very close
+
+              console.log('🎯 Header Position Check:', {
+                  expectedTopPosition: 0,
+                  actualTopPosition: rect.top,
+                  difference: rect.top,
+                  isProperlyFixed: isProperlyFixed,
+                  verdict: isProperlyFixed ? '✅ CORRECTLY FIXED TO TOP!' : '❌ NOT PROPERLY FIXED - SCROLLING WITH PAGE'
+              });
+
+              console.log('=================================');
+          }
+
+          // Force remove transforms from HTML and BODY to fix positioning of WhatsApp/Cookie banner
+          function forceRemoveTransforms() {
+              console.log('🔧 Forcing transform removal from HTML and BODY...');
+
+              const html = document.documentElement;
+              const body = document.body;
+
+              // Remove transforms using inline styles (highest specificity)
+              html.style.transform = 'none';
+              html.style.webkitTransform = 'none';
+              body.style.transform = 'none';
+              body.style.webkitTransform = 'none';
+
+              console.log('✅ Transforms forcefully removed');
+
+              // Verify
+              const htmlStyle = window.getComputedStyle(html);
+              const bodyStyle = window.getComputedStyle(body);
+              console.log('🔍 Verification - HTML transform:', htmlStyle.transform);
+              console.log('🔍 Verification - BODY transform:', bodyStyle.transform);
+          }
+
+          // Ensure WhatsApp button and cookie banner stay fixed to viewport
+          window.addEventListener('DOMContentLoaded', function() {
+              console.log('🚀 DOMContentLoaded event fired');
+              console.log('Page loaded, checking cookie consent...');
+
+              // CRITICAL: Force remove transforms from HTML and BODY first
+              forceRemoveTransforms();
+
+              // Debug fixed elements immediately (header is absolute, not fixed)
+              setTimeout(() => {
+                  debugWhatsAppButton();
+              }, 50);
+
+              // Debug cookie banner (CSS handles all styling)
+              setTimeout(() => {
+                  debugCookieBanner();
+              }, 100);
+
+              // Check cookie consent on page load
+              checkCookieConsent();
+
+          });
+
+          // Debug on scroll
+          let scrollDebugTimeout;
+          window.addEventListener('scroll', function() {
+              clearTimeout(scrollDebugTimeout);
+              scrollDebugTimeout = setTimeout(function() {
+                  console.log('📜 Scroll Event - Position:', window.scrollY);
+
+                  // Debug header position
+                  const header = document.querySelector('header');
+                  if (header) {
+                      const rect = header.getBoundingClientRect();
+                      console.log('🔝 Header Screen Position:', {
+                          top: rect.top,
+                          isAtTop: Math.abs(rect.top) < 5,
+                          verdict: Math.abs(rect.top) < 5 ? '✅ FIXED' : '❌ SCROLLING'
+                      });
+                  }
+
+                  // Debug WhatsApp button position
+                  const whatsappButton = document.querySelector('.whatsapp-float');
+                  if (whatsappButton) {
+                      const rect = whatsappButton.getBoundingClientRect();
+                      console.log('📍 WhatsApp Button Screen Position:', {
+                          top: rect.top,
+                          bottom: rect.bottom,
+                          distanceFromBottomOfViewport: window.innerHeight - rect.bottom
+                      });
+                  }
+
+                  // Debug cookie banner position (if visible)
+                  const cookieBanner = document.getElementById('cookieConsent');
+                  if (cookieBanner && cookieBanner.classList.contains('show')) {
+                      const rect = cookieBanner.getBoundingClientRect();
+                      console.log('🍪 Cookie Banner Screen Position:', {
+                          top: rect.top,
+                          bottom: rect.bottom,
+                          expectedTop: window.innerHeight - rect.height,
+                          isAtBottom: Math.abs((window.innerHeight - rect.height) - rect.top) < 10
+                      });
+                  }
+              }, 250); // Debounce scroll logging
+          });
+
+          // Debug on window resize
+          window.addEventListener('resize', function() {
+              console.log('📏 Window Resized');
+              debugHeader();
+              debugWhatsAppButton();
+          });
+
+          // Industry equipment mapping - Alex's specifications
+          const industryEquipment = {
+              transport: [
+                  'Boom truck/block boom',
+                  'Bulk feed truck',
+                  'Car carrier with hydraulic winch',
+                  'Dump trailer',
+                  'Dump truck',
+                  'Garbage truck',
+                  'Leaf truck',
+                  'Log truck with self-loader',
+                  'Pneumatic tank truck',
+                  'Refrigeration truck',
+                  'Salt spreader (dump with spreader)',
+                  'Semi-wrecker',
+                  'Snow plow',
+                  'Spray truck',
+                  'Super sucker (port-o-let trucks)',
+                  'Sweeper truck',
+                  'Tank transport',
+                  'Tank truck',
+                  'Transfer trailer',
+                  'Wrecker',
+                  'Truck with hydraulic winch'
+              ],
+              emergency: [
+                  'Fire truck',
+                  'Garbage truck',
+                  'Leaf truck',
+                  'Sweeper truck',
+                  'Snow plow'
+              ],
+              public: [
+                  'Line truck with digger, derrick, or aerial lift',
+                  'Service truck with jack hammer/drill',
+                  'Sewer cleaning truck/jet/vactor',
+                  'Super sucker (port-o-let trucks)',
+                  'Tank transport',
+                  'Truck with hydraulic winch'
+              ],
+              agriculture: [
+                  'Bulk feed truck',
+                  'Lime spreader',
+                  'Seeder truck'
+              ],
+              industrial: [
+                  'Carpet cleaning van',
+                  'Other auxiliary equipment'
+              ]
+          };
+
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeMobileNavigation();
+              initializeCalculator();
+              initializeScrollEffects();
+          });
 
           function initializeMobileNavigation() {
               const mobileToggle = document.querySelector('.mobile-toggle');
-              const navMenu = document.querySelector('.nav-menu');
               const mobileClose = document.querySelector('.mobile-close');
+              const navMenu = document.querySelector('.nav-menu');
+              const header = document.querySelector('header');
+              const html = document.documentElement;
 
               function toggleMenu() {
-                  navMenu?.classList.toggle('active');
-                  document.documentElement.classList.toggle('menu-open');
+                  navMenu.classList.toggle('active');
+                  html.classList.toggle('menu-open');
+                  header.classList.toggle('menu-open');
+                  mobileToggle.classList.toggle('hidden');
               }
 
-              mobileToggle?.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  toggleMenu();
-              });
+              if (mobileToggle) {
+                  mobileToggle.addEventListener('click', toggleMenu);
+              }
 
-              mobileClose?.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  toggleMenu();
-              });
+              if (mobileClose) {
+                  mobileClose.addEventListener('click', toggleMenu);
+              }
 
-              navMenu?.querySelectorAll('a').forEach((link) => {
-                  link.addEventListener('click', () => {
-                      if (navMenu.classList.contains('active')) toggleMenu();
+              // Close menu when clicking nav links
+              const navLinks = document.querySelectorAll('.nav-menu a');
+              navLinks.forEach(link => {
+                  link.addEventListener('click', function() {
+                      if (navMenu.classList.contains('active')) {
+                          toggleMenu();
+                      }
                   });
               });
 
-              document.addEventListener('keydown', (e) => {
-                  if (e.key === 'Escape' && navMenu.classList.contains('active')) toggleMenu();
+              // Close menu on escape key
+              document.addEventListener('keydown', function(e) {
+                  if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                      toggleMenu();
+                  }
               });
           }
 
-          function initializeContactForm() {
-              const contactForm = document.getElementById('contact-form');
-
-              if (!contactForm) return;
-
-              contactForm.addEventListener('submit', function(e) {
-                  e.preventDefault();
-
-                  const submitBtn = contactForm.querySelector('.btn-submit');
-                  const originalText = submitBtn.innerHTML;
-
-                  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                  submitBtn.disabled = true;
-
-                  const formData = new FormData(contactForm);
-
-                  // Simulate form submission (replace with actual AJAX call to your backend)
-                  setTimeout(() => {
-                      // Remove any existing messages
-                      const existingMessage = contactForm.querySelector('.form-success, .form-error');
-                      if (existingMessage) {
-                          existingMessage.remove();
-                      }
-
-                      // Create success message
-                      const successMessage = document.createElement('div');
-                      successMessage.className = 'form-success';
-                      successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
-
-                      contactForm.insertBefore(successMessage, contactForm.firstChild);
-
-                      // Reset form
-                      contactForm.reset();
-
-                      // Scroll to success message
-                      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                      // Reset button
-                      submitBtn.innerHTML = originalText;
-                      submitBtn.disabled = false;
-
-                      // Remove success message after 5 seconds
+          function initializeCalculator() {
+              const industrySelect = document.getElementById('calc-industry');
+              const equipmentSelect = document.getElementById('calc-equipment');
+              const equipmentGroup = document.getElementById('equipment-group');
+              const equipmentCount = document.getElementById('equipment-count');
+              const calcButton = document.getElementById('calc-button');
+              const calcResult = document.getElementById('calc-result');
+              const resultValue = document.getElementById('result-value');
+              const industryPreview = document.getElementById('industry-preview');
+              
+              const industryNames = {
+                  transport: 'Transport & Logistics',
+                  emergency: 'Emergency Services / Municipal',
+                  public: 'Public Services',
+                  agriculture: 'Agriculture',
+                  industrial: 'Industrial / Manufacturing'
+              };
+              
+              industrySelect?.addEventListener('change', function() {
+                  const selectedIndustry = this.value;
+                  
+                  if (selectedIndustry && industryEquipment[selectedIndustry]) {
+                      equipmentGroup.style.display = 'block';
                       setTimeout(() => {
-                          successMessage.remove();
-                      }, 5000);
+                          equipmentGroup.classList.add('show');
+                      }, 10);
+                      
+                      equipmentSelect.innerHTML = '<option value="">Select your equipment</option>';
+                      industryEquipment[selectedIndustry].forEach(equipment => {
+                          const option = document.createElement('option');
+                          option.value = equipment.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                          option.textContent = equipment;
+                          equipmentSelect.appendChild(option);
+                      });
+                      
+                      equipmentCount.textContent = `${industryEquipment[selectedIndustry].length} options`;
+                      updateIndustryPreview(selectedIndustry, industryNames[selectedIndustry]);
+                  } else {
+                      equipmentGroup.classList.remove('show');
+                      setTimeout(() => {
+                          equipmentGroup.style.display = 'none';
+                      }, 300);
+                      equipmentSelect.innerHTML = '<option value="">Select your equipment</option>';
+                      equipmentCount.textContent = '';
+                      resetIndustryPreview();
+                  }
+              });
+              
+              function updateIndustryPreview(industryKey, industryName) {
+                  const equipment = industryEquipment[industryKey];
+                  
+                  industryPreview.innerHTML = `
+                      <div class="industry-info">
+                          <h4><i class="fas fa-industry"></i> ${industryName}</h4>
+                          <p>This industry has <strong>${equipment.length} qualifying equipment types</strong> for fuel tax refunds.</p>
+                          <div class="equipment-list">
+                              <h5><i class="fas fa-wrench"></i> Qualifying Equipment:</h5>
+                              <div class="equipment-grid">
+                                  ${equipment.map(item => `<div class="equipment-item">${item}</div>`).join('')}
+                              </div>
+                          </div>
+                      </div>
+                  `;
+              }
+              
+              function resetIndustryPreview() {
+                  industryPreview.innerHTML = `
+                      <div class="industry-info">
+                          <h4><i class="fas fa-info-circle"></i> How It Works</h4>
+                          <p>Choose your industry from the dropdown, and we'll show you exactly which equipment qualifies for refunds in your field.</p>
+                      </div>
+                  `;
+              }
+              
+              calcButton?.addEventListener('click', function() {
+                  const originalText = this.innerHTML;
+                  this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating...';
+                  this.disabled = true;
+                  
+                  setTimeout(() => {
+                      const yearlyGallons = parseFloat(document.getElementById('calc-gallons').value) || 0;
+                      const industry = document.getElementById('calc-industry').value;
+                      const equipment = document.getElementById('calc-equipment').value;
+                      const fuelType = document.getElementById('calc-fuel-type').value;
+                      
+                      if (yearlyGallons === 0) {
+                          alert('Please enter your yearly gallons to calculate your refund');
+                          resetButton();
+                          return;
+                      }
+                      
+                      if (!industry) {
+                          alert('Please select your industry');
+                          resetButton();
+                          return;
+                      }
+                      
+                      if (!equipment) {
+                          alert('Please select your qualifying equipment');
+                          resetButton();
+                          return;
+                      }
+                      
+                      let exciseTaxRate = 0.679;
+                      let refundPercentage = 0.15;
+                      
+                      if (fuelType === 'gasoline') {
+                          exciseTaxRate = 0.184;
+                      }
+                      
+                      if (industry === 'agriculture') {
+                          refundPercentage = 0.20;
+                      } else if (industry === 'industrial') {
+                          refundPercentage = 0.17;
+                      } else if (industry === 'transport') {
+                          refundPercentage = 0.16;
+                      } else if (industry === 'emergency' || industry === 'public') {
+                          refundPercentage = 0.19;
+                      }
+                      
+                      const refund = yearlyGallons * exciseTaxRate * 3 * refundPercentage;
+                      
+                      resultValue.textContent = '$0';
+                      calcResult.style.display = 'block';
+                      calcResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      
+                      animateCounter(resultValue, 0, Math.round(refund), 2000);
+                      resetButton();
                   }, 1500);
-
-                  /*
-                  // Uncomment this when you have a backend endpoint ready
-                  fetch('/api/contact/', {
-                      method: 'POST',
-                      body: formData,
-                      headers: {
-                          'X-CSRFToken': formData.get('csrfmiddlewaretoken')
-                      }
-                  })
-                  .then(response => response.json())
-                  .then(data => {
-                      if (data.success) {
-                          const successMessage = document.createElement('div');
-                          successMessage.className = 'form-success';
-                          successMessage.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
-                          contactForm.insertBefore(successMessage, contactForm.firstChild);
-                          contactForm.reset();
-                      } else {
-                          throw new Error(data.message);
-                      }
-                  })
-                  .catch(error => {
-                      const errorMessage = document.createElement('div');
-                      errorMessage.className = 'form-error';
-                      errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + error.message;
-                      contactForm.insertBefore(errorMessage, contactForm.firstChild);
-                  })
-                  .finally(() => {
-                      submitBtn.innerHTML = originalText;
-                      submitBtn.disabled = false;
-                  });
-                  */
+                  
+                  function resetButton() {
+                      calcButton.innerHTML = originalText;
+                      calcButton.disabled = false;
+                  }
               });
           }
 
-          function initializeFAQ() {
-              const faqItems = document.querySelectorAll('.faq-item');
-
-              faqItems.forEach(item => {
-                  const question = item.querySelector('.faq-question');
-
-                  question.addEventListener('click', () => {
-                      // Close all other items
-                      faqItems.forEach(otherItem => {
-                          if (otherItem !== item && otherItem.classList.contains('active')) {
-                              otherItem.classList.remove('active');
-                          }
-                      });
-
-                      // Toggle current item
-                      item.classList.toggle('active');
-                  });
-              });
+          function animateCounter(element, start, end, duration) {
+              const startTime = performance.now();
+              const step = (timestamp) => {
+                  const elapsed = timestamp - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const current = Math.round(start + (end - start) * progress);
+                  
+                  element.textContent = '$' + current.toLocaleString();
+                  
+                  if (progress < 1) {
+                      requestAnimationFrame(step);
+                  }
+              };
+              requestAnimationFrame(step);
           }
 
           function initializeScrollEffects() {
@@ -3276,6 +4066,134 @@
 
               // All scroll effects removed for optimal performance
           }
+
+          // Chatbot functionality
+          function initializeChatbot() {
+              const chatbotToggle = document.getElementById('chatbotToggle');
+              const chatbotWindow = document.getElementById('chatbotWindow');
+              const chatbotClose = document.getElementById('chatbotClose');
+              const chatbotInput = document.getElementById('chatbotInput');
+              const chatbotSend = document.getElementById('chatbotSend');
+              const chatbotMessages = document.getElementById('chatbotMessages');
+
+              // Toggle chatbot window
+              function toggleChatbot() {
+                  chatbotWindow.classList.toggle('active');
+                  if (chatbotWindow.classList.contains('active')) {
+                      chatbotInput.focus();
+                  }
+              }
+
+              // Close chatbot window
+              function closeChatbot() {
+                  chatbotWindow.classList.remove('active');
+              }
+
+              // Add message to chat
+              function addMessage(content, isUser = false) {
+                  const messageDiv = document.createElement('div');
+                  messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+
+                  const avatar = document.createElement('div');
+                  avatar.className = `message-avatar ${isUser ? 'user-avatar' : ''}`;
+                  avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-comment-dots"></i>';
+
+                  const messageContent = document.createElement('div');
+                  messageContent.className = 'message-content';
+                  messageContent.textContent = content;
+
+                  messageDiv.appendChild(avatar);
+                  messageDiv.appendChild(messageContent);
+
+                  chatbotMessages.appendChild(messageDiv);
+
+                  // Scroll to bottom
+                  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+              }
+
+              // Send message
+              function sendMessage() {
+                  const message = chatbotInput.value.trim();
+                  if (!message) return;
+
+                  // Add user message
+                  addMessage(message, true);
+                  chatbotInput.value = '';
+
+                  // Simulate bot response (you can replace this with actual API call)
+                  setTimeout(() => {
+                      const responses = [
+                          "Thanks for reaching out! 💚 I'd be happy to help you with fuel tax refunds. What would you like to know?",
+                          "Great question! 🎯 Would you like to calculate your potential refund or learn more about our services?",
+                          "I'm here to help! 😊 You can start by signing up and uploading your fuel receipts. Need a hand getting started?",
+                          "Absolutely! 👍 Feel free to ask me anything about fuel tax refunds!",
+                          "That's a great point! 💡 Would you like to speak with one of our specialists? You can also reach us via WhatsApp! 📱"
+                      ];
+                      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                      addMessage(randomResponse);
+                  }, 1000);
+              }
+
+              // Event listeners
+              chatbotToggle.addEventListener('click', toggleChatbot);
+              chatbotClose.addEventListener('click', closeChatbot);
+              chatbotSend.addEventListener('click', sendMessage);
+
+              chatbotInput.addEventListener('keypress', (e) => {
+                  if (e.key === 'Enter') {
+                      sendMessage();
+                  }
+              });
+
+              console.log('✅ Chatbot initialized');
+          }
+
+          // Initialize chatbot on page load
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeChatbot();
+          });
+
+          // FAQ Accordion Functionality
+          function initializeFAQ() {
+              const faqItems = document.querySelectorAll('.faq-item');
+
+              faqItems.forEach(item => {
+                  const question = item.querySelector('.faq-question');
+                  const answer = item.querySelector('.faq-answer');
+
+                  question.addEventListener('click', () => {
+                      const isActive = item.classList.contains('active');
+
+                      // Close all other FAQ items
+                      faqItems.forEach(otherItem => {
+                          if (otherItem !== item) {
+                              otherItem.classList.remove('active');
+                              const otherAnswer = otherItem.querySelector('.faq-answer');
+                              otherAnswer.style.maxHeight = null;
+                              otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                          }
+                      });
+
+                      // Toggle current item
+                      if (isActive) {
+                          item.classList.remove('active');
+                          answer.style.maxHeight = null;
+                          question.setAttribute('aria-expanded', 'false');
+                      } else {
+                          item.classList.add('active');
+                          answer.style.maxHeight = answer.scrollHeight + 'px';
+                          question.setAttribute('aria-expanded', 'true');
+                      }
+                  });
+              });
+
+              console.log('✅ FAQ accordion initialized');
+          }
+
+          // Initialize FAQ on page load
+          document.addEventListener('DOMContentLoaded', function() {
+              initializeFAQ();
+          });
       </script>
   </body>
   </html>

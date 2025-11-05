@@ -4,28 +4,61 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Fuel Tax Refunds - Fuel Refund Institute</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>FAQ - Fuel Tax Refund Questions Answered | Fuel Refund Institute</title>
+
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preconnect to critical domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <meta name="description" content="Maximize your fuel tax refunds with Fuel Refund Institute. Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery. Free assessment available.">
-<meta name="keywords" content="fuel tax refund, fuel excise tax, off-road fuel tax, business fuel refund, IFTA compliance, fuel tax recovery, diesel tax refund">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="{% static 'images/2.jpg' %}" fetchpriority="high">
+
+  <!-- Load fonts asynchronously -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Defer Font Awesome loading -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+  <!-- Inline critical CSS loading script -->
+  <script>
+  !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,s=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var l=i.styleSheets;s.rel="stylesheet",s.href=t,s.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(s,n?o:o.nextSibling)});var u=function(e){for(var t=s.href,n=l.length;n--;)if(l[n].href===t)return e();setTimeout(function(){u(e)})};return s.addEventListener&&s.addEventListener("load",r),s.onloadcssdefined=u,u(r),s};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+  </script>
+  <meta name="description" content="Get answers to frequently asked questions about fuel tax refunds, eligibility requirements, refund processes, and IFTA compliance. Expert guidance from Fuel Refund Institute.">
+<meta name="keywords" content="fuel tax refund FAQ, fuel excise tax questions, off-road fuel tax eligibility, IFTA FAQ, fuel tax refund process, diesel tax refund questions">
 <meta name="author" content="Fuel Refund Institute">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Fuel Tax Refunds - Fuel Refund Institute">
-<meta property="og:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds on qualifying equipment and machinery.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Fuel Refund Institute">
+<meta property="og:title" content="FAQ - Fuel Tax Refund Questions Answered | Fuel Refund Institute">
+<meta property="og:description" content="Get answers to frequently asked questions about fuel tax refunds, eligibility requirements, and refund processes. Expert guidance from Fuel Refund Institute.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fuelrefundinstitute.com">
-<meta property="og:image" content="{% static 'images/logo.png' %}">
+<meta property="og:url" content="https://fuelrefundinstitute.com/faq/">
+<meta property="og:image" content="https://fuelrefundinstitute.com/static/images/logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fuel Refund Institute Logo">
+<meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fuel Tax Refunds - Fuel Refund Institute">
-<meta name="twitter:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds.">
-<meta name="twitter:image" content="{% static 'images/logo.png' %}">
-<link rel="canonical" href="https://fuelrefundinstitute.com">
+<meta name="twitter:title" content="FAQ - Fuel Tax Refund Questions Answered | Fuel Refund Institute">
+<meta name="twitter:description" content="Get answers to frequently asked questions about fuel tax refunds, eligibility requirements, and refund processes.">
+<meta name="twitter:image" content="https://fuelrefundinstitute.com/static/images/logo.png">
+<meta name="twitter:image:alt" content="Fuel Refund Institute Logo">
+<link rel="canonical" href="https://fuelrefundinstitute.com/faq/">
+<meta name="theme-color" content="#48A96A">
     <link rel="icon" type="image/x-icon" href="{% static 'images/FRI Logo - Black.png' %}">
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,8 +67,17 @@
       "description": "Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery.",
       "url": "https://fuelrefundinstitute.com",
       "logo": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "image": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "telephone": "+1-323-892-7914",
+      "priceRange": "$$",
       "serviceType": "Fuel Tax Refund Services",
-      "areaServed": "United States",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Fuel Tax Refund Services",
@@ -55,9 +97,81 @@
               "name": "Off-Road Fuel Tax Recovery",
               "description": "Recovery of fuel taxes paid on off-road equipment usage"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "IFTA Compliance & Filing",
+              "description": "Comprehensive management of International Fuel Tax Agreement obligations"
+            }
           }
         ]
       }
+    }
+    </script>
+
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://fuelrefundinstitute.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://fuelrefundinstitute.com/faq/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage Schema (will be visible to search engines) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a fuel tax refund?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A fuel tax refund allows businesses to reclaim federal and state taxes paid on fuel used for non-highway purposes, such as operating off-road equipment, refrigeration units, or other qualifying machinery."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who qualifies for fuel tax refunds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Businesses that use fuel for off-road equipment, refrigeration units, power take-off (PTO) systems, and other non-highway purposes may qualify. Common industries include transportation, construction, agriculture, and emergency services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the refund process take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most refunds are processed within 30-45 days after we submit your claim. The timeline can vary depending on the complexity of your claim and government processing times."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documents do I need to file a claim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You'll need fuel receipts, vehicle registration documents, and documentation showing off-road or non-highway fuel usage. Our platform accepts all major file formats for easy upload."
+          }
+        }
+      ]
     }
     </script>
   <style>
@@ -155,28 +269,23 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0px;
   }
 
   /* Header - Enhanced */
   header {
-    /* header scrolls with page */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: none;
     z-index: 10000;
     padding: 0.75rem 0;
-    border-bottom: none;
-  }
-
-  header.scrolled {
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: var(--shadow-xl);
-    padding: 0.75rem 0;
+    transition: var(--transition);
   }
 
   .header-content {
@@ -190,30 +299,15 @@
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    transition: var(--transition);
-  }
-
-  .logo-section:hover {
-    transform: translateY(-1px);
+    z-index: 10001;
   }
 
   .logo-circle {
     width: 120px;
     height: 120px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
-    box-shadow: none;
-  }
-
-  .logo-circle:hover {
-    border-color: none;
-    box-shadow: none;
   }
 
   .logo-circle img {
@@ -222,19 +316,10 @@
     object-fit: contain;
   }
 
-
-  .brand-text {
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: var(--secondary);
-    letter-spacing: -0.025em;
-    transition: var(--transition);
-  }
-
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 0.125rem;
+    gap: 0.25rem;
   }
 
   .nav-menu a {
@@ -245,66 +330,34 @@
     border-radius: 8px;
     transition: var(--transition);
     font-size: 0.9rem;
-    letter-spacing: -0.01em;
     position: relative;
+    border-bottom: 2px solid transparent;
   }
 
   .nav-menu a:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
     transform: translateY(-1px);
+    border-bottom-color: var(--primary);
   }
 
-  .nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+  .nav-menu a.active {
+    background: transparent;
+    border-bottom-color: var(--primary);
   }
 
-  /* Add spacing between regular nav links and auth buttons (match Contact page) */
-  .nav-menu a:not(.cta-login):not(.cta-signup) {
-    margin-right: 0.8rem;
-  }
-
-  .nav-menu a:hover::after,
-  .nav-menu a.active::after {
-    width: calc(100% - 2rem);
-  }
-
-  .cta-login {
-    background: rgb(75, 197, 127);
-    color: var(--white);
-    font-weight: 600;
-    padding: 0.45rem 0.9rem;
-    border-radius: 8px;
-    border: none;
-    margin-left: 2.4rem; /* increased to move button further right */
-  }
-
-  .cta-login:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
-  }
-
+  .cta-login,
   .cta-signup {
-    background: rgb(75, 197, 127);
+    background: var(--primary);
     color: var(--white);
     font-weight: 600;
-    padding: 0.45rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: none;
-    margin-left: 0.6rem; /* reduced so Sign Up sits closer to Log In */
+    margin-left: 0.5rem;
   }
 
+  .cta-login:hover,
   .cta-signup:hover {
-    background: rgb(64, 168, 109);
-    color: var(--white);
+    background: var(--primary-light);
   }
 
   .mobile-toggle {
@@ -315,39 +368,43 @@
     border: none;
     cursor: pointer;
     padding: 8px;
-    position: relative;
     z-index: 10001;
   }
 
   .mobile-toggle span {
-    width: 20px;
-    height: 2px;
+    width: 24px;
+    height: 3px;
     background: var(--white);
-    border-radius: 1px;
+    border-radius: 2px;
     transition: all 0.3s;
+  }
+
+  .mobile-close {
+    display: none;
   }
 
   /* Hero Section - Expanded */
   .hero {
     position: relative;
-    min-height: 40vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    justify-content: center;
+    background: var(--secondary);
     color: var(--white);
     overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .hero-bg {
     position: absolute;
-    top: -10%;
-    left: -5%;
-    width: 110%;
-    height: 120%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: 1;
-    filter: brightness(0.7);
-    transform: scale(1.1);
   }
 
   .hero-overlay {
@@ -356,7 +413,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(72, 169, 106, 0.5) 100%);
     z-index: 2;
   }
 
@@ -364,10 +424,7 @@
     position: relative;
     z-index: 3;
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 12rem 1rem 4rem;
-    width: 100%;
+    padding: 8rem 1rem 3rem;
   }
 
   .hero-badge {
@@ -384,32 +441,9 @@
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-  }
-  
-  /* FAQ Hero Mobile Responsiveness */
-  @media (max-width: 768px) {
-    #faq-hero .hero-content {
-      padding: 8rem 1rem 3rem;
-    }
-    #faq-hero .hero-title {
-      font-size: clamp(2rem, 7vw, 2.5rem);
-    }
-    .faq-container {
-      max-width: 100%;
-      padding: 0 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    #faq-hero .hero-content {
-      padding: 6rem 0.75rem 2rem;
-    }
-    #faq-hero .hero-title {
-      font-size: clamp(1.75rem, 9vw, 2.25rem);
-    }
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin: 0;
   }
 
   .hero-subtitle {
@@ -1302,104 +1336,129 @@
 
   /* Tablet Portrait and Mobile (768px and below) */
   @media (max-width: 768px) {
-    .mobile-toggle { display: none !important; }
+    /* Header on mobile - fixed with subtle grey background */
+    header {
+      position: fixed !important;
+      background: rgba(0, 0, 0, 0.15) !important;
+      backdrop-filter: blur(5px) !important;
+      -webkit-backdrop-filter: blur(5px) !important;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Header gets darker background when menu is open */
+    header.menu-open {
+      background: rgba(26, 26, 26, 0.95) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Mobile Navigation */
+    .mobile-toggle {
+      display: flex;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-toggle.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .nav-menu {
-      position: static !important;
-      width: auto !important;
-      height: auto !important;
-      background: transparent !important;
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: flex-end !important;
-      padding: 0 !important;
-      box-shadow: none !important;
-      transform: none !important;
+      position: fixed;
+      top: 0;
+      left: 0 !important;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #1a1a1a;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      margin: 0;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 9999;
     }
+
+    .nav-menu.active {
+      transform: translateX(0);
+    }
+
     .nav-menu a {
-      color: var(--white) !important;
-      padding: 0.625rem 1rem;
-      margin: 0 0 0 0.25rem;
-      min-height: 0;
-    }
-    .mobile-close { display: none !important; }
-
-    .nav-menu .cta-login {
-      background: rgb(75, 197, 127);
-      border: none;
-      color: #ffffff;
-      margin-top: 1rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 8px;
-      font-weight: 600;
+      width: 90%;
+      max-width: 300px;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      background: var(--white);
+      color: var(--secondary);
+      border-radius: 10px;
     }
 
-    .nav-menu .cta-login:hover {
-      background: rgb(64, 168, 109);
-      color: #ffffff;
+    .nav-menu a:hover {
+      background: var(--gray-100);
     }
 
-    .nav-menu .cta-signup {
-      background: #48A96A;
-      color: #ffffff;
-      border: none;
+    .nav-menu a.active {
+      background: var(--primary);
+      color: var(--white);
     }
 
-    .nav-menu .cta-signup:hover {
-      background: #5BC085;
+    .cta-login,
+    .cta-signup {
+      background: var(--primary);
+      color: var(--white);
+      margin-left: 0;
+      width: 90%;
+      max-width: 300px;
     }
 
     .mobile-close {
+      display: flex;
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
       background: rgba(255, 255, 255, 0.1);
-      border: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
       border-radius: 50%;
       width: 48px;
       height: 48px;
-      display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-size: 1.5rem;
-      z-index: 10002;
-      color: #ffffff;
-      transition: all 0.3s ease;
+      transition: var(--transition);
     }
 
     .mobile-close:hover {
       background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
     }
-    
+
     /* Header */
-    header {
-      padding: 0.75rem 0;
-    }
-    
     .logo-circle {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
     }
-    
-    .brand-text {
-      font-size: 0.8rem;
-    }
-    
+
     /* Hero */
     .hero {
-      min-height: 35vh;
+      min-height: 50vh;
+      margin-top: 0;
     }
 
     .hero-content {
-      padding: 3rem 1.5rem 2rem;
+      padding: 8rem 1rem 2rem;
     }
 
-    .hero-bg {
-      top: -5%;
-      left: -3%;
-      width: 106%;
-      height: 110%;
-      transform: scale(1.05);
+    .hero-title {
+      font-size: clamp(2rem, 8vw, 3rem);
     }
 
     .hero-badge {
@@ -1745,53 +1804,18 @@
 
   /* Small Mobile (480px and below) */
   @media (max-width: 480px) {
-    .container {
-      padding: 0 0.75rem;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    /* Prevent horizontal scroll */
-    body {
-      overflow-x: hidden;
-    }
-    
-    .header-content {
-      gap: 0.5rem;
-    }
-    
     .logo-circle {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
     }
-    
-    .brand-text {
-      font-size: 0.9rem;
+
+    .hero {
+      min-height: 45vh;
+      margin-top: 0;
     }
-    
+
     .hero-content {
-      padding: 5rem 1.25rem 2rem;
-      width: 100%;
-      max-width: none;
-    }
-
-    /* Better text alignment */
-    .hero-title,
-    .hero-subtitle,
-    .hero-description {
-      text-align: left;
-    }
-
-    .hero-badge {
-      font-size: 0.65rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-title {
-      font-size: clamp(1.5rem, 9vw, 2rem);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      padding: 7rem 1rem 2rem;
     }
 
     .hero-subtitle {
@@ -2426,7 +2450,12 @@
   .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 1000px; /* Large enough for content */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .faq-answer-content {
@@ -2458,35 +2487,226 @@
     font-weight: 600;
   }
 
+  /* FAQ Section Spacing */
+  .section.faq-section {
+    padding: 3rem 1rem;
+  }
+
+  /* FAQ Mobile Responsive Styles */
   @media (max-width: 768px) {
+    .section.faq-section {
+      padding: 2.5rem 0.5rem;
+    }
+
+    .faq-container {
+      padding: 0 1rem;
+    }
+
+    .faq-category {
+      margin-bottom: 2.5rem;
+    }
+
     .faq-category-title {
       font-size: 1.5rem;
+      gap: 0.5rem;
+      padding-bottom: 0.625rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .faq-category-icon {
+      font-size: 1.25rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.875rem;
+      border-radius: 10px;
     }
 
     .faq-question {
       font-size: 1rem;
-      padding: 1.25rem;
+      padding: 1.25rem 1rem;
+      gap: 0.75rem;
+      min-height: 48px; /* Touch-friendly */
+      line-height: 1.5;
+    }
+
+    .faq-question-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 1.125rem;
+      flex-shrink: 0;
     }
 
     .faq-answer-content {
-      padding: 0 1.25rem 1.25rem 1.25rem;
+      padding: 0 1rem 1.25rem 1rem;
       font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq-answer-content ul {
+      padding-left: 1.25rem;
+      margin: 0.875rem 0;
+    }
+
+    .faq-answer-content li {
+      margin-bottom: 0.625rem;
+    }
+
+    .faq-answer-content p {
+      margin-bottom: 0.875rem;
     }
   }
 
   @media (max-width: 480px) {
+    .faq-container {
+      padding: 0 0.75rem;
+    }
+
+    .faq-category {
+      margin-bottom: 2rem;
+    }
+
     .faq-category-title {
       font-size: 1.25rem;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .faq-category-icon {
+      font-size: 1.125rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
     }
 
     .faq-question {
       font-size: 0.95rem;
-      padding: 1rem;
+      padding: 1rem 0.875rem;
+      gap: 0.625rem;
+      min-height: 48px;
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 1rem;
     }
 
     .faq-answer-content {
-      padding: 0 1rem 1rem 1rem;
+      padding: 0 0.875rem 1rem 0.875rem;
       font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .faq-answer-content ul {
+      padding-left: 1rem;
+      margin: 0.75rem 0;
+    }
+
+    .faq-answer-content li {
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .faq-answer-content p {
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-answer-content strong {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Medium Mobile/Small Tablet (481px - 768px) - FAQ Specific */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .faq-container {
+      padding: 0 1.25rem;
+    }
+
+    .faq-category-title {
+      font-size: 1.625rem;
+    }
+
+    .faq-question {
+      font-size: 1.05rem;
+      padding: 1.375rem 1.125rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1.125rem 1.375rem 1.125rem;
+      font-size: 1rem;
+    }
+  }
+
+  /* Touch Device Optimizations for FAQ */
+  @media (pointer: coarse) {
+    .faq-question {
+      min-height: 52px; /* Larger touch target for touch devices */
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(72, 169, 106, 0.1);
+    }
+
+    .faq-icon {
+      min-width: 32px;
+      min-height: 32px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .faq-item:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question:hover {
+      color: var(--gray-900);
+    }
+
+    /* Better spacing for touch */
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    /* Ensure tap feedback */
+    .faq-question:active {
+      background: rgba(72, 169, 106, 0.05);
+    }
+  }
+
+  /* Landscape Mobile - FAQ Adjustments */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .faq-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-category-title {
+      font-size: 1.125rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-question {
+      padding: 0.875rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .faq-answer-content {
+      padding: 0 1rem 0.875rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 0.875rem;
     }
   }
 
@@ -2591,36 +2811,43 @@
   </style>
   </head>
 
-  <body>
+  <body itemscope itemtype="https://schema.org/FAQPage">
       <!-- Cookie Consent Banner -->
-      <div class="cookie-banner" id="cookieConsent">
+      <div class="cookie-banner" id="cookieConsent" role="dialog" aria-label="Cookie consent banner">
           <div class="cookie-banner-content">
               <div class="cookie-banner-text">
-                  <p><strong><i class="fas fa-cookie-bite"></i> We use cookies</strong> to enhance your experience and analyze traffic. By clicking "Accept All", you consent to our use of cookies. <a href="{% url 'privacy_policy' %}">Privacy Policy</a></p>
+                  <p><strong><i class="fas fa-cookie-bite" aria-hidden="true"></i> We use cookies</strong> to enhance your experience and analyze traffic. By clicking "Accept All", you consent to our use of cookies. <a href="{% url 'privacy_policy' %}" rel="noopener">Privacy Policy</a></p>
               </div>
               <div class="cookie-banner-buttons">
-                  <button class="cookie-banner-btn cookie-banner-decline" onclick="declineCookies()">Decline</button>
-                  <button class="cookie-banner-btn cookie-banner-accept" onclick="acceptCookies()">Accept All</button>
+                  <button class="cookie-banner-btn cookie-banner-decline" onclick="declineCookies()" aria-label="Decline cookies">Decline</button>
+                  <button class="cookie-banner-btn cookie-banner-accept" onclick="acceptCookies()" aria-label="Accept all cookies">Accept All</button>
               </div>
           </div>
       </div>
 
 
     <!-- Header -->
-    <header>
+    <header role="banner">
       <div class="container">
         <div class="header-content">
           <div class="logo-section">
             <div class="logo-circle">
-              <img src="{% static 'images/FRI Logo - White.png' %}" alt="FRI Logo">
+              <img src="{% static 'images/FRI Logo - White.png' %}" alt="Fuel Refund Institute Logo - FAQ" width="120" height="120">
             </div>
           </div>
 
-          
+          <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-          <nav class="nav-menu">
+          <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+            <button class="mobile-close" aria-label="Close navigation menu">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
             <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'faq' %}">FAQ</a>
+            <a href="{% url 'faq' %}" class="active" aria-current="page">FAQ</a>
             <a href="{% url 'home' %}#services">Services</a>
             <a href="{% url 'contact' %}">Contact Us</a>
             <a href="{% url 'login' %}" class="cta-login">Log In</a>
@@ -2631,9 +2858,10 @@
     </header>
 
       <!-- Hero Section -->
-      <section id="faq-hero" class="hero">
-          <img src="{% static 'images/2.jpg' %}" alt="Frequently Asked Questions" class="hero-bg">
-          <div class="hero-overlay"></div>
+      <main role="main">
+      <section id="faq-hero" class="hero" aria-label="FAQ Hero section">
+          <img src="{% static 'images/2.jpg' %}" alt="FAQ banner showing fuel tax refund resources" class="hero-bg" loading="eager" width="1920" height="600">
+          <div class="hero-overlay" aria-hidden="true"></div>
           <!-- Decorative hero shapes removed -->
       <div class="hero-content">
         <h1 class="hero-title">Frequently Asked Questions</h1>
@@ -2690,36 +2918,36 @@
       </div>
 
       <!-- FAQ Section -->
-      <section id="faq" class="section">
+      <section id="faq" class="section" aria-labelledby="faq-heading">
           <div class="container">
               <div class="faq-container">
 
                   <!-- About Fuel Refund Institute -->
-                  <div class="faq-category">
-                      <h2 class="faq-category-title">
-                          <i class="fas fa-info-circle faq-category-icon"></i>
+                  <div class="faq-category" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                      <h2 id="faq-heading" class="faq-category-title">
+                          <i class="fas fa-info-circle faq-category-icon" aria-hidden="true"></i>
                           About Fuel Refund Institute
                       </h2>
 
-                      <div class="faq-item">
+                      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                           <button class="faq-question" aria-expanded="false">
-                              <span class="faq-question-text">What does Fuel Refund Institute do?</span>
-                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                              <span class="faq-question-text" itemprop="name">What does Fuel Refund Institute do?</span>
+                              <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
                           </button>
-                          <div class="faq-answer">
-                              <div class="faq-answer-content">
+                          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                              <div class="faq-answer-content" itemprop="text">
                                   <p>Fuel Refund Institute helps U.S. businesses recover money paid in federal and state fuel taxes for fuel used in non-taxable operations — such as auxiliary equipment (cranes, reefers, cement pumpers, garbage trucks, etc.). We manage the entire refund process, from analysis to filing and refund tracking.</p>
                               </div>
                           </div>
                       </div>
 
-                      <div class="faq-item">
+                      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                           <button class="faq-question" aria-expanded="false">
-                              <span class="faq-question-text">Who qualifies for a fuel tax refund?</span>
-                              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                              <span class="faq-question-text" itemprop="name">Who qualifies for a fuel tax refund?</span>
+                              <span class="faq-icon" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
                           </button>
-                          <div class="faq-answer">
-                              <div class="faq-answer-content">
+                          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                              <div class="faq-answer-content" itemprop="text">
                                   <p>Any business that uses undyed fuel-powered equipment where the fuel powers something other than the vehicle's movement on public highways may qualify. Examples include crane hydraulics, reefer unit refrigeration, cement pumper operations, garbage compactor systems, and auxiliary engines or PTO (Power Take-Off) systems. If your fleet includes these types of vehicles, you likely qualify.</p>
                               </div>
                           </div>
@@ -2891,44 +3119,45 @@
       </section>
       
       <!-- Call to Action Section -->
-      <section class="cta-section">
+      <section class="cta-section" aria-labelledby="cta-heading">
           <div class="container">
-              <h2 class="cta-title">Ready to reclaim your fuel taxes?</h2>
+              <h2 id="cta-heading" class="cta-title">Ready to reclaim your fuel taxes?</h2>
               <p class="cta-description">Trusted by businesses across a variety of industries, our team has helped clients successfully claim their fuel tax refunds. <strong>Join our platform today - sign up, upload your documents, and let our experts handle the rest!</strong></p>
               <div class="cta-actions">
-                  <a href="{% url 'signup' %}" class="btn btn-primary">
-                      <i class="fas fa-user-plus"></i>
+                  <a href="{% url 'signup' %}" class="btn btn-primary" rel="noopener">
+                      <i class="fas fa-user-plus" aria-hidden="true"></i>
                       Sign Up & Upload Documents
                   </a>
-                  <a href="{% url 'contact' %}" class="btn btn-secondary">
-                      <i class="fas fa-envelope"></i>
+                  <a href="{% url 'contact' %}" class="btn btn-secondary" rel="noopener">
+                      <i class="fas fa-envelope" aria-hidden="true"></i>
                       Contact Us
                   </a>
               </div>
           </div>
       </section>
+      </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
             <div class="footer-logo">
-              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="FRI">
+              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="Fuel Refund Institute Logo" width="50" height="50" loading="lazy">
             </div>
             <div class="footer-brand-text">Fuel Refund Institute</div>
           </div>
 
           <div class="footer-social">
-            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
+            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="Visit our LinkedIn page" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p><span>&copy; 2025 Fuel Refund Institute</span></p>
-          <p><a href="{% url 'privacy_policy' %}">Privacy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}">Terms</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914">+1 323-892-7914</a></p>
+          <p><span>&copy; 2025 Fuel Refund Institute. All rights reserved.</span></p>
+          <p><a href="{% url 'privacy_policy' %}" rel="noopener">Privacy Policy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}" rel="noopener">Terms of Service</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914" rel="nofollow">+1 323-892-7914</a></p>
         </div>
       </div>
     </footer>
@@ -3335,38 +3564,48 @@
           };
 
           document.addEventListener('DOMContentLoaded', function() {
+              initializeMobileNavigation();
               initializeCalculator();
               initializeScrollEffects();
           });
 
           function initializeMobileNavigation() {
               const mobileToggle = document.querySelector('.mobile-toggle');
-              const navMenu = document.querySelector('.nav-menu');
               const mobileClose = document.querySelector('.mobile-close');
+              const navMenu = document.querySelector('.nav-menu');
+              const header = document.querySelector('header');
+              const html = document.documentElement;
 
               function toggleMenu() {
-                  navMenu?.classList.toggle('active');
-                  document.documentElement.classList.toggle('menu-open');
+                  navMenu.classList.toggle('active');
+                  html.classList.toggle('menu-open');
+                  header.classList.toggle('menu-open');
+                  mobileToggle.classList.toggle('hidden');
               }
 
-              mobileToggle?.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  toggleMenu();
-              });
+              if (mobileToggle) {
+                  mobileToggle.addEventListener('click', toggleMenu);
+              }
 
-              mobileClose?.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  toggleMenu();
-              });
+              if (mobileClose) {
+                  mobileClose.addEventListener('click', toggleMenu);
+              }
 
-              navMenu?.querySelectorAll('a').forEach((link) => {
-                  link.addEventListener('click', () => {
-                      if (navMenu.classList.contains('active')) toggleMenu();
+              // Close menu when clicking nav links
+              const navLinks = document.querySelectorAll('.nav-menu a');
+              navLinks.forEach(link => {
+                  link.addEventListener('click', function() {
+                      if (navMenu.classList.contains('active')) {
+                          toggleMenu();
+                      }
                   });
               });
 
-              document.addEventListener('keydown', (e) => {
-                  if (e.key === 'Escape' && navMenu.classList.contains('active')) toggleMenu();
+              // Close menu on escape key
+              document.addEventListener('keydown', function(e) {
+                  if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                      toggleMenu();
+                  }
               });
           }
 

@@ -4,17 +4,51 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google-site-verification" content="8A_dtsVA4bEaa7u2rAsMpfpxluMw453GOs88Zq35ktU" />
-  <title>Home - Fuel Tax Refunds - Fuel Refund Institute</title>
+  <title>Fuel Tax Refunds - Maximize Your Business Refunds | Fuel Refund Institute</title>
+
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preconnect to critical domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="{% static 'images/FRI BACKGROUND.jpg' %}" fetchpriority="high">
+
+  <!-- Load fonts asynchronously -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Defer Font Awesome loading -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+  <!-- Inline critical CSS loading script -->
+  <script>
+  !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,s=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var l=i.styleSheets;s.rel="stylesheet",s.href=t,s.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(s,n?o:o.nextSibling)});var u=function(e){for(var t=s.href,n=l.length;n--;)if(l[n].href===t)return e();setTimeout(function(){u(e)})};return s.addEventListener&&s.addEventListener("load",r),s.onloadcssdefined=u,u(r),s};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+  </script>
+
+  <!-- Prevent layout shift - reserve space for images -->
+  <style>
+  img[width][height]{height:auto}
+  .hero-bg{aspect-ratio:16/9}
+  @supports not (aspect-ratio:16/9){.hero-bg{padding-bottom:56.25%}}
+  </style>
   <meta name="description" content="Maximize your fuel tax refunds with Fuel Refund Institute. Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery. Free assessment available.">
 <meta name="keywords" content="fuel tax refund, fuel excise tax, off-road fuel tax, business fuel refund, IFTA compliance, fuel tax recovery, diesel tax refund">
 <meta name="author" content="Fuel Refund Institute">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Fuel Tax Refunds - Fuel Refund Institute">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Fuel Refund Institute">
+<meta property="og:title" content="Fuel Tax Refunds - Maximize Your Business Refunds | Fuel Refund Institute">
 <meta property="og:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds on qualifying equipment and machinery.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fuelrefundinstitute.com">
@@ -22,14 +56,17 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fuel Refund Institute Logo">
+<meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Fuel Tax Refunds - Fuel Refund Institute">
+<meta name="twitter:title" content="Fuel Tax Refunds - Maximize Your Business Refunds | Fuel Refund Institute">
 <meta name="twitter:description" content="Maximize your fuel tax refunds with expert guidance. We help businesses reclaim money through fuel tax refunds.">
 <meta name="twitter:image" content="https://fuelrefundinstitute.com/static/images/logo.png">
+<meta name="twitter:image:alt" content="Fuel Refund Institute Logo">
 <link rel="canonical" href="https://fuelrefundinstitute.com">
+<meta name="theme-color" content="#48A96A">
     <link rel="icon" type="image/x-icon" href="{% static 'images/FRI Logo - Black.png' %}">
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,8 +75,17 @@
       "description": "Expert guidance for businesses to reclaim fuel taxes on off-road equipment, refrigeration units, and qualifying machinery.",
       "url": "https://fuelrefundinstitute.com",
       "logo": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "image": "https://fuelrefundinstitute.com/static/images/logo.png",
+      "telephone": "+1-323-892-7914",
+      "priceRange": "$$",
       "serviceType": "Fuel Tax Refund Services",
-      "areaServed": "United States",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Fuel Tax Refund Services",
@@ -59,11 +105,51 @@
               "name": "Off-Road Fuel Tax Recovery",
               "description": "Recovery of fuel taxes paid on off-road equipment usage"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "IFTA Compliance & Filing",
+              "description": "Comprehensive management of International Fuel Tax Agreement obligations"
+            }
           }
         ]
       }
     }
     </script>
+
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fuelrefundinstitute.com"
+      }]
+    }
+    </script>
+
+  <!-- Critical inline CSS for above-the-fold content -->
+  <style>
+  /* Critical CSS - inline for fastest render */
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',system-ui,-apple-system,sans-serif;line-height:1.6;color:#0a0a0a;background:#fff;-webkit-font-smoothing:antialiased}
+  header{position:absolute;top:0;left:0;right:0;width:100%;background:transparent;z-index:10000;padding:.75rem 0}
+  .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+  .hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:flex-start;background:#1a1a1a;color:#fff;overflow:hidden;margin-top:0;padding-top:0}
+  .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.6) 50%,rgba(72,169,106,.5) 100%);z-index:2}
+  .hero-content{position:relative;z-index:3;text-align:left;padding:14rem 1rem 3rem 3rem;max-width:1200px;margin:0}
+  .hero-title{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;margin:0}
+  .logo-circle{width:120px;height:120px;display:flex;align-items:center;justify-content:center}
+  .logo-circle img{width:100%;height:100%;object-fit:contain}
+  @media(max-width:768px){.hero{min-height:50vh}.hero-content{padding:8rem 1rem 2rem}.logo-circle{width:80px;height:80px}}
+  </style>
+
   <style>
   /* Black & Green Color Palette */
   :root {
@@ -2496,7 +2582,7 @@
   </style>
   </head>
 
-  <body>
+  <body itemscope itemtype="https://schema.org/WebPage">
       <!-- Cookie Consent Banner -->
       <div class="cookie-banner" id="cookieConsent">
           <div class="cookie-banner-content">
@@ -2512,26 +2598,26 @@
 
 
     <!-- Header -->
-    <header>
+    <header role="banner">
       <div class="container">
         <div class="header-content">
           <div class="logo-section">
             <div class="logo-circle">
-              <img src="{% static 'images/FRI Logo - White.png' %}" alt="FRI Logo">
+              <img src="{% static 'images/FRI Logo - White.png' %}" alt="Fuel Refund Institute Logo - Home" width="120" height="120">
             </div>
           </div>
 
-          <button class="mobile-toggle" aria-label="Toggle menu">
+          <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <nav class="nav-menu">
-            <button class="mobile-close" aria-label="Close menu">
+          <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+            <button class="mobile-close" aria-label="Close navigation menu">
               <i class="fas fa-times"></i>
             </button>
-            <a href="{% url 'home' %}" class="active">Home</a>
+            <a href="{% url 'home' %}" class="active" aria-current="page">Home</a>
             <a href="{% url 'faq' %}">FAQ</a>
             <a href="{% url 'home' %}#services">Services</a>
             <a href="{% url 'contact' %}">Contact Us</a>
@@ -2543,22 +2629,23 @@
     </header>
 
       <!-- Hero Section -->
-      <section id="home" class="hero">
-          <img src="{% static 'images/FRI BACKGROUND.jpg' %}" alt="Fuel Tax Refund Services" class="hero-bg">
-          <div class="hero-overlay"></div>
+      <main role="main">
+      <section id="home" class="hero" aria-label="Hero section">
+          <img src="{% static 'images/FRI BACKGROUND.jpg' %}" alt="Professional fuel tax refund services background with business equipment" class="hero-bg" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1080">
+          <div class="hero-overlay" aria-hidden="true"></div>
           <div class="hero-content">
-              <div class="hero-badge">
+              <div class="hero-badge" aria-label="Welcome message">
                   WELCOME TO FUEL REFUND INSTITUTE
               </div>
               <h1 class="hero-title">Maximize your fuel <span style="color: var(--primary);">tax refunds</span><br>with <span style="color: var(--primary);">expert guidance</span></h1>
               <p class="hero-description">We simplify the complexities of fuel tax refund processes to ensure you get the maximum return on every gallon. Our expert team handles everything, so you don't have to.<br><strong>Sign up today and upload your documents to get started!</strong></p>
               <div class="hero-actions">
-                  <a href="{% url 'signup' %}" class="btn btn-primary">
-                      <i class="fas fa-user-plus"></i>
+                  <a href="{% url 'signup' %}" class="btn btn-primary" rel="noopener">
+                      <i class="fas fa-user-plus" aria-hidden="true"></i>
                       Sign Up & Start Process
                   </a>
-                  <a href="{% url 'calculator' %}" class="btn btn-secondary">
-                      <i class="fas fa-calculator"></i>
+                  <a href="{% url 'calculator' %}" class="btn btn-secondary" rel="noopener">
+                      <i class="fas fa-calculator" aria-hidden="true"></i>
                       Calculate Your Refund
                   </a>
               </div>
@@ -2615,10 +2702,10 @@
       </div>
 
       <!-- About Section -->
-      <section id="about" class="section">
+      <section id="about" class="section" aria-labelledby="about-heading">
           <div class="container">
               <div class="section-header">
-                  <h2 class="section-title">What we do</h2>
+                  <h2 id="about-heading" class="section-title">What we do</h2>
                   <p class="section-subtitle">We help businesses reclaim money that rightfully belongs to them through fuel tax refunds</p>
               </div>
 
@@ -2652,10 +2739,10 @@
 
 
       <!-- Services Section -->
-      <section id="services" class="section">
+      <section id="services" class="section" aria-labelledby="services-heading">
           <div class="container">
               <div class="section-header">
-                  <h2 class="section-title">Our services</h2>
+                  <h2 id="services-heading" class="section-title">Our services</h2>
                   <p class="section-subtitle">Comprehensive fuel tax recovery solutions for your business</p>
               </div>
 
@@ -2688,10 +2775,10 @@
       </section>
 
       <!-- Process Section -->
-      <section class="section section-alt">
+      <section class="section section-alt" aria-labelledby="process-heading">
           <div class="container">
               <div class="section-header">
-                  <h2 class="section-title">Our simple process</h2>
+                  <h2 id="process-heading" class="section-title">Our simple process</h2>
                   <p class="section-subtitle">Four easy steps to get your fuel tax refunds</p>
               </div>
 
@@ -2721,45 +2808,46 @@
       </section>
 
       <!-- Call to Action Section -->
-      <section class="cta-section">
+      <section class="cta-section" aria-labelledby="cta-heading">
           <div class="container">
-              <h2 class="cta-title">Ready to reclaim your fuel taxes?</h2>
+              <h2 id="cta-heading" class="cta-title">Ready to reclaim your fuel taxes?</h2>
               <p class="cta-description">Trusted by businesses across a variety of industries, our team has helped clients successfully claim their fuel tax refunds. <strong>Join our platform today - sign up, upload your documents, and let our experts handle the rest!</strong></p>
               <div class="cta-actions">
-                  <a href="{% url 'signup' %}" class="btn btn-primary">
-                      <i class="fas fa-user-plus"></i>
+                  <a href="{% url 'signup' %}" class="btn btn-primary" rel="noopener">
+                      <i class="fas fa-user-plus" aria-hidden="true"></i>
                       Sign Up & Upload Documents
                   </a>
-                  <a href="{% url 'contact' %}" class="btn btn-secondary">
-                      <i class="fas fa-envelope"></i>
+                  <a href="{% url 'contact' %}" class="btn btn-secondary" rel="noopener">
+                      <i class="fas fa-envelope" aria-hidden="true"></i>
                       Contact Us
                   </a>
               </div>
           </div>
       </section>
+      </main>
 
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
             <div class="footer-logo">
-              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="FRI">
+              <img src="{% static 'images/FRI Logo - Black - Without Name.png' %}" alt="Fuel Refund Institute Logo" width="50" height="50" loading="lazy">
             </div>
             <div class="footer-brand-text">Fuel Refund Institute</div>
           </div>
 
           <div class="footer-social">
-            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
+            <a href="https://www.linkedin.com/company/fuel-refund-institute/posts/?feedView=all" class="social-link" aria-label="Visit our LinkedIn page" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p><span>&copy; 2025 Fuel Refund Institute</span></p>
-          <p><a href="{% url 'privacy_policy' %}">Privacy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}">Terms</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914">+1 323-892-7914</a></p>
+          <p><span>&copy; 2025 Fuel Refund Institute. All rights reserved.</span></p>
+          <p><a href="{% url 'privacy_policy' %}" rel="noopener">Privacy Policy</a><span>&nbsp;|&nbsp;</span><a href="{% url 'terms_of_service' %}" rel="noopener">Terms of Service</a><span>&nbsp;|&nbsp;</span><a href="tel:+13238927914" rel="nofollow">+1 323-892-7914</a></p>
         </div>
       </div>
     </footer>
